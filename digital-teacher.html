@@ -100,6 +100,7 @@ header{position:sticky;top:0;z-index:50;background:var(--primary-dark);color:#ff
 /* includes + diff */
 .grid{display:grid;gap:18px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(2,1fr)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
 .card .ic{width:50px;height:50px;border-radius:14px;background:var(--hl);display:grid;place-items:center;font-size:1.6rem;margin-bottom:12px}
 .card h4{color:var(--pri);font-size:1.08rem;margin-bottom:6px;line-height:1.6}
@@ -122,7 +123,7 @@ header{position:sticky;top:0;z-index:50;background:var(--primary-dark);color:#ff
 .cta{background:linear-gradient(160deg,var(--primary-dark),var(--primary));color:#fff;border-radius:26px;padding:clamp(30px,6vw,56px) clamp(20px,5vw,48px);text-align:center;border:2px solid var(--gold);box-shadow:0 18px 40px rgba(0,0,0,.25)}
 .cta blockquote{font-size:clamp(1.15rem,3.4vw,1.6rem);font-weight:800;line-height:1.95;color:var(--gold-light);max-width:800px;margin:0 auto 28px}
 footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;border-top:1px solid var(--line)}
-@media(max-width:720px){body{font-size:16px}section{padding:46px 0}.two{grid-template-columns:1fr}.hb.home span{display:none}.btn{width:100%}.hero{padding:50px 0 60px}}
+@media(max-width:720px){body{font-size:16px}section{padding:46px 0}.two,.g4{grid-template-columns:1fr}.hb.home span{display:none}.btn{width:100%}.hero{padding:50px 0 60px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -200,7 +201,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>طهارة القلب وإخلاص النية، فهم المجال، والحصة الأولى بوصفها «مقابلة تعارف».</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تكسب الطالب من أول حصة بأربع خطوات: تعريف قصير، تحليل هدفه، قيمة فورية، ورسم المستقبل.</div>
-        <div class="quiz-slot" data-quiz="1">📝 اختبار المحاضرة التفاعلي — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="1">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -209,7 +210,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>العلاقة الإنسانية، الاستماع الفعال، أدوات الانطلاق، الثناء الوصفي، البيئة الآمنة، الأسئلة الشخصية مع طلاب الغرب.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>طالبك يتكلم بلا خوف من الخطأ، وتتحدث بثناء يبني ثقته بدل «أحسنت» التي تُنسى.</div>
-        <div class="quiz-slot" data-quiz="2">📝 اختبار المحاضرة التفاعلي — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="2">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -218,7 +219,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>التخطيط المرن، هيكل الحصة (٦٠ دقيقة و٣٠ دقيقة)، صندوق الإنقاذ، هندسة الدقائق، قراءة السرحان.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تدخل كل حصة بخارطة واضحة، وتتصرف بثقة حين تتعطل التقنية أو يسرح الطالب.</div>
-        <div class="quiz-slot" data-quiz="3">📝 اختبار المحاضرة التفاعلي — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="3">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -227,7 +228,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>أدوات الوقت، شرح <span class="en">Zoom</span> والسبورة والمستند المشترك، تقرير التقدم، إدارة ولي الأمر.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>حصة منظمة في وقتها، وتقنية بسيطة تخدمك، وأسرة تثق بك وتستمر.</div>
-        <div class="quiz-slot" data-quiz="4">📝 اختبار المحاضرة التفاعلي — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="4">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -236,7 +237,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>الحركة والتحفيز، التأسيس القرائي للطفل الأجنبي، المراهقون، وتخصيص الدرس لأهداف الكبار.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تعرف كيف تعلّم كل فئة بما يناسبها، لا بقالب واحد للجميع.</div>
-        <div class="quiz-slot" data-quiz="5">📝 اختبار المحاضرة التفاعلي — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="5">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -245,7 +246,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>إعادة الصياغة والتلميح، جسور النطق للحروف الصعبة، فواصل التنشيط، ختام الحصة، والبدء بلا خبرة تقنية.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تصحح دون إحباط، وتبني جسرًا من لغة طالبك إلى الحرف العربي، وتنهي كل حصة بما يجعله يعود.</div>
-        <div class="quiz-slot" data-quiz="6">📝 اختبار المحاضرة التفاعلي — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="6">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
   </div>
@@ -255,12 +256,11 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
 <section class="alt">
   <div class="wrap">
     <div class="hd"><h2>ماذا تتضمن الدورة؟</h2></div>
-    <div class="grid g2">
-      <div class="card"><div class="ic">🎬</div><h4>ست محاضرات مسجلة</h4><p>نحو اثنتي عشرة ساعة تشاهدها في الوقت الذي يناسبك.</p></div>
-      <div class="card"><div class="ic">📄</div><h4>ملف مكتوب كامل لكل محاضرة</h4><p>تعود إليه وقتما شئت.</p></div>
-      <div class="card"><div class="ic">🖥️</div><h4>عروض تقديمية مرافقة</h4><p>لتتبّع المحاور بسهولة.</p></div>
-      <div class="card"><div class="ic">✍️</div><h4>تمارين تطبيقية في كل محور</h4><p>لتجرّب ما تعلمته فورًا.</p></div>
-      <div class="card"><div class="ic">🧰</div><h4>قوالب وأمثلة جاهزة</h4><p>تنقلها إلى حصصك: قالب الثناء الوصفي، قوالب الحصة القصيرة، تقرير ولي الأمر، شفرة التصحيح الصامت، قائمة الجمل الوظيفية، جدول الاسترجاع المتباعد، وجدول جسور النطق.</p></div>
+    <div class="grid g4">
+      <div class="card"><div class="ic">🎬</div><h4>ست محاضرات مسجلة</h4><p>نحو اثنتي عشرة ساعة مسجلة تشاهدها بالسرعة والوقت الذي يناسبك.</p></div>
+      <div class="card"><div class="ic">📄</div><h4>ملف مكتوب كامل لكل محاضرة</h4><p>يُسلَّم للمشتركين عبر قناة الدورة على تليجرام لتعود إليه وتراجعه وقتما شئت.</p></div>
+      <div class="card"><div class="ic">📝</div><h4>اختبارات تفاعلية شاملة لكل محاضرة</h4><p>110 أسئلة لكل محاضرة على الموقع (50 اختيارًا من متعدد + 50 صح وخطأ بتصحيح فوري + 10 أسئلة مقالية تُرسل للتقييم عبر واتساب).</p></div>
+      <div class="card"><div class="ic">🧰</div><h4>قوالب وأمثلة عملية جاهزة</h4><p>تنقلها إلى حصصك: قالب الثناء الوصفي، قوالب الحصة القصيرة، تقرير ولي الأمر، شفرة التصحيح الصامت، قائمة الجمل الوظيفية، جدول الاسترجاع المتباعد، وجدول جسور النطق.</p></div>
     </div>
   </div>
 </section>
@@ -273,7 +273,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="card"><div class="ic">🎯</div><h4>متخصصة في مجالك</h4><p>لا تدرّس «التعليم عن بعد» عمومًا، بل تدريس القرآن والعربية لغير الناطقين بها: أمثلتها من حصصك وتجاربك، من حرف الحاء إلى الطفل الأجنبي الذي لا يفتح الكاميرا.</p></div>
       <div class="card"><div class="ic">🏅</div><h4>ثمرة خبرة ميدانية طويلة</h4><p>بُنيت على أكثر من سبعة عشر ألف ساعة تدريس وتدريب، فتأخذ خلاصة تجارب لا تحتاج أن تكرر أخطاءها بنفسك.</p></div>
       <div class="card"><div class="ic">🔬</div><h4>مؤصَّلة علميًا بأمانة</h4><p>نذكر ما تقوله الأبحاث (وقت الانتظار، الثناء الوصفي، الاسترجاع المتباعد، التصحيح الشفهي)، ونميز بين ما ثبت بالدراسة وما هو خبرة ميدانية، ولا نخترع أرقامًا.</p></div>
-      <div class="card"><div class="ic">⚙️</div><h4>تطبيقية من الدقيقة الأولى</h4><p>كل محور ينتهي بتمرين، وكل فكرة تأتي بمثال حواري وجملة جاهزة تقولها في حصتك.</p></div>
+      <div class="card"><div class="ic">⚙️</div><h4>عملية من الدقيقة الأولى</h4><p>كل فكرة تأتي بمثال حواري وجملة جاهزة تقولها في حصتك، وتُختتم كل محاضرة باختبار تفاعلي شامل يثبّت الفهم ويقيس إتقانك.</p></div>
       <div class="card"><div class="ic">🕌</div><h4>روح إيمانية</h4><p>تنطلق من إخلاص النية وطهارة القلب، وتعامل الطالب بوصفه أمانة، وتُبقي القرآن غاية لا وسيلة.</p></div>
       <div class="card"><div class="ic">💬</div><h4>تعالج مواقف حقيقية</h4><p>الطفل الصامت، الأم التي تلقّن، الأب الذي يريد جزء عمّ في شهرين، الطالب الذي يقرأ الحاء هاءً، والملل في منتصف الحصة.</p></div>
       <div class="card"><div class="ic">🤝</div><h4>صادقة معك</h4><p>لا نَعِدك بدخل محدد ولا بنتائج سريعة، فنحن نقول لك بوضوح إن العمل عبر الإنترنت عمل كغيره، وإن الدورة بوابة والاجتهاد هو الطريق.</p></div>
@@ -306,6 +306,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <details><summary>هل الدورة مسجلة؟ ومتى أشاهدها؟</summary><div>نعم، مسجلة، تشاهدها في الوقت الذي يناسبك، وتعود إليها متى شئت.</div></details>
       <details><summary>كم أربح بعد الدورة؟</summary><div>لا نَعِد بدخل محدد؛ فهو يتوقف على اجتهادك وتخصصك وحسن إدارتك. الذي نلتزم به: محتوى عملي مدروس وتدريب جاد.</div></details>
       <details><summary>هل تفيدني إن كنت أدرّس بالفعل؟</summary><div>نعم؛ فمحاور التصحيح والثناء والوقت وإدارة ولي الأمر تعالج ما يتعثر فيه حتى المتمرس.</div></details>
+      <details><summary>هل تشمل الدورة جلسات التدريب العملي المباشر؟</summary><div>لا؛ دورة «المعلم الرقمي المحترف» مسجّلة بالكامل مع ملفاتها المكتوبة واختباراتها التفاعلية على الموقع. أما التطبيق والمشاهدة المباشرة مع المدرب فله برنامج مستقل هو «التدريب العملي» باشتراك منفصل لمن أراد التمرّن المباشر.</div></details>
     </div>
   </div>
 </section>
