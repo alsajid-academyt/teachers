@@ -396,15 +396,23 @@
       box-shadow: var(--sh-sm);
     }
     .coach-avatar {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      background: var(--emerald-800);
+      background: #FAF9F4;
       border: 2px solid var(--gold-500);
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       flex: none;
+      box-shadow: var(--sh-sm);
+    }
+    .coach-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .coach-copy { font-size: 0.92rem; color: var(--ink-muted); line-height: 1.45; }
     .coach-copy strong { color: var(--ink); font-weight: 800; margin-right: 5px; }
@@ -1274,16 +1282,17 @@
     <section class="surah-hero">
       <div class="hero-main">
         <div class="hero-info">
-          <h1 id="hdr-surah-en">Surah Al-Masad <span>(The Palm Fiber)</span></h1>
+          <h1 id="hdr-surah-en">Surah Al-Fatihah <span>(The Opening)</span></h1>
           <div class="meta-pills" id="hdr-meta-pills">
-            <span class="meta-pill">Chapter 111</span>
-            <span class="meta-pill">5 Verses</span>
-            <span class="meta-pill">Juz 30</span>
+            <span class="meta-pill">Chapter 1</span>
+            <span class="meta-pill">7 Verses</span>
+            <span class="meta-pill">Juz 1</span>
             <span class="meta-pill">Makki</span>
+            <span class="meta-pill" style="background:rgba(232,197,104,0.22);color:var(--gold-300);">📖 Story Ready</span>
           </div>
         </div>
         <div class="calligraphy-plate">
-          <div class="calligraphy-ar" id="hdr-surah-ar">سُورَةُ المَسَد</div>
+          <div class="calligraphy-ar" id="hdr-surah-ar">سُورَةُ الفَاتِحَة</div>
         </div>
       </div>
 
@@ -1327,22 +1336,10 @@
 
     <!-- 4. SUBTLE INLINE COACH STRIP -->
     <div class="coach-strip">
-      <div class="coach-avatar" aria-hidden="true">
-        <svg viewBox="0 0 100 100" width="34" height="34">
-          <circle cx="50" cy="50" r="46" fill="#0F4C29" />
-          <ellipse cx="50" cy="55" rx="28" ry="31" fill="#17693B" />
-          <ellipse cx="50" cy="59" rx="19" ry="23" fill="#EDF6F0" />
-          <circle cx="41" cy="46" r="9.5" fill="#FFFFFF" />
-          <circle cx="59" cy="46" r="9.5" fill="#FFFFFF" />
-          <circle cx="42" cy="46" r="4.8" fill="#09321A" />
-          <circle cx="58" cy="46" r="4.8" fill="#09321A" />
-          <polygon points="50,49 44,56 56,56" fill="#C6952B" />
-          <polygon points="50,62 45,56 55,56" fill="#E8C568" />
-          <path d="M26,38 C28,20 72,20 74,38 Z" fill="#1F844B" />
-          <polygon points="50,22 52,28 58,28 53,32 55,38 50,34 45,38 47,32 42,28 48,28" fill="#E8C568" />
-        </svg>
+      <div class="coach-avatar">
+        <img data-logo="1" alt="Al-Sajid Academy Logo">
       </div>
-      <div class="coach-copy"><strong>Sajid Coach:</strong><span id="mascot-message">Assalamu Alaikum! Recite Ayah 1 from memory, then check with Sheikh Al-Husary.</span></div>
+      <div class="coach-copy"><strong>Al-Sajid Guide:</strong><span id="mascot-message">Assalamu Alaikum! Start with Surah Al-Fatihah — recite Ayah 1 from memory, then listen to Sheikh Al-Husary.</span></div>
     </div>
 
     <div class="loading-strip" id="loading-banner">
@@ -1372,7 +1369,7 @@
         <div class="arena-meta">
           <span class="ayah-tag">
             <i data-lucide="bookmark" style="width:15px;height:15px;"></i>
-            <span id="ayah-badge-text">Ayah 1 of 5</span>
+            <span id="ayah-badge-text">Ayah 1 of 7</span>
           </span>
           <button type="button" class="btn btn-soft btn-sm hidden" id="rehide-btn" onclick="rehideCurrentAyah()">
             <i data-lucide="eye-off" style="width:15px;height:15px;"></i>
@@ -1577,8 +1574,8 @@
           <input type="text" id="student-name-field" class="cert-name-inp" value="Young Quran Champion" oninput="updateStudentName(this.value)" placeholder="Type your name here">
 
           <div style="font-size:0.95rem;color:#33463A;margin-top:4px;">For reciting, memorizing, and studying</div>
-          <div class="cert-surah-ar" id="cert-surah-ar">سُورَةُ المَسَد</div>
-          <div class="cert-surah-en" id="cert-surah-en">Surah Al-Masad • Chapter 111</div>
+          <div class="cert-surah-ar" id="cert-surah-ar">سُورَةُ الفَاتِحَة</div>
+          <div class="cert-surah-en" id="cert-surah-en">Surah Al-Fatihah • Chapter 1</div>
 
           <div style="font-size:1.35rem;letter-spacing:4px;color:#C6952B;">★★★★★</div>
 
@@ -1618,8 +1615,8 @@
       <div class="modal-filters">
         <div class="mf-row">
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
-            <button type="button" class="fpill active" id="flt-juzamma" onclick="setFilter('juzamma')">Juz Amma (37)</button>
-            <button type="button" class="fpill" id="flt-stories" onclick="setFilter('stories')">Stories Ready (<span id="stories-count-lbl">23</span>)</button>
+            <button type="button" class="fpill active" id="flt-juzamma" onclick="setFilter('juzamma')">Al-Fatihah + Juz Amma (38)</button>
+            <button type="button" class="fpill" id="flt-stories" onclick="setFilter('stories')">Stories Ready (<span id="stories-count-lbl">38</span>)</button>
             <button type="button" class="fpill" id="flt-all" onclick="setFilter('all')">All 114 Surahs</button>
           </div>
           <button type="button" class="fpill" id="sort-order-btn" onclick="toggleJuzAmmaOrder()">Order: An-Nas → An-Naba</button>
@@ -1655,7 +1652,7 @@
 
     let appState = {
       stars: 0,
-      currentSurah: 111,
+      currentSurah: 1,
       reciterMode: "muallim",
       soundEnabled: true,
       playbackSpeed: 1.0,
@@ -1697,7 +1694,7 @@
       const d = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
       return String(num).replace(/\d/g, ch => d[Number(ch)]);
     }
-    function getSurahMeta(num) { return SURAHS[num - 1] || SURAHS[110]; }
+    function getSurahMeta(num) { return SURAHS[num - 1] || SURAHS[0]; }
     function getSurahProg(num) {
       const k = String(num);
       if (!appState.progress[k]) appState.progress[k] = { mastered: [], puzzle: [], quizDone: {} };
@@ -1775,6 +1772,8 @@
           if (!appState.progress) appState.progress = {};
         }
       } catch (e) {}
+      // Always open cleanly on Surah Al-Fatihah (1) unless a direct ?surah=X link is opened
+      appState.currentSurah = 1;
       try {
         const params = new URLSearchParams(window.location.search);
         const sParam = parseInt(params.get("surah"), 10);
@@ -1875,8 +1874,10 @@
         list = list.filter(s => s[5] === jn);
         if (jn === 30 && appState.juzAmmaReverse) list.reverse();
       } else if (appState.filterMode === "juzamma") {
-        list = list.filter(s => s[5] === 30);
-        if (appState.juzAmmaReverse) list.reverse();
+        const fatihah = SURAHS[0];
+        let ja = list.filter(s => s[5] === 30);
+        if (appState.juzAmmaReverse) ja.reverse();
+        list = [fatihah].concat(ja);
       } else if (appState.filterMode === "stories") {
         list = list.filter(s => !!STORIES_DB[String(s[0])]);
         if (appState.juzAmmaReverse) list.reverse();
@@ -2318,7 +2319,7 @@
           '</div>' +
           '<div class="panel" style="align-items:center;text-align:center;">' +
             '<h3 style="font-size:1.2rem;font-weight:800;">Start Memorizing Surah ' + meta[2] + ' Today</h3>' +
-            '<p style="max-width:56ch;color:var(--ink-muted);font-size:0.94rem;">Story Mode chapters are currently live for <strong>Al-Fatihah + 22 Surahs of Juz Amma (Ad-Duha 93 → An-Nas 114)</strong>, and more stories are being added soon.</p>' +
+            '<p style="max-width:56ch;color:var(--ink-muted);font-size:0.94rem;">Story Mode chapters are currently live for <strong>Surah Al-Fatihah + All 37 Surahs of Juz Amma (An-Naba 78 → An-Nas 114)</strong>, and Juz Tabarak stories are coming next!</p>' +
             '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">' +
               '<button type="button" class="btn btn-gold" onclick="switchTab(\'memorize\')">Start Recite &amp; Memorize</button>' +
               '<button type="button" class="btn btn-emerald" onclick="switchTab(\'puzzle\')">Play Word Builder</button>' +
@@ -2699,7 +2700,7 @@
         document.getElementById("sound-btn").innerHTML = '<i data-lucide="volume-x" style="width:17px;height:17px;"></i>';
       }
       if (window.lucide) window.lucide.createIcons();
-      loadSurah(appState.currentSurah || 111);
+      loadSurah(appState.currentSurah || 1);
     });
   </script>
 </body>

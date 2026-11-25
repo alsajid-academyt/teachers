@@ -1,5 +1,5 @@
-/* Al-Sajid Quran Star Quest — Curated Stories, Child Tafsir & Quizzes */
-/* Batch 1: Surah Al-Fatihah (1) + 22 Surahs of Juz Amma (Ad-Duha 93 -> An-Nas 114) */
+/* Al-Sajid Interactive Quran — Complete Stories, Child Tafsir & Quizzes */
+/* 100% Complete: Surah Al-Fatihah (1) + All 37 Surahs of Juz Amma (78 An-Naba -> 114 An-Nas) = 38 Surahs */
 window.SAJID_QURAN_STORIES = {
   "1": {
     "heroTitle": "The Greatest Surah in the Quran",
@@ -65,6 +65,1298 @@ window.SAJID_QURAN_STORIES = {
       "We promise to worship only Allah and turn to Him alone whenever we need strength or help.",
       "We ask Allah to keep our hearts and footsteps steady on the clear, straight path of Islam.",
       "We ask to walk with the prophets and righteous people—never straying from the truth."
+    ]
+  },
+  "78": {
+    "heroTitle": "The Great News & Allah's Marvelous World",
+    "heroSub": "Look around at the mountains, sleep, sunlight, and rain clouds—Surah An-Naba shows how Allah's wonders prove the Day of Judgment is 100% real!",
+    "badgeText": "The Great News",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "globe",
+        "title": "What Are People Asking About?",
+        "text": "When Prophet Muhammad ﷺ told people in Makkah about the Day of Resurrection (when everyone will rise to meet Allah), they started arguing and wondering: 'Is this really true?' Allah calls it 'An-Naba Al-Adheem'—The Great News!",
+        "lesson": "The Hereafter is the most important news in the universe—prepare for it with good deeds."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "mountain",
+        "title": "Nine Amazing Signs Around You",
+        "text": "To prove He can easily bring us back to life, Allah invites us to look at 9 breathtaking miracles He already built for us: the flat resting Earth, giant mountains anchored like tent pegs, pairs of families, refreshing sleep, the blanket of night, daytime for work, seven strong heavens, the glowing sun, and rain clouds growing lush gardens!",
+        "lesson": "Every mountain, raindrop, and sunny morning is a sign of Allah's power and care."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "scale",
+        "title": "The Day of Decision",
+        "text": "Allah has set an exact appointment for the Day of Decision (Yawm al-Fasl), when the Trumpet blows, the skies open like wide gates, and every single deed—big or small—has already been recorded accurately in a Book.",
+        "lesson": "Remember that Allah keeps an exact, fair record of every choice we make."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "sparkles",
+        "title": "The Ultimate Victory in Paradise",
+        "text": "For those with Taqwa (who love and obey Allah), Surah An-Naba promises 'Mafaza'—the Ultimate Triumph! Lush gardens, sweet fruits, pure peaceful speech with zero lies or fighting, and a generous gift from the Most Merciful Lord.",
+        "lesson": "Choose the path that leads back to Allah today so you win the Ultimate Victory!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What does Allah compare the giant mountains to in Ayah 7 of Surah An-Naba?",
+        "options": [
+          "Strong pegs (like tent pegs that keep the Earth steady)",
+          "Floating balloons",
+          "Tiny pebbles"
+        ],
+        "correct": 0,
+        "explanation": "SubhanAllah! Allah made the mountains like deep pegs stabilizing the Earth."
+      },
+      {
+        "q": "What kind of words will people hear in Paradise according to Ayah 35 of Surah An-Naba?",
+        "options": [
+          "Only peace and goodness—zero foolish talk and zero lies!",
+          "Loud arguments",
+          "Mean teasing"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Paradise is a home of complete peace, kindness, and truth."
+      }
+    ],
+    "tafsir": [
+      "What big question are people asking and arguing about?",
+      "They are asking about the Great News—the Day of Resurrection!",
+      "Some believe in it firmly, while others doubt and disagree.",
+      "No! Very soon they will see the truth with their own eyes.",
+      "Allah repeats: Yes, very soon they will surely know!",
+      "Look around! Didn't Allah make the Earth like a comfortable resting cradle for you?",
+      "And didn't He anchor the mighty mountains like sturdy pegs?",
+      "And He created you in pairs so families can live in love and care.",
+      "And He made your sleep a sweet rest that recharges your body and mind.",
+      "And He made the dark night like a peaceful blanket covering the world.",
+      "And He made the bright daytime for learning, working, and earning good.",
+      "And He built seven strong, magnificent heavens high above you.",
+      "And He placed the sun there like a bright, blazing lamp giving warmth and light.",
+      "And He sends abundant rain pouring down from heavy rain clouds...",
+      "...to sprout grains, wheat, and fresh green plants from the soil...",
+      "...and lush, tangled gardens full of trees and shade!",
+      "Truly, the Day of Decision has an exact appointed time with Allah.",
+      "On that Day, the Trumpet will be blown and everyone will come forward in crowds.",
+      "The sky will open wide until it becomes full of gates.",
+      "And the massive mountains will move and vanish like a shimmering mirage.",
+      "Hellfire waits as a strict trap...",
+      "...a final resting place for cruel tyrants who crossed every limit.",
+      "They will remain there for long, endless ages...",
+      "...tasting neither cool breeze nor refreshing drink...",
+      "...only scalding water and bitter fluid—may Allah protect us!",
+      "A completely fair consequence matching their cruel choices.",
+      "Because in life they never cared about standing before Allah for judgment...",
+      "...and stubbornly rejected Allah's clear signs and verses.",
+      "Yet Allah carefully counted and recorded every single thing in a Book!",
+      "So those who chose wickedness will taste the result of their own actions.",
+      "Now hear the glad tidings! For the righteous with Taqwa, there is Ultimate Success!",
+      "Lush, green gardens and delicious vineyards of grapes...",
+      "...wonderful, joyful companions of the same age...",
+      "...and overflowing cups of pure, delightful drinks!",
+      "In Paradise, they will never hear silly empty talk or a single lie.",
+      "A generous reward and overflowing gift from your Lord!",
+      "Lord of the heavens and earth and everything between—the Most Merciful, before whom all stand in awe.",
+      "On the Day when Angel Jibril and all the angels stand in neat rows, speaking only with Allah's permission and speaking pure truth.",
+      "That Day is 100% real—so whoever wants success, let them take a good path back to their Lord!",
+      "Allah lovingly warns us while we still have time, before the Day every person sees what their hands sent ahead!"
+    ]
+  },
+  "79": {
+    "heroTitle": "Prophet Musa's Brave Mission & Taming Our Desires",
+    "heroSub": "Meet the angels carrying out Allah's commands, follow Prophet Musa (AS) to Pharaoh's palace, and discover the secret key to Paradise!",
+    "badgeText": "Courage & Self-Control",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "feather",
+        "title": "Angels Obeying Allah's Every Command",
+        "text": "Surah An-Nazi'at opens with five powerful oaths describing the angels who carry out Allah's orders across the universe—gently taking the souls of good believers, gliding swiftly through the skies, and racing eagerly to obey Allah.",
+        "lesson": "Like the angels, rush happily to obey Allah and do good without delaying!"
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "mountain",
+        "title": "Prophet Musa in the Sacred Valley of Tuwa",
+        "text": "Allah reminds us of the thrilling story of Prophet Musa (AS)! In the blessed valley of Tuwa, Allah called Musa and gave him a brave mission: go to the proud tyrant Pharaoh and speak to him gently, inviting him to purify his heart and fear Allah.",
+        "lesson": "Even when talking to tough people, true strength starts with calm, polite words."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "sparkles",
+        "title": "Allah Built the Sky & Spread the Earth",
+        "text": "Pharaoh arrogantly refused the clear miracles and boasted, 'I am your highest lord!' So Allah taught him a lesson for all history. Then Allah asks: 'Which is harder to create—you, or the giant star-filled sky and the Earth with its rivers, pastures, and mountains?'",
+        "lesson": "The Creator of the massive universe can easily raise us up again!"
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "shield",
+        "title": "The Champion's Key to Jannah",
+        "text": "Verses 40–41 give us a golden rule for life: whoever respects standing before Allah and says 'NO!' to bad desires (like anger, lying, or laziness when it's time to pray)—then Paradise will truly be their home!",
+        "lesson": "Real heroes are strong enough to say 'No' to bad habits for Allah's sake."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Where did Allah call Prophet Musa (AS) before sending him to Pharaoh in Surah An-Nazi'at?",
+        "options": [
+          "In the sacred valley of Tuwa",
+          "On a sailing ship",
+          "Inside a marketplace"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Allah spoke to Prophet Musa (AS) in the sacred valley of Tuwa."
+      },
+      {
+        "q": "According to Ayahs 40–41, who is promised Paradise as their true home?",
+        "options": [
+          "Whoever fears standing before Allah and holds back from bad desires",
+          "Whoever always gets everything they want right away",
+          "Whoever boasts like Pharaoh"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Self-control for Allah's sake is a direct ticket to Jannah!"
+      }
+    ],
+    "tafsir": [
+      "By the angels who pull out the souls of stubborn wrongdoers firmly...",
+      "...and by the angels who draw out the souls of righteous believers so gently!",
+      "And by the angels gliding smoothly through space by Allah's command...",
+      "...racing swiftly ahead of one another to obey Allah...",
+      "...and managing the affairs of creation exactly as Allah decrees!",
+      "Remember the Day the first Trumpet blast shakes the entire universe...",
+      "...followed closely by the second mighty blast!",
+      "Hearts on that Day will beat fast in awe...",
+      "...and eyes will look down humbly.",
+      "Disbelievers once mocked: 'Will we really be brought back to life again?'",
+      "'Even after we have become crumbled dry bones?'",
+      "They joked: 'If that happens, it would be a losing return for us!'",
+      "Yet it takes only ONE single shout from Allah...",
+      "...and suddenly everyone is wide awake on the surface of the Earth!",
+      "Have you heard the inspiring story of Prophet Musa (AS)?",
+      "When his Lord called out to him in the sacred valley of Tuwa:",
+      "'Go to Pharaoh—indeed, he has crossed every limit of pride and cruelty!'",
+      "'Ask him gently: Would you like to purify your heart and do good?'",
+      "'So I can guide you to your Lord and you may live in mindful awe of Him?'",
+      "Then Prophet Musa showed Pharaoh the great miracle (his staff turning into a serpent and his glowing hand).",
+      "But Pharaoh rejected the truth and stubbornly disobeyed.",
+      "Then he turned his back and hurried to plot against the truth.",
+      "He gathered his crowds and shouted proudly...",
+      "...boasting: 'I am your supreme lord!'",
+      "So Allah seized Pharaoh with a powerful lesson for both this world and the next.",
+      "Truly, in Pharaoh's fall is a clear warning for anyone whose heart respects Allah.",
+      "Think! Are you harder to create, or is the vast sky that Allah built?",
+      "He raised its ceiling high and crafted it in flawless perfection.",
+      "He darkened its night and brought forth its bright morning sunlight.",
+      "And after that, He spread out the Earth smoothly for living.",
+      "He brought fresh water springs and green pastures out from inside it.",
+      "And He anchored the towering mountains firmly in place.",
+      "All of this as a loving provision and gift for you and your animals!",
+      "Then when the Great Overwhelming Day of Judgment arrives...",
+      "...on that Day, every person will clearly remember all they worked for.",
+      "And the Fire will be brought into plain view for everyone to see.",
+      "So as for the one who crossed all limits in arrogance...",
+      "...and chased only this short worldly life while forgetting Allah...",
+      "...their final stop will be the blazing Fire.",
+      "But as for the one who respected standing before their Lord...",
+      "...and held themselves back from selfish, bad desires...",
+      "...then Paradise will truly be their joyful, forever home!",
+      "People ask you about the Hour: 'When will the Day of Judgment come?'",
+      "You have no way of knowing its exact date—your job is simply to remind them.",
+      "Only your Lord knows the exact moment it will arrive.",
+      "On the Day they see it, this entire worldly life will feel as brief as a single evening or morning!"
+    ]
+  },
+  "80": {
+    "heroTitle": "Every Sincere Heart Matters to Allah!",
+    "heroSub": "Discover the heartwarming lesson of the blind companion Abdullah ibn Umm Maktum (RA) and why Allah looks at our hearts, not wealth or fame!",
+    "badgeText": "True Honor",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "heart",
+        "title": "A Blind Companion Eager to Learn",
+        "text": "One day in Makkah, Prophet Muhammad ﷺ was busy inviting wealthy tribal leaders to Islam, hoping their whole tribe would believe. Just then, a blind Muslim named Abdullah ibn Umm Maktum (RA) walked up eagerly saying, 'O Messenger of Allah, teach me from what Allah has taught you!' Because the Prophet ﷺ was focused on the leaders, he frowned slightly and turned back to them.",
+        "lesson": "Never overlook someone quiet or humble—they may be the most beloved to Allah!"
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "award",
+        "title": "Allah's Loving Reminder",
+        "text": "Right away, Allah revealed Surah Abasa to honor Abdullah ibn Umm Maktum! Allah reminded us that a sincere student who comes running to learn with a humble heart is worth MORE than all the proud, rich leaders who think they don't need guidance. From that day on, whenever Abdullah walked in, the Prophet ﷺ greeted him warmly: 'Welcome to the one about whom my Lord reminded me!'",
+        "lesson": "In Islam, honor is measured by a sincere heart—never by money, looks, or popularity."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "cloud-rain",
+        "title": "Look at Your Lunch Plate!",
+        "text": "In the middle of the Surah, Allah says: 'Let the human being look at their food!' Trace your meal back to Allah: rain pours from the sky, cracks open the soil, and grows wheat, grapes, fresh greens, olives, sweet dates, fruits, and gardens!",
+        "lesson": "Before every meal, pause for one second, notice Allah's miracle on your plate, and say Bismillah!"
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "sun",
+        "title": "Bright, Smiling Faces!",
+        "text": "On the Day of the Deafening Blast, everyone will focus completely on their own deeds. The faces of sincere believers who loved Allah and sought knowledge will be bright, glowing, laughing, and bursting with good news!",
+        "lesson": "Keep a sincere, eager heart for learning Quran so your face shines with joy!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Who was the blind companion honored in the opening verses of Surah Abasa?",
+        "options": [
+          "Abdullah ibn Umm Maktum (RA), who came eagerly wanting to learn Islam",
+          "King Abrahah",
+          "Abu Lahab"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Abdullah ibn Umm Maktum (RA) later even became one of the Prophet's official Mu'adhins!"
+      },
+      {
+        "q": "What everyday blessing does Ayah 24 of Surah Abasa ask us to look at and think about?",
+        "options": [
+          "Our food—and how Allah sends rain to grow grains, grapes, olives, dates, and fruits",
+          "Video game consoles",
+          "Tall skyscrapers"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Every bite of food is a daily miracle from Allah."
+      }
+    ],
+    "tafsir": [
+      "He frowned slightly and turned away...",
+      "...when the blind companion (Abdullah ibn Umm Maktum) came walking up to him eagerly.",
+      "How could you know? Perhaps he wanted to purify his heart and grow closer to Allah...",
+      "...or be reminded so that the advice would truly benefit him!",
+      "As for the rich leader who feels arrogant and thinks he needs nothing...",
+      "...you gave him your full attention...",
+      "...even though it is not your fault if he refuses to purify himself!",
+      "Whereas the sincere believer who came rushing to you to learn...",
+      "...with a heart full of love and awe of Allah...",
+      "...you got distracted away from him!",
+      "No! This Quran is truly a noble reminder for every sincere heart.",
+      "So whoever wishes goodness can remember and learn from it.",
+      "It is written on deeply honored, noble pages...",
+      "...exalted high in rank and completely pure...",
+      "...carried in the hands of angelic scribes...",
+      "...who are noble, honorable, and completely obedient to Allah!",
+      "How ungrateful some humans can be when they forget their Creator!",
+      "Think about what Allah created the human being from!",
+      "From a tiny drop, Allah created him and planned every detail of his life.",
+      "Then Allah made his path through life clear and easy to walk.",
+      "Then when his time finishes, Allah causes him to pass away and rest in his grave.",
+      "Then whenever Allah wills, He will raise him back to life again!",
+      "Yet many people still haven't fulfilled what Allah asked of them.",
+      "Let every human pause and look thoughtfully at their food!",
+      "Allah pours down abundant fresh rain from the clouds...",
+      "...then He gently splits open the earth as sprouts push through...",
+      "...and grows golden grains (wheat, rice, corn)...",
+      "...and sweet grapes and fresh nutritious greens...",
+      "...and blessed olive trees and date palms...",
+      "...and lush gardens thick with shady trees...",
+      "...and delicious fruits and green grass...",
+      "...all as a generous provision for you and for your animals!",
+      "Then when the mighty Deafening Blast of the Day of Judgment sounds...",
+      "...on that Day, a person will be so focused on their own deeds they will run even from their brother...",
+      "...and from their mother and father...",
+      "...and from their spouse and children!",
+      "For every single person on that Day will have enough on their mind to keep them busy.",
+      "Faces of believers on that Day will be radiant and glowing with light...",
+      "...laughing happily and rejoicing at the glad tidings of Jannah!",
+      "While other faces on that Day will be covered with dust...",
+      "...wrapped in gloom and regret.",
+      "Those are the ones who rejected Allah's truth and chose wickedness."
+    ]
+  },
+  "81": {
+    "heroTitle": "The Rolling Sky & The Trustworthy Messenger",
+    "heroSub": "Witness 12 breathtaking cosmic signs of the Day of Judgment and meet Angel Jibril delivering the Quran from the clear horizon!",
+    "badgeText": "Cosmic Signs",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "sun",
+        "title": "When the Whole Universe Resets",
+        "text": "Surah At-Takwir opens with 12 awe-inspiring scenes of the Day of Judgment: the bright sun folded up like a turban, the stars dimming and falling, giant mountains floating away, oceans blazing, and the sky peeling back—reminding us that Allah alone controls the entire cosmos!",
+        "lesson": "Everything in space obeys Allah—stay close to the One who holds the stars."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "shield",
+        "title": "Standing Up for the Innocent",
+        "text": "Right in the middle of those giant cosmic signs, Allah highlights justice for the weak: before Islam, some cruel people harmed baby girls. Islam abolished that evil forever, and Allah promises every wronged child will receive complete justice!",
+        "lesson": "Islam honors daughters, protects the weak, and stands firmly against cruelty."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "feather",
+        "title": "Angel Jibril & Prophet Muhammad ﷺ",
+        "text": "Allah swears by the gliding planets, departing night, and the fresh breathing dawn to confirm that the Quran is NOT made up—it was brought by the mighty, noble, trustworthy Angel Jibril directly to our truthful companion, Prophet Muhammad ﷺ!",
+        "lesson": "Every letter of the Quran is 100% pure, preserved revelation from Allah."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "compass",
+        "title": "Where Are You Heading?",
+        "text": "Ayah 26 asks a brilliant question every Muslim should ask themselves: 'Fa-ayna tadh-habun? — So where are you going?' The Quran is a reminder for ALL people everywhere who want to walk straight toward Allah!",
+        "lesson": "Check your compass every day—make sure your habits are heading toward Jannah!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Who is the 'noble, mighty, trustworthy Messenger' described in Ayahs 19–21 of Surah At-Takwir?",
+        "options": [
+          "Angel Jibril (AS), who delivered the Quran from Allah to Prophet Muhammad ﷺ",
+          "A desert traveler",
+          "A king from Persia"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Angel Jibril (AS) is honored with strength, high rank, and complete trustworthiness."
+      },
+      {
+        "q": "What powerful question does Ayah 26 ask us to think about our life's direction?",
+        "options": [
+          "'So where are you going?' (reminding us to walk the straight path of the Quran)",
+          "'What is your favorite sport?'",
+          "'How many stars are in the sky?'"
+        ],
+        "correct": 0,
+        "explanation": "Spot on! Always check that your daily path leads closer to Allah."
+      }
+    ],
+    "tafsir": [
+      "When the bright sun is folded up and loses its light...",
+      "...and when the shining stars dim and scatter down...",
+      "...and when the solid mountains are lifted and moved away...",
+      "...and when prized possessions (even treasured camels) are left forgotten...",
+      "...and when wild animals from every forest are gathered together...",
+      "...and when the vast oceans overflow and blaze...",
+      "...and when souls are paired together with those like them...",
+      "...and when the innocent baby girl harmed in days of ignorance is asked...",
+      "...for what sin was she ever wronged? (None—Islam gave her full honor and justice!)",
+      "...and when the pages of everyone's deeds are spread wide open...",
+      "...and when the sky is peeled away like a curtain...",
+      "...and when the Hellfire is blazed intensely...",
+      "...and when Paradise is brought close right in front of the believers...",
+      "...on that Day, EVERY soul will clearly know everything it prepared and brought!",
+      "Allah swears by the stars and planets that hide by day...",
+      "...and glide smoothly along their orbits before disappearing...",
+      "...and by the night as it softly fades away...",
+      "...and by the fresh morning dawn as it breathes light across the sky!",
+      "Truly, this Quran is the noble word delivered by an honored angelic messenger (Jibril)...",
+      "...who is mighty in strength and holds a high rank near the Owner of the Throne...",
+      "...obeyed by the angels in heaven and completely trustworthy!",
+      "And your companion (Prophet Muhammad ﷺ) is completely sound, wise, and truthful!",
+      "He truly saw Angel Jibril in his magnificent form on the bright, clear horizon.",
+      "And the Prophet ﷺ never hides or holds back any part of the revelation.",
+      "Nor is this Quran the word of any outcast devil—never!",
+      "So pause and ask yourself: Where are you heading?",
+      "This Quran is nothing less than a timeless reminder for ALL the worlds...",
+      "...for whoever among you wishes to walk straight and upright!",
+      "And you cannot will true guidance except as Allah, Lord of all worlds, wills—so always ask Him for guidance!"
+    ]
+  },
+  "82": {
+    "heroTitle": "Never Forget Your Most Generous Lord!",
+    "heroSub": "Meet the Noble Angel-Writers (Kiraman Katibin) on your shoulders and hear Allah's tender question that melts every heart!",
+    "badgeText": "Generous Lord",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "sparkles",
+        "title": "When Everything Opens Up",
+        "text": "Surah Al-Infitar begins with four dramatic moments of the Day of Judgment: the sky splitting open, the stars scattering, the seas bursting together, and graves opening—so every person sees both the good they sent ahead and the things they forgot to do!",
+        "lesson": "Send lots of good deeds ahead today so you'll be thrilled to see them!"
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "heart",
+        "title": "Allah's Loving Question to You",
+        "text": "Then Allah asks the most touching question in Ayah 6: 'O human being! What has deceived you away from your Most Generous Lord (Al-Karim)?' He is the One who designed your eyes, your smile, your brain, and balanced your whole body so perfectly!",
+        "lesson": "Remembering Allah's name 'Al-Karim' (The Most Generous) fills our hearts with love and gratitude."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "book-open",
+        "title": "Your Two Noble Angel-Scribes",
+        "text": "Did you know you have two super honorable angels with you right now? Allah calls them 'Kiraman Katibin'—Noble Writers! They write down every kind word, every Salah, and every helping hand you give, and they know what you do.",
+        "lesson": "Smile and give your two Noble Angels amazing good deeds to write down today!"
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "award",
+        "title": "Pure Bliss for the Righteous",
+        "text": "The Surah ends with crystal clarity: the righteous ('Al-Abrar') who obey Allah and treat people kindly will live in endless bliss in Paradise—while on the Day of Judgment, all authority belongs to Allah alone.",
+        "lesson": "Be among 'Al-Abrar'—truthful, kind to parents, and faithful in prayer."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What beautiful name of Allah is used in Ayah 6 when He asks what tricked humans away from Him?",
+        "options": [
+          "Al-Karim (The Most Generous Lord)",
+          "The Strict Stranger",
+          "The Distant King"
+        ],
+        "correct": 0,
+        "explanation": "SubhanAllah! Allah reminds us of His generosity so we return to Him with love and gratitude."
+      },
+      {
+        "q": "Who are the 'Kiraman Katibin' mentioned in Ayah 11 of Surah Al-Infitar?",
+        "options": [
+          "The Noble Angel-Writers who faithfully record our deeds",
+          "Ancient sailors",
+          "Mountain climbers"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Let's fill their pages with Quran, Salah, honesty, and kindness!"
+      }
+    ],
+    "tafsir": [
+      "When the sky splits open at the start of the Day of Judgment...",
+      "...and when the stars scatter out of their places...",
+      "...and when the oceans burst forth and merge...",
+      "...and when the graves are overturned and everyone rises...",
+      "...every soul will see clearly what good it sent ahead and what it left behind!",
+      "O human being! What could possibly fool you into neglecting your Most Generous Lord?",
+      "He is the One who created you, shaped every part of you, and made you perfectly balanced!",
+      "In whatever wonderful form He willed, He put you together!",
+      "Yet despite His generosity, some people still deny the Day of Recompense.",
+      "Remember! There are watchful guardian angels over you...",
+      "...Noble Writers (Kiraman Katibin) recording your actions...",
+      "...who know everything you do!",
+      "Truly, the righteous (Al-Abrar) will live in pure, everlasting bliss in Paradise!",
+      "While the stubbornly wicked will enter a blazing Fire...",
+      "...entering it on the Day of Judgment...",
+      "...unable to escape from it.",
+      "And what can make you realize how tremendous the Day of Judgment is?",
+      "Again, what can make you truly understand the greatness of that Day?",
+      "It is the Day when no soul can help another by itself—all command on that Day belongs solely to Allah!"
+    ]
+  },
+  "83": {
+    "heroTitle": "Play Fair, Be Honest & Race for Paradise!",
+    "heroSub": "Learn why Islam demands 100% fairness in trading, games, and promises—and discover the thrilling 'Race for Jannah' in Surah Al-Mutaffifin!",
+    "badgeText": "Fairness & Honor",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "scale",
+        "title": "No Cheating—Ever!",
+        "text": "When Prophet Muhammad ﷺ arrived in Madinah, some merchants cheated on the scales: when they bought food, they demanded every single gram, but when they sold to others, they secretly gave less! Allah revealed Surah Al-Mutaffifin banning every kind of cheating—in shops, in exams, and even in board games!",
+        "lesson": "A true Muslim is 100% fair—treat others the exact way you love to be treated."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "heart",
+        "title": "Keep Your Heart Shiny & Clean",
+        "text": "Ayah 14 teaches a super important secret about the heart: whenever someone keeps doing wrong without saying 'Astaghfirullah', tiny dark spots ('Ran') cover their heart like rust on shiny metal! Repentance and Quran polish the heart right back to sparkling clean.",
+        "lesson": "Make Istighfar right away after any mistake so your heart stays bright and clean!"
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "trophy",
+        "title": "Compete for the Greatest Prize!",
+        "text": "The record of the righteous is kept high in 'Illiyyin', witnessed by the closest angels! Allah describes their joy in Jannah—relaxing on royal couches, radiant faces, pure drinks sealed with sweet musk—and cheers us on: 'For THIS let the competitors race!'",
+        "lesson": "Race your friends in good deeds: who prays first, reads more Quran, or helps Mom first!"
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "sparkles",
+        "title": "Don't Let Bullies Discourage You",
+        "text": "In Makkah, bullies used to laugh and wink at believers as they walked by! Allah comforted the believers: stay patient and proud of your faith—on the Day of Judgment, believers will relax joyfully in Jannah while all injustice is settled fairly.",
+        "lesson": "Never be embarrassed to pray or follow Islam—stay brave, smiling, and steady!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Who are 'Al-Mutaffifin' warned at the start of this Surah?",
+        "options": [
+          "Cheaters who demand full measure for themselves but give less to others",
+          "Generous shopkeepers who give extra",
+          "Students who study hard"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Islam teaches complete honesty and fairness in every transaction and game."
+      },
+      {
+        "q": "According to Ayah 26, what is the greatest thing people should compete and race for?",
+        "options": [
+          "Good deeds and the everlasting joy of Paradise!",
+          "Mocking other people",
+          "Cheating to win"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Racing in goodness is the noblest competition of all!"
+      }
+    ],
+    "tafsir": [
+      "A strong warning to cheaters who give less than what is fair!",
+      "When they buy or take from people, they insist on getting every last bit in full...",
+      "...but when they measure or weigh for others, they secretly cheat and give less!",
+      "Do they not realize that they will be raised back to life...",
+      "...for a tremendous Day of accountability...",
+      "...the Day when all humankind will stand before the Lord of all worlds?",
+      "Truly, the record of the stubbornly wicked is kept low in Sijjin.",
+      "And what can make you know what Sijjin is?",
+      "It is a written, sealed register of their deeds.",
+      "Woe on that Day to those who denied the truth...",
+      "...those who refused to believe in the Day of Judgment!",
+      "Only someone who crosses limits and clings to sin denies it.",
+      "When Allah's clear verses are recited to him, he mocks: 'Just old stories!'",
+      "No! Rather, their own repeated bad deeds have formed a layer of rust over their hearts!",
+      "Indeed, on that Day they will be blocked from seeing their Lord.",
+      "Then they will face the blazing Fire...",
+      "...and be told: 'This is the reality you used to deny!'",
+      "Now hear the glad tidings! The record of the righteous (Al-Abrar) is kept high in Illiyyin!",
+      "And what can make you realize how noble Illiyyin is?",
+      "It is an honored written register...",
+      "...witnessed and cherished by the angels closest to Allah!",
+      "Truly, the righteous will dwell in pure, endless bliss...",
+      "...relaxing on elevated couches and gazing at the wonders of Paradise!",
+      "You will see the sparkling glow of happiness right on their faces!",
+      "They will be served pure, sealed nectar of Paradise...",
+      "...whose final seal smells of sweet musk—for THIS let all competitors race!",
+      "Its drink is blended from the high, pure spring of Tasnim...",
+      "...a fountain from which those closest to Allah drink joyfully!",
+      "Remember how bullies used to laugh at the believers in this world...",
+      "...winking slyly at one another whenever believers walked past...",
+      "...and joking proudly when they went back to their families...",
+      "...saying when they saw believers: 'Look, those people are misguided!'",
+      "Even though nobody appointed those bullies as guards over the believers!",
+      "So on that Day of Judgment, the believers will be the ones smiling in triumph...",
+      "...relaxing peacefully on couches in Jannah and watching Allah's justice unfold.",
+      "Truly, the unjust mockers have been paid back fairly for what they used to do!"
+    ]
+  },
+  "84": {
+    "heroTitle": "Receiving Your Book in the Right Hand!",
+    "heroSub": "Discover the joyful moment of passing the easiest exam ever and why every step we take in life brings us closer to meeting Allah!",
+    "badgeText": "Easy Account",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "globe",
+        "title": "Heaven & Earth Obey Allah Instantly",
+        "text": "Surah Al-Inshiqaq opens with a powerful scene: the giant sky splits open and obeys its Lord's command, and the whole Earth stretches flat and obeys its Lord immediately! If the huge heavens and Earth obey Allah so eagerly, shouldn't we obey Him too?",
+        "lesson": "Obedience to Allah puts us in harmony with the entire universe."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "compass",
+        "title": "Every Step Is a Journey to Allah",
+        "text": "Ayah 6 speaks straight to every single person: 'O human! You are surely striving hard toward your Lord, and you will definitely meet Him!' Since we are working hard in life anyway, let's make sure our hard work pleases Allah!",
+        "lesson": "With a good intention, even studying, chores, and helping family count as worship!"
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "award",
+        "title": "The Joy of the Right Hand!",
+        "text": "Imagine getting your report card in your RIGHT hand, passing an easy, gentle review, and running straight back to your family in Paradise shouting with happiness! Prophet Muhammad ﷺ taught us a short dua for this: 'Allahumma hasibni hisaban yasira' (O Allah, give me an easy account!).",
+        "lesson": "Make that short dua often: 'Allahumma hasibni hisaban yasira!'"
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "moon",
+        "title": "Growing Stage by Stage",
+        "text": "Allah swears by the sunset glow, the gathering night, and the glowing full moon: just as the moon grows from a thin crescent to a bright full moon, we grow stage by stage! And the Surah ends with a verse of Sujood and a promise of an endless reward for believers who do good.",
+        "lesson": "Every day is a new stage to grow wiser, kinder, and closer to Allah."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What happy thing happens to the person who receives their Book of Deeds in their RIGHT hand?",
+        "options": [
+          "They receive an easy review and return to their family in Paradise full of joy!",
+          "They have to stay behind",
+          "They forget everything"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! May Allah place all our books in our right hands and grant us an easy account!"
+      },
+      {
+        "q": "What reward is promised in the final verse (Ayah 25) to those who believe and do good deeds?",
+        "options": [
+          "A never-ending reward that never runs out!",
+          "A reward for just one day",
+          "Only a paper sticker"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Faith and good deeds earn an eternal, never-ending reward from Allah."
+      }
+    ],
+    "tafsir": [
+      "When the sky splits open on the Day of Judgment...",
+      "...listening eagerly to its Lord and obeying—as it rightfully should!",
+      "And when the Earth is stretched out completely flat...",
+      "...and casts out everything hidden inside it and becomes empty...",
+      "...listening eagerly to its Lord and obeying—as it rightfully should!",
+      "O human being! You are surely working hard on your journey toward your Lord, and you will meet Him!",
+      "Then, as for the happy believer who is given their record in their RIGHT hand...",
+      "...they will be judged with an easy, gentle review...",
+      "...and return joyfully to their family in Paradise!",
+      "But as for the one who is given their record behind their back...",
+      "...they will cry out in deep regret...",
+      "...and enter a blazing Fire...",
+      "...because back in this world they lived carelessly and arrogantly among their people...",
+      "...foolishly thinking they would never return to Allah!",
+      "Yes indeed! Their Lord was always watching over them!",
+      "Allah swears by the rosy glow of sunset twilight...",
+      "...and by the night and everything it gathers into quietness...",
+      "...and by the moon when it grows round and full...",
+      "...you will surely travel from stage to stage (life, rest, and the eternal Hereafter)!",
+      "So why do some people still refuse to believe...",
+      "...and when the Holy Quran is recited to them, they do not bow in Sujood? (A verse of Prostration!)",
+      "Instead, stubborn deniers reject the clear truth...",
+      "...while Allah knows every secret they hide inside their chests!",
+      "So warn them of a painful consequence for refusing truth...",
+      "...EXCEPT those who believe and do righteous deeds—they have a reward that NEVER ends!"
+    ]
+  },
+  "85": {
+    "heroTitle": "The Brave Boy & The People of the Trench",
+    "heroSub": "Stand under the starry sky of Surah Al-Buruj and hear the unforgettable true story of courage, faith, and Allah's name Al-Wadud (The Most Loving)!",
+    "badgeText": "Courage in Faith",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "star",
+        "title": "Under the Constellations of the Sky",
+        "text": "Surah Al-Buruj begins by looking up at the giant sky filled with great star constellations ('Al-Buruj')! Then it takes us back in history to a kingdom ruled by a cruel king who forced people to worship him instead of Allah.",
+        "lesson": "Look at the vast starry sky and remember how mighty Allah is compared to any bully."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "flame",
+        "title": "The Brave Believers of the Trench",
+        "text": "Thanks to the courage of a young faithful boy who taught his whole city about Allah, thousands of men, women, and children believed in Allah alone! The angry king dug huge fiery trenches ('Al-Ukhdud') to scare them into giving up Islam—yet they stood firm and chose Allah's love over fear!",
+        "lesson": "True bravery is holding tight to faith in Allah even when it isn't easy."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "heart",
+        "title": "The Great Success & Al-Wadud",
+        "text": "Allah honored those faithful heroes forever in the Quran! He promised believers who do good deeds Gardens with rivers flowing beneath—calling it 'Al-Fawz Al-Kabir' (The Great Triumph). And He comforted us with His beautiful names: Al-Ghafur (Most Forgiving) and Al-Wadud (Most Loving)!",
+        "lesson": "Allah is Al-Wadud—He deeply loves those who stay truthful and faithful to Him."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "book-open",
+        "title": "Preserved Forever in Al-Lawh Al-Mahfuz",
+        "text": "Tyrants like Pharaoh and Thamud vanished long ago, while the Glorious Quran remains completely protected in the Preserved Tablet ('Al-Lawh Al-Mahfuz')—not a single letter can ever be changed!",
+        "lesson": "When you memorize the Quran, you carry Allah's eternally protected words in your heart!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Why did the cruel king persecute the People of the Trench in Ayah 8 of Surah Al-Buruj?",
+        "options": [
+          "Only because they believed in Allah, the Almighty and Praiseworthy!",
+          "Because they stole gold",
+          "Because they lost a race"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Their only 'crime' was believing purely in Allah—and Allah honored them forever!"
+      },
+      {
+        "q": "What two comforting names of Allah appear together in Ayah 14 of Surah Al-Buruj?",
+        "options": [
+          "Al-Ghafur (Most Forgiving) and Al-Wadud (Most Loving)",
+          "The Forgotten and The Distant",
+          "None of the above"
+        ],
+        "correct": 0,
+        "explanation": "SubhanAllah! Allah is the Most Forgiving and the Most Loving (Al-Wadud)!"
+      }
+    ],
+    "tafsir": [
+      "By the magnificent sky filled with towering constellations of stars!",
+      "And by the Promised Day of Judgment!",
+      "And by every witness and every great event witnessed!",
+      "Doomed were the cruel tyrants who dug the fiery trenches (Ashab al-Ukhdud)...",
+      "...feeding the trenches with blazing fuel...",
+      "...while they sat coldly right around the fire...",
+      "...watching what they were doing to the innocent believers!",
+      "They held nothing against those believers EXCEPT that they believed in Allah, the Almighty, the Praiseworthy...",
+      "...the One to whom belongs the kingdom of the heavens and earth—and Allah is Witness over everything!",
+      "Those who harm believing men and women and never repent will face strict justice.",
+      "Whereas those who believe and do good deeds will have Gardens with rivers flowing beneath—THAT is the Great Success!",
+      "Truly, the grip and justice of your Lord are mighty and unstoppable.",
+      "He is the One who first creates life and brings it back again.",
+      "And He is Al-Ghafur (the Most Forgiving) and Al-Wadud (the Most Loving)!",
+      "Owner of the Glorious Throne...",
+      "...Doer of everything He wills without anyone able to stop Him!",
+      "Have you heard the story of the proud armies of the past...",
+      "...like Pharaoh and the tribe of Thamud? (All their power vanished before Allah!)",
+      "Yet stubborn disbelievers still persist in denying the truth...",
+      "...even though Allah completely surrounds them with His knowledge and power!",
+      "Indeed, this is a Glorious, Noble Quran...",
+      "...safely preserved forever in the Preserved Tablet (Al-Lawh Al-Mahfuz)!"
+    ]
+  },
+  "86": {
+    "heroTitle": "The Piercing Star & Your Guardian Angel!",
+    "heroSub": "Look up at the dazzling night star in Surah At-Tariq and learn how Allah placed a guardian angel over every single soul!",
+    "badgeText": "Night Star",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "star",
+        "title": "The Bright Star That Knocks at Night",
+        "text": "At-Tariq means 'the Night Visitor'—and Allah explains it right away as 'An-Najm Ath-Thaqib': the brilliant, piercing star that shines straight through the dark night sky!",
+        "lesson": "Even in the darkest night, Allah places bright stars of guidance to light our way."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "shield",
+        "title": "A Watcher Over Every Soul",
+        "text": "Why did Allah swear by the sky and the piercing star? To remind us of a huge truth in Ayah 4: 'There is not a single soul except that it has a guardian angel watching over it!' You are never forgotten or alone.",
+        "lesson": "Remembering Allah's angels encourages us to act with honesty and kindness everywhere."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "cloud-rain",
+        "title": "The Returning Rain & Splitting Earth",
+        "text": "Allah reminds us that He created us from a tiny drop of water—so bringing us back to life on the Day of Judgment is effortless for Him! Look at the sky sending rain back again and again, and the earth cracking open with green plants.",
+        "lesson": "Every spring leaf and rain shower shows Allah's power to bring life anew."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "book-open",
+        "title": "The Quran Is Serious, Decisive Truth",
+        "text": "Ayahs 13–14 declare that the Holy Quran is a decisive word separating truth from falsehood—it is not a joke or idle amusement! So be patient, trust Allah's plan, and never worry about those who plot against good.",
+        "lesson": "Treat the Quran with deep love, respect, and focus whenever you recite or listen to it."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What does 'At-Tariq' refer to in Ayah 3 of Surah At-Tariq?",
+        "options": [
+          "The piercing, brightly shining star in the night sky",
+          "A desert camel",
+          "An ocean wave"
+        ],
+        "correct": 0,
+        "explanation": "Correct! 'An-Najm Ath-Thaqib' is the piercing star shining brightly through the night."
+      },
+      {
+        "q": "What does Ayah 4 of Surah At-Tariq tell us about every single soul?",
+        "options": [
+          "Every soul has a guardian angel watching over it and recording its deeds",
+          "Nobody knows what we do",
+          "Only kings have angels"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Allah's angels watch over every soul and record our good deeds."
+      }
+    ],
+    "tafsir": [
+      "Allah swears by the vast sky and the brilliant Night Visitor (At-Tariq)...",
+      "...and what can make you know what the Night Visitor is?",
+      "It is the piercing, dazzling star shining brightly through the night!",
+      "Every single soul has a watchful guardian angel assigned over it!",
+      "Let every human reflect thoughtfully on what they were created from...",
+      "...created from a tiny gushing drop of fluid...",
+      "...emerging from between the backbone and the ribs.",
+      "Truly, the Creator who brought you to life once is completely able to bring you back again!",
+      "On the Day when every hidden secret inside hearts will be tested and revealed...",
+      "...no person will have any power of their own or any helper against Allah's justice!",
+      "By the sky that returns rain back to Earth again and again...",
+      "...and by the Earth that splits open with fresh sprouts and plants...",
+      "...indeed, this Quran is a decisive word separating truth from falsehood...",
+      "...and it is NEVER a joke or empty amusement!",
+      "Even if stubborn opponents plot schemes against the truth...",
+      "...Allah's plan is far wiser and stronger than all their schemes!",
+      "So be patient and give them a little time—Allah's truth always prevails!"
+    ]
+  },
+  "87": {
+    "heroTitle": "Praise the Most High & Purify Your Heart!",
+    "heroSub": "Discover the favorite Surah Prophet Muhammad ﷺ recited on Fridays and both Eids, teaching us Tasbih, balance, and why the Hereafter lasts forever!",
+    "badgeText": "The Most High",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "sparkles",
+        "title": "Subhana Rabbiyal-A'la!",
+        "text": "When Ayah 1 ('Glorify the name of your Lord, the Most High!') was revealed, Prophet Muhammad ﷺ said: 'Put it in your Sujood!' That is why every single day in prayer, when our foreheads touch the ground, we whisper: 'Subhana Rabbiyal-A'la!'",
+        "lesson": "Every Sujood is a chance to praise Allah, the Most High, from the bottom of your heart."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "sun",
+        "title": "Allah Creates, Guides & Makes Easy",
+        "text": "Allah created everything in perfect proportion, guided every bird, bee, and human to what they need, and grew lush green pastures. Then He gave Prophet Muhammad ﷺ a special promise: 'We will make you recite the Quran, and you will not forget it!'",
+        "lesson": "Ask Allah to make memorizing the Quran easy for you—He is the One who opens hearts to ease!"
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "heart",
+        "title": "The Recipe for True Success",
+        "text": "Verses 14–15 reveal the exact secret of a successful Muslim: purify your heart from bad habits, remember the name of your Lord often, and establish your daily prayers (Salah)!",
+        "lesson": "Three daily keys to success: a clean heart, remembering Allah, and praying on time."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "award",
+        "title": "What Lasts Forever Is Better!",
+        "text": "Many people get distracted preferring this short worldly life, even though the Hereafter is far better AND lasts forever! This timeless message was even in the earlier scriptures of Prophet Ibrahim (AS) and Prophet Musa (AS).",
+        "lesson": "Always choose what brings lasting happiness in Jannah over fleeting distractions."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Where did Prophet Muhammad ﷺ tell us to say 'Subhana Rabbiyal-A'la' after Ayah 1 of Surah Al-A'la was revealed?",
+        "options": [
+          "In our Sujood (prostration) during Salah!",
+          "Only when running",
+          "Only once a year"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Every time we make Sujood, we obey the opening verse of Surah Al-A'la!"
+      },
+      {
+        "q": "According to Ayahs 14–15, who truly succeeds?",
+        "options": [
+          "The one who purifies their heart, remembers Allah, and prays",
+          "The one who forgets Allah and never prays",
+          "The one who only chases worldly toys"
+        ],
+        "correct": 0,
+        "explanation": "Spot on! Purifying the heart, dhikr, and Salah are the keys to real success."
+      }
+    ],
+    "tafsir": [
+      "Glorify and praise the name of your Lord, the Most High (Al-A'la)!",
+      "He is the One who created everything and fashioned it in perfect harmony...",
+      "...and measured out every detail wisely and guided every creature...",
+      "...and brought forth fresh green pastures from the earth...",
+      "...then later turns them into dry, dark hay as the seasons cycle!",
+      "Allah promises His Prophet ﷺ: We will make you recite the Quran so you will never forget...",
+      "...except whatever Allah wills—for He knows both what is spoken aloud and what is hidden!",
+      "And We will make the path of goodness and ease smooth for you!",
+      "So keep reminding people kindly—true reminders always benefit open hearts.",
+      "Whoever holds awe and love for Allah will take the reminder to heart...",
+      "...while only the stubbornly wretched person turns away from good...",
+      "...choosing the path that leads to the great Fire...",
+      "...a place of misery with neither true life nor peaceful rest—may Allah protect us!",
+      "Truly successful is the one who purifies their heart and character...",
+      "...and remembers the name of their Lord and prays!",
+      "Yet many people still prefer this short, temporary worldly life...",
+      "...even though the Hereafter is infinitely better and lasts FOREVER!",
+      "Indeed, this timeless guidance was also written in the earlier scriptures...",
+      "...the scriptures revealed to Prophet Ibrahim (AS) and Prophet Musa (AS)!"
+    ]
+  },
+  "88": {
+    "heroTitle": "Look at the Camel, Sky, Mountains & Earth!",
+    "heroSub": "Take a nature-explorer field trip through Surah Al-Ghashiyah and see the joyful, peaceful gardens waiting for hardworking believers!",
+    "badgeText": "Nature's Wonders",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "sparkles",
+        "title": "Two Very Different Faces",
+        "text": "Surah Al-Ghashiyah contrasts two scenes on the Day of Judgment: exhausted, sad faces of those who wasted their lives ignoring Allah—versus bright, deeply happy faces of believers who are thrilled with all the good work they sent ahead!",
+        "lesson": "Every effort you put into Salah and Quran today makes your face shine with joy tomorrow!"
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "crown",
+        "title": "A Peaceful Garden High Above",
+        "text": "Allah paints a gorgeous picture of Jannah: an elevated garden where you never hear a single unkind or silly word, with sparkling springs flowing, lofty thrones, lined-up cups, plush cushions, and rich carpets spread everywhere!",
+        "lesson": "Imagine how peaceful Jannah is—let's ask Allah for Al-Firdaws every day!"
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "compass",
+        "title": "Four Amazing Wonders to Study!",
+        "text": "Then Allah invites every curious mind to become a scientist and look closely at FOUR incredible creations: (1) How the camel is engineered for the desert, (2) How the giant sky is raised with no pillars, (3) How mountains stand tall, and (4) How the Earth is spread out smoothly for us to live on!",
+        "lesson": "Studying nature and science with a thankful heart brings you closer to Allah."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "heart",
+        "title": "Remind Kindly—Allah Guides Hearts",
+        "text": "The Surah ends with a gentle leadership rule for Prophet Muhammad ﷺ and every Muslim: 'So remind kindly—you are only a reminder, not someone who forces others!' Our job is to share goodness with love, and everyone returns to Allah.",
+        "lesson": "Invite others to goodness with gentleness and a smile—never force or harshness."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which FOUR wonders of creation does Surah Al-Ghashiyah (Ayahs 17–20) invite us to look at closely?",
+        "options": [
+          "The camel, the sky, the mountains, and the Earth",
+          "Cars, planes, trains, and ships",
+          "Clocks, tables, chairs, and lamps"
+        ],
+        "correct": 0,
+        "explanation": "SubhanAllah! Each of those four creations is a masterpiece of Allah's design!"
+      },
+      {
+        "q": "What does Ayah 21 remind us is the job of a believer when sharing Islam with others?",
+        "options": [
+          "To remind kindly and clearly—never forcing anyone",
+          "To shout loudly at people",
+          "To keep all good advice secret"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Kind, gentle reminding is the Prophetic way."
+      }
+    ],
+    "tafsir": [
+      "Has the story of the Overwhelming Day (Al-Ghashiyah) reached you?",
+      "Some faces on that Day will be downcast and humbled...",
+      "...tired and worn out from chasing empty paths...",
+      "...entering a scorching, blazing Fire...",
+      "...given drink from a boiling spring...",
+      "...with no nourishing food except bitter, dry thorns...",
+      "...which neither nourishes nor stops hunger—we ask Allah for safety!",
+      "Meanwhile, believers' faces on that Day will be beaming with pure joy...",
+      "...deeply pleased and proud of the good deeds they strived for in life...",
+      "...living in a lofty, elevated Garden of Paradise...",
+      "...where no foolish or hurtful word is ever heard!",
+      "Inside it is a fresh, continuously flowing spring...",
+      "...and elevated royal couches...",
+      "...and gleaming drinking cups set ready at hand...",
+      "...and soft cushions arranged in neat rows...",
+      "...and luxurious carpets spread all around!",
+      "Do people not look closely at the camel—how amazingly it was created for the desert?",
+      "And at the vast sky—how high it is raised without a single pillar?",
+      "And at the towering mountains—how firmly they are planted?",
+      "And at the Earth—how smoothly it is spread out for living?",
+      "So remind people with wisdom and kindness—your role is simply to remind!",
+      "You are not sent to force or control anyone's heart.",
+      "As for the one who stubbornly turns away and rejects faith...",
+      "...Allah will hold them accountable with a great punishment.",
+      "Indeed, to Allah alone is everyone's final return...",
+      "...and then upon Him alone is their fair accounting!"
+    ]
+  },
+  "89": {
+    "heroTitle": "The Peaceful Soul Returning Home to Allah!",
+    "heroSub": "Walk through the stories of ancient mighty cities, learn the real test of wealth, and hear Allah's sweetest invitation to the tranquil soul!",
+    "badgeText": "The Peaceful Soul",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "sun",
+        "title": "By the Dawn & The Ten Blessed Nights!",
+        "text": "Surah Al-Fajr opens by swearing by the fresh Fajr dawn and the Ten Blessed Nights (the first ten days of Dhul-Hijjah—the best days of the entire year for good deeds!), reminding us that every day is a gift from Allah.",
+        "lesson": "Make extra dhikr, charity, and Quran during the first ten days of Dhul-Hijjah!"
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "mountain",
+        "title": "Mighty Cities Couldn't Save Arrogance",
+        "text": "Allah reminds us of three ancient superpowers that thought nobody could ever touch them: the giant builders of 'Ad (Iram with towering pillars), the people of Thamud (who carved giant homes right into solid mountain rock!), and Pharaoh with his mighty armies. Because they spread injustice and cruelty, Allah brought them down.",
+        "lesson": "Strength and tall buildings never protect cruelty—always stay humble and fair."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "heart-handshake",
+        "title": "Money Is a Test, Not a Trophy!",
+        "text": "Sometimes people think: 'If I have lots of money, Allah loves me; if I have less, Allah forgot me!' Allah says: NO! Both having plenty AND having less are tests! What truly matters is honoring the orphan, encouraging feeding the poor, and sharing without greed.",
+        "lesson": "Use whatever Allah gives you to honor orphans, feed the hungry, and spread kindness."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "award",
+        "title": "The Sweetest Call in the Quran!",
+        "text": "The last four verses are among the most beautiful words ever spoken: 'O tranquil, peaceful soul (An-Nafs Al-Mutma'innah)! Return to your Lord, completely pleased with Him and Him completely pleased with you! Enter among My special servants, and enter My Paradise!'",
+        "lesson": "A heart filled with Quran and trust in Allah becomes a peaceful soul welcomed into Jannah!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which ancient people carved huge houses directly out of solid mountain rocks in Surah Al-Fajr?",
+        "options": [
+          "The people of Thamud (in the valley)",
+          "The sailors of Rome",
+          "The shepherds of Madinah"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Thamud carved giant rock homes, yet their pride could not save them when they rejected truth."
+      },
+      {
+        "q": "What does Allah call the believer's peaceful heart in Ayah 27 when inviting it into Paradise?",
+        "options": [
+          "The tranquil, peaceful soul (An-Nafs Al-Mutma'innah)",
+          "The rushed soul",
+          "The boasting soul"
+        ],
+        "correct": 0,
+        "explanation": "SubhanAllah! May Allah make all our souls tranquil, pleased with Him, and welcomed into His Paradise!"
+      }
+    ],
+    "tafsir": [
+      "By the fresh morning light of Fajr dawn...",
+      "...and by the Ten Blessed Nights (the first ten days of Dhul-Hijjah)...",
+      "...and by the even and the odd in Allah's creation and worship...",
+      "...and by the night as it quietly passes away!",
+      "Are these signs not an awesome oath for everyone with a thinking mind?",
+      "Have you not seen what Allah did to the ancient mighty tribe of 'Ad...",
+      "...the builders of Iram with towering stone pillars...",
+      "...whose grand buildings had no match anywhere in the lands?",
+      "And the people of Thamud who carved massive homes right into valley rocks...",
+      "...and Pharaoh, the mighty ruler of stakes and pyramids?",
+      "All of them crossed every limit of pride across their lands...",
+      "...and spread widespread corruption and cruelty inside them!",
+      "So your Lord poured down a stern punishment upon their tyranny.",
+      "Truly, your Lord is always watching over everything!",
+      "As for humans, when their Lord tests them with honor and wealth, they say: 'My Lord has honored me!'",
+      "Yet when He tests them by limiting their provision, they complain: 'My Lord has humiliated me!'",
+      "NO! Wealth is a test, not the measure of honor—rather, you fail the test when you do not honor the orphan...",
+      "...and do not encourage one another to feed the hungry poor...",
+      "...and greedily devour others' inheritance...",
+      "...and love wealth with an overwhelming, selfish love!",
+      "Wake up! When the Earth is pounded completely flat on the Day of Judgment...",
+      "...and your Lord's command arrives with the angels lined up rank upon rank...",
+      "...and Hellfire is brought forward—on that Day people will finally remember, but what good is remembering too late?",
+      "A careless person will cry: 'Oh, I wish I had sent good deeds ahead for my real eternal life!'",
+      "On that Day, no justice matches Allah's justice...",
+      "...and no grip matches His grip.",
+      "Now hear Allah's tender call to the believer: 'O tranquil, peaceful soul (An-Nafs Al-Mutma'innah)!'",
+      "'Return to your Lord, well-pleased with His reward and well-pleasing to Him!'",
+      "'Enter among My honored, righteous servants...'",
+      "'...and enter My Paradise forever!'"
+    ]
+  },
+  "90": {
+    "heroTitle": "Climbing the Steep Path of Goodness!",
+    "heroSub": "Discover Allah's gifts of two eyes, a tongue, and two lips—and learn how to climb 'Al-Aqabah' (the Hero's Steep Path) in Surah Al-Balad!",
+    "badgeText": "The Hero's Climb",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "map-pin",
+        "title": "The Sacred City & Life's Effort",
+        "text": "Surah Al-Balad begins by honoring the Sacred City of Makkah—made even more honored because Prophet Muhammad ﷺ lived in it! Then Allah tells us a realistic truth: life on Earth involves effort and striving ('Kabad'), so use your energy for what truly matters.",
+        "lesson": "Don't be surprised when good things take hard work—every real achievement takes effort!"
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "eye",
+        "title": "Look at Your Incredible Gifts!",
+        "text": "Allah reminds us of gifts we use every second without paying a penny: 'Have We not given him TWO EYES, a TONGUE, and TWO LIPS, and shown him the two paths (right and wrong)?' Nobody can say 'Nobody sees me'—Allah always sees us!",
+        "lesson": "Use your two eyes to read Quran, and your tongue and lips to speak truth and kindness."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "mountain",
+        "title": "What Is 'Al-Aqabah' (The Steep Path)?",
+        "text": "Going downhill into laziness is easy—but real heroes climb UPHILL! Allah explains the Steep Path of Heroic Goodness: helping free someone from hardship, feeding the hungry on a hard day—especially an orphan relative or a poor person in the dust!",
+        "lesson": "Heroic Islam means helping the vulnerable, feeding the hungry, and showing mercy."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "heart-handshake",
+        "title": "The Companions of the Right!",
+        "text": "And what completes that heroic climb? Believing in Allah AND advising one another to Patience (Sabr) and Mercy (Marhamah)! Those gentle, brave, merciful people are honored as 'Ashab Al-Maymanah'—the Blessed Companions of the Right!",
+        "lesson": "Patience + Mercy + Helping Others = Companions of the Right!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "Which amazing body gifts does Allah remind us of in Ayahs 8–9 of Surah Al-Balad?",
+        "options": [
+          "Two eyes, a tongue, and two lips",
+          "Wings and feathers",
+          "Metal armor"
+        ],
+        "correct": 0,
+        "explanation": "Alhamdulillah! Two eyes to see Allah's signs and a tongue and lips to recite His words!"
+      },
+      {
+        "q": "Which two noble qualities do the Companions of the Right advise each other toward in Ayah 17?",
+        "options": [
+          "Patience (Sabr) and Mercy/Compassion (Marhamah)",
+          "Anger and boasting",
+          "Greed and laziness"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Patience and compassion make a community shine with Islam's beauty."
+      }
+    ],
+    "tafsir": [
+      "Allah swears by this honored, Sacred City of Makkah...",
+      "...and you (O Prophet Muhammad ﷺ) are an honored resident of this city...",
+      "...and by every parent and child (starting from Prophet Adam and all his children)!",
+      "Indeed, We have created humankind to strive and work hard through life.",
+      "Does any arrogant person think nobody has power over them?",
+      "They brag: 'I have spent piles of wealth!' (showing off rather than helping sincerely).",
+      "Do they really think nobody saw how they earned and spent it? Allah saw everything!",
+      "Have We not blessed him with TWO wonderful eyes...",
+      "...and a tongue and TWO lips to speak and recite?",
+      "And have We not clearly shown him the two highways—the path of good and the path of evil?",
+      "Yet many people hesitate to climb the Steep Uphill Path of heroic goodness (Al-Aqabah)!",
+      "And what can make you know what climbing that Steep Path means?",
+      "It is freeing someone from captivity or heavy hardship...",
+      "...or feeding the hungry on a difficult day of scarcity...",
+      "...especially an orphan who is a close relative...",
+      "...or a needy poor person who has nothing at all!",
+      "And alongside those good deeds, being among the believers who encourage each other to Patience and Mercy!",
+      "THOSE are the blessed Companions of the Right (Ashab Al-Maymanah)!",
+      "Whereas those who reject Allah's clear signs are the Companions of the Left...",
+      "...surrounded by a closed-in Fire—may Allah keep us among the Companions of the Right!"
+    ]
+  },
+  "91": {
+    "heroTitle": "Keep Your Heart Pure & The Miracle She-Camel!",
+    "heroSub": "Listen to seven breathtaking oaths of sun, moon, day, and night—and learn why purifying your soul is the greatest win of all!",
+    "badgeText": "Pure Heart",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "sun",
+        "title": "Seven Cosmic Oaths of Beauty!",
+        "text": "Surah Ash-Shams opens with the longest chain of oaths in the Quran—SEVEN magnificent creations in a row: the shining Sun, the Moon following it, the bright Day, the covering Night, the Sky, the Earth, and finally the Human Soul itself!",
+        "lesson": "Allah placed a compass inside your soul that naturally recognizes right from wrong."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "sparkles",
+        "title": "The Winner vs. The Loser",
+        "text": "Right after those seven oaths comes the main golden rule (Ayahs 9–10): 'He has truly SUCCEEDED who purifies his soul (with faith, honesty, and good deeds)—and he has truly FAILED who buries his soul in sins and bad habits!'",
+        "lesson": "Clean your heart every day just like you wash your face—with Quran, Salah, and kindness!"
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "mountain",
+        "title": "Prophet Salih (AS) & The Miracle She-Camel",
+        "text": "To show what happens when people let arrogance corrupt their hearts, Allah tells the story of Thamud! They asked Prophet Salih (AS) for a miracle, so Allah brought a wondrous She-Camel right out of solid rock and gave one clear rule: 'Leave Allah's camel in peace and let her share the water on her turn!'",
+        "lesson": "Always respect Allah's rules and treat every animal with kindness and mercy."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "shield-alert",
+        "title": "Don't Follow the Worst Troublemaker",
+        "text": "Instead of obeying, the most wicked troublemaker among them stepped forward and harmed the innocent She-Camel while the rest cheered him on! So Allah destroyed their city completely—teaching us never to support wrongdoing or cruelty.",
+        "lesson": "Be brave enough to stand up for what is right, even if a crowd cheers for something wrong."
+      }
+    ],
+    "quiz": [
+      {
+        "q": "According to Ayah 9 of Surah Ash-Shams, who is the true WINNER in life?",
+        "options": [
+          "The one who purifies their soul with faith, honesty, and good character",
+          "The one who hides their mistakes and hurts animals",
+          "The loudest person in the room"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! 'Qad aflaha man zakkaha'—true success belongs to the one who purifies their soul!"
+      },
+      {
+        "q": "What miracle sign did Prophet Salih (AS) warn the people of Thamud to leave in peace?",
+        "options": [
+          "Allah's miraculous She-Camel and her turn to drink water",
+          "A wooden bridge",
+          "A golden ship"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Respecting Allah's signs and showing kindness to animals are vital parts of faith."
+      }
+    ],
+    "tafsir": [
+      "By the bright sun and its warm morning radiance...",
+      "...and by the moon as it follows right after the sun...",
+      "...and by the daytime when it reveals the sun's bright splendor...",
+      "...and by the night as it gently wraps the sky in darkness...",
+      "...and by the magnificent sky and the Almighty One who built it...",
+      "...and by the wide Earth and the One who spread it out...",
+      "...and by the human soul and the One who shaped it perfectly...",
+      "...and inspired it to know the difference between wrong and right!",
+      "Truly, he has SUCCEEDED who purifies his soul with faith and good deeds...",
+      "...and truly, he has FAILED who corrupts and buries his soul in wrongdoing!",
+      "Remember the tribe of Thamud who rejected truth out of sheer arrogance...",
+      "...when the most wicked troublemaker among them jumped up to do evil!",
+      "Allah's Messenger (Prophet Salih) warned them: 'Leave Allah's miraculous She-Camel safe, and respect her turn to drink!'",
+      "Yet they called him a liar and cruelly harmed the camel—so their Lord leveled their city for their crime...",
+      "...and Allah never fears any consequence when He establishes complete justice!"
+    ]
+  },
+  "92": {
+    "heroTitle": "Two Paths: The Generous Hero vs. The Stingy Miser!",
+    "heroSub": "Meet the inspiring story of Abu Bakr As-Siddiq (RA) in Surah Al-Layl and see how Allah makes the path of EASE wide open for generous hearts!",
+    "badgeText": "Path of Ease",
+    "chapters": [
+      {
+        "badge": "Chapter 1",
+        "icon": "moon",
+        "title": "Different People, Different Paths",
+        "text": "Just as dark night and bright daytime are complete opposites, Allah says in Ayah 4: 'Indeed, your efforts and goals are very different!' Every day, each of us chooses between two roads—the road of generosity and the road of selfishness.",
+        "lesson": "Every small choice you make today decides which road you are walking on."
+      },
+      {
+        "badge": "Chapter 2",
+        "icon": "gift",
+        "title": "The 3 Habits That Unlock the Path of Ease!",
+        "text": "Want Allah to make goodness EASY for you? Ayahs 5–7 give 3 superpower habits: (1) Give generously to help others, (2) Have Taqwa (mindfulness of Allah), and (3) Believe in 'Al-Husna' (Allah's best reward and Jannah)! In return, Allah promises: 'We will make the path to EASE smooth for him!'",
+        "lesson": "When you give with a good heart, Allah opens doors of ease in your whole life."
+      },
+      {
+        "badge": "Chapter 3",
+        "icon": "shield-alert",
+        "title": "The Trap of Stinginess",
+        "text": "On the opposite road is the person who is stingy, arrogantly thinks they don't need Allah, and ignores Paradise—their path only gets harder and heavier, and piles of money won't save them in the end!",
+        "lesson": "Stinginess makes the heart cramped and sad, while generosity makes the heart wide and joyful."
+      },
+      {
+        "badge": "Chapter 4",
+        "icon": "heart",
+        "title": "Abu Bakr As-Siddiq's Pure Sincerity!",
+        "text": "Scholars tell us the final verses were revealed about Abu Bakr As-Siddiq (RA), who spent his wealth freely to free oppressed believers like Bilal (RA)—expecting ZERO favors back from anyone, seeking ONLY the pleasure of his Most High Lord! And Allah promised: 'He will surely be completely pleased!'",
+        "lesson": "Give and help others purely to make Allah smile—never just to get something back!"
+      }
+    ],
+    "quiz": [
+      {
+        "q": "What THREE habits in Ayahs 5–7 cause Allah to make the path of EASE smooth for you?",
+        "options": [
+          "Giving generously, having Taqwa (mindfulness of Allah), and believing in Allah's best reward",
+          "Hoarding toys, shouting, and being selfish",
+          "Sleeping all day and ignoring prayers"
+        ],
+        "correct": 0,
+        "explanation": "MashAllah! Generosity + Taqwa + Believing in Jannah = Allah makes goodness easy for you!"
+      },
+      {
+        "q": "Which noble companion is famously honored in the ending of Surah Al-Layl for giving purely for Allah's sake?",
+        "options": [
+          "Abu Bakr As-Siddiq (RA)",
+          "Pharaoh",
+          "Abu Jahl"
+        ],
+        "correct": 0,
+        "explanation": "Correct! Abu Bakr As-Siddiq (RA) freed enslaved believers seeking nothing except Allah's pleasure!"
+      }
+    ],
+    "tafsir": [
+      "By the quiet night as it spreads its cover over the world...",
+      "...and by the bright daytime as it shines in full glory...",
+      "...and by the Almighty Creator who created male and female!",
+      "Truly, people's efforts, goals, and paths in life are very different!",
+      "As for the one who gives generously to help others and has Taqwa (mindfulness of Allah)...",
+      "...and believes sincerely in the best truth and Allah's reward (Al-Husna)...",
+      "...Allah promises: We will make the path of EASE and goodness smooth for him!",
+      "But as for the one who is stingy and arrogantly thinks he needs nothing from Allah...",
+      "...and denies the best truth and Paradise...",
+      "...he makes his own path tangled, hard, and heavy!",
+      "And his piled-up wealth will not help him at all when he falls!",
+      "Indeed, showing the clear path of guidance belongs to Allah...",
+      "...and to Allah alone belong both the Hereafter and this first world!",
+      "So Allah lovingly warns us away from a blazing, roaring Fire...",
+      "...which none enters except the most stubbornly wicked person...",
+      "...who denied the clear truth and turned his back on goodness!",
+      "Whereas the most righteous believer (Al-Atqa) will be kept far, far away from it...",
+      "...the one who gives his wealth generously to purify his heart...",
+      "...not to pay back any favor or expect a gift from anyone...",
+      "...seeking NOTHING except the noble countenance and pleasure of his Lord, the Most High!",
+      "And Allah gives him the sweetest promise: he will surely be completely happy and pleased!"
     ]
   },
   "93": {
