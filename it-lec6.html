@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>معمل التجويد التطبيقي والاختبار الختامي (المحاضرة السادسة) | دورة المعلم المستقل — أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08)}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(980px,93%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.4vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.42rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.94rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.96rem;padding:11px 19px;border-radius:13px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-sm{padding:7px 14px;font-size:.86rem;border-radius:10px}
+.btn-pri{background:var(--primary-light);color:#fff;border-color:var(--primary-light)}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-soft{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-bad{background:var(--bad-bg);color:var(--bad);border-color:rgba(220,38,38,.35)}
+.btn-full{width:100%}
+
+/* Banner & Nav */
+main{padding:22px 0 56px}
+.exam-banner{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:22px clamp(16px,3.5vw,28px);margin-bottom:18px}
+.exam-banner .top-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pill-gold{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.82rem;padding:4px 13px;border-radius:999px}
+.user-chip{font-size:.84rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+.exam-banner h1{font-size:clamp(1.3rem,3.8vw,1.85rem);color:var(--gold-light);line-height:1.4;margin-bottom:6px}
+.exam-banner p{font-size:.94rem;color:#e7f0ea;margin-bottom:14px}
+.marks-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.m-box{background:rgba(255,255,255,.1);border:1px solid rgba(232,197,104,.32);border-radius:12px;padding:9px 10px;text-align:center}
+.m-box b{display:block;color:var(--gold-light);font-size:1.05rem}
+.m-box span{font-size:.8rem;color:#e6efe8}
+
+.trainee-bar{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.trainee-bar label{font-weight:800;color:var(--pri);font-size:.95rem;white-space:nowrap}
+.trainee-bar input{flex:1;min-width:210px;padding:9px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:700}
+.trainee-bar input:focus{outline:none;border-color:var(--gold)}
+.save-ind{font-size:.82rem;color:var(--ok);font-weight:700;background:var(--ok-bg);padding:4px 11px;border-radius:999px;white-space:nowrap}
+
+.sticky-nav{position:sticky;top:67px;z-index:35;background:var(--bg);padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.86rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
+.prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
+.prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 8px;font:inherit;font-weight:800;font-size:.84rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
+.tab span.cnt{font-size:.75rem;color:var(--mut);font-weight:700}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
+.tab.active span.cnt{color:var(--gold-light)}
+
+/* Glossary Styles */
+.g-list{display:grid;gap:14px}
+.g-card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.g-card[open]{border-color:var(--gold)}
+.g-card summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:900;color:var(--pri);font-size:1.03rem}
+.g-card summary::-webkit-details-marker{display:none}
+.g-badge{font-size:.75rem;font-weight:800;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.g-body{padding:0 18px 18px;display:grid;gap:12px}
+.g-analogy{background:var(--hl);border-inline-start:4px solid var(--gold);border-radius:12px;padding:11px 14px;font-size:.9rem;line-height:1.8;color:var(--ink)}
+.term-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px}
+.term-row{background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:11px 13px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.term-info{min-width:0;flex:1}
+.term-ar{font-weight:900;color:var(--pri);font-size:.96rem;line-height:1.45}
+.term-en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;font-weight:700;font-size:.92rem;color:var(--ink)}
+.term-note{font-size:.82rem;color:var(--mut);line-height:1.5;margin-top:2px}
+.spk-btn{flex:none;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);background:var(--card);color:var(--pri);font-size:1.05rem;cursor:pointer;display:grid;place-items:center;transition:.18s}
+.spk-btn:hover{background:var(--gold-grad);color:#261900;transform:scale(1.06)}
+
+/* Quiz Styles */
+.sub-switch{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.sub-btn{background:var(--card);border:2px solid var(--line);color:var(--ink);border-radius:13px;padding:11px 14px;font:inherit;font-weight:800;font-size:.94rem;cursor:pointer;transition:.18s}
+.sub-btn.active{border-color:var(--gold);background:var(--hl);color:var(--pri)}
+
+.pager{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:16px}
+.p-pills{display:flex;gap:6px;flex-wrap:wrap}
+.p-pill{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.83rem;font-weight:800;padding:5px 11px;border-radius:999px;cursor:pointer;transition:.18s}
+.p-pill.cur{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.p-pill.done:not(.cur){background:var(--ok-bg);color:var(--ok);border-color:rgba(22,163,74,.45)}
+
+.q-list{display:grid;gap:14px}
+.q-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);transition:border-color .2s}
+.q-card.answered{border-inline-start:5px solid var(--gold)}
+.q-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
+.q-num{flex:none;min-width:34px;height:34px;border-radius:10px;background:var(--hl);color:var(--pri);border:1px solid var(--gold);display:grid;place-items:center;font-weight:900;font-size:.9rem}
+.q-txt{font-weight:800;font-size:1.01rem;line-height:1.7;color:var(--ink)}
+
+.opts{display:grid;gap:9px}
+.opt{display:flex;align-items:center;gap:11px;width:100%;text-align:right;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:11px 14px;font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;transition:.16s;line-height:1.65}
+.opt:hover{border-color:var(--gold);background:var(--hl)}
+.opt.sel{background:rgba(15,76,41,.11);border-color:var(--primary);color:var(--pri);font-weight:800;box-shadow:inset 0 0 0 1px var(--primary)}
+:root[data-theme="dark"] .opt.sel{background:rgba(232,197,104,.18);border-color:var(--gold-light);box-shadow:inset 0 0 0 1px var(--gold-light)}
+.opt .ltr-c{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.82rem;font-weight:900;background:var(--card)}
+.opt.sel .ltr-c{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tf-btn{padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:800;font-size:1rem;cursor:pointer;transition:.16s}
+.tf-btn:hover{border-color:var(--gold)}
+.tf-btn.sel-t{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.tf-btn.sel-f{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+
+/* Simulation Practice Chapters */
+.mode-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.mode-box h3{color:var(--pri);font-size:1.12rem;margin-bottom:6px}
+.mode-box p.sm{color:var(--mut);font-size:.91rem;margin-bottom:13px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.m-opt{text-align:right;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}
+.m-opt b{display:block;color:var(--pri);font-size:.98rem;margin-bottom:3px}
+.m-opt span{font-size:.85rem;color:var(--mut);line-height:1.6;display:block}
+.m-opt.active{border-color:var(--gold);background:var(--hl);box-shadow:0 4px 14px rgba(198,149,43,.16)}
+
+.ch-card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:grid;gap:13px}
+.ch-card.ch-done{border-inline-start:5px solid var(--ok)}
+.ch-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ch-top .ch-h{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.05rem;color:var(--pri)}
+.ch-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pts-badge{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.78rem;padding:3px 11px;border-radius:999px;white-space:nowrap}
+.cnt-badge{background:var(--hl);color:var(--pri);border:1px solid var(--gold);font-weight:800;font-size:.78rem;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.cnt-badge.all-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.ch-desc{font-size:.91rem;color:var(--mut)}
+
+.chips-wrap{display:flex;flex-wrap:wrap;gap:8px}
+.chip-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.87rem;font-weight:700;cursor:pointer;transition:.16s;text-align:right}
+.chip-btn:hover{border-color:var(--gold);background:var(--hl)}
+.chip-btn.on{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:800}
+
+.t-ta{width:100%;min-height:92px;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.94rem;line-height:1.75;resize:vertical}
+.t-ta:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.paper-note{background:var(--ok-bg);border:1px dashed var(--ok);border-radius:12px;padding:10px 14px;font-size:.89rem;font-weight:700;color:var(--ok)}
+.voice-box{background:linear-gradient(135deg,var(--hl),transparent);border:1.5px dashed var(--gold);border-radius:16px;padding:16px 18px;margin-top:6px;display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.voice-box input{margin-top:6px;width:20px;height:20px;accent-color:var(--primary);cursor:pointer;flex:none}
+
+.nav-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* Result */
+.res-hero{background:linear-gradient(150deg,#09321A,#17693B);color:#fff;border:2px solid var(--gold);border-radius:22px;padding:28px clamp(16px,4vw,32px);text-align:center;margin-bottom:20px}
+.score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:142px;height:142px;border-radius:50%;border:5px solid var(--gold-light);background:rgba(0,0,0,.22);margin-bottom:14px}
+.score-ring b{font-size:2.4rem;color:var(--gold-light);line-height:1.1}
+.score-ring span{font-size:.86rem;color:#e7f0ea}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.r-stat{background:rgba(255,255,255,.11);border:1px solid rgba(232,197,104,.35);border-radius:14px;padding:12px}
+.r-stat b{display:block;font-size:1.22rem;color:var(--gold-light)}
+.r-stat span{font-size:.83rem;color:#e7f0ea}
+
+.wa-panel{background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:var(--shadow)}
+.wa-panel h3{color:var(--pri);font-size:1.18rem;margin-bottom:6px}
+.wa-panel p.sm{color:var(--mut);font-size:.92rem;margin-bottom:14px}
+.wa-actions{display:grid;gap:10px;margin-bottom:14px}
+.preview-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.88rem;white-space:pre-wrap;max-height:260px;overflow:auto;line-height:1.75;color:var(--ink)}
+
+/* Review */
+.rev-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.rev-item{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;margin-bottom:11px}
+.rev-item.is-ok{border-inline-start:5px solid var(--ok)}
+.rev-item.is-bad{border-inline-start:5px solid var(--bad)}
+.rev-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:.88rem;margin-top:8px}
+.tag-ok{background:var(--ok-bg);color:var(--ok);padding:3px 10px;border-radius:8px;font-weight:800}
+.tag-bad{background:var(--bad-bg);color:var(--bad);padding:3px 10px;border-radius:8px;font-weight:800}
+.rev-exp{margin-top:8px;font-size:.9rem;color:var(--mut);background:var(--hl);padding:8px 12px;border-radius:10px}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.92rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+
+footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:720px){
+  body{font-size:15.5px}
+  .marks-strip{grid-template-columns:repeat(2,1fr)}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+  .mode-grid,.res-grid,.sub-switch{grid-template-columns:1fr}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">معمل التجويد التطبيقي (المحاضرة السادسة) | دورة المعلم المستقل<small>أكاديمية الساجد — Al-Sajid Academy</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="independent-teacher.html">← <span>صفحة الدورة</span></a>
+  </div>
+</header>
+
+<!-- GATE VIEW -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 بوابة المشتركين — الكود الموحّد</div>
+      <h2>معمل التجويد التطبيقي والاختبار الختامي — المعلم المستقل</h2>
+      <p class="desc">تدريس التجويد بطريقة عملية مبسّطة لغير العرب: القاموس الصوتي والتشبيهات المنضبطة + اختبار التثبيت (60 سؤالًا) + سجل المحاكاة والتطبيق بالأبواب (6 أبواب) = 150 درجة.</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق والدخول لمعمل التجويد</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%82%D9%84%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب كود التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="independent-teacher.html">🌟 العودة لتفاصيل ومحاور الدورة</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB VIEW -->
+<main id="examView" class="hidden">
+  <div class="wrap">
+    <div class="exam-banner">
+      <div class="top-row">
+        <span class="pill-gold">المحاضرة ٦ (تتويج البرنامج) · تدريس التجويد بطريقة عملية مبسّطة</span>
+        <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+      </div>
+      <h1>معمل التجويد التطبيقي وسجل المحاكاة — الختام</h1>
+      <p>ابدأ بالقاموس الصوتي للاستماع لنطق المصطلحات ومراجعة التشبيهات المنضبطة، ثم اختبر استيعابك (60 درجة آليًا)، وطبّق شرح الأبواب الستة بصوتك بالمحاكاة في «سجل التطبيق بالأبواب» (90 درجة) لتُرسل تقرير الختام للمدرب عبر واتساب.</p>
+      <div class="marks-strip">
+        <div class="m-box"><b>🔊 قاموس صوتي</b><span>6 أبواب + التشبيهات المنضبطة</span></div>
+        <div class="m-box"><b>60 درجة</b><span>اختبار التثبيت (30 اختياري + 30 صح/خطأ)</span></div>
+        <div class="m-box"><b>90 درجة</b><span>سجل المحاكاة (6 أبواب × 15 درجة)</span></div>
+        <div class="m-box"><b>150 درجة</b><span>الإجمالي الكلي للمحاضرة الختامية</span></div>
+      </div>
+    </div>
+
+    <div class="trainee-bar">
+      <label for="tName">👤 اسم المتدرب/ة:</label>
+      <input id="tName" type="text" placeholder="اكتب اسمك الثلاثي ليظهر في تقرير الختام وسجل المحاكاة...">
+      <span class="save-ind" id="saveInd">💾 حفظ تلقائي مفعّل</span>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="prog-row">
+        <span id="progText">اختبار التثبيت: 0 من 60 سؤالًا</span>
+        <span id="simProgText">سجل المحاكاة: 0 من 33 حكمًا</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="glossary" type="button">📖 القاموس والتشبيهات<span class="cnt">6 أبواب · نطق 🔊</span></button>
+        <button class="tab" data-tab="quiz" type="button">🧠 اختبار التثبيت<span class="cnt" id="cntQuiz">0 / 60</span></button>
+        <button class="tab" data-tab="practice" type="button">🎙️ سجل المحاكاة<span class="cnt" id="cntSim">0 / 33</span></button>
+        <button class="tab" data-tab="result" type="button">📊 النتيجة وواتساب<span class="cnt" id="cntRes">اعرض النتيجة</span></button>
+      </div>
+    </div>
+
+    <!-- TAB 1: AUDIO GLOSSARY & ANALOGIES -->
+    <section id="sec-glossary">
+      <div class="mode-box">
+        <h3>🔊 القاموس الصوتي التفاعلي والتشبيهات التجويدية المنضبطة</h3>
+        <p class="sm" style="margin-bottom:0">اضغط على أيقونة <strong>🔊</strong> بجانب أي مصطلح إنجليزي لتسمع نطقه الصحيح وتكرره بصوتك قبل التدريب. وقد ضُبطت جميع التشبيهات علميًا وتربويًا لتكون جاهزة للاستخدام المباشر مع طلابك الأجانب.</p>
+      </div>
+      <div class="g-list" id="glossaryList"></div>
+      <div class="nav-foot">
+        <span style="font-size:.9rem;color:var(--mut);font-weight:700">بعد مراجعة المصطلحات والتشبيهات وحالات الراء الـ 8، اختبر استيعابك:</span>
+        <button class="btn btn-gold" id="goQuizBtn" type="button">🧠 الانتقال لاختبار التثبيت (60 سؤالًا) ←</button>
+      </div>
+    </section>
+
+    <!-- TAB 2: QUIZ (30 MCQ + 30 TF) -->
+    <section id="sec-quiz" class="hidden">
+      <div class="sub-switch">
+        <button type="button" class="sub-btn active" id="subMcqBtn">1️⃣ اختيار من متعدد تطبيقي (<span id="subMcqCnt">0 / 30</span>)</button>
+        <button type="button" class="sub-btn" id="subTfBtn">2️⃣ صح أم خطأ (<span id="subTfCnt">0 / 30</span>)</button>
+      </div>
+
+      <div id="pane-mcq">
+        <div class="pager">
+          <strong style="color:var(--pri);font-size:.94rem">القسم الأول: المصطلحات والتشبيهات والأمواج وحالات الراء (30 سؤالًا · درجة لكل سؤال)</strong>
+          <div class="p-pills" id="mcqPills"></div>
+        </div>
+        <div class="q-list" id="mcqList"></div>
+        <div class="nav-foot">
+          <button class="btn btn-out" id="mcqPrev" type="button">→ المجموعة السابقة</button>
+          <button class="btn btn-pri" id="mcqNext" type="button">المجموعة التالية ←</button>
+        </div>
+      </div>
+
+      <div id="pane-tf" class="hidden">
+        <div class="pager">
+          <strong style="color:var(--pri);font-size:.94rem">القسم الثاني: الصح والخطأ التطبيقي (30 سؤالًا · درجة لكل سؤال)</strong>
+          <div class="p-pills" id="tfPills"></div>
+        </div>
+        <div class="q-list" id="tfList"></div>
+        <div class="nav-foot">
+          <button class="btn btn-out" id="tfPrev" type="button">→ المجموعة السابقة</button>
+          <button class="btn btn-pri" id="tfNext" type="button">المجموعة التالية ←</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: SIMULATION LOG BY CHAPTERS (6 × 15 = 90 PTS) -->
+    <section id="sec-practice" class="hidden">
+      <div class="mode-box">
+        <h3>🎙️ سجل المحاكاة والتطبيق العملي بالأبواب (6 أبواب × 15 درجة = 90 درجة)</h3>
+        <p class="sm">اشرح كل حكم بصوتك أمام نفسك (أو أمام زميل) كأنك تشرح لطالب أجنبي، واضغط على أيقونة الحكم لتثبيت إنجازه، ثم اختر طريقة تسليم «ما خرجت به من المحاضرة»:</p>
+        <div class="mode-grid">
+          <button type="button" class="m-opt active" id="modeSite">
+            <b>✍️ أكتب خلاصة كل باب هنا داخل الموقع</b>
+            <span>تضغط على أيقونات الأحكام التي شرحتها + تكتب ما خرجت به تحت كل باب ويُحفظ تلقائيًا ويُرسل للمدرب بضغطة زر.</span>
+          </button>
+          <button type="button" class="m-opt" id="modeFile">
+            <b>📎 سأرسل ملخصي في ملف PDF أو صور على واتساب</b>
+            <span>تضغط هنا على أيقونات الأحكام التي طبّقتها بالمحاكاة لتوثيق مذاكرتك لكل باب، ثم ترسل ملخصك المكتوب (PDF أو صور دفترك) على واتساب.</span>
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn btn-out btn-sm" id="backGlossBtn">📖 العودة للقاموس الصوتي</button>
+        </div>
+      </div>
+
+      <div class="q-list" id="chaptersList"></div>
+
+      <label class="voice-box">
+        <input type="checkbox" id="voiceChallengeCb">
+        <div>
+          <strong style="color:var(--pri);display:block;font-size:.98rem">🎤 تحدّي الختام العملي (موصى به جدًا): سأرسل بصمة صوتية (دقيقة واحدة) على واتساب</strong>
+          <span style="font-size:.87rem;color:var(--mut)">اختر حكمًا واحدًا من الأبواب الستة (مثل الإقلاب أو القلقلة أو تشبيه الأمواج أو الفرق بين فِرْعَوْن وٱرْجِعُوا) واشرحه للمدرب في بصمة صوتية كأنك تشرح لطالب أجنبي ليسمعك ويعطيك تقييمًا مباشرًا!</span>
+        </div>
+      </label>
+
+      <div class="nav-foot">
+        <button class="btn btn-out" id="simBack" type="button">→ العودة لاختبار التثبيت</button>
+        <button class="btn btn-gold" id="finishBtn" type="button">✅ تصحيح اختبار التثبيت وتجهيز تقرير الختام لواتساب</button>
+      </div>
+    </section>
+
+    <!-- TAB 4: RESULT & FINAL WHATSAPP SUBMISSION -->
+    <section id="sec-result" class="hidden">
+      <div id="ungradedBox" class="mode-box" style="text-align:center">
+        <h3>هل أنت جاهز لاعتماد اختبار الختام وتجهيز سجل المحاكاة؟</h3>
+        <p class="sm" id="readySummary">سيتم تصحيح أسئلة التثبيت الـ 60 (30 اختياري + 30 صح وخطأ) فورًا وتجهيز سجل المحاكاة بالأبواب لإرساله للمدرب عبر واتساب.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-gold" id="gradeNowBtn" type="button">📊 اعتمد إجاباتي واحسب النتيجة الآن</button>
+          <button class="btn btn-out hidden" id="jumpUnansBtn" type="button">🔎 انتقل لأول سؤال لم تُجب عنه</button>
+        </div>
+      </div>
+
+      <div id="gradedBox" class="hidden">
+        <div class="res-hero">
+          <div class="score-ring">
+            <b id="rTotal">0</b>
+            <span>من 60 (آلي)</span>
+          </div>
+          <h2 id="rGradeTitle" style="color:var(--gold-light);margin-bottom:4px">—</h2>
+          <p id="rGradeSub" style="color:#e6efe8;font-size:.96rem">—</p>
+          <div class="res-grid">
+            <div class="r-stat"><b id="rMcq">0 / 30</b><span>اختيار من متعدد</span></div>
+            <div class="r-stat"><b id="rTf">0 / 30</b><span>صح أم خطأ</span></div>
+            <div class="r-stat"><b id="rSim">0 / 33</b><span>سجل المحاكاة (90 درجة · تقييم المدرب)</span></div>
+          </div>
+        </div>
+
+        <div class="wa-panel">
+          <h3>📤 إرسال نتيجة الختام وسجل المحاكاة بالأبواب عبر واتساب</h3>
+          <p class="sm" id="waHint">أرسل أولًا نتيجتك الآلية وسجل الإنجاز بالأبواب (زر ١)، ثم أرسل ملخصاتك المكتوبة أو ملف PDF/الصور + البصمة الصوتية الختامية للمدرب لاستلام تقييمك النهائي من 150.</p>
+          <div class="wa-actions">
+            <button type="button" class="btn btn-wa btn-full" id="sendScoreWaBtn">💬 ١) إرسال نتيجة التثبيت (من 60) + سجل إنجاز الأبواب عبر واتساب</button>
+            <button type="button" class="btn btn-gold btn-full" id="sendNotesWaBtn">📋 ٢) نسخ ملخصاتي المكتوبة للأبواب الـ 6 وفتح واتساب للصقها</button>
+            <button type="button" class="btn btn-soft btn-full" id="copyFullReportBtn">📄 نسخ التقرير الختامي الكامل للحافظة</button>
+          </div>
+          <details>
+            <summary style="cursor:pointer;font-weight:800;color:var(--pri);margin-bottom:8px">👁️ معاينة نص التقرير الختامي قبل الإرسال</summary>
+            <div class="preview-box" id="reportPreview"></div>
+          </details>
+        </div>
+
+        <div class="mode-box">
+          <h3>🔍 مراجعة إجاباتك في اختبار التثبيت (60 سؤالًا)</h3>
+          <p class="sm">مبارك لك وصولك لختام «دورة المعلم المستقل»! راجع أخطاءك إن وُجدت وتعلّم من التعليل المختصر لتكون جاهزًا للتطبيق الفوري مع طلابك.</p>
+          <div class="rev-controls">
+            <button type="button" class="btn btn-pri" id="revWrongBtn">❌ عرض الأخطاء فقط (<span id="wrongCnt">0</span>)</button>
+            <button type="button" class="btn btn-out" id="revAllBtn">📋 عرض جميع الـ 60 سؤالًا</button>
+            <button type="button" class="btn btn-bad" id="retakeBtn" style="margin-inline-start:auto">🔄 إعادة اختبار التثبيت</button>
+          </div>
+          <div id="revList"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · دورة المعلم المستقل · إعداد وإشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,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";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const COURSE_ID = "independent";
+const EXPECTED_KEY = "Alsajid#2026!Indep$103";
+const WA_PHONE = "201091102946";
+const AUTH_KEY = "sajid_auth:independent";
+const QUIZ_KEY = "sajid_quiz:it_lec6";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+
+const GLOSSARY = [{"ch": "الباب الأول: أحكام النون الساكنة والتنوين والغنة", "badge": "7 مصطلحات أساسية", "analogy": "💡 التشبيهات المنضبطة للشرح: ① الإظهار: أمسك الهاتف ظاهرًا أمام الكاميرا (نراه ونسمع نطقه الواضح الطبيعي دون تطويل غنة). ② الإدغام: شبّك يديك أو ضع الهاتف داخل الجيب (إدخال شيء في شيء)؛ إن رنّ وسمعنا صوتًا من الأنف = إدغام بغنة، وإن كان صامتًا ورأينا حجم الجيب فقط = إدغام بغير غنة. ③ الإقلاب: خصام بين النون والباء فتتدخل «الميم» كوسيط مُصلِح (تشارك الباء في الشفتين والنون في الغنة بتلامس لطيف دون كزّ). ④ الإخفاء: حالة وسط «ستارة شفافة» — نخفي جسم النون (لا يلمس طرف اللسان سقف الفم أبدًا) لكن صوت الغنة يبقى مسموعًا حركتين من الأنف بينما يتجهز الفم لمخرج الحرف التالي مثل «أَنكَالًا». (تنبيه مهم: لا تستخدم تشبيه «الهاتف الصامت» للإخفاء لأن الإخفاء فيه غنة مسموعة!).", "items": [{"ar": "الإظهار", "en": "Clear Pronunciation", "note": "نطق النون واضحة من مخرجها دون تطويل غنة"}, {"ar": "الغنة", "en": "Nasal Sound", "note": "الصوت اللطيف المصاحب الخارج من الأنف"}, {"ar": "الخيشوم", "en": "Nasal Passage", "note": "The place where Ghunnah comes from (مخرج الغنة)"}, {"ar": "الإدغام", "en": "Merging", "note": "إدخال النون الساكنة في الحرف التالي ليصيرا واحدًا"}, {"ar": "إدغام بغنة", "en": "Merging with Nasal Sound", "note": "إدغام يصاحبه صوت غنة من الأنف (حركتان)"}, {"ar": "الإقلاب", "en": "Changing", "note": "قلب النون الساكنة ميمًا مُخفاة بغنة عند الباء"}, {"ar": "الإخفاء", "en": "Hiding / Concealing", "note": "Between clear and merging — إخفاء مخرج اللسان وبقاء الغنة"}]}, {"ch": "الباب الثاني: أحكام الميم الساكنة (Meem with Sukoon)", "badge": "3 أحكام شفوية", "analogy": "💡 نقطة التبسيط الذهبية: جميع أحكام الميم الساكنة ترتبط بكلمة «Lip» (الشفة) لأن مخرج الميم من الشفتين؛ فبمجرد ربط الطالب بين (Lip Concealment / Lip Merging / Clear Lip Pronunciation) وبين ما تعلمه في النون، يفهم الباب كله في دقائق!", "items": [{"ar": "الإخفاء الشفوي", "en": "Lip Concealment", "note": "إخفاء الميم الساكنة عند الباء بغنة وتلامس لطيف"}, {"ar": "الإدغام الشفوي", "en": "Lip Merging", "note": "إدغام الميم الساكنة في ميم متحركة بعدها بغنة"}, {"ar": "الإظهار الشفوي", "en": "Clear Lip Pronunciation", "note": "نطق الميم الساكنة واضحة عند باقي الحروف"}]}, {"ch": "الباب الثالث: المدود (Stretching) وتشبيه الأمواج", "badge": "11 مصطلحًا + تشبيه الأمواج", "analogy": "🌊 تشبيه الأمواج البصري لتقريب أزمنة المد: ① موجة «النهر» الهادئة = حركتان (مثل المد الطبيعي والبدل والصلة الصغرى). ② موجة «البحر» المتوسطة = 4 حركات (مثل المد المتصل والمنفصل والصلة الكبرى). ③ موجة «المحيط» العملاقة = 6 حركات (المد اللازم). (تنبيه للمعلم: الحركة مقدار زمني يتناسب مع سرعة قراءة الطالب وليس «ثانية» بالساعة).", "items": [{"ar": "المد", "en": "Stretching", "note": "إطالة الصوت بحرف المد"}, {"ar": "المد الأصلي", "en": "Original Madd", "note": "المد الذي لا يتوقف على سبب همز أو سكون"}, {"ar": "المد الفرعي", "en": "Secondary Madd", "note": "المد الزائد على الأصلي بسبب همز أو سكون"}, {"ar": "المد الطبيعي", "en": "Natural Madd", "note": "حركتان — مثل موجة النهر"}, {"ar": "المد المتصل", "en": "Connected Madd", "note": "المد والهمز في كلمة واحدة — مثل موجة البحر (4 حركات)"}, {"ar": "المد المنفصل", "en": "Separated Madd", "note": "المد آخر كلمة والهمز أول التالية — مثل موجة البحر (4 حركات)"}, {"ar": "المد اللازم", "en": "Necessary Madd", "note": "بعد المد سكون أصلي لازم — مثل موجة المحيط (6 حركات)"}, {"ar": "مد البدل", "en": "Replacement Madd", "note": "تقدّم الهمز على حرف المد (حركتان في رواية حفص)"}, {"ar": "المد العارض للسكون", "en": "Temporary Madd", "note": "عند الوقف على حرف قبل آخره حرف مد (2 أو 4 أو 6)"}, {"ar": "مد اللين", "en": "Soft Madd", "note": "الواو أو الياء الساكنتان المفتوح ما قبلهما عند الوقف"}, {"ar": "مد الصلة الصغرى / الكبرى", "en": "Minor / Major Linking Madd", "note": "الصغرى (حركتان) والكبرى عند الهمز (4 حركات)"}]}, {"ch": "الباب الرابع: القلقلة (Vibration / Echo)", "badge": "3 مصطلحات + لغز الأسماء", "analogy": "⚡ تشبيهات القلقلة العبقرية: ① لغز الأسماء: قل للطالب «عندي أصدقاء أسماؤهم: أحمـ..، صهيـ..، سعـ..» دون نطق الحرف الأخير، واسأله هل عرفت الأسماء؟ سيكتشف فورًا أن سكون حروف (ق ط ب ج د) يخنق الحرف ويُخفيه إن لم نقلقله! ② القطة مقابل الجاموسة: يسهل إمساك القطة، لكن حروف القلقلة قوية مثل الجاموسة تحاول الإفلات من السكون. ③ كرة التنس المرتدّة (Bouncing ball): لضبط ارتداد صوتي صافٍ دون إمالة لفتحة أو كسرة أو ضمة.", "items": [{"ar": "القلقلة", "en": "Vibration / Echo", "note": "اضطراب وارتداد الحرف الساكن (ق ط ب ج د) لوضوح صوته"}, {"ar": "القلقلة الصغرى", "en": "Lesser Vibration", "note": "عندما يأتي حرف القلقلة الساكن في وسط الكلمة أو الكلام"}, {"ar": "القلقلة الكبرى", "en": "Greater Vibration", "note": "عند الوقف على حرف القلقلة في آخر الكلمة"}]}, {"ch": "الباب الخامس: أحكام الراء — التفخيم (Heavy / Tafkhīm) والترقيق (Light / Tarqīq)", "badge": "8 حالات + 11 مثالًا قرآنيًا", "analogy": "⚖️ قاعدة التيسير السريعة لأحكام الراء: 4 حالات للتفخيم (Heavy) مقابل 4 حالات للترقيق (Light)؛ وأهم فخين ينبغي تنبيه الطالب لهما: ① الفرق بين الكسرة الأصلية في «فِرْعَوْن» (ترقيق Light) وبين الكسرة العارضة لهمزة الوصل في «ٱرْجِعُوا» (تفخيم Heavy). ② الوقف على «وَالْفَجْرْ / الْأُمُورْ» (تفخيم Heavy) مقابل الوقف على «السِّحْرْ» أو بعد ياء ساكنة في «خَبِير / قَدِير» (ترقيق Light).", "items": [{"ar": "تفخيم ١: راء مفتوحة أو مضمومة", "en": "With Dammah or Fathah (Heavy)", "note": "الأمثلة: رُسُل · رَبَّنَا"}, {"ar": "تفخيم ٢: ساكنة بعد فتح", "en": "Sakinah preceded by Fathah (Heavy)", "note": "المثال: يَرْجِعُونَ"}, {"ar": "تفخيم ٣: ساكنة للوقف بعد ساكن (غير الياء)", "en": "Sakinah due to stopping after non-Yaa (Heavy)", "note": "الأمثلة عند الوقف: وَالْفَجْرْ · الْأُمُورْ"}, {"ar": "تفخيم ٤: ساكنة بعد كسر عارض (همزة وصل)", "en": "Sakinah after temporary kasrah (Heavy)", "note": "المثال: ٱرْجِعُوا"}, {"ar": "ترقيق ١: راء مكسورة", "en": "Raa with Kasrah (Light)", "note": "المثال: رِجَال"}, {"ar": "ترقيق ٢: ساكنة بعد كسر أصلي", "en": "Sakinah preceded by Original Kasrah (Light)", "note": "المثال: فِرْعَوْن"}, {"ar": "ترقيق ٣: ساكنة بعد ساكن قبله كسر (مثل الياء)", "en": "Sakinah after Sakin preceded by Kasrah (Light)", "note": "الأمثلة: خَبِير · قَدِير"}, {"ar": "ترقيق ٤: ساكنة للوقف بعد ساكن قبله كسر", "en": "Sakinah due to stopping after Sakin & Kasrah (Light)", "note": "المثال عند الوقف: السِّحْرْ"}]}, {"ch": "الباب السادس: اللام القمرية واللام الشمسية", "badge": "مصطلحان مبسّطان", "analogy": "🌙☀️ التبسيط السريع: اللام القمرية (Lunar Laam) تُكتب وتُنطق بوضوح مثل ظهور القمر ليلًا (Clear)، واللام الشمسية (Solar Laam) تُكتب ولا تُنطق وتندمج في الحرف المشدد بعدها كما يُخفي ضوء الشمس النجوم!", "items": [{"ar": "اللام القمرية", "en": "Lunar Laam", "note": "لام التعريف المُظهَرة التي تُنطق بوضوح"}, {"ar": "اللام الشمسية", "en": "Solar Laam", "note": "لام التعريف المُدغَمة التي تندمج في الحرف التالي"}]}];
+const MCQ = [{"q": "ما المقابل الإنجليزي المبسّط الذي نستخدمه مع الطالب الأجنبي لشرح حكم «الإظهار» في النون الساكنة؟", "o": ["Merging with Nasal Sound", "Clear Pronunciation", "Vibration / Echo", "Lip Concealment"], "a": 1, "e": "الإظهار يُترجم ويُبسّط للطالب الأجنبي بـ Clear Pronunciation (النطق الواضح)."}, {"q": "ما المصطلح الإنجليزي المبسّط لـ «الخيشوم» وما وظيفته المذكورة في ملف التدريب؟", "o": ["Lip Merging — The place of heavy letters", "Lunar Laam — The place of clear pronunciation", "Temporary Madd — The place of stopping", "Nasal Passage — The place where Ghunnah comes from"], "a": 3, "e": "الخيشوم هو Nasal Passage (الممر الأنفي)، وهو المخرج الذي تصدر منه الغنة (Nasal Sound)."}, {"q": "كيف وُصف حكم «الإخفاء» باللغة الإنجليزية في جدول المحاضرة لتقريب حقيقته الصوتية للطالب؟", "o": ["Changing — Between Noon and Baa", "Hiding / Concealing — Between clear and merging", "Clear Lip Pronunciation", "Greater Vibration"], "a": 1, "e": "الإخفاء (Hiding / Concealing) حالة وسط بين الإظهار والإدغام (Between clear and merging)."}, {"q": "لماذا استبعدنا تشبيه «الهاتف الصامت (Silent) في الجيب فلا يُسمع له صوت» عند شرح «الإخفاء»، وما التشبيه الأدق تجويديًا؟", "o": ["لأن «الصامت بلا صوت» يصف الإدغام بغير غنة، بينما في الإخفاء يبقى صوت الغنة مسموعًا حركتين من الأنف مع إخفاء مخرج اللسان وتجهيز الفم للحرف التالي (مثل أَنكَالًا)", "لأن الهاتف الصامت يصف الإظهار الحلقي", "لأن الإخفاء لا توجد فيه أي غنة إطلاقًا", "لأن الإخفاء يكون بلمس طرف اللسان لسقف الفم بقوة"], "a": 0, "e": "في الإخفاء يختفي «مخرج اللسان» (لا يلمس سقف الفم)، لكن «صوت الغنة» يخرج مسموعًا حركتين من الأنف كالستارة الشفافة."}, {"q": "كيف تُبسّط قصة «الإقلاب (Changing)» للطالب غير العربي، ولماذا كانت دقيقة تجويديًا؟", "o": ["تُقلب النون إلى لام شمسية", "تُحذف النون والباء معًا ويُقرأ الحرف التالي", "تتحول الباء إلى نون واضحة بلا غنة", "ثقل اجتماع النون مع الباء فتتدخل «الميم» كوسيط مُصلِح تجلس مكان النون، لأنها تشارك الباء في الشفتين وتشارك النون في الغنة"], "a": 3, "e": "قصة الوسيط «الميم» مطابقة تمامًا للعلة الصوتية في علم التجويد مع تلامس لطيف للشفتين بغنة حركتين."}, {"q": "عند شرح «الإظهار» بتشبيه الهاتف الظاهر أمام الكاميرا، ما التنبيه التجويدي المهم للمعلم حتى لا يلتبس الأمر على الطالب؟", "o": ["أن الإظهار يتطلب غنة طويلة بمقدار أربع حركات", "أن سماع الصوت هنا يُقصد به أصل الصوت الطبيعي السريع للنون الواضحة، وليس تطويل الغنة حركتين", "أن الهاتف يُخفى في الجيب في حالة الإظهار", "أن الإظهار لا يُنطق فيه حرف النون"], "a": 1, "e": "في الإظهار ننطق النون واضحة سريعة دون تطويل غنة؛ والغنة المطوّلة تكون في الإدغام بغنة والإقلاب والإخفاء."}, {"q": "أي تشبيه مما يلي يفرّق بوضوح ولطف بين «الإدغام بغنة» و«الإدغام بغير غنة»؟", "o": ["موجة النهر مقابل موجة المحيط", "تشبيك اليدين أو وضع الهاتف في الجيب: إن رنّ وسمعنا صوتًا من الأنف = إدغام بغنة، وإن كان صامتًا ورأينا أثر دخوله فقط = إدغام بغير غنة", "نطق اسم «أحمـ..» دون حرف الدال", "إظهار الهاتف أمام الكاميرا بوضوح في الحالتين"], "a": 1, "e": "تشبيه الهاتف في الجيب (مع الرنين = غنة، وصامت = بغير غنة) وتشبيك اليدين واضحان ولطيفان ومطابقان للتجويد."}, {"q": "ما الكلمة الإنجليزية المشتركة في جميع مصطلحات أحكام «الميم الساكنة (Meem with Sukoon)» الثلاثة في ملف المحاضرة؟", "o": ["Lip (Lip Concealment · Lip Merging · Clear Lip Pronunciation)", "Nasal (Nasal Concealment · Nasal Merging)", "Soft (Soft Concealment · Soft Merging)", "Throat (Throat Clear · Throat Merging)"], "a": 0, "e": "ربط أحكام الميم بكلمة Lip (الشفة) يرسّخ مخرج الميم الشفوي ويجعل الطالب يستوعب الأحكام الثلاثة فورًا."}, {"q": "ما المقابل العربي الدقيق لمصطلح «Lip Concealment» الوارد في جدول المحاضرة؟", "o": ["الإخفاء الشفوي", "الإقلاب", "الإظهار الشفوي", "الإدغام الشفوي"], "a": 0, "e": "Lip Concealment = الإخفاء الشفوي، Lip Merging = الإدغام الشفوي، Clear Lip Pronunciation = الإظهار الشفوي."}, {"q": "ما المعنى الإنجليزي المبسّط لحكم «إدغام بغنة» كما ورد في الملف؟", "o": ["Changing", "Merging with Nasal Sound", "Hiding / Concealing", "Clear Pronunciation"], "a": 1, "e": "الإدغام = Merging، والغنة = Nasal Sound، فيكون إدغام بغنة = Merging with Nasal Sound."}, {"q": "في تشبيه «الأمواج» لتيسير أزمنة المد (Stretching) لغير العرب، كيف تتدرج الأمواج الثلاث؟", "o": ["جميع الأمواج الثلاث تمثّل حركتين فقط", "موجة النهر = 6 حركات، موجة البحر = 4 حركات، موجة المحيط = حركتان", "موجة النهر = حركتان، موجة البحر = 4 حركات، موجة المحيط = 6 حركات", "موجة النهر = 4 حركات، وموجة البحر = حركتان"], "a": 2, "e": "التدرّج البصري (نهر 2 ← بحر 4 ← محيط 6) يجعل الطالب يتخيل طول المد بسهولة دون حفظ أرقام جامدة."}, {"q": "ما المصطلحان الإنجليزيان المبسّطان للقسمين الرئيسيين للمد: «المد الأصلي» و«المد الفرعي»؟", "o": ["Lesser Madd و Greater Madd", "Minor Madd و Major Madd", "Original Madd و Secondary Madd", "Lunar Madd و Solar Madd"], "a": 2, "e": "المد (Stretching) ينقسم إلى المد الأصلي (Original Madd) والمد الفرعي (Secondary Madd)."}, {"q": "أي زوج من أزواج المدود التالية مطابق تمامًا لما ورد في جدول المحاضرة؟", "o": ["المد المتصل = Separated Madd · المد المنفصل = Connected Madd", "المد اللازم = Soft Madd · مد اللين = Necessary Madd", "المد المتصل = Connected Madd · المد المنفصل = Separated Madd · المد اللازم = Necessary Madd", "المد الطبيعي = Temporary Madd · المد العارض للسكون = Natural Madd"], "a": 2, "e": "هذه المصطلحات الإنجليزية الواضحة تعبّر مباشرة عن معنى كل مد دون ترجمة حرفية معقدة."}, {"q": "ما المصطلح الإنجليزي المبسّط لكل من: «مد البدل»، و«المد العارض للسكون»، و«مد اللين» على الترتيب؟", "o": ["Minor Linking Madd · Major Linking Madd · Original Madd", "Natural Madd · Connected Madd · Necessary Madd", "Replacement Madd · Temporary Madd · Soft Madd", "Secondary Madd · Separated Madd · Clear Madd"], "a": 2, "e": "Replacement Madd (البدل)، Temporary Madd (العارض للسكون)، Soft Madd (مد اللين)."}, {"q": "ما المقابل الإنجليزي لـ «مد الصلة الصغرى» و«مد الصلة الكبرى» في الملف؟", "o": ["Soft Madd و Replacement Madd", "Minor Linking Madd و Major Linking Madd", "Original Madd و Secondary Madd", "Lesser Vibration و Greater Vibration"], "a": 1, "e": "الصلة الصغرى = Minor Linking Madd (حركتان كالنهر)، والصلة الكبرى = Major Linking Madd (4 حركات كالبحر)."}, {"q": "وفق تشبيه الأمواج، أي مدّين يمثّلان «موجة النهر (حركتان)» و«موجة المحيط (6 حركات)» على الترتيب؟", "o": ["المد الطبيعي (Natural Madd) = موجة النهر، والمد اللازم (Necessary Madd) = موجة المحيط", "مد الصلة الصغرى = موجة المحيط، والمد اللازم = موجة البحر", "المد المتصل = موجة النهر، ومد البدل = موجة المحيط", "المد اللازم = موجة النهر، والمد الطبيعي = موجة المحيط"], "a": 0, "e": "الطبيعي حركتان (النهر)، المتصل والمنفصل 4 حركات (البحر)، واللازم 6 حركات (المحيط)."}, {"q": "ما المقابل الإنجليزي المبسّط للقلقلة ولنوعيها «القلقلة الصغرى» و«القلقلة الكبرى»؟", "o": ["Vibration / Echo · Lesser Vibration · Greater Vibration", "Heavy Raa · Light Raa · Lunar Laam", "Hiding · Changing · Merging", "Minor Linking · Major Linking · Stretching"], "a": 0, "e": "القلقلة (Vibration / Echo)، والقلقلة الصغرى (Lesser Vibration)، والقلقلة الكبرى (Greater Vibration)."}, {"q": "ما الهدف العلمي والتربوي الرائع من «لغز الأسماء» (نطق «أحمـ..، صهيـ..، سعـ..» دون نطق الحرف الأخير) عند شرح القلقلة؟", "o": ["التفريق بين اللام القمرية واللام الشمسية", "تعليم الطالب أن يحذف الحرف الأخير عند الوقف", "اختبار الطالب في حفظ أسماء أصدقاء المعلم", "إقناع الطالب عمليًا بعِلّة القلقلة: أن حروف (ق ط ب ج د) قوية ينحبس فيها الصوت والنفس عند السكون، فلو لم نقلقلها لاختفى الحرف وضاع آخر الكلمة"], "a": 3, "e": "لغز الأسماء يكشف الحاجة الصوتية الحقيقية للقلقلة، ثم يُكمّله تشبيه «القطة مقابل الجاموسة» و«كرة التنس المرتدة»."}, {"q": "لماذا يُفضّل إرداف تشبيه «القطة مقابل الجاموسة» بتشبيه «كرة التنس المرتدّة (Bouncing ball)» في شرح القلقلة؟", "o": ["لإلغاء القلقلة الكبرى عند الوقف", "لجعل القلقلة مائلة دائمًا إلى الفتحة", "لأن القلقلة لا تكون إلا في حرف القاف وحده", "ليضبط الطالب صوت الارتداد الصافي للحرف دون أن يُميل القلقلة إلى فتحة أو كسرة أو ضمة"], "a": 3, "e": "«القطة والجاموسة» يشرح قوة الحرف أمام السكون، و«كرة التنس» يضبط نقاء الارتداد الصوتي."}, {"q": "ما المقابل الإنجليزي المبسّط لكل من «اللام القمرية» و«اللام الشمسية» في ختام جدول المحاضرة؟", "o": ["Clear Laam و Nasal Laam", "Lesser Laam و Greater Laam", "Light Laam و Heavy Laam", "Lunar Laam و Solar Laam"], "a": 3, "e": "اللام القمرية = Lunar Laam (تُنطق واضحة)، واللام الشمسية = Solar Laam (تُدغم في الحرف التالي)."}, {"q": "في مثالَي الملف «رُسُل» و«رَبَّنَا»، كيف تُنطق الراء (Heavy أم Light) وما السبب المذكور؟", "o": ["مرقّقة (Light / Tarqīq) لأنها في أول الكلمة", "مفخّمة (Heavy / Tafkhīm) لأن الراء عليها ضمة أو فتحة (With Ḍammah or Fatḥah)", "مرقّقة لأن بعدها حرفًا مرققًا", "مفخّمة لأنها ساكنة بعد كسر عارض"], "a": 1, "e": "الحالة الأولى للتفخيم: إذا كانت الراء مضمومة (رُسُل) أو مفتوحة (رَبَّنَا) فهي مفخّمة (Heavy)."}, {"q": "في مثال الملف «يَرْجِعُونَ»، ما حكم الراء وما السبب الدقيق؟", "o": ["مرقّقة لأنها ساكنة في وسط الكلمة", "مرقّقة (Light) لأن بعدها جيمًا مكسورة", "مفخّمة (Heavy) لأنها ساكنة وما قبلها مفتوح (Sākinah preceded by Fatḥah)", "مفخّمة لأنها مضمومة"], "a": 2, "e": "الحالة الثانية للتفخيم في الملف: الراء الساكنة المسبوقة بفتحة مثل «يَرْجِعُونَ»."}, {"q": "عند الوقف (Waqf) على كلمتي الملف «وَالْفَجْرْ» و«الْأُمُورْ»، كيف تُنطق الراء ولماذا؟", "o": ["مرقّقة لأن قبلها حرفًا ساكنًا", "تُحذف الراء تمامًا عند الوقف", "مرقّقة (Light) لأن كل راء موقوف عليها تُرقّق دائمًا", "مفخّمة (Heavy) لأنها سكنت للوقف وسبقها ساكن ليس ياءً (ومفتوح أو مضموم ما قبله)"], "a": 3, "e": "الحالة الثالثة للتفخيم: الساكنة للوقف بعد ساكن غير الياء (مثل وَالْفَجْرْ، الْأُمُورْ) بشرط أن يسبق ذلك فتح أو ضم."}, {"q": "في مثال الملف «ٱرْجِعُوا»، رغم وجود كسرة قبل الراء الساكنة، ما حكم الراء وما العِلّة؟", "o": ["تبقى مفخّمة (Heavy) لأن الكسرة التي قبلها كسرة عارضة (Temporary kasrah) ناتجة عن همزة الوصل", "تُقلقَل الراء هنا قلقلة صغرى", "تُرقّق (Light) لأن كل كسرة قبل الراء الساكنة توجب الترقيق", "تُمدّ الراء حركتين كمد طبيعي"], "a": 0, "e": "الحالة الرابعة للتفخيم: الراء الساكنة بعد كسر عارض (Temporary kasrah caused by Hamzat al-Waṣl) مثل «ٱرْجِعُوا» تبقى مفخّمة."}, {"q": "ما حكم الراء في مثال الملف «رِجَال» وما السبب؟", "o": ["مفخّمة لأنها في أول الكلمة", "مفخّمة (Heavy) لأن بعدها ألف مد", "مرقّقة (Light / Tarqīq) لأن الراء مكسورة (Rā’ with Kasrah)", "مرقّقة لأنها ساكنة للوقف"], "a": 2, "e": "الحالة الأولى للترقيق: الراء المكسورة (ـِ) تُرقّق دائمًا مثل «رِجَال»."}, {"q": "ما الفارق الدقيق الذي يجب أن يوضحه المعلم لطالبه الأجنبي بين الراء في «فِرْعَوْن» والراء في «ٱرْجِعُوا»؟", "o": ["كلتاهما مرقّقتان دائمًا", "في «فِرْعَوْن» الراء مفخّمة وفي «ٱرْجِعُوا» الراء مرقّقة", "في «فِرْعَوْن» الكسرة أصلية (Original/permanent kasrah) فتُرقّق الراء (Light)، أما في «ٱرْجِعُوا» فالكسرة عارضة (Temporary kasrah) لهمزة الوصل فتُفخّم الراء (Heavy)", "كلتاهما مفخّمتان دائمًا"], "a": 2, "e": "هذا من أدق الفروق العملية التي يقع فيها الطلاب، والتمييز بين Original Kasrah وTemporary Kasrah يحسمها ببساطة."}, {"q": "في مثالَي الملف «خَبِير» و«قَدِير» عند الوقف عليهما، لماذا تُرقّق الراء (Light)؟", "o": ["لأنها مسبوقة بضمة", "لأنها مسبوقة بفتحة", "لأن الراء نفسها مكسورة عند الوقف", "لأن الراء سكنت (للوقف) وقبلها حرف ساكن (الياء) وقبله كسرة (Sākinah preceded by a Sākin letter preceded by Kasrah)"], "a": 3, "e": "الحالة الثالثة للترقيق في الملف: الساكنة المسبوقة بساكن (خاصة الياء) قبله كسرة مثل «خَبِير» و«قَدِير»."}, {"q": "عند الوقف على كلمة «السِّحْرْ» مقارنةً بالوقف على كلمة «وَالْفَجْرْ»، ما الحكم الصحيح لكل منهما؟", "o": ["«السِّحْرْ» مرقّقة (Light) لأن قبل الحرف الساكن كسرة، أما «وَالْفَجْرْ» فمفخّمة (Heavy) لأن قبل الحرف الساكن فتحة", "كلتاهما مرقّقتان بسبب الوقف", "«السِّحْرْ» مفخّمة و«وَالْفَجْرْ» مرقّقة", "كلتاهما مفخّمتان لأن قبل الراء حرفًا ساكنًا"], "a": 0, "e": "مقارنة «وَالْفَجْرْ» (فتح + ساكن + راء ← Heavy) مع «السِّحْرْ» (كسر + ساكن + راء ← Light) تثبّت قاعدة الوقف في ثوانٍ."}, {"q": "ما المنهجية الجوهرية لدورة المعلم المستقل في تدريس التجويد لغير الناطقين بالعربية؟", "o": ["تبسيط القواعد بمصطلحات إنجليزية عملية وتشبيهات حسّية منضبطة بما يحتاجه الطالب فعليًا داخل الحصة، بعيدًا عن التعقيد النظري", "استخدام مصطلحات صوتية أكاديمية معقدة لإبهار الطالب المبتدئ", "إملاء متون التجويد كاملة باللغة العربية الصعبة قبل التطبيق", "الامتناع تمامًا عن تصحيح التجويد لغير العرب"], "a": 0, "e": "نجاح معلم التجويد لغير العرب يكون بتحويل القاعدة إلى تطبيق عملي سهل ومحبّب داخل الحصة."}, {"q": "لماذا يُنصح المتدرب في ختام المحاضرة السادسة بتكرار شرح كل باب «بصوته لنفسه بالمحاكاة» قبل دخوله الحصة الحقيقية مع طالب أجنبي؟", "o": ["لحفظ الجدول الإنجليزي دون فهم أمثلته القرآنية", "لأن طلاقة الشرح المبسّط باللغة الإنجليزية مع التشبيه الصحيح مهارة أدائية لا تثبت بمجرد القراءة الصامتة، بل بالمحاكاة والتكرار الصوتي", "لأن الطلاب الأجانب لا يسألون أي أسئلة أثناء الحصة", "لأن القراءة الصامتة وحدها كافية لإتقان الشرح فورًا"], "a": 1, "e": "المحاكاة الصوتية لكل باب تكسر التردد وتمنحك ثقة وطلاقة فورية عند الشرح الفعلي للطالب."}];
+const TF = [{"q": "المقابل الإنجليزي المبسّط لحكم «الإظهار» هو Clear Pronunciation.", "a": true, "e": "صحيح؛ ومعناه النطق الواضح للنون من مخرجها."}, {"q": "كلمة «الغنة» تُشرح للطالب الأجنبي بعبارة Nasal Sound، و«الخيشوم» بعبارة Nasal Passage.", "a": true, "e": "صحيح؛ والخيشوم هو The place where Ghunnah comes from."}, {"q": "تشبيه «الهاتف الصامت (Silent) في الجيب دون أي صوت» يُعدّ تشبيهًا دقيقًا تجويديًا لحكم «الإخفاء».", "a": false, "e": "خطأ؛ لأن الإخفاء فيه صوت غنة مسموع حركتين من الأنف، أما «الصامت بلا صوت» فيصف الإدغام بغير غنة."}, {"q": "يُعرّف «الإخفاء (Hiding / Concealing)» للطالب بأنه حالة وسط بين الإظهار والإدغام (Between clear and merging).", "a": true, "e": "صحيح؛ حيث يُخفى مخرج اللسان للنون ويبقى صوت الغنة مع تجهيز الفم للحرف التالي مثل «أَنكَالًا»."}, {"q": "تشبيك اليدين أو إدخال الهاتف في الجيب يقرّبان للطالب معنى «الإدغام (Merging)» باعتباره إدخال شيء في شيء.", "a": true, "e": "صحيح؛ فإذا سُمع صوت الرنين من الجيب فهذا إدغام بغنة، وإذا كان صامتًا ورأينا الأثر فقط فهذا إدغام بغير غنة."}, {"q": "قصة الخصام بين النون والباء وتدخّل «الميم» لتجلس مكان النون في «الإقلاب (Changing)» تتوافق مع العِلّة الصوتية الحقيقية في علم التجويد.", "a": true, "e": "صحيح؛ لأن الميم تشارك الباء في الشفتين وتشارك النون في الغنة، وتُخفى بتلامس لطيف دون كزّ."}, {"q": "عند شرح «الإظهار» بتشبيه الهاتف أمام الكاميرا، يجب أن نُطيل الغنة بمقدار حركتين كما نفعل في الإخفاء.", "a": false, "e": "خطأ؛ الإظهار نطق واضح طبيعي سريع للنون دون تطويل غنة."}, {"q": "المقابل الإنجليزي لـ «الإخفاء الشفوي» هو Lip Concealment، ولـ «الإدغام الشفوي» هو Lip Merging.", "a": true, "e": "صحيح؛ و«الإظهار الشفوي» هو Clear Lip Pronunciation."}, {"q": "تُترجم كلمة «المد» بـ Stretching، وينقسم المد إلى Original Madd (أصلي) وSecondary Madd (فرعي).", "a": true, "e": "صحيح؛ كما ورد في جدول المحاضرة."}, {"q": "في تشبيه الأمواج لتبسيط أزمنة المد: تمثّل «موجة النهر» 6 حركات وتمثّل «موجة المحيط» حركتين فقط.", "a": false, "e": "خطأ؛ العكس تمامًا: النهر = حركتان، البحر = 4 حركات، والمحيط = 6 حركات."}, {"q": "المد الطبيعي يُسمّى بالإنجليزية Natural Madd، والمد المتصل Connected Madd، والمنفصل Separated Madd.", "a": true, "e": "صحيح؛ وهي مصطلحات مبسّطة واضحة جدًا للطالب الناطق بالإنجليزية."}, {"q": "المقابل الإنجليزي لـ «المد العارض للسكون» هو Necessary Madd، ولـ «المد اللازم» هو Temporary Madd.", "a": false, "e": "خطأ؛ العكس تمامًا: المد اللازم = Necessary Madd، والمد العارض للسكون = Temporary Madd."}, {"q": "يُعبَّر عن «مد البدل» بـ Replacement Madd، وعن «مد اللين» بـ Soft Madd.", "a": true, "e": "صحيح؛ كما ورد في جدول المحاضرة."}, {"q": "يُعبَّر عن «مد الصلة الصغرى» بـ Minor Linking Madd، وعن «مد الصلة الكبرى» بـ Major Linking Madd.", "a": true, "e": "صحيح؛ فالصغرى تلحق بموجة النهر (حركتان) والكبرى بموجة البحر (4 حركات)."}, {"q": "«الحركة» في قياس المدود تساوي دائمًا ثانيةً كاملة بالساعة بغض النظر عن سرعة قراءة الطالب.", "a": false, "e": "خطأ؛ الحركة مقدار زمني نسبي يتناسب مع سرعة القراءة (التحقيق أو التدوير أو الحدر) وليس ثانية بالساعة."}, {"q": "تُشرح «القلقلة» بالإنجليزية بكلمتي Vibration / Echo، وتنقسم إلى Lesser Vibration (صغرى) وGreater Vibration (كبرى).", "a": true, "e": "صحيح؛ كما جاء في جدول المحاضرة."}, {"q": "لغز الأسماء (نطق «أحمـ..، صهيـ..، سعـ..» دون الحرف الأخير) يوضح للطالب لماذا يختفي حرف القلقلة الساكن إذا لم نُقلقله.", "a": true, "e": "صحيح؛ لأن حروف القلقلة (ق ط ب ج د) تجتمع فيها الشدة والجهر فيُحبس صوتها ونفسها بالسكون."}, {"q": "تشبيه «القطة مقابل الجاموسة» يُقصد به أن حروف القلقلة حروف ضعيفة يسهل حبسها بالسكون.", "a": false, "e": "خطأ؛ بل يُقصد به أن حروف القلقلة حروف قوية صعبة الحبس (كالجاموسة)، وتُردَف بتشبيه «كرة التنس المرتدة» لضبط نقاء الارتداد."}, {"q": "يُعبَّر عن تفخيم الراء بالإنجليزية بكلمة Heavy (tafkhīm) وعن ترقيقها بكلمة Light (tarqīq).", "a": true, "e": "صحيح؛ وهي نفس فكرة التبسيط التي يسهل على الطالب الأجنبي استيعابها فورًا."}, {"q": "الراء في كلمتي «رُسُل» و«رَبَّنَا» تُنطق مرقّقة (Light) لأنها جاءت في أول الكلمة.", "a": false, "e": "خطأ؛ الراء المضمومة (رُسُل) والمفتوحة (رَبَّنَا) تُنطق مفخّمة (Heavy)."}, {"q": "الراء في كلمة «يَرْجِعُونَ» مفخّمة (Heavy) لأنها ساكنة وما قبلها مفتوح.", "a": true, "e": "صحيح؛ Sākinah preceded by Fatḥah ← Heavy."}, {"q": "عند الوقف على كلمتي «وَالْفَجْرْ» و«الْأُمُورْ»، تُنطق الراء مرقّقة (Light).", "a": false, "e": "خطأ؛ بل تُنطق مفخّمة (Heavy) لأنها سكنت للوقف بعد ساكن غير الياء مسبوق بفتح أو ضم."}, {"q": "الراء في كلمة «ٱرْجِعُوا» تبقى مفخّمة (Heavy) لأن الكسرة قبلها كسرة عارضة (Temporary kasrah) لهمزة الوصل.", "a": true, "e": "صحيح؛ وهذا من أهم الفروق التطبيقية في باب الراء."}, {"q": "الراء في كلمة «رِجَال» مفخّمة (Heavy) لأن بعدها حرف الجيم.", "a": false, "e": "خطأ؛ الراء المكسورة (ـِ) في «رِجَال» مرقّقة (Light)."}, {"q": "الراء في كلمة «فِرْعَوْن» مرقّقة (Light) لأنها ساكنة بعد كسرة أصلية (Original kasrah).", "a": true, "e": "صحيح؛ بخلاف الكسرة العارضة في «ٱرْجِعُوا»."}, {"q": "الراء عند الوقف على «خَبِير» و«قَدِير» تُفخّم لأن قبلها حرفًا ساكنًا.", "a": false, "e": "خطأ؛ بل تُرقّق (Light) لأن الساكن قبلها ياء مسبوقة بكسر (Sākinah preceded by Sākin preceded by Kasrah)."}, {"q": "عند الوقف على كلمة «السِّحْرْ» تُنطق الراء مرقّقة (Light) لأن قبل الساكن الذي يسبقها كسرة.", "a": true, "e": "صحيح؛ وهي الحالة الرابعة للترقيق في الملف."}, {"q": "تُسمّى اللام القمرية بالإنجليزية Solar Laam، واللام الشمسية Lunar Laam.", "a": false, "e": "خطأ؛ العكس تمامًا: اللام القمرية = Lunar Laam، واللام الشمسية = Solar Laam."}, {"q": "تقديم المصطلح التجويدي بأبسط عبارة إنجليزية مع مثال قرآني وتشبيه حسّي منضبط أنفع للطالب الأجنبي من حشو المصطلحات المعقدة.", "a": true, "e": "صحيح؛ وهذه هي الفلسفة العملية للمحاضرة السادسة."}, {"q": "يكفي للمعلم قراءة جدول المصطلحات الإنجليزية صامتًا مرة واحدة دون محاكاة شرح كل باب بصوته قبل الحصة.", "a": false, "e": "خطأ؛ المحاكاة الصوتية وتكرار شرح كل باب لنفسك هما ما يرسّخان طلاقة الشرح داخل الحصة."}];
+const CHAPTERS = [{"num": 1, "pts": 15, "title": "الباب الأول: أحكام النون الساكنة والتنوين والغنة", "desc": "اشرح كل حكم من هذه الأحكام السبعة لنفسك بصوت مسموع (أو مع زميل) بالإنجليزية المبسطة وبالتشبيهات المنضبطة، ثم اضغط على أيقونة كل حكم أنجزته:", "chips": ["الإظهار (Clear Pronunciation)", "الغنة (Nasal Sound)", "الخيشوم (Nasal Passage)", "الإدغام (Merging)", "إدغام بغنة (Merging + Nasal)", "الإقلاب (Changing)", "الإخفاء (Hiding / Concealing)"], "ph": "اكتب هنا خلاصة ما خرجت به من هذا الباب، أو جملتك الإنجليزية والتشبيه الذي ستستخدمه لشرح أحد أحكام النون..."}, {"num": 2, "pts": 15, "title": "الباب الثاني: أحكام الميم الساكنة (Meem with Sukoon)", "desc": "تدرّب بالمحاكاة على شرح الأحكام الشفوية الثلاثة وربطها بكلمة (Lip) لتسهيل حفظها على الطالب الأجنبي:", "chips": ["الإخفاء الشفوي (Lip Concealment)", "الإدغام الشفوي (Lip Merging)", "الإظهار الشفوي (Clear Lip Pronunciation)"], "ph": "اكتب ما خرجت به من باب الميم الساكنة وكيف ستربطه بما درسه الطالب في النون الساكنة..."}, {"num": 3, "pts": 15, "title": "الباب الثالث: المدود (Stretching) وتشبيه الأمواج", "desc": "تدرّب بالمحاكاة على شرح المد الأصلي والفرعي وتطبيق تشبيه الأمواج (النهر 2 ← البحر 4 ← المحيط 6) على أنواع المدود:", "chips": ["المد الأصلي (Original Madd)", "المد الفرعي (Secondary Madd)", "الطبيعي (Natural · النهر 2)", "المتصل (Connected · البحر 4)", "المنفصل (Separated · البحر 4)", "اللازم (Necessary · المحيط 6)", "البدل (Replacement)", "العارض للسكون (Temporary)", "مد اللين (Soft Madd)", "الصلة الصغرى والكبرى (Minor/Major Linking)"], "ph": "اكتب خلاصة فهمك لأبواب المدود وكيف ستشرح تشبيه «موجة النهر والبحر والمحيط» للطالب..."}, {"num": 4, "pts": 15, "title": "الباب الرابع: القلقلة (Vibration / Echo)", "desc": "تدرّب بصوتك على تنفيذ «لغز الأسماء» (أحمـ.. / صهيـ.. / سعـ..) مع تشبيه «القطة مقابل الجاموسة» و«كرة التنس المرتدة» والتمييز بين الصغرى والكبرى:", "chips": ["مفهوم القلقلة (Vibration / Echo + لغز الأسماء)", "القلقلة الصغرى (Lesser Vibration)", "القلقلة الكبرى (Greater Vibration)"], "ph": "اكتب طريقتك المبسطة في شرح القلقلة ومنع الطالب من إمالتها إلى فتحة أو كسرة..."}, {"num": 5, "pts": 15, "title": "الباب الخامس: أحكام الراء (Heavy Tafkhīm vs. Light Tarqīq)", "desc": "تدرّب بالمحاكاة على شرح حالات التفخيم الأربع وحالات الترقيق الأربع بالأمثلة القرآنية الـ 11 الموجودة في ملف المحاضرة:", "chips": ["تفخيم ١: فتح/ضم (رُسُل، رَبَّنَا)", "تفخيم ٢: ساكنة بعد فتح (يَرْجِعُونَ)", "تفخيم ٣: وقف بعد ساكن غير الياء (وَالْفَجْرْ، الْأُمُورْ)", "تفخيم ٤: بعد كسر عارض (ٱرْجِعُوا)", "ترقيق ١: مكسورة (رِجَال)", "ترقيق ٢: بعد كسر أصلي (فِرْعَوْن)", "ترقيق ٣: بعد ساكن قبله كسر (خَبِير، قَدِير)", "ترقيق ٤: وقف بعد ساكن قبله كسر (السِّحْرْ)"], "ph": "اكتب ملخصك العملي لكيفية التمييز السريع للطالب بين «فِرْعَوْن» و«ٱرْجِعُوا»، وبين «وَالْفَجْرْ» و«السِّحْرْ»..."}, {"num": 6, "pts": 15, "title": "الباب السادس: اللام القمرية واللام الشمسية", "desc": "تدرّب بالمحاكاة على شرح الفرق العملي بين اللام القمرية (Lunar Laam) واللام الشمسية (Solar Laam) مع مثالين واضحين للطالب:", "chips": ["اللام القمرية (Lunar Laam)", "اللام الشمسية (Solar Laam)"], "ph": "اكتب ما خرجت به من هذا الباب ومثالين ستستخدمهما مع طلابك للتفريق بين Lunar وSolar Laam..."}];
+const TOTAL_CHIPS = CHAPTERS.reduce(function(a, c){ return a + c.chips.length; }, 0);
+
+(function(){
+  /* Logo & Favicon */
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+
+  /* Theme Sync */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* Toast Helper */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 3000);
+  }
+
+  /* Speech Synthesis for English Tajweed Terms */
+  function speakEn(txt){
+    if(!("speechSynthesis" in window)){ toast("متصفحك لا يدعم النطق الصوتي الآلي."); return; }
+    try{
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(txt.replace(/\([^)]*\)/g, "").trim());
+      u.lang = "en-US";
+      u.rate = 0.9;
+      window.speechSynthesis.speak(u);
+    }catch(e){ toast("تعذر تشغيل النطق حاليًا."); }
+  }
+
+  /* Copy Helper */
+  function copyText(txt, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }).catch(function(){ fallbackCopy(txt, okMsg); });
+    } else { fallbackCopy(txt, okMsg); }
+  }
+  function fallbackCopy(txt, okMsg){
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); }catch(e){ toast("تعذر النسخ التلقائي، يمكنك النسخ يدويًا من المعاينة."); }
+    document.body.removeChild(ta);
+  }
+
+  /* Device ID */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = "";
+    try{
+      var arr = new Uint8Array(6); crypto.getRandomValues(arr);
+      rnd = Array.from(arr).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("").toUpperCase();
+    }catch(e){
+      rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    }
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Auth */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key === EXPECTED_KEY) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var examView = document.getElementById("examView");
+  var authForm = document.getElementById("authForm");
+  var authMsg = document.getElementById("authMsg");
+  var authBtn = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){
+    authMsg.textContent = text;
+    authMsg.className = "msg-box " + type;
+  }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true;
+    authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key === EXPECTED_KEY){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح معمل التجويد...", "ok");
+        setTimeout(enterExam, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من البيانات والمحاولة مرة أخرى.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false;
+      authBtn.textContent = "🔓 التحقق والدخول لمعمل التجويد";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف إجاباتك وسجل المحاكاة المحفوظ)")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    examView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* State */
+  function defaultState(){
+    return { name: "", mcq: {}, tf: {}, simChips: {}, simNotes: {}, simMode: "site", voiceChallenge: false, graded: false, tab: "glossary", subTab: "mcq", mcqPage: 0, tfPage: 0 };
+  }
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(QUIZ_KEY);
+      if(raw){ return Object.assign(defaultState(), JSON.parse(raw)); }
+    }catch(e){}
+    return defaultState();
+  }
+  var S = loadState();
+  var saveInd = document.getElementById("saveInd");
+  var saveTimer = null;
+  function persist(){
+    try{ localStorage.setItem(QUIZ_KEY, JSON.stringify(S)); }catch(e){}
+    saveInd.textContent = "✅ تم الحفظ الآن";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveInd.textContent = "💾 حفظ تلقائي مفعّل"; }, 1400);
+  }
+
+  var AR_LETTERS = ["أ","ب","ج","د"];
+  var tNameInput = document.getElementById("tName");
+  tNameInput.addEventListener("input", function(){
+    S.name = this.value;
+    persist();
+    if(S.graded) updateReportPreview();
+  });
+
+  var voiceCb = document.getElementById("voiceChallengeCb");
+  voiceCb.addEventListener("change", function(){
+    S.voiceChallenge = this.checked;
+    persist();
+    if(S.graded) updateReportPreview();
+  });
+
+  function countObj(o){ return Object.keys(o).length; }
+  function getChapterDoneChips(chIdx){
+    var ch = CHAPTERS[chIdx], c = 0;
+    for(var i=0; i<ch.chips.length; i++){
+      if(S.simChips[chIdx + "_" + i]) c++;
+    }
+    return c;
+  }
+  function countAllDoneChips(){
+    var tot = 0;
+    for(var i=0; i<CHAPTERS.length; i++) tot += getChapterDoneChips(i);
+    return tot;
+  }
+  function countFilledNotes(){
+    var c = 0;
+    for(var i=0; i<CHAPTERS.length; i++) if((S.simNotes[i] || "").trim().length >= 3) c++;
+    return c;
+  }
+
+  function updateProgress(){
+    var m = countObj(S.mcq), t = countObj(S.tf), tot = m + t;
+    var sc = countAllDoneChips();
+    document.getElementById("cntQuiz").textContent = tot + " / 60";
+    document.getElementById("subMcqCnt").textContent = m + " / 30";
+    document.getElementById("subTfCnt").textContent = t + " / 30";
+    document.getElementById("cntSim").textContent = sc + " / " + TOTAL_CHIPS;
+    document.getElementById("progText").textContent = "اختبار التثبيت: " + tot + " من 60 سؤالًا";
+    document.getElementById("simProgText").textContent = "سجل المحاكاة: " + sc + " من " + TOTAL_CHIPS + " حكمًا";
+    var pct = Math.round(((tot + (sc / TOTAL_CHIPS) * 60) / 120) * 100);
+    document.getElementById("progFill").style.width = Math.min(100, pct) + "%";
+    if(S.graded){
+      var res = computeScores();
+      document.getElementById("cntRes").textContent = res.total + " / 60";
+    } else {
+      document.getElementById("cntRes").textContent = tot === 60 ? "جاهز للتصحيح" : "اعرض النتيجة";
+    }
+  }
+
+  /* Render Glossary */
+  var glossRendered = false;
+  function renderGlossary(){
+    if(glossRendered) return;
+    glossRendered = true;
+    var gl = document.getElementById("glossaryList");
+    gl.innerHTML = "";
+    GLOSSARY.forEach(function(sec, si){
+      var det = document.createElement("details");
+      det.className = "g-card";
+      if(si === 0 || si === 2) det.open = true;
+      var itemsHtml = sec.items.map(function(it, ii){
+        return '<div class="term-row">' +
+          '<div class="term-info">' +
+            '<div class="term-ar">' + esc(it.ar) + '</div>' +
+            '<div class="term-en">' + esc(it.en) + '</div>' +
+            '<div class="term-note">' + esc(it.note) + '</div>' +
+          '</div>' +
+          '<button type="button" class="spk-btn" data-say="' + esc(it.en) + '" title="استمع للنطق الإنجليزي">🔊</button>' +
+        '</div>';
+      }).join("");
+      det.innerHTML =
+        '<summary><span>' + esc(sec.ch) + '</span><span class="g-badge">' + esc(sec.badge) + '</span></summary>' +
+        '<div class="g-body">' +
+          '<div class="g-analogy">' + esc(sec.analogy) + '</div>' +
+          '<div class="term-grid">' + itemsHtml + '</div>' +
+        '</div>';
+      det.querySelectorAll("[data-say]").forEach(function(b){
+        b.onclick = function(){ speakEn(this.getAttribute("data-say")); };
+      });
+      gl.appendChild(det);
+    });
+  }
+
+  document.getElementById("goQuizBtn").onclick = function(){ switchTab("quiz"); };
+  document.getElementById("backGlossBtn").onclick = function(){ switchTab("glossary"); };
+
+  /* Sub-tabs inside Quiz */
+  function setSubTab(st){
+    S.subTab = st;
+    persist();
+    document.getElementById("subMcqBtn").classList.toggle("active", st === "mcq");
+    document.getElementById("subTfBtn").classList.toggle("active", st === "tf");
+    document.getElementById("pane-mcq").classList.toggle("hidden", st !== "mcq");
+    document.getElementById("pane-tf").classList.toggle("hidden", st !== "tf");
+    if(st === "mcq") renderMcq(); else renderTf();
+  }
+  document.getElementById("subMcqBtn").onclick = function(){ setSubTab("mcq"); };
+  document.getElementById("subTfBtn").onclick = function(){ setSubTab("tf"); };
+
+  /* Render MCQ (3 pages × 10) */
+  function renderMcq(){
+    var pills = document.getElementById("mcqPills");
+    pills.innerHTML = "";
+    for(var p=0; p<3; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.mcq[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.mcqPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (start+1) + "–" + end + (done ? " ✓" : "");
+        b.onclick = function(){ S.mcqPage = pg; persist(); renderMcq(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("mcqList");
+    list.innerHTML = "";
+    var s = S.mcqPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = MCQ[idx], sel = S.mcq[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        var optsHtml = item.o.map(function(txt, oi){
+          return '<button type="button" class="opt' + (sel===oi ? ' sel' : '') + '" data-o="' + oi + '"><span class="ltr-c">' + AR_LETTERS[oi] + '</span><span>' + esc(txt) + '</span></button>';
+        }).join("");
+        card.innerHTML = '<div class="q-head"><span class="q-num">' + (idx+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div><div class="opts">' + optsHtml + '</div>';
+        card.querySelectorAll(".opt").forEach(function(btn){
+          btn.onclick = function(){
+            S.mcq[idx] = Number(this.getAttribute("data-o"));
+            persist();
+            renderMcq();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("mcqPrev").textContent = S.mcqPage === 0 ? "→ العودة للقاموس الصوتي" : "→ المجموعة السابقة";
+    document.getElementById("mcqNext").textContent = S.mcqPage === 2 ? "الانتقال لقسم الصح والخطأ ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("mcqPrev").onclick = function(){
+    if(S.mcqPage > 0){ S.mcqPage--; persist(); renderMcq(); scrollToTop(); }
+    else { switchTab("glossary"); }
+  };
+  document.getElementById("mcqNext").onclick = function(){
+    if(S.mcqPage < 2){ S.mcqPage++; persist(); renderMcq(); scrollToTop(); }
+    else { setSubTab("tf"); scrollToTop(); }
+  };
+
+  /* Render TF (3 pages × 10) */
+  function renderTf(){
+    var pills = document.getElementById("tfPills");
+    pills.innerHTML = "";
+    for(var p=0; p<3; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.tf[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.tfPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (30+start+1) + "–" + (30+end) + (done ? " ✓" : "");
+        b.onclick = function(){ S.tfPage = pg; persist(); renderTf(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("tfList");
+    list.innerHTML = "";
+    var s = S.tfPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = TF[idx], sel = S.tf[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        card.innerHTML =
+          '<div class="q-head"><span class="q-num">' + (31+idx) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+          '<div class="tf-row">' +
+            '<button type="button" class="tf-btn' + (sel===true ? ' sel-t' : '') + '" data-v="1">✅ صح</button>' +
+            '<button type="button" class="tf-btn' + (sel===false ? ' sel-f' : '') + '" data-v="0">❌ خطأ</button>' +
+          '</div>';
+        card.querySelectorAll(".tf-btn").forEach(function(btn){
+          btn.onclick = function(){
+            S.tf[idx] = this.getAttribute("data-v") === "1";
+            persist();
+            renderTf();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("tfPrev").textContent = S.tfPage === 0 ? "→ العودة للاختيار من متعدد" : "→ المجموعة السابقة";
+    document.getElementById("tfNext").textContent = S.tfPage === 2 ? "الانتقال لسجل المحاكاة بالأبواب ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("tfPrev").onclick = function(){
+    if(S.tfPage > 0){ S.tfPage--; persist(); renderTf(); scrollToTop(); }
+    else { setSubTab("mcq"); scrollToTop(); }
+  };
+  document.getElementById("tfNext").onclick = function(){
+    if(S.tfPage < 2){ S.tfPage++; persist(); renderTf(); scrollToTop(); }
+    else { switchTab("practice"); }
+  };
+
+  /* Render Practice Chapters (Simulation Chips + Notes or PDF/Image toggle) */
+  var modeSiteBtn = document.getElementById("modeSite");
+  var modeFileBtn = document.getElementById("modeFile");
+  modeSiteBtn.onclick = function(){ S.simMode = "site"; persist(); renderPractice(); updateProgress(); if(S.graded) renderResult(); };
+  modeFileBtn.onclick = function(){ S.simMode = "file"; persist(); renderPractice(); updateProgress(); if(S.graded) renderResult(); };
+
+  function renderPractice(){
+    modeSiteBtn.classList.toggle("active", S.simMode === "site");
+    modeFileBtn.classList.toggle("active", S.simMode === "file");
+    voiceCb.checked = !!S.voiceChallenge;
+
+    var list = document.getElementById("chaptersList");
+    list.innerHTML = "";
+    CHAPTERS.forEach(function(ch, cIdx){
+      var doneCnt = getChapterDoneChips(cIdx);
+      var allDone = (doneCnt === ch.chips.length);
+      var card = document.createElement("div");
+      card.className = "ch-card" + (allDone ? " ch-done" : "");
+
+      var chipsHtml = ch.chips.map(function(lbl, i){
+        var on = !!S.simChips[cIdx + "_" + i];
+        return '<button type="button" class="chip-btn' + (on ? ' on' : '') + '" data-ci="' + i + '">' + (on ? '✅' : '⬜') + ' <span>' + esc(lbl) + '</span></button>';
+      }).join("");
+
+      var noteHtml = S.simMode === "site"
+        ? '<div><label style="display:block;font-weight:800;font-size:.89rem;color:var(--pri);margin-bottom:5px">✍️ ما خرجت به من هذا الباب (أو طريقتك المبسطة في شرحه):</label><textarea class="t-ta" placeholder="' + esc(ch.ph) + '">' + esc(S.simNotes[cIdx] || "") + '</textarea></div>'
+        : '<div class="paper-note">📎 اخترت إرسال ملخصك في ملف PDF أو صورة على واتساب — يكفي هنا الضغط على أيقونات الأحكام التي شرحتها لنفسك بالمحاكاة!</div>';
+
+      card.innerHTML =
+        '<div class="ch-top">' +
+          '<div class="ch-h"><span class="q-num">' + ch.num + '</span><span>' + esc(ch.title) + '</span></div>' +
+          '<div class="ch-meta"><span class="cnt-badge' + (allDone ? ' all-ok' : '') + '">' + doneCnt + ' / ' + ch.chips.length + ' مُنجَز</span><span class="pts-badge">' + ch.pts + ' درجة</span></div>' +
+        '</div>' +
+        '<p class="ch-desc">' + esc(ch.desc) + '</p>' +
+        '<div class="chips-wrap">' + chipsHtml + '</div>' +
+        noteHtml;
+
+      card.querySelectorAll(".chip-btn").forEach(function(btn){
+        btn.onclick = function(){
+          var ci = this.getAttribute("data-ci");
+          var k = cIdx + "_" + ci;
+          S.simChips[k] = !S.simChips[k];
+          persist();
+          renderPractice();
+          updateProgress();
+          if(S.graded) updateReportPreview();
+        };
+      });
+
+      var ta = card.querySelector("textarea");
+      if(ta){
+        ta.addEventListener("input", function(){
+          S.simNotes[cIdx] = this.value;
+          persist();
+          if(S.graded) updateReportPreview();
+        });
+      }
+      list.appendChild(card);
+    });
+  }
+
+  document.getElementById("simBack").onclick = function(){ switchTab("quiz"); };
+  document.getElementById("finishBtn").onclick = function(){ switchTab("result"); };
+
+  /* Scoring & Reports */
+  function computeScores(){
+    var mOk = 0, tOk = 0;
+    MCQ.forEach(function(x, i){ if(S.mcq[i] === x.a) mOk++; });
+    TF.forEach(function(x, i){ if(S.tf[i] === x.a) tOk++; });
+    return { mcq: mOk, tf: tOk, total: mOk + tOk, pct: Math.round(((mOk + tOk) / 60) * 100) };
+  }
+
+  function findFirstUnanswered(){
+    for(var i=0; i<MCQ.length; i++) if(S.mcq[i] === undefined) return { sub:"mcq", page: Math.floor(i/10) };
+    for(var j=0; j<TF.length; j++) if(S.tf[j] === undefined) return { sub:"tf", page: Math.floor(j/10) };
+    return null;
+  }
+
+  function buildShortScoreMsg(){
+    var sc = computeScores();
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var em = (currentAuth && currentAuth.email) || "";
+    var cd = (currentAuth && currentAuth.code) || "";
+    var doneTotal = countAllDoneChips();
+
+    var chLines = CHAPTERS.map(function(ch, idx){
+      var d = getChapterDoneChips(idx);
+      return (d === ch.chips.length ? "✅ " : "▫️ ") + ch.title + ": *" + d + "/" + ch.chips.length + "*";
+    }).join("\n");
+
+    var modeLine = S.simMode === "file"
+      ? "📎 طريقة تسليم الملخصات (90 درجة): سأرسل ملف PDF / صور ملخصي للأبواب الآن على واتساب."
+      : ("✍️ طريقة تسليم الملخصات (90 درجة): كتبت خلاصة " + countFilledNotes() + " من 6 أبواب على الموقع، وسألصقها لك في الرسالة التالية.");
+
+    var voiceLine = S.voiceChallenge
+      ? "🎤 تحدّي البصمة الصوتية: نعم، سأرسل بصمة صوتية (دقيقة واحدة) أشرح فيها حكمًا تجويديًا الآن!"
+      : "";
+
+    return [
+      "السلام عليكم ورحمة الله وبركاته 🌿",
+      "*تقرير الختام — المحاضرة السادسة (تدريس التجويد بطريقة عملية مبسّطة)*",
+      "دورة المعلم المستقل | أكاديمية الساجد",
+      "━━━━━━━━━━━━━━",
+      "👤 الاسم: " + nm,
+      "🔑 الكود: " + cd + (em ? " | " + em : ""),
+      "━━━━━━━━━━━━━━",
+      "1️⃣ اختيار من متعدد: *" + sc.mcq + " / 30*",
+      "2️⃣ صح أم خطأ: *" + sc.tf + " / 30*",
+      "📊 *المجموع الآلي (اختبار التثبيت): " + sc.total + " / 60 (" + sc.pct + "%)*",
+      "━━━━━━━━━━━━━━",
+      "🎙️ *سجل المحاكاة والتطبيق بالأبواب (" + doneTotal + " / " + TOTAL_CHIPS + " حكمًا):*",
+      chLines,
+      "━━━━━━━━━━━━━━",
+      modeLine,
+      voiceLine,
+      "بانتظار تقييمك الختامي للدرجة النهائية من 150 🌟"
+    ].filter(Boolean).join("\n");
+  }
+
+  function buildNotesText(){
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var lines = [
+      "*📝 خلاصة ما خرجت به من أبواب التجويد الستة — المحاضرة السادسة (دورة المعلم المستقل)*",
+      "المتدرب/ة: " + nm,
+      "━━━━━━━━━━━━━━"
+    ];
+    CHAPTERS.forEach(function(ch, idx){
+      var d = getChapterDoneChips(idx);
+      var note = (S.simNotes[idx] || "").trim() || "(لم يُكتب ملخص هنا)";
+      lines.push("*" + ch.title + "* (" + d + "/" + ch.chips.length + " محاكاة):\n" + note + "\n");
+    });
+    return lines.join("\n");
+  }
+
+  function updateReportPreview(){
+    var full = buildShortScoreMsg() + (S.simMode === "site" ? "\n\n" + buildNotesText() : "");
+    document.getElementById("reportPreview").textContent = full;
+  }
+
+  function renderResult(){
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 60 - (m + t);
+    var ungradedBox = document.getElementById("ungradedBox");
+    var gradedBox = document.getElementById("gradedBox");
+    var jumpBtn = document.getElementById("jumpUnansBtn");
+
+    if(!S.graded){
+      ungradedBox.classList.remove("hidden");
+      gradedBox.classList.add("hidden");
+      if(rem > 0){
+        document.getElementById("readySummary").textContent = "تبقّى لديك " + rem + " سؤال في اختبار التثبيت بدون إجابة (أجبت عن " + (m+t) + " من 60). يُفضّل إكمالها أولًا، أو يمكنك اعتماد النتيجة الآن.";
+        jumpBtn.classList.remove("hidden");
+      } else {
+        document.getElementById("readySummary").textContent = "أحسنت! أكملت جميع أسئلة التثبيت الـ 60 (وسجل المحاكاة: " + countAllDoneChips() + " من " + TOTAL_CHIPS + " حكمًا). اضغط أدناه لحساب نتيجتك وتجهيز الإرسال لواتساب.";
+        jumpBtn.classList.add("hidden");
+      }
+      return;
+    }
+
+    ungradedBox.classList.add("hidden");
+    gradedBox.classList.remove("hidden");
+    var sc = computeScores();
+    document.getElementById("rTotal").textContent = sc.total;
+    document.getElementById("rMcq").textContent = sc.mcq + " / 30";
+    document.getElementById("rTf").textContent = sc.tf + " / 30";
+    document.getElementById("rSim").textContent = countAllDoneChips() + " / " + TOTAL_CHIPS + " (90 د)";
+
+    var title = "", sub = "";
+    if(sc.total >= 54){ title = "🌟 مبارك الختام المتقن لدورة المعلم المستقل!"; sub = "أداء ممتاز (" + sc.pct + "%) في مصطلحات وتطبيقات التجويد المبسّط! أرسل تقريرك وسجل المحاكاة للمدرب لاستكمال الدرجة النهائية من 150."; }
+    else if(sc.total >= 48){ title = "✅ جيد جدًا! إتقان قوي للتجويد المبسّط"; sub = "مستوى رائع (" + sc.pct + "%)؛ راجع الأخطاء البسيطة أدناه ثم أرسل تقريرك الختامي عبر واتساب."; }
+    else if(sc.total >= 42){ title = "👍 جيد! اجتزت اختبار التثبيت"; sub = "راجع الأخطاء والتعليلات بالأسفل (خاصة حالات الراء والمصطلحات) ثم أرسل تقريرك للمدرب."; }
+    else { title = "📖 يحتاج مراجعة سريعة للقاموس والتشبيهات"; sub = "راجع القاموس الصوتي والتعليلات بالأسفل، ويمكنك إعادة اختبار التثبيت في أي وقت."; }
+    document.getElementById("rGradeTitle").textContent = title;
+    document.getElementById("rGradeSub").textContent = sub;
+
+    var notesBtn = document.getElementById("sendNotesWaBtn");
+    if(S.simMode === "file"){
+      notesBtn.classList.add("hidden");
+      document.getElementById("waHint").textContent = "اخترت إرسال ملخصك كملف PDF أو صور على واتساب. اضغط الزر أدناه لإرسال نتيجة التثبيت وسجل إنجاز الأبواب، ثم أرفق ملفك/صورك (والبصمة الصوتية إن اخترتها) مباشرةً في المحادثة.";
+    } else {
+      notesBtn.classList.remove("hidden");
+      document.getElementById("waHint").textContent = "أرسل أولًا نتيجة التثبيت وسجل الإنجاز بالأبواب (زر ١)، ثم اضغط (زر ٢) لنسخ ملخصاتك المكتوبة للأبواب الستة وفتح واتساب للصقها.";
+    }
+
+    updateReportPreview();
+    renderReview("wrong");
+  }
+
+  document.getElementById("jumpUnansBtn").onclick = function(){
+    var u = findFirstUnanswered();
+    if(!u) return;
+    if(u.sub === "mcq") S.mcqPage = u.page; else S.tfPage = u.page;
+    S.subTab = u.sub;
+    switchTab("quiz");
+  };
+
+  document.getElementById("gradeNowBtn").onclick = function(){
+    if(!(S.name || "").trim()){
+      toast("⚠️ يرجى كتابة اسمك في خانة «اسم المتدرب/ة» بالأعلى أولًا");
+      tNameInput.focus();
+      tNameInput.scrollIntoView({ behavior:"smooth", block:"center" });
+      return;
+    }
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 60 - (m + t);
+    if(rem > 0 && !confirm("تبقّى " + rem + " سؤال في اختبار التثبيت دون إجابة (سيُحسب صفرًا). هل تريد اعتماد النتيجة الآن؟")) return;
+    S.graded = true;
+    persist();
+    updateProgress();
+    renderResult();
+    scrollToTop();
+  };
+
+  document.getElementById("sendScoreWaBtn").onclick = function(){
+    var msg = buildShortScoreMsg();
+    window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+  };
+
+  document.getElementById("sendNotesWaBtn").onclick = function(){
+    var txt = buildNotesText();
+    if(txt.length <= 1500){
+      window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(txt), "_blank", "noopener,noreferrer");
+    } else {
+      copyText(txt, "✅ تم نسخ ملخصات الأبواب الستة كاملة! الصقها في محادثة واتساب الآن.");
+      setTimeout(function(){
+        window.open("https://wa.me/" + WA_PHONE, "_blank", "noopener,noreferrer");
+      }, 700);
+    }
+  };
+
+  document.getElementById("copyFullReportBtn").onclick = function(){
+    var full = buildShortScoreMsg() + (S.simMode === "site" ? "\n\n" + buildNotesText() : "");
+    copyText(full, "✅ تم نسخ التقرير الختامي الكامل للحافظة!");
+  };
+
+  /* Review */
+  function renderReview(filter){
+    var list = document.getElementById("revList");
+    var html = [], wrong = 0;
+    MCQ.forEach(function(item, i){
+      var u = S.mcq[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : item.o[u];
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (i+1) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + esc(uTxt) + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + esc(item.o[item.a]) + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    TF.forEach(function(item, i){
+      var u = S.tf[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : (u ? "صح" : "خطأ");
+      var cTxt = item.a ? "صح" : "خطأ";
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (31+i) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + uTxt + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + cTxt + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    document.getElementById("wrongCnt").textContent = wrong;
+    if(!html.length){
+      list.innerHTML = '<div class="msg-box ok">🎉 ممتاز! لا توجد أي أخطاء في اختبار التثبيت (60 / 60).</div>';
+    } else {
+      list.innerHTML = html.join("");
+    }
+  }
+
+  document.getElementById("revWrongBtn").onclick = function(){ renderReview("wrong"); };
+  document.getElementById("revAllBtn").onclick = function(){ renderReview("all"); };
+  document.getElementById("retakeBtn").onclick = function(){
+    if(!confirm("هل تريد مسح إجابات اختبار التثبيت وإعادة المحاولة؟ (سيبقى سجل المحاكاة وملخصاتك محفوظة)")) return;
+    S.mcq = {}; S.tf = {}; S.graded = false; S.mcqPage = 0; S.tfPage = 0; S.subTab = "mcq";
+    persist();
+    switchTab("quiz");
+    updateProgress();
+    toast("تمت إعادة ضبط اختبار التثبيت — بالتوفيق!");
+  };
+
+  /* Main Tabs */
+  function switchTab(name){
+    S.tab = name;
+    persist();
+    ["glossary","quiz","practice","result"].forEach(function(t){
+      document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-tab") === name);
+    });
+    if(name === "glossary") renderGlossary();
+    else if(name === "quiz") setSubTab(S.subTab || "mcq");
+    else if(name === "practice") renderPractice();
+    else if(name === "result") renderResult();
+    scrollToTop();
+  }
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.onclick = function(){ switchTab(this.getAttribute("data-tab")); };
+  });
+
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: "smooth" }); }
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function enterExam(){
+    gateView.classList.add("hidden");
+    examView.classList.remove("hidden");
+    var lbl = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    document.getElementById("userLabel").textContent = lbl;
+    if(!S.name && currentAuth.name) S.name = currentAuth.name;
+    tNameInput.value = S.name || "";
+    updateProgress();
+    switchTab(S.tab || "glossary");
+  }
+
+  if(currentAuth){ enterExam(); }
+})();
+</script>
+</body>
+</html>
