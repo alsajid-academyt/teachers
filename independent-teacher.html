@@ -105,6 +105,8 @@ header{position:sticky;top:0;z-index:50;background:var(--primary-dark);color:#ff
 .highlight-note{background:var(--card);border:1.5px dashed var(--gold);border-radius:12px;padding:12px 16px;font-size:.93rem;color:var(--ink)}
 .highlight-note strong{color:var(--pri)}
 .quiz-slot{display:inline-flex;align-items:center;gap:8px;border:2px dashed var(--line);color:var(--mut);border-radius:999px;padding:6px 18px;font-weight:700;font-size:.92rem;justify-self:start;cursor:not-allowed;user-select:none}
+.quiz-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold-grad);color:#2a1d00;border:2px solid var(--gold);border-radius:999px;padding:9px 20px;font-weight:800;font-size:.95rem;justify-self:start;text-decoration:none;transition:transform .18s,box-shadow .18s}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(198,149,43,.3)}
 /* includes + diff */
 .grid{display:grid;gap:18px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
@@ -217,7 +219,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
   <div class="wrap">
     <div class="hd">
       <h2>المحاور الستة للدورة</h2>
-      <p class="sub">كل محور بُني ليعالج جانبًا عمليًا يحتاجه كل معلم يريد أن يعمل باحتراف واستمرارية.</p>
+      <p class="sub">كل محور بُني ليعالج جانبًا عمليًا يحتاجه كل معلم يريد أن يعمل باحتراف واستمرارية — وللمشتركين: <strong>اختبار المحور الأول (110 أسئلة) متاح الآن بالكود الموحّد</strong>.</p>
     </div>
 
     <details class="lec" id="mod-1" open>
@@ -239,7 +241,8 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
           <li>كيف تستعد للانترفيو وتجتازه باحتراف.</li>
           <li>ما الذي تتوقعه الأكاديميات منك أثناء المقابلة.</li>
         </ul>
-        <div class="quiz-slot" data-quiz="1">🔒 اختبار المحور التفاعلي — يُضاف قريبًا للمشتركين</div>
+        <div class="highlight-note">📘 <strong>محتوى المحاضرة الأولى (جزآن متكاملان في محاضرة واحدة):</strong> الجزء الأول «حقيبة المعلم المستقل: دليل الأدوات والمال»، والجزء الثاني «من المتقدم إلى المقبول: السيرة الذاتية والفيديو والإنترفيو والأسبوع الأول وخارطة الاستقلال».</div>
+        <a class="quiz-btn" href="it-lec1.html" data-quiz="1">🔓 ابدأ اختبار المحاضرة الأولى التفاعلي (110 أسئلة · للمشتركين) ←</a>
       </div>
     </details>
 
@@ -260,7 +263,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
           <li>تطبيقات عملية مباشرة على الحصة التجريبية.</li>
         </ul>
         <div class="highlight-note">🎥 <strong>ميزة فارقة في هذا المحور:</strong> يتضمن نموذجًا عمليًا لحصة تجريبية حقيقية حدثت بالفعل مع طالب، حتى تجمع بين الشرح النظري ومعايشة التطبيق الواقعي خطوة بخطوة.</div>
-        <div class="quiz-slot" data-quiz="2">🔒 اختبار المحور التفاعلي — يُضاف قريبًا للمشتركين</div>
+        <div class="quiz-slot" data-quiz="2">🔒 اختبار المحور التفاعلي (110 أسئلة) — يُضاف قريبًا للمشتركين</div>
       </div>
     </details>
 
@@ -281,7 +284,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
           <li>إدارة الحصة بذكاء.</li>
           <li>بناء مواد تعليمية خاصة بك في وقت قياسي.</li>
         </ul>
-        <div class="quiz-slot" data-quiz="3">🔒 اختبار المحور التفاعلي — يُضاف قريبًا للمشتركين</div>
+        <div class="quiz-slot" data-quiz="3">🔒 اختبار المحور التفاعلي (110 أسئلة) — يُضاف قريبًا للمشتركين</div>
       </div>
     </details>
 
@@ -300,7 +303,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
           <li>كيف تبني اسمًا قويًا في المجال.</li>
           <li>كيف تنتقل من العمل العشوائي إلى العمل الاحترافي.</li>
         </ul>
-        <div class="quiz-slot" data-quiz="4">🔒 اختبار المحور التفاعلي — يُضاف قريبًا للمشتركين</div>
+        <div class="quiz-slot" data-quiz="4">🔒 اختبار المحور التفاعلي (110 أسئلة) — يُضاف قريبًا للمشتركين</div>
       </div>
     </details>
 
@@ -320,7 +323,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
           <li>تجنّب الاحتراق الوظيفي.</li>
           <li>الاستمرار والانضباط مهما كانت الظروف.</li>
         </ul>
-        <div class="quiz-slot" data-quiz="5">🔒 اختبار المحور التفاعلي — يُضاف قريبًا للمشتركين</div>
+        <div class="quiz-slot" data-quiz="5">🔒 اختبار المحور التفاعلي (110 أسئلة) — يُضاف قريبًا للمشتركين</div>
       </div>
     </details>
 
@@ -340,7 +343,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
           <li>تدريب عملي على الشرح وتطبيقه بالمحاكاة.</li>
         </ul>
         <div class="highlight-note">💡 <strong>ملاحظة حول التدريب العملي في هذا المحور:</strong> تم تنفيذ التدريب العملي على الشرح داخل المحاضرة المسجّلة نفسها، ويمكن للمتدرب عند حصوله على البرنامج محاكاته والتدرّب عليه بنفسه عمليًا لتثبيت المهارة.</div>
-        <div class="quiz-slot" data-quiz="6">🔒 اختبار المحور التفاعلي — يُضاف قريبًا للمشتركين</div>
+        <div class="quiz-slot" data-quiz="6">🔒 اختبار المحور التفاعلي (110 أسئلة) — يُضاف قريبًا للمشتركين</div>
       </div>
     </details>
   </div>
