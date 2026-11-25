@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>المعمل التطبيقي واختبار المحاضرة الثالثة: الذكاء الاصطناعي في خدمة المعلم | دورة المعلم المستقل — أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08)}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(980px,93%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.4vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.42rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.94rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.96rem;padding:11px 19px;border-radius:13px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-sm{padding:7px 14px;font-size:.86rem;border-radius:10px}
+.btn-pri{background:var(--primary-light);color:#fff;border-color:var(--primary-light)}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-soft{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-bad{background:var(--bad-bg);color:var(--bad);border-color:rgba(220,38,38,.35)}
+.btn-full{width:100%}
+
+/* Hero Banner */
+main{padding:22px 0 56px}
+.exam-banner{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:22px clamp(16px,3.5vw,28px);margin-bottom:18px}
+.exam-banner .top-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pill-gold{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.82rem;padding:4px 13px;border-radius:999px}
+.user-chip{font-size:.84rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+.exam-banner h1{font-size:clamp(1.3rem,3.8vw,1.85rem);color:var(--gold-light);line-height:1.4;margin-bottom:6px}
+.exam-banner p{font-size:.94rem;color:#e7f0ea;margin-bottom:14px}
+.marks-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.m-box{background:rgba(255,255,255,.1);border:1px solid rgba(232,197,104,.32);border-radius:12px;padding:9px 10px;text-align:center}
+.m-box b{display:block;color:var(--gold-light);font-size:1.05rem}
+.m-box span{font-size:.8rem;color:#e6efe8}
+
+/* Trainee Bar & Sticky Nav */
+.trainee-bar{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.trainee-bar label{font-weight:800;color:var(--pri);font-size:.95rem;white-space:nowrap}
+.trainee-bar input{flex:1;min-width:210px;padding:9px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:700}
+.trainee-bar input:focus{outline:none;border-color:var(--gold)}
+.save-ind{font-size:.82rem;color:var(--ok);font-weight:700;background:var(--ok-bg);padding:4px 11px;border-radius:999px;white-space:nowrap}
+
+.sticky-nav{position:sticky;top:67px;z-index:35;background:var(--bg);padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.86rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
+.prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
+.prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 8px;font:inherit;font-weight:800;font-size:.85rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
+.tab span.cnt{font-size:.75rem;color:var(--mut);font-weight:700}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
+.tab.active span.cnt{color:var(--gold-light)}
+
+/* Vault Styles */
+.sec-title{color:var(--pri);font-size:1.18rem;font-weight:900;margin:20px 0 12px;display:flex;align-items:center;gap:8px}
+.links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:12px;margin-bottom:22px}
+.l-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:15px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;transition:.18s}
+.l-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.l-card .lt{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--pri);font-size:.98rem}
+.l-card .lt span.ic{width:36px;height:36px;border-radius:10px;background:var(--hl);display:grid;place-items:center;font-size:1.25rem;flex:none}
+.l-card p{font-size:.87rem;color:var(--mut);line-height:1.65;flex:1}
+
+.v-list{display:grid;gap:14px}
+.v-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.v-card[open]{border-color:var(--gold)}
+.v-card summary{list-style:none;cursor:pointer;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:800;color:var(--pri)}
+.v-card summary::-webkit-details-marker{display:none}
+.v-tag{font-size:.75rem;font-weight:800;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.v-body{padding:0 18px 18px;display:grid;gap:10px}
+.v-edit{background:var(--hl);border-radius:10px;padding:9px 13px;font-size:.88rem;color:var(--ink)}
+.v-code{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.89rem;white-space:pre-wrap;line-height:1.78;color:var(--ink);max-height:310px;overflow:auto}
+.v-acts{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+
+/* Sub-tabs for Quiz */
+.sub-switch{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.sub-btn{background:var(--card);border:2px solid var(--line);color:var(--ink);border-radius:13px;padding:11px 14px;font:inherit;font-weight:800;font-size:.94rem;cursor:pointer;transition:.18s}
+.sub-btn.active{border-color:var(--gold);background:var(--hl);color:var(--pri)}
+
+/* Pager & Questions */
+.pager{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:16px}
+.p-pills{display:flex;gap:6px;flex-wrap:wrap}
+.p-pill{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.83rem;font-weight:800;padding:5px 11px;border-radius:999px;cursor:pointer;transition:.18s}
+.p-pill.cur{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.p-pill.done:not(.cur){background:var(--ok-bg);color:var(--ok);border-color:rgba(22,163,74,.45)}
+
+.q-list{display:grid;gap:14px}
+.q-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);transition:border-color .2s}
+.q-card.answered{border-inline-start:5px solid var(--gold)}
+.q-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
+.q-num{flex:none;min-width:34px;height:34px;border-radius:10px;background:var(--hl);color:var(--pri);border:1px solid var(--gold);display:grid;place-items:center;font-weight:900;font-size:.9rem}
+.q-txt{font-weight:800;font-size:1.01rem;line-height:1.7;color:var(--ink)}
+
+.opts{display:grid;gap:9px}
+.opt{display:flex;align-items:center;gap:11px;width:100%;text-align:right;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:11px 14px;font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;transition:.16s;line-height:1.65}
+.opt:hover{border-color:var(--gold);background:var(--hl)}
+.opt.sel{background:rgba(15,76,41,.11);border-color:var(--primary);color:var(--pri);font-weight:800;box-shadow:inset 0 0 0 1px var(--primary)}
+:root[data-theme="dark"] .opt.sel{background:rgba(232,197,104,.18);border-color:var(--gold-light);box-shadow:inset 0 0 0 1px var(--gold-light)}
+.opt .ltr-c{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.82rem;font-weight:900;background:var(--card)}
+.opt.sel .ltr-c{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tf-btn{padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:800;font-size:1rem;cursor:pointer;transition:.16s}
+.tf-btn:hover{border-color:var(--gold)}
+.tf-btn.sel-t{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.tf-btn.sel-f{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+
+/* Portfolio Mode & Tasks */
+.mode-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.mode-box h3{color:var(--pri);font-size:1.12rem;margin-bottom:6px}
+.mode-box p.sm{color:var(--mut);font-size:.91rem;margin-bottom:13px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.m-opt{text-align:right;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}
+.m-opt b{display:block;color:var(--pri);font-size:.98rem;margin-bottom:3px}
+.m-opt span{font-size:.85rem;color:var(--mut);line-height:1.6;display:block}
+.m-opt.active{border-color:var(--gold);background:var(--hl);box-shadow:0 4px 14px rgba(198,149,43,.16)}
+
+.task-card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:grid;gap:12px}
+.task-card.done-task{border-inline-start:5px solid var(--ok)}
+.task-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.task-top .t-h{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.05rem;color:var(--pri)}
+.pts-badge{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.78rem;padding:3px 11px;border-radius:999px;white-space:nowrap}
+.task-desc{font-size:.92rem;color:var(--mut)}
+.t-field label{display:block;font-weight:800;font-size:.9rem;color:var(--pri);margin-bottom:5px}
+.t-inp{width:100%;padding:10px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.95rem}
+.t-ta{width:100%;min-height:95px;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.95rem;line-height:1.75;resize:vertical}
+.t-inp:focus,.t-ta:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.chk-list{display:grid;gap:7px;background:var(--hl);border-radius:12px;padding:11px 13px}
+.chk-item{display:flex;align-items:flex-start;gap:9px;font-size:.88rem;font-weight:700;cursor:pointer;color:var(--ink)}
+.chk-item input{margin-top:5px;width:17px;height:17px;accent-color:var(--primary);cursor:pointer;flex:none}
+.paper-note{background:var(--ok-bg);border:1px dashed var(--ok);border-radius:12px;padding:10px 14px;font-size:.9rem;font-weight:700;color:var(--ok)}
+
+.nav-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* Result Section */
+.res-hero{background:linear-gradient(150deg,#09321A,#17693B);color:#fff;border:2px solid var(--gold);border-radius:22px;padding:28px clamp(16px,4vw,32px);text-align:center;margin-bottom:20px}
+.score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:142px;height:142px;border-radius:50%;border:5px solid var(--gold-light);background:rgba(0,0,0,.22);margin-bottom:14px}
+.score-ring b{font-size:2.4rem;color:var(--gold-light);line-height:1.1}
+.score-ring span{font-size:.86rem;color:#e7f0ea}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.r-stat{background:rgba(255,255,255,.11);border:1px solid rgba(232,197,104,.35);border-radius:14px;padding:12px}
+.r-stat b{display:block;font-size:1.25rem;color:var(--gold-light)}
+.r-stat span{font-size:.84rem;color:#e7f0ea}
+
+.wa-panel{background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:var(--shadow)}
+.wa-panel h3{color:var(--pri);font-size:1.18rem;margin-bottom:6px}
+.wa-panel p.sm{color:var(--mut);font-size:.92rem;margin-bottom:14px}
+.wa-actions{display:grid;gap:10px;margin-bottom:14px}
+.preview-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.88rem;white-space:pre-wrap;max-height:260px;overflow:auto;line-height:1.75;color:var(--ink)}
+
+/* Review */
+.rev-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.rev-item{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;margin-bottom:11px}
+.rev-item.is-ok{border-inline-start:5px solid var(--ok)}
+.rev-item.is-bad{border-inline-start:5px solid var(--bad)}
+.rev-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:.88rem;margin-top:8px}
+.tag-ok{background:var(--ok-bg);color:var(--ok);padding:3px 10px;border-radius:8px;font-weight:800}
+.tag-bad{background:var(--bad-bg);color:var(--bad);padding:3px 10px;border-radius:8px;font-weight:800}
+.rev-exp{margin-top:8px;font-size:.9rem;color:var(--mut);background:var(--hl);padding:8px 12px;border-radius:10px}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.92rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+
+footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:720px){
+  body{font-size:15.5px}
+  .marks-strip{grid-template-columns:repeat(2,1fr)}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+  .mode-grid,.res-grid,.sub-switch{grid-template-columns:1fr}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">المعمل التطبيقي للمحاضرة الثالثة | دورة المعلم المستقل<small>أكاديمية الساجد — Al-Sajid Academy</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="independent-teacher.html">← <span>صفحة الدورة</span></a>
+  </div>
+</header>
+
+<!-- GATE VIEW -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 بوابة المشتركين — الكود الموحّد</div>
+      <h2>المعمل التطبيقي للمحاضرة الثالثة — المعلم المستقل</h2>
+      <p class="desc">الذكاء الاصطناعي في خدمة المعلم: خزنة البرومبتات والروابط + اختبار الكفاءة الذكي (60 سؤالًا) + ملف الإنجاز العملي (6 مهام تنفيذية) = 150 درجة.</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق والدخول للمعمل التطبيقي</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%82%D9%84%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب كود التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="independent-teacher.html">🌟 العودة لتفاصيل ومحاور الدورة</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM / LAB VIEW -->
+<main id="examView" class="hidden">
+  <div class="wrap">
+    <div class="exam-banner">
+      <div class="top-row">
+        <span class="pill-gold">المحاضرة ٣ · الذكاء الاصطناعي في خدمة المعلم (ورشة تطبيقية)</span>
+        <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+      </div>
+      <h1>المعمل التطبيقي وملف الإنجاز — الذكاء الاصطناعي للمعلم</h1>
+      <p>هذه المحاضرة عملية 100%: ابدأ من «خزنة البرومبتات والروابط» وجرّب الأدوات بنفسك، ثم قِس كفاءتك في القرارات والمواقف (60 درجة آليًا)، ووثّق مهامك الست العملية في «ملف الإنجاز» (90 درجة) لتُرسلها للمدرب عبر واتساب.</p>
+      <div class="marks-strip">
+        <div class="m-box"><b>8 قوالب + 6 روابط</b><span>خزنة البرومبتات الجاهزة للنسخ</span></div>
+        <div class="m-box"><b>60 درجة</b><span>اختبار الكفاءة (30 اختياري + 30 صح/خطأ)</span></div>
+        <div class="m-box"><b>90 درجة</b><span>ملف الإنجاز (6 مهام × 15 درجة)</span></div>
+        <div class="m-box"><b>150 درجة</b><span>الإجمالي الكلي للورشة</span></div>
+      </div>
+    </div>
+
+    <div class="trainee-bar">
+      <label for="tName">👤 اسم المتدرب/ة:</label>
+      <input id="tName" type="text" placeholder="اكتب اسمك الثلاثي ليظهر في تقرير النتيجة وملف الإنجاز...">
+      <span class="save-ind" id="saveInd">💾 حفظ تلقائي مفعّل</span>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="prog-row">
+        <span id="progText">اختبار الكفاءة: 0 من 60 سؤالًا</span>
+        <span id="portProgText">ملف الإنجاز: 0 من 6 مهام</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="vault" type="button">🧰 خزنة البرومبتات<span class="cnt">8 قوالب + روابط</span></button>
+        <button class="tab" data-tab="quiz" type="button">🧠 اختبار الكفاءة<span class="cnt" id="cntQuiz">0 / 60</span></button>
+        <button class="tab" data-tab="portfolio" type="button">🛠️ ملف الإنجاز<span class="cnt" id="cntPort">0 / 6 مهام</span></button>
+        <button class="tab" data-tab="result" type="button">📊 النتيجة وواتساب<span class="cnt" id="cntRes">اعرض النتيجة</span></button>
+      </div>
+    </div>
+
+    <!-- TAB 1: VAULT -->
+    <section id="sec-vault">
+      <div class="mode-box">
+        <h3>🎯 كيف تستفيد من هذه الخزنة كـ«ورشة عمل» حقيقية؟</h3>
+        <p class="sm" style="margin-bottom:0">توقف بعد كل قالب، اضغط <strong>«نسخ البرومبت»</strong>، عدّل ما بين الأقواس ليطابق هويتك وطالبك الحقيقي، وجرّبه فورًا على ChatGPT وNotebookLM وHTML Online Viewer وGemini. وتذكّر دائمًا: <strong>الذكاء الاصطناعي لن يصنع منك معلمًا إلا إذا كنت أنت المحرك الحقيقي!</strong></p>
+      </div>
+
+      <h3 class="sec-title">🔗 روابط الأدوات والنماذج الحية المذكورة في المحاضرة</h3>
+      <div class="links-grid" id="linksGrid"></div>
+
+      <h3 class="sec-title">📋 خزنة البرومبتات وقوالب التقارير (اضغط لفتح القالب ونسخه)</h3>
+      <div class="v-list" id="vaultList"></div>
+
+      <div class="nav-foot">
+        <span style="font-size:.9rem;color:var(--mut);font-weight:700">بعد تجربة الأدوات، اختبر كفاءتك في المواقف والقرارات الذكية:</span>
+        <button class="btn btn-gold" id="goQuizBtn" type="button">🧠 الانتقال إلى اختبار الكفاءة (60 سؤالًا) ←</button>
+      </div>
+    </section>
+
+    <!-- TAB 2: COMPETENCY QUIZ (30 MCQ + 30 TF) -->
+    <section id="sec-quiz" class="hidden">
+      <div class="sub-switch">
+        <button type="button" class="sub-btn active" id="subMcqBtn">1️⃣ مواقف وقرارات ذكية — اختيار من متعدد (<span id="subMcqCnt">0 / 30</span>)</button>
+        <button type="button" class="sub-btn" id="subTfBtn">2️⃣ صح أم خطأ تطبيقي (<span id="subTfCnt">0 / 30</span>)</button>
+      </div>
+
+      <div id="pane-mcq">
+        <div class="pager">
+          <strong style="color:var(--pri);font-size:.94rem">القسم الأول: مواقف وهندسة برومبت واختيار الأدوات (30 سؤالًا · درجة لكل سؤال)</strong>
+          <div class="p-pills" id="mcqPills"></div>
+        </div>
+        <div class="q-list" id="mcqList"></div>
+        <div class="nav-foot">
+          <button class="btn btn-out" id="mcqPrev" type="button">→ المجموعة السابقة</button>
+          <button class="btn btn-pri" id="mcqNext" type="button">المجموعة التالية ←</button>
+        </div>
+      </div>
+
+      <div id="pane-tf" class="hidden">
+        <div class="pager">
+          <strong style="color:var(--pri);font-size:.94rem">القسم الثاني: قواعد التطبيق وحماية الروح التعليمية (30 سؤالًا · درجة لكل سؤال)</strong>
+          <div class="p-pills" id="tfPills"></div>
+        </div>
+        <div class="q-list" id="tfList"></div>
+        <div class="nav-foot">
+          <button class="btn btn-out" id="tfPrev" type="button">→ المجموعة السابقة</button>
+          <button class="btn btn-pri" id="tfNext" type="button">المجموعة التالية ←</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: PORTFOLIO (6 PRACTICAL TASKS = 90 PTS) -->
+    <section id="sec-portfolio" class="hidden">
+      <div class="mode-box">
+        <h3>🛠️ ملف الإنجاز العملي — AI Portfolio (6 مهام تنفيذية × 15 درجة = 90 درجة)</h3>
+        <p class="sm">هذا هو قلب المحاضرة؛ نفّذ كل مهمة عمليًا على جهازك ثم وثّق روابطك وبرومبتاتك هنا لإرسالها للمدرب عبر واتساب:</p>
+        <div class="mode-grid">
+          <button type="button" class="m-opt active" id="modeSite">
+            <b>✍️ التوثيق هنا داخل الموقع (موصى به)</b>
+            <span>تُلصق روابطك وبرومبتاتك وتعلّم على قوائم التحقق وتُحفظ تلقائيًا، ثم تُرسل ملف الإنجاز منظمًا عبر واتساب بضغطة زر.</span>
+          </button>
+          <button type="button" class="m-opt" id="modeDirect">
+            <b>📎 التسليم المباشر للملفات ولقطات الشاشة على واتساب</b>
+            <span>تقرأ المهام الـ 6 وقوائم التحقق هنا وتنفذها على جهازك، ثم ترسل الروابط ولقطات الشاشة وملفات PDF مباشرة في محادثة واتساب.</span>
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn btn-soft btn-sm" id="copyTasksBtn">📋 نسخ قائمة المهام الست فقط</button>
+          <button type="button" class="btn btn-out btn-sm" id="backVaultBtn">🧰 العودة لخزنة البرومبتات</button>
+        </div>
+      </div>
+
+      <div class="q-list" id="tasksList"></div>
+
+      <div class="nav-foot">
+        <button class="btn btn-out" id="portBack" type="button">→ العودة لاختبار الكفاءة</button>
+        <button class="btn btn-gold" id="finishBtn" type="button">✅ تصحيح اختبار الكفاءة وتجهيز تسليم ملف الإنجاز لواتساب</button>
+      </div>
+    </section>
+
+    <!-- TAB 4: RESULT & WHATSAPP SUBMISSION -->
+    <section id="sec-result" class="hidden">
+      <div id="ungradedBox" class="mode-box" style="text-align:center">
+        <h3>هل أنت جاهز لاعتماد اختبار الكفاءة وتجهيز ملف الإنجاز؟</h3>
+        <p class="sm" id="readySummary">سيتم تصحيح أسئلة الكفاءة الـ 60 (30 اختياري + 30 صح وخطأ) فورًا وتجهيز تقريرك وملف الإنجاز لإرسالهما للمدرب عبر واتساب.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-gold" id="gradeNowBtn" type="button">📊 اعتمد إجاباتي واحسب النتيجة الآن</button>
+          <button class="btn btn-out hidden" id="jumpUnansBtn" type="button">🔎 انتقل لأول سؤال لم تُجب عنه</button>
+        </div>
+      </div>
+
+      <div id="gradedBox" class="hidden">
+        <div class="res-hero">
+          <div class="score-ring">
+            <b id="rTotal">0</b>
+            <span>من 60 (آلي)</span>
+          </div>
+          <h2 id="rGradeTitle" style="color:var(--gold-light);margin-bottom:4px">—</h2>
+          <p id="rGradeSub" style="color:#e6efe8;font-size:.96rem">—</p>
+          <div class="res-grid">
+            <div class="r-stat"><b id="rMcq">0 / 30</b><span>مواقف وقرارات ذكية</span></div>
+            <div class="r-stat"><b id="rTf">0 / 30</b><span>صح أم خطأ تطبيقي</span></div>
+            <div class="r-stat"><b id="rPort">من 90 درجة</b><span>ملف الإنجاز (6 مهام · تقييم المدرب)</span></div>
+          </div>
+        </div>
+
+        <div class="wa-panel">
+          <h3>📤 تسليم النتيجة وملف الإنجاز العملي عبر واتساب</h3>
+          <p class="sm" id="waHint">أرسل أولًا نتيجة اختبار الكفاءة الآلي (زر ١)، ثم انسخ ملف الإنجاز العملي الكامل (زر ٢) والصقه في محادثة واتساب مع لقطة شاشة للعبة HTML أو ملف التقرير PDF.</p>
+          <div class="wa-actions">
+            <button type="button" class="btn btn-wa btn-full" id="sendScoreWaBtn">💬 ١) إرسال نتيجة اختبار الكفاءة (من 60) عبر واتساب</button>
+            <button type="button" class="btn btn-gold btn-full" id="sendPortfolioWaBtn">🛠️ ٢) نسخ ملف الإنجاز العملي (المهام الـ 6) وفتح واتساب للصقه</button>
+            <button type="button" class="btn btn-soft btn-full" id="copyFullReportBtn">📄 نسخ التقرير الكامل (النتيجة + ملف الإنجاز) للحافظة</button>
+          </div>
+          <details>
+            <summary style="cursor:pointer;font-weight:800;color:var(--pri);margin-bottom:8px">👁️ معاينة نص التقرير وملف الإنجاز قبل الإرسال</summary>
+            <div class="preview-box" id="reportPreview"></div>
+          </details>
+        </div>
+
+        <div class="mode-box">
+          <h3>🔍 مراجعة إجاباتك في اختبار الكفاءة (60 سؤالًا)</h3>
+          <p class="sm">راجع أخطاءك وتعلّم من التعليل المختصر قبل الانتقال إلى المحاضرة الرابعة (من معلم موسمي إلى معلم محترف).</p>
+          <div class="rev-controls">
+            <button type="button" class="btn btn-pri" id="revWrongBtn">❌ عرض الأخطاء فقط (<span id="wrongCnt">0</span>)</button>
+            <button type="button" class="btn btn-out" id="revAllBtn">📋 عرض جميع الـ 60 سؤالًا</button>
+            <button type="button" class="btn btn-bad" id="retakeBtn" style="margin-inline-start:auto">🔄 إعادة اختبار الكفاءة</button>
+          </div>
+          <div id="revList"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · دورة المعلم المستقل · إعداد وإشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,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";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const COURSE_ID = "independent";
+const EXPECTED_KEY = "Alsajid#2026!Indep$103";
+const WA_PHONE = "201091102946";
+const AUTH_KEY = "sajid_auth:independent";
+const QUIZ_KEY = "sajid_quiz:it_lec3";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+
+const VAULT = [{"tag": "المحور ٢ · إعداد الدرس", "title": "١) برومبت تحويل نص من «العربية بين يديك» إلى درس منسّق وتفاعلي", "edit": "استبدل نص الحوار والمفردات بنص درسك الحالي، ولا تنسَ مراجعة النص والأسماء يدويًا قبل النسخ (في المثال الأصلي الكسول هو «صادق» وليس «صابر»!).", "code": "لدي نص حوار من كتاب تعليم العربية بين شخصيتين: [صادق (كسول قليلًا) وصابر (نشيط)].\nنص الحوار:\n[الصق هنا حوار درسك]\n\nومعي مجموعة من المفردات الجديدة: [اكتب المفردات الجديدة هنا].\nالمطلوب:\n1. اكتب الحوار بين الشخصيتين منسقًا ومشكولًا تشكيلًا واضحًا للمبتدئ.\n2. نظّم المفردات الجديدة في جدول (الكلمة + المعنى المبسط).\n3. اشرح أدوات الاستفهام التي وردت في المحادثة، وضع لكل أداة 3 أمثلة جديدة في مواقف متنوعة.\n4. اختم بخمسة أسئلة متنوعة على الدرس باستخدام أدوات الاستفهام، وخمسة أسئلة إضافية باستخدام أداة الاستفهام «هل» للتركيز عليها."}, {"tag": "المحور ٢ · NotebookLM", "title": "٢) برومبت تحويل الدرس إلى 15 شريحة بصرية بهويتك على NotebookLM", "edit": "ارفع النص المنسّق + شعارك كمصدرين في NotebookLM، ثم عدّل اسم الدرس وعمر الطالب وجنسيته واسمك وأكاديميتك ورقم تواصلك.", "code": "لديك المصادر التالية:\n- النص التعليمي الخاص بدرس: \"[اكتب عنوان الدرس]\"\n- شعار الأكاديمية / المعلم.\n\nمهم جدًا:\n- استخدم النص الموجود في المصدر بالكامل دون حذف، ولا تعِد كتابة النص بشكل مختلف.\n- حوّله إلى عرض تعليمي بصري احترافي مكوّن من 15 شريحة كاملة.\n- الهدف: تعليم طالب يتحدث الإنجليزية ويتعلم العربية كلغة ثانية (العمر: [مراهق/طفل]، الخلفية: [اذكر خلفيته]).\n\nهوية العرض:\n- العنوان الرئيسي: \"[عنوان الدرس]\"\n- العنوان الفرعي: \"تعلم العربية من خلال الحوار والتفاعل\"\n- إعداد: \"[اسمك]\" | الجهة: \"[اسم أكاديميتك]\" | التواصل: \"[رقمك]\"\n\nالتصميم وتقسيم الشرائح:\n- الشريحة 1: الغلاف والشعار كبيرًا وواضحًا، ألوان مريحة (أخضر هادئ + أبيض + ذهبي)، خط عربي واضح (Cairo Bold)، ورسومات كرتونية معبّرة.\n- جميع الشرائح: شعار شفاف (Watermark) في الخلفية لا يعيق القراءة + تذييل (Footer) فيه الاسم والرقم.\n- الشريحة 2: الحوار كاملًا داخل فقاعات كلام (Speech Bubbles) مع شخصيتين كرتونيتين.\n- الشريحة 3: فكرة الدرس وقيمته التربوية مع صورة كرتونية مناسبة.\n- الشرائح 4 إلى 8: المفردات الجديدة (الكلمة + المعنى + المضاد إن وُجد + مثال بسيط + صورة كرتونية).\n- الشرائح 9 إلى 12: شرح مبسّط لأدوات الاستفهام (ماذا تعطينا؟ متى نستخدمها؟ أمثلة + صناديق بصرية).\n- الشريحة 13: مراجعة سريعة ببطاقات تعليمية (Flashcards).\n- الشرائح 14 و15: الأسئلة المتنوعة وأسئلة «هل» بتصميم تفاعلي، وختام تحفيزي: \"أحسنت! استمر في تعلم العربية.\"\n- الصور: كرتونية تعليمية حديثة فقط (ليست واقعية) ونصوص مختصرة مريحة للعين."}, {"tag": "المحور ٢ · ألعاب HTML", "title": "٣) برومبت صناعة لعبة قراءة تفاعلية (HTML) لطفل 6 سنوات", "edit": "أدخل كلمات درسك (6–8 كلمات مثل: أَبَدَ، أَبَضَ، بَتَحَ، بَطَحَ، تَرَكَ، طَرَقَ، ثَمَنَ، سَمَنَ) كمصدر مع شعارك، ثم خذ كود HTML الناتج وافتحه مباشرة في موقع HTML Online Viewer.", "code": "لديك المصادر التالية:\n- قائمة كلمات عربية مكوّنة من ثلاثة أحرف بحركة الفتحة: [ضع كلماتك هنا]\n- شعار المعلم / الأكاديمية.\n\nالمطلوب: إنشاء لعبة تعليمية تفاعلية كاملة في ملف واحد (HTML5 + CSS3 + JavaScript) مخصصة لطفل عمره 6 سنوات يتعلم القراءة العربية وتعمل مباشرة في المتصفح (Responsive للهاتف والكمبيوتر).\n\nطريقة اللعب والتفاعل:\n- تظهر كلمة عربية ضخمة وواضحة جدًا (بخط Cairo Bold أو Baloo Bhaijaan Arabic) داخل بطاقة كرتونية مبهجة.\n- عندما يقرأ الطالب الكلمة صحيحًا ويضغط المعلم أو الطالب عليها:\n  1) يصدر صوت طفولي مبهج وواضح يقول: \"Good Job!\" مع صوت تصفيق حماسي (مع إمكانية إعادة تشغيل الصوت).\n  2) تنزل من أعلى الشاشة أزهار ملونة ونجوم وقلوب صغيرة وConfetti Animation مع تأثير Bounce وGlow للكلمة.\n  3) شريط تقدم (Progress Bar) + عداد نجوم/نقاط + زرا \"ابدأ اللعبة\" و\"الكلمة التالية\".\n\nالتصميم والهوية:\n- ألوان طفولية زاهية ومريحة، عناصر كرتونية فقط (زهور ونجوم وغيوم).\n- الشعار كخلفية شفافة (Watermark) خفيفة لا تزعج الطفل، مع توقيع أنيق صغير: \"[اسمك / أكاديميتك]\".\n- الإخراج: كود HTML كامل وجاهز للتشغيل المباشر في المتصفح."}, {"tag": "المحور ٣ · الخطة الشهرية", "title": "٤) برومبت الخطة الشهرية «المُطعَّم ببصمتك وأساليبك الشخصية»", "edit": "جرّب أولًا إرسال الجزء الأول فقط (العام)، ثم أضف الجزء الثاني (أساليبك وتشبيهاتك ومواردك) وقارن بنفسك القفزة الهائلة في جودة الخطة!", "code": "أنا معلم قرآن ولغة عربية. لدي طالب [جنسيته] عمره [عمره] سنة، مستواه في القراءة [مستواه] لكنه يعاني من [المشكلة الأساسية: مثل بطء شديد في التلاوة وصعوبة في نطق حرفي العين والحاء والخلط بين الغين والخاء].\nاكتب لي خطة دراسية مخصصة ومكثفة لمدة شهر (4 أسابيع)، بمعدل حصتين أسبوعيًا، مدة الحصة 30 دقيقة، مع تحديد أهداف واقعية لكل أسبوع، وطريقة واضحة لمتابعة تطوره، وتكليفات منزلية لا تتجاوز 15 دقيقة يوميًا.\n\n(إضافة البصمة الشخصية للمعلم — سر التميز):\n- الطالب يقرأ القرآن بالفعل وهو الآن في سورة [اسم السورة، مثل الغاشية].\n- أستخدم معه طرقًا وتشبيهات محددة أريد دمجها داخل الخطة:\n  • حرف العين: من منتصف الحلق كأن شيئًا عالقًا في الحلق أو مثل عواء الذئب.\n  • حرف الغين: التدريب بصوت الغرغرة بقليل من الماء لتمييزه عن الخاء.\n  • حرف الخاء: ربطه بصوت KH من أسماء يعرفها الطالب مثل (عامر خان / سلمان خان).\n- أنصح الطالب بالتدريب اليومي عبر موقع House of Quran والاستماع للشيخ [الجمال — قراءة كلمة بكلمة] لاختيار الكلمة الصعبة وتكرارها."}, {"tag": "المحور ٣ · خطة درس واحد", "title": "٥) برومبت خطة درس واحد (30 دقيقة) + تحويله للإنجليزية (مثال الإدغام)", "edit": "استبدل قاعدة الإدغام وتشبيه «الهاتف في الجيب» بالقاعدة التي ستشرحها اليوم، ثم اطلب في رسالة تالية ترجمته للإنجليزية وتمريره على NotebookLM.", "code": "معي طالب صغير أشرح له حكم [الإدغام] في حصة مدتها 30 دقيقة.\nأشرح له الإدغام بأنه «إدخال» وأضرب له مثالًا حسيًا: إذا وضعت هاتفي في جيبي واتصل بي شخص وسمعنا صوت الرنين، فهذا (إدغام بغنة — حروف يَنْمُو)، وإذا لم نسمع صوتًا لكن لاحظنا زيادة حجم الجيب فقط، فهذا (إدغام بغير غنة — الراء واللام).\n\nالمطلوب:\n1. صمّم لي خطة درس تفاعلية كاملة لمدة 30 دقيقة (مقسمة بالدقائق).\n2. ابتكر لي أفكارًا قصصية وألعابًا إضافية تُجسّد حروف (يَنْمُو) وحرفي (الراء واللام) كشخصيات كرتونية تتحد مع النون الساكنة.\n3. أضف نشاطًا ختاميًا سريعًا للتحقق من الفهم.\n(وبعد مراجعة الخطة بالعربية، اكتب له: «الآن حوّل هذه الخطة إلى لغة إنجليزية سهلة وجذابة لأرسلها للطالب أو أعالجها عبر NotebookLM»)."}, {"tag": "المحور ٥ · التقرير الرسمي", "title": "٦) قالب التقرير الرسمي بعد الحصة التجريبية (Word ← PDF + رموز A/O)", "edit": "انسخ القالب لبرنامج Word، أضف شعارك وصورة صفحة الكتاب (مثل القاعدة البغدادية ص22) وصورة الغلافين الأمامي والخلفي، ثم احفظه PDF وأرسله لولي الأمر.", "code": "Student Assessment & Lesson Report\nStudent Name: [Student Name]\n\nAssalamu Alaikum wa Rahmatullahi wa Barakatuh,\nMy name is Ustadh [Your Name], an Arabic and Qur'an teacher at [Your Academy]. It was a pleasure teaching the trial lesson with [Student Name], and I look forward to accompanying him/her on this journey, in shaa Allah.\n\nInitial Assessment:\nAlhamdulillah, I was very pleased with [Student Name]'s performance. He/She can recognize the letters well—especially [mention 2–3 letters clearly pronounced]. This reflects the great effort made at home. May Allah reward you.\n\nReading Assessment & Today's Lesson:\nToday we studied [Book Name, e.g., Al-Qa'idah Al-Baghdadiyyah — Page __]. Our next focus is [e.g., reading fluency / heavy & light letters: خ – ص – ض – غ – ط – ق – ظ].\n(Attach page photo + front & back book covers so parents can buy a physical copy.)\n\nHomework (10–15 minutes daily):\nPlease help [Student Name] review the attached page before our next lesson. There is no need to teach him/her yourself—simply encourage regular reading.\n\nReading Symbols Used in Class:\n• A = Light Letter (Tarqeeq)\n• O = Heavy Letter (Tafkheem)\nExamples: أَبَدًا (A – A – A) | أَضَظَ (A – O – O)\n\nFinal Note:\nWith consistent attendance and short daily revision, [Student Name] will make wonderful progress, in shaa Allah.\nBest regards,\nUstadh [Your Name]"}, {"tag": "المحور ٥ · التقرير اليومي", "title": "٧) قالب التقرير اليومي السريع بعد حصة التلاوة (مع روابط الموارد)", "edit": "لاحظ الفرق: إن كنت تخاطب ولي الأمر اكتب Dear Parent/Guardian، وإن كنت تخاطب طالبًا بالغًا خاطبه مباشرةً بصيغة مناسبة له.", "code": "Student Progress Report\nDear Parent/Guardian,\nI hope you are doing well. I would like to share a short report about today's Qur'an recitation class:\n\n• Student: [Student Name]\n• Today's Lesson: Recited Surah [Surah Name] (verses __ to __).\n• Performance: Masha'Allah, the recitation was clear with noticeable improvement in [mention one specific point, e.g., pronouncing the letter 'Ayn].\n• Next Step & Home Practice: Revise this section to read smoothly without mistakes. I recommend practicing on House of Quran (https://www.houseofquran.com/quransys/qsys.html) and listening to [Sheikh Al-Husary for clear recitation / Sheikh Al-Jammal for word-by-word slow recitation].\n\nPlease encourage regular short revision at home.\nKind regards,\nUstadh [Your Name]"}, {"tag": "المحور ٤ و٦ · الهوية البصرية", "title": "٨) برومبت صناعة بوستر تعليمي سينمائي لفيسبوك (4:5) + حماية الروح", "edit": "ارفع صورتك الشخصية في «محادثة إنشاء الصور» المستقلة، وعدّل النصوص العربية في قسم IMPORTANT TEXT INSIDE IMAGE لتعكس رسالتك وموضوع منشورك.", "code": "High-end cinematic 3D stylized cartoon Facebook poster (Pixar-quality, mature and professional, NOT childish), 4:5 vertical ratio, premium educational branding.\nUse the provided teacher photo as the main character: a confident Middle Eastern teacher standing in the center of a futuristic educational studio, calm and fully in control while glowing AI assistant tools orbit around him/her.\nVisual message: \"AI is a tool... but the teacher's heart and mind remain the true engine.\"\nInclude a warm glowing human light/heart symbolizing emotional warmth vs. cold robotic repetition.\nLighting: warm gold mixed with subtle futuristic blue neon accents, 4K ultra-detailed, clean Facebook-ready composition.\n\nIMPORTANT ARABIC TEXT INSIDE IMAGE (modern bold luxury Arabic typography):\n- Top: \"[عنوان محاضرتك أو سلسلتك]\"\n- Center large bold: \"الذكاء الاصطناعي لن يصنع منك معلمًا...\"\n- Bottom large: \"إلا إذا كنت أنت المحرك الحقيقي\"\n- Small line: \"تعلّم كيف تستخدم الذكاء الاصطناعي دون أن تفقد روحك التعليمية\" "}];
+const LINKS = [{"ic": "📊", "title": "مثال شرائح NotebookLM (15 شريحة)", "desc": "شاهد النتيجة الحقيقية لتحويل درس «حوار بين نشيط وكسلان» إلى 15 شريحة بهوية الأكاديمية.", "url": "https://notebooklm.google.com/notebook/7c226eee-020e-4344-b9b1-4c49b24f5b91/artifact/dbc274d1-a952-4503-bf07-069084e377f2?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1"}, {"ic": "🧩", "title": "نموذج اختبار تفاعلي بـ Gemini", "desc": "مثال حي لاختبار سريع صُنع بـ Gemini لطالب متقن لقراءة «العربية بين يديك».", "url": "https://gemini.google.com/share/527ec22e0f11"}, {"ic": "🕌", "title": "موقع House of Quran", "desc": "أداة تدريب ومراجعة قرآنية ممتازة (مع الاستماع للشيخ الحصري أو الشيخ الجمال كلمة بكلمة).", "url": "https://www.houseofquran.com/quransys/qsys.html"}, {"ic": "📚", "title": "مكتبة المواد العلمية (Google Drive)", "desc": "ملف الروابط والمصادر التعليمية الشاملة التي يحتاجها المعلمون في المجال.", "url": "https://drive.google.com/file/d/1qzz9Ehu-xNVwi646mAMDtz8yTrfLmv34"}, {"ic": "💬", "title": "منشور المحاضرة على فيسبوك", "desc": "شارك تقييمك للمحاضرة واكتب في تعليق أكثر فائدة تعلمتها وستفرق معك في حصصك.", "url": "https://www.facebook.com/share/p/1H7h4zcPRz/"}, {"ic": "💻", "title": "أداة HTML Online Viewer", "desc": "افتح محرك البحث واكتب «HTML Online Viewer» لتلصق كود لعبتك التفاعلية وتعاينها وتلعبها فورًا.", "url": "https://html.onlineviewer.net/"}];
+const MCQ = [{"q": "كيف ينبغي للمعلم أن يتعامل مع ملف ورشة «الذكاء الاصطناعي في خدمة المعلم» لتحقيق الفائدة الحقيقية منه؟", "o": ["قراءته سريعًا ككتاب نظري وحفظ نصوص البرومبتات دون تشغيلها", "نسخ الأمثلة كما هي باسم المدرب وإرسالها لطلابك مباشرة", "الاكتفاء بمشاهدة المحاضرة دون فتح ChatGPT أو NotebookLM", "التعامل معه كـ«ورشة عمل»: التوقف بعد كل مثال، النسخ والتطبيق الفعلي، إعادة الصياغة بطريقتك، والابتكار على طلاب ومستويات مختلفة"], "a": 3, "e": "الذكاء الاصطناعي مهارة تنفيذية؛ القراءة السلبية لا تصنع مهارة، بل التطبيق والتعديل والابتكار على طلاب حقيقيين."}, {"q": "ما التكليف العملي الأساسي المطلوب في المحور الأول (التنظيم السحابي) من محاضرة الذكاء الاصطناعي؟", "o": ["تصميم تطبيق هاتف مستقل لجدول الحضور", "شراء مساحة تخزين مدفوعة قبل إنشاء أول ملف", "كتابة جدول الحضور ورقيًا وتصويره فقط", "رفع صورة أو ملف تعليمي على Google Drive، وإنشاء جدول على Google Sheets وإرسال رابطه للمتابعة"], "a": 3, "e": "المحور الأول يبني البنية التنظيمية للمعلم عبر Google Drive وGoogle Sheets ومشاركة الروابط بشكل صحيح."}, {"q": "في النص الخام لمحاضرة «حوار صادق وصابر»، ورد سهوٌ إملائي في الإملاء الصوتي يقول «إذن فالشخص الكسول هو صابر» بينما الحوار يثبت أن الكسول هو «صادق»؛ ما الدرس الذهبي المستفاد من هذا الموقف عند استخدام الذكاء الاصطناعي؟", "o": ["يجب حذف الحوار بالكامل والبحث عن كتاب آخر", "المعلم هو «المحرك والمدقق» الذي يراجع المخرجات بعقله وخبرته قبل تسليمها للطالب، ولا يكون ناقلًا أعمى عن الآلة", "الخطأ في أسماء الشخصيات لا يربك الطالب المبتدئ", "الذكاء الاصطناعي يصحح كل أخطاء المعلم دائمًا بنسبة 100% فلا داعي للمراجعة"], "a": 1, "e": "هذا موقف واقعي يثبت قاعدة المحاضرة الذهبية: راجع كل مخرج علمي ولغوي قبل عرضه على الطالب لأنك أنت المحرك لا الآلة."}, {"q": "ما التسلسل الاحترافي الذي استُخدم في المحور الثاني لتحويل نص جامد من «العربية بين يديك» إلى عرض من 15 شريحة بصرية؟", "o": ["إرسال الكتاب كاملًا للطالب كما هو بدون تجهيز", "كتابة جملة «اعمل لي شرائح» فقط في NotebookLM دون أي تفاصيل", "ترجمة الحوار كله للإنجليزية وإلغاء النص العربي", "تنظيم النص والمفردات والأسئلة عبر ChatGPT ← هندسة برومبت دقيق لـ NotebookLM ← رفع النص والشعار كمصدرين وتمرير البرومبت لإنتاج 15 شريحة"], "a": 3, "e": "الفصل بين «تجهيز المحتوى» و«هندسة البرومبت» ثم «تزويد NotebookLM بالمصادر والشعار» هو ما أنتج عرضًا بصريًا متقنًا."}, {"q": "لماذا نصّ برومبت NotebookLM صراحةً على: «استخدم النص الموجود في المصدر بالكامل دون حذف، ولا تعِد كتابة النص بشكل مختلف»؟", "o": ["لجعل الشرائح مليئة بنصوص طويلة ومزدحمة", "لئلا تتصرف الأداة فتغيّر كلمات المنهج المقرر أو تحذف أجزاءً من الحوار الذي سيتدرب عليه الطالب", "لمنع الأداة من إضافة أي رسومات كرتونية", "لأن NotebookLM لا يقبل النصوص العربية أصلًا"], "a": 1, "e": "تقييد الأداة بالالتزام الحرفي بالمصدر يحفظ دقة المنهج ويمنع الهلوسة أو حذف مفردات وأسئلة الدرس."}, {"q": "في برومبت الـ 15 شريحة لـ NotebookLM، كيف تم توظيف «شعار الأكاديمية» لضمان الهوية البصرية دون إزعاج عين الطالب؟", "o": ["وضعه في الشريحة الأخيرة وحدها", "وضعه كبيرًا وواضحًا في الشريحة الأولى فقط، وجعله خلفية شفافة (Watermark) خفيفة خلف النص في بقية الشرائح", "تكبيره ليغطي منتصف النص في كل الشرائح", "حذفه من جميع الشرائح والاكتفاء بالاسم فقط"], "a": 1, "e": "الشعار الكبير في الغلاف مع Watermark شفافة خفيفة وتذييل (Footer) ثابت في بقية الشرائح يصنع هوية فاخرة مريحة للعين."}, {"q": "لماذا طلب برومبت شرائح «حوار بين نشيط وكسلان» استخدام «صور كرتونية حديثة فقط وليست واقعية» مع تعبيرات وجه واضحة؟", "o": ["لأن الأسلوب الكرتوني الموحّد أنسب تربويًا للمراهقين والأطفال ويوضّح المشاعر (النشاط، الكسل، الاعتذار، الحماس) بجاذبية وراحة للعين", "لأن الصور الكرتونية تلغي الحاجة لكتابة الكلمات العربية", "لأن أدوات الذكاء الاصطناعي لا تستطيع توليد صور واقعية", "لأن الطالب المراهق لا يحب الألوان الهادئة"], "a": 0, "e": "تحديد النمط البصري (كرتوني حديث) وتحديد الشريحة العمرية (مراهق من أصل مغربي) يمنع التشتت البصري ويوحّد هوية العرض."}, {"q": "أي عنصر مما يلي جُعل له «شريحة مخصصة» (الشريحة 13) في برومبت الـ 15 شريحة لتثبيت المفردات قبل الأسئلة؟", "o": ["مراجعة سريعة للمفردات المهمة باستخدام بطاقات تعليمية (Flashcards: صور + كلمات)", "جدول رسوم الاشتراك الشهري", "اختبار نحوي في الإعراب المتقدم", "سيرة ذاتية طويلة للمعلم"], "a": 0, "e": "التدرج البنائي للشرائح (غلاف ← حوار ← فكرة ← مفردات مع مضاد ← أدوات استفهام ← Flashcards مراجعة ← أسئلة) يضمن استيعابًا متسلسلًا."}, {"q": "عند تصميم لعبة قراءة تفاعلية لطفل عمره 6 سنوات (لكلمات ثلاثية بالفتحة مثل: أَبَدَ، بَتَحَ، طَرَقَ)، ما الأداة التي نفتح فيها كود HTML الناتج لمعاينته وتشغيله فورًا بدون تعقيد برمجي؟", "o": ["برنامج Paint للرسم", "موقع HTML Online Viewer", "تطبيق تسجيل المكالمات", "جدول Google Sheets"], "a": 1, "e": "لصق كود HTML الناتج من الذكاء الاصطناعي في موقع HTML Online Viewer يحوّله في ثانية إلى لعبة حية جاهزة للعرض ومشاركة الشاشة."}, {"q": "لماذا حدّد برومبت لعبة القراءة لطفل 6 سنوات تفاصيل دقيقة مثل: «صوت طفولي يقول Good Job + تصفيق + سقوط أزهار وConfetti + شريط تقدم وعداد نجوم»؟", "o": ["لأن الطفل لا يحتاج لأي تشجيع صوتي", "لإطالة حجم البرومبت بلا فائدة عملية", "لأن تحديد آلية المكافأة الصوتية والبصرية بدقة في البرومبت يجعل اللعبة ممتعة ومناسبة لعمر 6 سنوات وتضاعف فرحة الطفل بكل كلمة", "لإرباك المتصفح وإبطاء اللعبة"], "a": 2, "e": "كلما وصفت «تجربة المستخدم» والمكافأة الحسية بدقة في البرومبت، خرجت اللعبة متناسبة تمامًا مع عمر الطفل."}, {"q": "ما الميزة التي تجعل التقرير الرسمي بعد الحصة التجريبية (المُنسَّق بـ Word والمُصدَّر كـ PDF) أداة تسويقية وتربوية خارقة مع أولياء الأمور الأجانب؟", "o": ["يتكوّن من سطر واحد عام مثل «ابنك ممتاز جدًا»", "يطلب من ولي الأمر أن يدرّس ابنه المنهج بنفسه في البيت", "يجمع التقييم المحدد بالثناء على جهود البيت، واسم الكتاب وصورة صفحته وغلافيه، وتعليمات المراجعة الهادئة، ورموز القراءة (A/O) في وثيقة منظمة بهوية المعلم", "يقتصر على سرد أخطاء الطفل فقط دون ذكر نقاط قوته"], "a": 2, "e": "التقرير الرسمي المنسّق PDF يرسّخ صورة المعلم الخبير المنظّم ويشرك الأسرة بوضوح دون إثقالها."}, {"q": "في التقرير الرسمي بعد الحصة التجريبية، ماذا تعني جملة: «There is no need to teach him yourself. Simply encourage him to read 10–15 minutes daily»؟", "o": ["منع ولي الأمر من متابعة ابنه تمامًا", "القول إن المراجعة المنزلية غير مفيدة", "طمأنة ولي الأمر وتخفيف العبء عنه؛ فدوره التشجيع والمتابعة القصيرة (10–15 دقيقة) وليس القيام بدور المعلم في الشرح", "إلزام الطفل بالدراسة ثلاث ساعات يوميًا"], "a": 2, "e": "أولياء الأمور في الغرب مشغولون؛ وهذه الجملة تريحهم وتحدد دورهم بدقة في 10–15 دقيقة تشجيع يومي."}, {"q": "ما دلالة نظام التشفير الصوتي البسيط (A / O) المستخدم داخل الحصة والمشروح في التقرير الرسمي لولي الأمر؟", "o": ["A = حرف مرقّق (Light / Tarqeeq)، وO = حرف مفخّم (Heavy / Tafkheem)، مثل أَبَدًا (A-A-A) وأَضَظَ (A-O-O)", "A = مد طويل، وO = سكون", "A = خطأ، وO = صحيح", "A = غنة، وO = قلقلة"], "a": 0, "e": "تشفير (A للمرقق وO للمفخم) يربط شكل الفم بصريًا بالرمز فيتذكره الطفل فورًا أثناء مراجعة الصفحة في البيت."}, {"q": "لماذا يُرفق المعلم في التقرير الرسمي «صورة الغلاف الأمامي والخلفي للكتاب» (مثل القاعدة البغدادية) بجانب صورة الصفحة المدروسة؟", "o": ["لإجبار ولي الأمر على دفع ثمن الكتاب للمعلم", "لأن إرسال نسخة PDF ممنوع تمامًا", "ليسهل على ولي الأمر التعرّف على النسخة الصحيحة وبيانات النشر إن أراد شراء نسخة ورقية للطفل تسهل مراجعته في البيت", "لملء مساحة فارغة في ملف Word فقط"], "a": 2, "e": "إرفاق صورة الغلاف الأمامي والخلفي وبيانات النشر لمسة احترافية تسهّل على الأهل اقتناء النسخة الورقية الصحيحة."}, {"q": "ما الفارق الأساسي بين «التقرير الرسمي بعد الحصة التجريبية» وبين «التقرير اليومي السريع» في نهاية كل حصة تلاوة؟", "o": ["التقرير اليومي لا يُذكر فيه أي رابط أو قارئ للاستماع", "التقرير اليومي موحّد بنفس الصيغة سواء كان للطالب البالغ أو لولي الأمر", "الرسمي يكون مفصلًا ومنسّقًا PDF مع التقييم الأولي والكتاب والرموز، أما اليومي فرسالة قصيرة مركّزة تشمل ما قرأه الطالب ونقطة التحسن والخطوة القادمة مع روابط الموارد (مثل House of Quran والقارئ المقترح)", "كلاهما يجب أن يكونا من 10 صفحات يوميًا"], "a": 2, "e": "التقرير اليومي سريع وعملي ويُكيّف حسب المخاطَب (ولي الأمر أو الطالب البالغ مباشرة) مع إرفاق المورد الصوتي المناسب."}, {"q": "في مثال التقرير اليومي لطالبين (أيّان وحسن)، لماذا رُشّح الشيخ «الجَمّال» تحديدًا لحسن في موقع House of Quran؟", "o": ["لأن صوته هو الوحيد المتاح على الموقع", "لأنه يقرأ بسرعة فائقة جدًا", "لأنه يشرح النحو بالإنجليزية", "لأنه يقرأ ببطء و«كلمة بكلمة»، مما يناسب الطالب الذي يحتاج تكرار الكلمات وضبط مخارجها بهدوء"], "a": 3, "e": "الشيخ الحصري رُشّح لقراءة واضحة ومنضبطة (لأيّان)، بينما الشيخ الجمال رُشّح لقراءته البطيئة كلمةً بكلمة (لحسن والطالب الماليزي)."}, {"q": "قارن بين البرومبت الأول والبرومبت الثاني لخطة «الطالب الماليزي (20 سنة)»؛ لماذا أخرج البرومبت الثاني خطةً أعمق وأكثر ملاءمةً بمراحل؟", "o": ["لأن البرومبت الثاني كُتب باللغة الإنجليزية فقط", "لأن البرومبت الثاني زوّد الذكاء الاصطناعي بـ«البصمة الخاصة للمعلم والسياق الدقيق»: تشبيهات المخارج التي يستخدمها المعلم (عواء الذئب، الغرغرة، KH من عامر وسلمان خان)، والسورة الحالية (الغاشية)، والمورد والقارئ المحددين", "لأن البرومبت الثاني ألغى تحديد مدة الحصة", "لأن البرومبت الثاني طلب زيادة الواجب إلى ساعتين يوميًا"], "a": 1, "e": "القاعدة الذهبية في هندسة البرومبت: «جودة المخرجات تتناسب طرديًا مع غنى السياق وبصمتك الميدانية في المدخلات»."}, {"q": "في البرومبت الثاني للطالب الماليزي، ما الذكاء التربوي في ربط حرف «الخاء» بـ (KH من اسم عامر خان وسلمان خان)؟", "o": ["استثمار «خلفية الطالب الثقافية» ومعرفته المسبقة بشخصيات مشهورة لديه لتقريب الصوت الصعب بسرعة ومودة", "الاستغناء عن نطق حرف الخاء من مخرجه العربي", "إقناع الطالب بترك سورة الغاشية", "إضاعة وقت الحصة في الحديث عن السينما"], "a": 0, "e": "ربط الأصوات الجديدة بمرجعية ثقافية مألوفة للطالب (وإدخال ذلك في برومبت الخطة) يجعل الذكاء الاصطناعي يبني خطة مخصصة بحق."}, {"q": "في برومبت خطة الدرس الواحد (30 دقيقة) لشرح «الإدغام» لطفل صغير، كيف فرّق تشبيه «الهاتف في الجيب» بين الإدغام بغنة والإدغام بغير غنة؟", "o": ["زيادة حجم الجيب تعني إظهارًا حلقيًا، وسماع الصوت يعني قلقلة", "التشبيه مخصص للكبار المتخصصين في التجويد فقط", "سماع الصوت يعني إدغامًا بغير غنة، واختفاؤه يعني إدغامًا بغنة", "سماع صوت رنين الهاتف داخل الجيب = إدغام بغنة (يَنْمُو)، وعدم سماع صوت مع زيادة حجم الجيب فقط = إدغام بغير غنة (الراء واللام)"], "a": 3, "e": "المعلم يضع الفكرة التربوية العبقرية (تشبيه الهاتف)، ثم يطلب من الذكاء الاصطناعي توسيعها بقصص كرتونية وأنشطة لحصة 30 دقيقة."}, {"q": "ما الخطوتان اللتان طُبّقتا بعد إنتاج خطة درس الإدغام بالعربية عبر ChatGPT لتصبح جاهزة للإرسال بصريًا للطالب الأجنبي؟", "o": ["تحويلها إلى جدول أرقام في Google Sheets", "إرسالها باللهجة العامية كما هي دون مراجعة", "طلب تحويلها إلى اللغة الإنجليزية في خطوة تالية، ثم معالجتها بصريًا عبر NotebookLM", "حذف جميع الأمثلة الحسية والإبقاء على التعريف النظري فقط"], "a": 2, "e": "بناء الفكرة بالعربية أولًا يضمن عمقها ودقتها الشرعية والتربوية، ثم تحويلها للإنجليزية ومعالجتها بـ NotebookLM يُخرجها في أبهى صورة."}, {"q": "لماذا نصح المدرب في المحور الرابع بكتابة أفكارك أولًا في «مفكرات أو ملاحظات من رأسك» قبل الذهاب إلى ChatGPT لصياغة منشورات فيسبوك؟", "o": ["حتى تكون أنت صاحب الفكرة الحقيقية والروح، لا مجرد ناقل عن الآلة فتقع في أخطاء علمية أو منشورات مكررة بلا شخصية", "لتطويل وقت العمل ثلاث مرات", "لأن فيسبوك يحظر أي نص منسّق باللغة العربية", "لأن ChatGPT لا يعمل إذا كتبت له مباشرة دون ملف مفكرة"], "a": 0, "e": "الأفكار تخرج من رأسك وخبرتك في مفكرة، والذكاء الاصطناعي يساعدك في الصياغة والتنسيق وتوفير الكتابة حرفًا بحرف."}, {"q": "ما الحكمة من «إنشاء عدة محادثات منفصلة» داخل ChatGPT (محادثة للنصوص العربية، وأخرى لمنشورات فيسبوك، وأخرى لهندسة البرومبت، وأخرى لإنشاء الصور) مع تلقينها شخصيتك؟", "o": ["لأن ChatGPT يسمح برسالة واحدة فقط في كل محادثة", "لإخفاء هويتك التعليمية عن الذكاء الاصطناعي", "تنظيم سياق كل مهمة فتفهم كل محادثة دورها وهويتك بدقة وتخرج نتائج متسقة عالية الجودة دون خلط السياقات", "لأن إنشاء محادثات منفصلة يحذف الحاجة لرفع صورتك أول مرة"], "a": 2, "e": "تخصيص محادثة لكل وظيفة وتغذيتها بشخصيتك وأسلوبك يحوّلها إلى «مساعد شخصي متمرّس» يفهمك بسرعة."}, {"q": "في محادثة «إنشاء الصور» لبناء هويتك البصرية على فيسبوك، كيف تتصرف مع صورتك الشخصية؟", "o": ["لا ترفع صورتك أبدًا وتستخدم صور أشخاص غرباء", "ترفع صورتك الشخصية في المرة الأولى والثانية لتتعرّف المحادثة على ملامحك وهويتك، وبعدها يسهل توليد صور متسقة دون إعادة التلقين من الصفر", "تستخدم صورًا عشوائية بأسلوب طفولي مبالغ فيه كل مرة", "ترفع صورة منخفضة الدقة ومظلمة"], "a": 1, "e": "تثبيت المرجع البصري في محادثة الصور المستقلة يبني هوية شخصية متسقة وفاخرة لمنشوراتك."}, {"q": "ما نسبة الأبعاد (Aspect Ratio) التي اختارها برومبت البوستر التعليمي السينمائي ليكون مثاليًا للعرض على فيسبوك (Facebook-ready)؟", "o": ["4:5 رأسي (Vertical Ratio)", "1:3 شريط طويل جدًا", "16:9 أفقي عريض فقط", "21:9 سينمائي شديد العرض"], "a": 0, "e": "نسبة 4:5 الرأسية تشغل مساحة بصرية ممتازة وجذابة في تصفح فيسبوك خصوصًا على الهواتف."}, {"q": "ما الرسالة المركزية التي جسّدتها المنطقة السادسة (Protecting the Teacher's Soul Zone) في برومبت البوستر التعليمي؟", "o": ["أن الذكاء الاصطناعي سيستبدل المعلمين بالكامل قريبًا", "أن المعلم المحترف يردد ما يكتبه الذكاء الاصطناعي حرفيًا كالروبوت", "أن الهوية البصرية أهم من روح المعلم وإخلاصه", "«الذكاء الاصطناعي لن يصنع منك معلمًا… إلا إذا كنت أنت المحرك الحقيقي» — فالآلة أداة، أما قلب المعلم وعقله فهما المحرك الحقيقي"], "a": 3, "e": "الذكاء الاصطناعي مساعد يضاعف وقتك، لكن الروح الإنسانية والقلب الحاضر هما ما يصنع المعلم الحقيقي."}, {"q": "متى اقترحت المحاضرة استخدام «اختبار تفاعلي سريع عبر Gemini» (مثل النموذج المشترك في الرابط)؟", "o": ["مع طالب جيد في قراءة كتاب «العربية بين يديك» ولا يحتاج مساعدة خارجية، لتقديم اختبار ممتع وسهل التجهيز يقيس فهمه", "كبديل تام عن حضور الحصص المباشرة مع المعلم", "مع طفل لا يعرف شكل حرف الألف بعد", "لتحويل صور الكتب إلى ملفات صوتية فقط"], "a": 0, "e": "توظيف Gemini لبناء اختبارات تفاعلية سريعة للطالب المتمكن في القراءة يضيف قيمة رائعة ويوفر وقت المعلم."}, {"q": "ما القاعدة التي يجب مراعاتها عند إرسال التقرير اليومي إذا كنت تتعامل مع «طالب بالغ مباشر» مقابل «طفل عبر ولي أمره»؟", "o": ["إرسال نفس رسالة «Dear Parent» حرفيًا للطالب البالغ ذي الأربعين عامًا", "تكييف الصيغة لتناسب المخاطَب؛ فخطاب الطالب البالغ يكون مباشرًا له، وخطاب ولي الأمر يكون موجّهًا لولي الأمر مع إرفاق الروابط والموارد اللازمة", "الاكتفاء بإرسال روابط دون أي سطر ترحيب أو توجيه", "عدم إرسال أي تقارير للكبار مطلقًا"], "a": 1, "e": "الاحترافية واللمسة الشخصية تعنيان تكييف الصيغة لتلائم المخاطَب الفعلي (ولي أمر أم طالب بالغ)."}, {"q": "ما الوصية الذهبية الثانية في ختام المحاضرة لتعزيز إحساس كل طالب بقيمته معك رغم استخدامك أدوات الذكاء الاصطناعي؟", "o": ["«تعامل مع كل طالب وكأنك تعمل معه فقط أو تدرّس له فقط، حتى يشعر بقيمته»", "«أرسل لكل طلابك نفس التقرير المنسوخ دون تغيير الاسم»", "«اجعل الذكاء الاصطناعي يرد على رسائل طلابك تلقائيًا دون أن تقرأها»", "«أخبر الطالب دائمًا أنك مشغول بعشرين طالبًا غيره»"], "a": 0, "e": "الوصيتان الختاميتان: (1) ظهور شخصيتك في كل شيء لا مجرد نقل عن الآلة، (2) معاملة كل طالب وكأنه طالبك الوحيد."}, {"q": "اكتشف معلم أن خطة الدرس التي أنتجها ChatGPT طويلة جدًا وتتجاوز وقت الحصة (30 دقيقة) وتحتوي مصطلحًا صعبًا على طفل عمره 7 سنوات؛ ما التصرف الاحترافي الصحيح؟", "o": ["يتوقف عن استخدام الذكاء الاصطناعي نهائيًا", "يلتزم بكل كلمة كتبها ChatGPT حرفيًا حتى لو ملّ الطفل وانتهى الوقت في منتصف الدرس", "يقرأ المصطلحات الصعبة بسرعة ليُنهي الخطة", "يعيد توجيه البرومبت بتحديد مدة الـ 30 دقيقة ومستوى الطفل، ويحذف المصطلحات الصعبة ويطوّع الخطة بخبرته قبل الحصة"], "a": 3, "e": "المعلم الذكي يتحكم في التكنولوجيا ولا تتحكم فيه؛ فيُعدّل البرومبت ويراجع المخرج ليوافق وقت الحصة وعمر الطالب."}, {"q": "أي ترتيب مما يلي يمثّل «منظومة العمل المتكاملة» التي جمعتها المحاضرة الثالثة (الذكاء الاصطناعي في خدمة المعلم)؟", "o": ["نسخ منشورات الآخرين على فيسبوك دون مفكرة شخصية", "التنظيم السحابي (Drive/Sheets) ← صناعة وتبسيط المحتوى (ChatGPT/NotebookLM/HTML) ← الخطط الذكية ← الهوية البصرية ← المساعد الشخصي والتقارير ← حماية روح المعلم", "صناعة الصور فقط دون خطط أو تقارير", "الاعتماد على لعبة HTML واحدة في كل الحصص دون تنظيم أو متابعة"], "a": 1, "e": "هذه هي المحاور الستة المتكاملة التي تشكّل منظومة «المعلم الذكي الذي يقود التقنية بروح إنسانية حية»."}];
+const TF = [{"q": "الهدف من الذكاء الاصطناعي في هذه المحاضرة أن يصبح بديلًا كاملًا عن المعلم البشري داخل الحصة.", "a": false, "e": "خطأ؛ الهدف أن يكون الذكاء الاصطناعي «مساعدًا لك لا بديلًا عنك»، وأنت المحرك الحقيقي."}, {"q": "يكفي تحميل ملف المحاضرة وقراءته نظريًا دون تجربة نسخ البرومبتات وتطبيقها عمليًا على الأدوات.", "a": false, "e": "خطأ؛ نصّت المحاضرة على التعامل مع الملف كـ«ورشة عمل»: توقف بعد كل مثال وطبّق وأعِد الصياغة وابتكر."}, {"q": "رفع ملفاتك على Google Drive وتنظيم طلابك عبر Google Sheets هما أساس المحور الأول للتنظيم الاحترافي.", "a": true, "e": "صحيح؛ والمطلوب عمليًا رفع ملف على Drive وإنشاء Google Sheet ومشاركة الرابط."}, {"q": "يمكن استخدام ChatGPT لصياغة «برومبت احترافي» نُعطيه بعد ذلك لأداة أخرى مثل NotebookLM لتحويل النص إلى شرائح.", "a": true, "e": "صحيح؛ وهذه من أقوى مهارات «هندسة البرومبت» العملية التي طُبّقت في المحاضرة."}, {"q": "من الجيد إرسال النص الناتج من الذكاء الاصطناعي مباشرة للطالب دون مراجعة بشرية لأن الآلة لا تخطئ أبدًا.", "a": false, "e": "خطأ؛ قد تقع أخطاء في الإدخال أو المخرج (مثل الخلط بين صادق وصابر)، ومراجعة المعلم ضرورة لا غنى عنها."}, {"q": "في NotebookLM، يمكن رفع النص التعليمي وشعار الأكاديمية معًا كمصدرين ليُدرج الشعار في الغلاف وكخلفية شفافة (Watermark).", "a": true, "e": "صحيح؛ مع إضافة التذييل (Footer) الذي يحمل اسم الأكاديمية ورقم التواصل في كل الشرائح."}, {"q": "إضافة نص طويل ومزدحم داخل كل شريحة تعليمية للمراهقين يساعدهم على التركيز السريع.", "a": false, "e": "خطأ؛ نصّ برومبت الشرائح صراحةً على «عدم وضع نصوص كثيرة داخل الشريحة الواحدة» والحفاظ على راحة العين."}, {"q": "يمكن للمعلم الذي لا يعرف البرمجة أن يصنع لعبة قراءة تفاعلية (HTML + CSS + JS) عبر هندسة برومبت دقيق ثم تشغيلها في HTML Online Viewer.", "a": true, "e": "صحيح؛ وهذه النقلة تحوّل الكلمات الجامدة إلى تجربة مبهجة للأطفال في دقائق."}, {"q": "من المناسب استخدام تصميم داكن معقّد وخطوط صغيرة جدًا في لعبة قراءة مخصصة لطفل عمره 6 سنوات.", "a": false, "e": "خطأ؛ بل يجب أن تكون الألوان زاهية مريحة، والخط ضخمًا واضحًا (مثل Cairo Bold)، والعناصر كرتونية بسيطة."}, {"q": "إضافة شريط تقدم (Progress Bar) وعداد نجوم وصوت تشجيعي («Good Job!») في لعبة القراءة يعزّز شعور الطفل بالإنجاز.", "a": true, "e": "صحيح؛ لأن التفاعل البصري والصوتي القوي يضاعف حماس الطفل أثناء الحصة."}, {"q": "تنسيق التقرير الرسمي بعد الحصة التجريبية في برنامج Word ثم تصديره بصيغة PDF يمنحه مظهرًا احترافيًا أفضل عند إرساله لولي الأمر.", "a": true, "e": "صحيح؛ مع إضافة شعار المعلم وصور الصفحات وأغلفة الكتاب."}, {"q": "في التقرير الرسمي بعد التجريبية، يُنصح بطلب المعلم من ولي الأمر أن يشرح الدرس الجديد لابنه بنفسه في البيت.", "a": false, "e": "خطأ؛ بل يطمئنه: «There is no need to teach him yourself» ويكتفي بتشجيعه على المراجعة 10–15 دقيقة يوميًا."}, {"q": "في نظام الرموز داخل الحصة والتقرير، يشير الرمز (A) إلى الحرف المفخّم (Heavy) والرمز (O) إلى الحرف المرقّق (Light).", "a": false, "e": "خطأ؛ بل العكس تمامًا: (A) للحرف المرقّق Light، و(O) للحرف المفخّم Heavy، مثل أَضَظَ (A – O – O)."}, {"q": "يمكن استخدام موقع House of Quran كأداة مراجعة يومية للطالب مع ترشيح القارئ الأنسب لحالته (مثل الحصري أو الجمال).", "a": true, "e": "صحيح؛ وهو مورد عملي ممتاز يُرفق رابطه في التقارير والخطط."}, {"q": "تغيير المعطيات وإضافة أساليبك وتشبيهاتك الخاصة داخل برومبت الخطة الشهرية لا يُحدث فرقًا يُذكر في النتيجة النهائية.", "a": false, "e": "خطأ؛ بل يُحدث فرقًا جذريًا يحوّل الخطة من كلام عام مكرر إلى خطة مخصصة نابضة بروحك وأساليبك."}, {"q": "في برومبت الخطة الشهرية المكثفة للطالب الماليزي، حُدّدت التكليفات المنزلية بألا تتجاوز 15 دقيقة يوميًا لتكون واقعية ومستدامة.", "a": true, "e": "صحيح؛ تحديد القيود الواقعية في البرومبت (30 دقيقة للحصة، ≤15 دقيقة واجب يومي) يصنع خطة قابلة للتطبيق."}, {"q": "في تشبيه درس الإدغام لطفل صغير، إذا وُضع الهاتف في الجيب ورنّ فسمعنا صوته، فهذا يمثّل الإدغام بغير غنة.", "a": false, "e": "خطأ؛ سماع صوت الرنين يمثّل «الإدغام بغنة» (حروف يَنْمُو)، أما عدم سماعه مع زيادة حجم الجيب فيمثّل «الإدغام بغير غنة» (الراء واللام)."}, {"q": "يمكن إعداد خطة الدرس الواحد بالعربية أولًا في ChatGPT ثم طلب تحويلها للإنجليزية ومعالجتها بصريًا في NotebookLM.", "a": true, "e": "صحيح؛ وهو مسار عمل ذكي يضمن جودة المحتوى العربي وسهولة عرضه للطالب غير العربي."}, {"q": "الأفضل في كتابة منشورات فيسبوك أن تترك الذكاء الاصطناعي يخترع لك آراءً عشوائية دون أن تكتب أفكارك أولًا في مفكرة.", "a": false, "e": "خطأ؛ نبّهت المحاضرة إلى تدوين ما في رأسك في مفكرة أولًا حتى لا تكون مجرد ناقل عن الآلة وتقع في الأخطاء."}, {"q": "تخصيص محادثات منفصلة داخل ChatGPT (للنصوص، والمنشورات، وهندسة البرومبت، والصور) مع تلقينها شخصيتك يرفع دقة المخرجات ويوفر الوقت.", "a": true, "e": "صحيح؛ لأنه يحفظ سياق كل مهمة ويمنع تداخل الأدوار."}, {"q": "لإنتاج بوسترات تعليمية متسقة بملامحك الشخصية، تحتاج إلى رفع صورتك في أول مرة وثاني مرة داخل محادثة الصور لتتعرّف عليها.", "a": true, "e": "صحيح؛ وبعد ذلك تلتقط المحادثة هويتك البصرية بسهولة أكبر."}, {"q": "في برومبت البوستر التعليمي لفيسبوك، النسبة 4:5 الرأسية مناسبة جدًا لظهور المنشور بوضوح وجاذبية.", "a": true, "e": "صحيح؛ مع توجيه التصميم بألا يكون طفوليًا مبالغًا فيه بل احترافيًا ناضجًا."}, {"q": "الشعار المكتوب في البوستر: «الذكاء الاصطناعي لن يصنع منك معلمًا… إلا إذا كنت أنت المحرك الحقيقي» يلخّص محور حماية روح المعلم.", "a": true, "e": "صحيح؛ فالقلب والعقل البشري هما المحرك، والذكاء الاصطناعي أداة مساعدة."}, {"q": "لا يصح أبدًا استخدام Gemini لعمل اختبار تفاعلي سريع لطالب متقن لقراءة كتاب «العربية بين يديك».", "a": false, "e": "خطأ؛ قدّمت المحاضرة نموذجًا عمليًا لاختبار تفاعلي سهل وسريع عبر Gemini لهذا النوع من الطلاب."}, {"q": "إذا كان تعاملك مباشرًا مع طالب بالغ، يجب أن تصوغ التقرير اليومي بصيغة موجهة له لا بصيغة «عزيزي ولي الأمر».", "a": true, "e": "صحيح؛ مراعاة المخاطَب المباشر جزء أساسي من احترافية التقارير."}, {"q": "إظهار شخصيتك وأسلوبك الخاص في كل ما ترسله للطلاب أولى من نسخ نصوص آلية باردة من الذكاء الاصطناعي.", "a": true, "e": "صحيح؛ وهي الوصية الأولى في ختام المحاضرة."}, {"q": "معاملة كل طالب وكأنك تدرّس له وحده تُشعره بقيمته وترفع ولاءه واستمراره معك.", "a": true, "e": "صحيح؛ وهي الوصية الثانية في ختام المحاضرة."}, {"q": "البرومبت الجيد هو البرومبت القصير جدًا من ثلاث كلمات مثل «اعمل خطة لطالب» دون ذكر عمره أو مستواه أو مشكلته.", "a": false, "e": "خطأ؛ البرومبت الناقص ينتج خطة عامة ضعيفة، بينما ذكر العمر والمستوى والمشكلة والهدف والوقت يُنتج خطة احترافية."}, {"q": "عند كتابة برومبت لموقع NotebookLM، من المفيد تحديد أسلوب الصور والألوان وعدد الشرائح وتقسيم كل شريحة بوضوح.", "a": true, "e": "صحيح؛ فالتفصيل المنهجي في البرومبت يمنحك إخراجًا بصريًا منظمًا من أول محاولة."}, {"q": "الاكتفاء بنسخ الأمثلة الموجودة في ملف المحاضرة دون ابتكار أنشطة وحوارات جديدة لطلابك هو الغاية النهائية من الورشة.", "a": false, "e": "خطأ؛ نصّت مقدمة الملف صراحةً: «لا تكتفوا بما تم شرحه فقط، بل حاولوا أن تبتكروا أنشطة وأفكارًا جديدة من عندكم»."}];
+const TASKS = [{"num": 1, "pts": 15, "title": "التنظيم السحابي الاحترافي (Google Drive + Google Sheets)", "desc": "أنشئ بنية تنظيمية حقيقية لعملك: ارفع ملفًا تعليميًا أو صورة لصفحة كتاب على Google Drive، ثم أنشئ جدولًا على Google Sheets لمتابعة طلابك وحضورهم وتقدمهم.", "f1_label": "🔗 رابط الملف أو الصورة على Google Drive (تأكد من تفعيل «أي شخص لديه الرابط»):", "f1_type": "input", "f1_ph": "https://drive.google.com/...", "f2_label": "📊 رابط جدول المتابعة الذي أنشأته على Google Sheets:", "f2_type": "input", "f2_ph": "https://docs.google.com/spreadsheets/...", "checks": ["رفعت ملفًا أو صورة تعليمية على Google Drive وضبطت صلاحية العرض.", "أنشأت جدول Google Sheets منظمًا لمتابعة الطلاب (الاسم، المستوى، الحضور، الملاحظات).", "جرّبت فتح الرابطين في نافذة متصفح خاصة وتأكدت أنهما يفتحان بلا طلب إذن."]}, {"num": 2, "pts": 15, "title": "تحويل نص جامد إلى عرض بصري احترافي عبر NotebookLM", "desc": "اختر نصًا أو حوارًا تعليميًا جديدًا (غير حوار صادق وصابر)، نسّقه أولًا بـ ChatGPT وراجعه بنفسك، ثم هندس برومبت شرائح بهويتك وشعارك وأنشئ العرض على NotebookLM.", "f1_label": "✍️ الصق البرومبت الذي هندسته لـ NotebookLM (متضمنًا بياناتك وهويتك وعنوان الدرس الجديد):", "f1_type": "textarea", "f1_ph": "اكتب أو الصق البرومبت الذي استخدمته لإنتاج الشرائح...", "f2_label": "🔗 رابط عرض الشرائح الناتج من NotebookLM (أو اكتب «سأرسل ملف PDF على واتساب»):", "f2_type": "input", "f2_ph": "https://notebooklm.google.com/...", "checks": ["اخترت نصًا جديدًا من تخصصي (قرآن أو عربية) ونسّقته أولًا عبر ChatGPT.", "راجعت النص والمفردات والأسئلة يدويًا للتأكد من خلوّها من أي خطأ.", "أضفت شعاري واسمي في البرومبت وأخرجت الشرائح الفعلية على NotebookLM."]}, {"num": 3, "pts": 15, "title": "تصميم وتشغيل لعبة قراءة تفاعلية بـ HTML", "desc": "اختر 6 إلى 8 كلمات جديدة من تخصصك، وهندس برومبت لعبة HTML تفاعلية مناسبة لعمر طالبك، ثم شغّل الكود الناتج على موقع HTML Online Viewer وتأكد من عمله.", "f1_label": "📝 قائمة الكلمات (6–8 كلمات) وعمر الطالب المستهدف:", "f1_type": "input", "f1_ph": "مثال: (ذَهَبَ، جَلَسَ، كَتَبَ، قَرَأَ، فَتَحَ، شَرِبَ) — طفل 7 سنوات", "f2_label": "⚙️ البرومبت المعدّل الذي استخدمته + ملاحظتك بعد تجربة اللعبة على HTML Online Viewer:", "f2_type": "textarea", "f2_ph": "الصق برومبت اللعبة الذي صممته، واكتب ماذا عدّلت فيه بعد التجربة...", "checks": ["أعددت كلمات مناسبة لعمر طالبي ومستواه.", "ولّدت كود اللعبة وجرّبته عمليًا داخل موقع HTML Online Viewer.", "التقطت لقطة شاشة (أو فيديو 10 ثوانٍ) للعبة لإرسالها للمدرب على واتساب."]}, {"num": 4, "pts": 15, "title": "هندسة خطة دراسية ببصمتك الشخصية (مقارنة برومبتين)", "desc": "اختر طالبًا حقيقيًا أو افتراضيًا، جرّب أولًا برومبتًا عامًا، ثم اكتب برومبتًا ثانيًا مُطعَّمًا بتشبيهاتك وأساليبك ومواردك الخاصة (مثل House of Quran أو القارئ المقترح) وقارن النتيجتين.", "f1_label": "🧠 الصق البرومبت الثاني «المُطعَّم ببصمتك وأساليبك وتشبيهاتك»:", "f1_type": "textarea", "f1_ph": "اذكر عمر الطالب ومشكلته وتشبيهاتك الخاصة والسورة/الدرس ومدة الحصة والواجب...", "f2_label": "🔍 في 3 أسطر: ما الفارق الحقيقي الذي لاحظته في الخطة الناتجة بين البرومبت العام والبرومبت المُطعَّم؟", "f2_type": "textarea", "f2_ph": "اكتب خلاصة المقارنة العملية التي اكتشفتها بنفسك...", "checks": ["جرّبت البرومبت العام أولًا ثم البرومبت المُطعَّم بأساليبي وتشبيهاتي.", "حدّدت في البرومبت مدة الحصة والواجب اليومي الواقعي (≤15 دقيقة) والموارد.", "راجعت الخطة الناتجة وتأكدت أنها قابلة للتطبيق الفعلي مع الطالب."]}, {"num": 5, "pts": 15, "title": "إعداد تقرير احترافي (رسمي PDF بعد التجريبية أو يومي بالموارد)", "desc": "طبّق ما تعلمته في التقارير بإعداد تقرير احترافي لطالب حقيقي أو افتراضي: إما تقرير رسمي (مع رموز مثل A/O وتوضيح دور الأهل) أو تقرير يومي (مُكيّف حسب المخاطَب مع رابط House of Quran والقارئ الأنسب).", "f1_label": "👤 نوع التقرير والمخاطَب (مثل: تقرير رسمي PDF لولي أمر طفل / تقرير يومي لطالب بالغ):", "f1_type": "input", "f1_ph": "مثال: تقرير رسمي بعد حصة تجريبية لولي أمر طفل عمره 8 سنوات", "f2_label": "📄 اكتب أو الصق النص النهائي للتقرير الاحترافي (بالعربية أو الإنجليزية):", "f2_type": "textarea", "f2_ph": "اكتب التقرير كاملًا متضمنًا نقاط القوة، والخطوة القادمة، والرموز أو الموارد المقترحة...", "checks": ["خاطبت الجمهور الصحيح بصيغة مناسبة (ولي أمر أم طالب بالغ).", "أبرزت نقاط القوة بصدق وحدّدت خطوة قادمة واضحة وموردًا عمليًا.", "ظهرت لمستي الإنسانية وشخصيتي في التقرير (وإذا كان رسميًا جهّزته بصيغة PDF لإرساله)."]}, {"num": 6, "pts": 15, "title": "الهوية البصرية + نظام المحادثات المنفصلة + حماية الروح التعليمية", "desc": "اكتب في مفكرتك تعريفًا صادقًا بشخصيتك وأسلوبك لتلقين محادثاتك المنفصلة (نصوص / برومبتات / صور)، ثم هندس برومبت بوستر تعليمي لفيسبوك (4:5) يعكس رسالتك أنت لا مجرد نسخ آلي.", "f1_label": "🪪 «ملف تعريف شخصيتك للآلة» (من مفكرتك: من أنت؟ أسلوبك؟ رسالتك؟ فئتك المستهدفة؟):", "f1_type": "textarea", "f1_ph": "اكتب نبذة تعريفية واضحة ستُلقّنها لمحادثاتك المنفصلة في ChatGPT...", "f2_label": "🎨 برومبت البوستر التعليمي (4:5) الذي هندسته لمنشور فيسبوك يعكس هويتك ورسالتك:", "f2_type": "textarea", "f2_ph": "الصق برومبت الصورة الذي صممته مع النص العربي الذي اخترته داخل البوستر...", "checks": ["كتبت أفكاري في مفكرة أولًا قبل إدخالها للذكاء الاصطناعي.", "أنشأت محادثات منفصلة (للنصوص / لهندسة البرومبت / للصور).", "جرّبت توليد البوستر وأضفت تعليقي بما تعلمته على منشور المحاضرة على فيسبوك."]}];
+
+(function(){
+  /* Logo & Favicon */
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+
+  /* Theme Sync */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* Toast Helper */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 3000);
+  }
+
+  /* Copy Helper */
+  function copyText(txt, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }).catch(function(){ fallbackCopy(txt, okMsg); });
+    } else { fallbackCopy(txt, okMsg); }
+  }
+  function fallbackCopy(txt, okMsg){
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); }catch(e){ toast("تعذر النسخ التلقائي، يمكنك النسخ يدويًا من المعاينة."); }
+    document.body.removeChild(ta);
+  }
+
+  /* Device ID */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = "";
+    try{
+      var arr = new Uint8Array(6); crypto.getRandomValues(arr);
+      rnd = Array.from(arr).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("").toUpperCase();
+    }catch(e){
+      rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    }
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Auth State */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key === EXPECTED_KEY) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var examView = document.getElementById("examView");
+  var authForm = document.getElementById("authForm");
+  var authMsg = document.getElementById("authMsg");
+  var authBtn = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){
+    authMsg.textContent = text;
+    authMsg.className = "msg-box " + type;
+  }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true;
+    authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key === EXPECTED_KEY){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح المعمل التطبيقي...", "ok");
+        setTimeout(enterExam, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من البيانات والمحاولة مرة أخرى.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false;
+      authBtn.textContent = "🔓 التحقق والدخول للمعمل التطبيقي";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف إجاباتك وملف إنجازك المحفوظ)")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    examView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* State */
+  function defaultState(){
+    return { name: "", mcq: {}, tf: {}, tasks: {}, portMode: "site", graded: false, tab: "vault", subTab: "mcq", mcqPage: 0, tfPage: 0 };
+  }
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(QUIZ_KEY);
+      if(raw){ return Object.assign(defaultState(), JSON.parse(raw)); }
+    }catch(e){}
+    return defaultState();
+  }
+  var S = loadState();
+  var saveInd = document.getElementById("saveInd");
+  var saveTimer = null;
+  function persist(){
+    try{ localStorage.setItem(QUIZ_KEY, JSON.stringify(S)); }catch(e){}
+    saveInd.textContent = "✅ تم الحفظ الآن";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveInd.textContent = "💾 حفظ تلقائي مفعّل"; }, 1400);
+  }
+
+  var AR_LETTERS = ["أ","ب","ج","د"];
+  var tNameInput = document.getElementById("tName");
+  tNameInput.addEventListener("input", function(){
+    S.name = this.value;
+    persist();
+    if(S.graded) updateReportPreview();
+  });
+
+  function countObj(o){ return Object.keys(o).length; }
+  function getTaskState(idx){
+    if(!S.tasks[idx]) S.tasks[idx] = { f1: "", f2: "", checks: [false, false, false] };
+    return S.tasks[idx];
+  }
+  function isTaskCompleted(idx){
+    var ts = S.tasks[idx];
+    if(!ts) return false;
+    var hasText = ((ts.f1 || "").trim().length >= 3) || ((ts.f2 || "").trim().length >= 3);
+    var chkCount = (ts.checks || []).filter(Boolean).length;
+    return S.portMode === "direct" ? (chkCount >= 2) : (hasText && (chkCount >= 1 || ((ts.f1 || "").trim().length >= 3 && (ts.f2 || "").trim().length >= 3)));
+  }
+  function countCompletedTasks(){
+    var c = 0;
+    for(var i=0; i<TASKS.length; i++) if(isTaskCompleted(i)) c++;
+    return c;
+  }
+
+  function updateProgress(){
+    var m = countObj(S.mcq), t = countObj(S.tf), tot = m + t;
+    var tc = countCompletedTasks();
+    document.getElementById("cntQuiz").textContent = tot + " / 60";
+    document.getElementById("subMcqCnt").textContent = m + " / 30";
+    document.getElementById("subTfCnt").textContent = t + " / 30";
+    document.getElementById("cntPort").textContent = S.portMode === "direct" ? (tc + " / 6 (مباشر)") : (tc + " / 6 مهام");
+    document.getElementById("progText").textContent = "اختبار الكفاءة: " + tot + " من 60 سؤالًا";
+    document.getElementById("portProgText").textContent = "ملف الإنجاز: " + tc + " من 6 مهام";
+    var pct = Math.round(((tot + tc * 10) / 120) * 100);
+    document.getElementById("progFill").style.width = Math.min(100, pct) + "%";
+    if(S.graded){
+      var sc = computeScores();
+      document.getElementById("cntRes").textContent = sc.total + " / 60";
+    } else {
+      document.getElementById("cntRes").textContent = tot === 60 ? "جاهز للتصحيح" : "اعرض النتيجة";
+    }
+  }
+
+  /* Render Vault */
+  var vaultRendered = false;
+  function renderVault(){
+    if(vaultRendered) return;
+    vaultRendered = true;
+    var lg = document.getElementById("linksGrid");
+    lg.innerHTML = LINKS.map(function(l){
+      return '<div class="l-card">' +
+        '<div class="lt"><span class="ic">' + l.ic + '</span><span>' + esc(l.title) + '</span></div>' +
+        '<p>' + esc(l.desc) + '</p>' +
+        '<a class="btn btn-soft btn-sm btn-full" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">🔗 فتح الرابط في نافذة جديدة ↗</a>' +
+      '</div>';
+    }).join("");
+
+    var vl = document.getElementById("vaultList");
+    vl.innerHTML = "";
+    VAULT.forEach(function(item, idx){
+      var det = document.createElement("details");
+      det.className = "v-card";
+      if(idx === 0) det.open = true;
+      det.innerHTML =
+        '<summary><span>' + esc(item.title) + '</span><span class="v-tag">' + esc(item.tag) + '</span></summary>' +
+        '<div class="v-body">' +
+          '<div class="v-edit">✏️ <strong>قبل الاستخدام:</strong> ' + esc(item.edit) + '</div>' +
+          '<div class="v-code">' + esc(item.code) + '</div>' +
+          '<div class="v-acts"><button type="button" class="btn btn-gold btn-sm" data-cp="' + idx + '">📋 نسخ القالب كاملًا</button></div>' +
+        '</div>';
+      det.querySelector("[data-cp]").onclick = function(){
+        copyText(item.code, "✅ تم نسخ «" + item.title + "» — عدّل بياناتك وجرّبه الآن!");
+      };
+      vl.appendChild(det);
+    });
+  }
+
+  document.getElementById("goQuizBtn").onclick = function(){ switchTab("quiz"); };
+  document.getElementById("backVaultBtn").onclick = function(){ switchTab("vault"); };
+
+  /* Sub-tabs inside Quiz */
+  function setSubTab(st){
+    S.subTab = st;
+    persist();
+    document.getElementById("subMcqBtn").classList.toggle("active", st === "mcq");
+    document.getElementById("subTfBtn").classList.toggle("active", st === "tf");
+    document.getElementById("pane-mcq").classList.toggle("hidden", st !== "mcq");
+    document.getElementById("pane-tf").classList.toggle("hidden", st !== "tf");
+    if(st === "mcq") renderMcq(); else renderTf();
+  }
+  document.getElementById("subMcqBtn").onclick = function(){ setSubTab("mcq"); };
+  document.getElementById("subTfBtn").onclick = function(){ setSubTab("tf"); };
+
+  /* Render MCQ (3 pages × 10) */
+  function renderMcq(){
+    var pills = document.getElementById("mcqPills");
+    pills.innerHTML = "";
+    for(var p=0; p<3; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.mcq[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.mcqPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (start+1) + "–" + end + (done ? " ✓" : "");
+        b.onclick = function(){ S.mcqPage = pg; persist(); renderMcq(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("mcqList");
+    list.innerHTML = "";
+    var s = S.mcqPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = MCQ[idx], sel = S.mcq[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        var optsHtml = item.o.map(function(txt, oi){
+          return '<button type="button" class="opt' + (sel===oi ? ' sel' : '') + '" data-o="' + oi + '"><span class="ltr-c">' + AR_LETTERS[oi] + '</span><span>' + esc(txt) + '</span></button>';
+        }).join("");
+        card.innerHTML = '<div class="q-head"><span class="q-num">' + (idx+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div><div class="opts">' + optsHtml + '</div>';
+        card.querySelectorAll(".opt").forEach(function(btn){
+          btn.onclick = function(){
+            S.mcq[idx] = Number(this.getAttribute("data-o"));
+            persist();
+            renderMcq();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("mcqPrev").textContent = S.mcqPage === 0 ? "→ العودة لخزنة البرومبتات" : "→ المجموعة السابقة";
+    document.getElementById("mcqNext").textContent = S.mcqPage === 2 ? "الانتقال لقسم الصح والخطأ ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("mcqPrev").onclick = function(){
+    if(S.mcqPage > 0){ S.mcqPage--; persist(); renderMcq(); scrollToTop(); }
+    else { switchTab("vault"); }
+  };
+  document.getElementById("mcqNext").onclick = function(){
+    if(S.mcqPage < 2){ S.mcqPage++; persist(); renderMcq(); scrollToTop(); }
+    else { setSubTab("tf"); scrollToTop(); }
+  };
+
+  /* Render TF (3 pages × 10) */
+  function renderTf(){
+    var pills = document.getElementById("tfPills");
+    pills.innerHTML = "";
+    for(var p=0; p<3; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.tf[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.tfPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (30+start+1) + "–" + (30+end) + (done ? " ✓" : "");
+        b.onclick = function(){ S.tfPage = pg; persist(); renderTf(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("tfList");
+    list.innerHTML = "";
+    var s = S.tfPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = TF[idx], sel = S.tf[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        card.innerHTML =
+          '<div class="q-head"><span class="q-num">' + (31+idx) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+          '<div class="tf-row">' +
+            '<button type="button" class="tf-btn' + (sel===true ? ' sel-t' : '') + '" data-v="1">✅ صح</button>' +
+            '<button type="button" class="tf-btn' + (sel===false ? ' sel-f' : '') + '" data-v="0">❌ خطأ</button>' +
+          '</div>';
+        card.querySelectorAll(".tf-btn").forEach(function(btn){
+          btn.onclick = function(){
+            S.tf[idx] = this.getAttribute("data-v") === "1";
+            persist();
+            renderTf();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("tfPrev").textContent = S.tfPage === 0 ? "→ العودة للاختيار من متعدد" : "→ المجموعة السابقة";
+    document.getElementById("tfNext").textContent = S.tfPage === 2 ? "الانتقال لملف الإنجاز العملي (6 مهام) ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("tfPrev").onclick = function(){
+    if(S.tfPage > 0){ S.tfPage--; persist(); renderTf(); scrollToTop(); }
+    else { setSubTab("mcq"); scrollToTop(); }
+  };
+  document.getElementById("tfNext").onclick = function(){
+    if(S.tfPage < 2){ S.tfPage++; persist(); renderTf(); scrollToTop(); }
+    else { switchTab("portfolio"); }
+  };
+
+  /* Render Portfolio (6 Practical Tasks) */
+  var modeSiteBtn = document.getElementById("modeSite");
+  var modeDirectBtn = document.getElementById("modeDirect");
+  modeSiteBtn.onclick = function(){ S.portMode = "site"; persist(); renderPortfolio(); updateProgress(); if(S.graded) renderResult(); };
+  modeDirectBtn.onclick = function(){ S.portMode = "direct"; persist(); renderPortfolio(); updateProgress(); if(S.graded) renderResult(); };
+
+  document.getElementById("copyTasksBtn").onclick = function(){
+    var txt = "مهام ملف الإنجاز العملي (6 مهام × 15 درجة = 90 درجة) — المحاضرة الثالثة: الذكاء الاصطناعي في خدمة المعلم:\n\n" +
+      TASKS.map(function(t){
+        return "المهمة " + t.num + ": " + t.title + "\n- " + t.desc + "\n" + t.checks.map(function(c){ return "  ☐ " + c; }).join("\n");
+      }).join("\n\n");
+    copyText(txt, "✅ تم نسخ قائمة المهام الست بنجاح!");
+  };
+
+  function renderPortfolio(){
+    modeSiteBtn.classList.toggle("active", S.portMode === "site");
+    modeDirectBtn.classList.toggle("active", S.portMode === "direct");
+    var list = document.getElementById("tasksList");
+    list.innerHTML = "";
+    TASKS.forEach(function(task, idx){
+      var ts = getTaskState(idx);
+      var card = document.createElement("div");
+      card.className = "task-card" + (isTaskCompleted(idx) ? " done-task" : "");
+
+      var fieldsHtml = "";
+      if(S.portMode === "site"){
+        var f1Html = task.f1_type === "input"
+          ? '<input class="t-inp" type="text" data-f="f1" placeholder="' + esc(task.f1_ph) + '" value="' + esc(ts.f1 || "") + '">'
+          : '<textarea class="t-ta" data-f="f1" placeholder="' + esc(task.f1_ph) + '">' + esc(ts.f1 || "") + '</textarea>';
+        var f2Html = task.f2_type === "input"
+          ? '<input class="t-inp" type="text" data-f="f2" placeholder="' + esc(task.f2_ph) + '" value="' + esc(ts.f2 || "") + '">'
+          : '<textarea class="t-ta" data-f="f2" placeholder="' + esc(task.f2_ph) + '">' + esc(ts.f2 || "") + '</textarea>';
+        fieldsHtml =
+          '<div class="t-field"><label>' + esc(task.f1_label) + '</label>' + f1Html + '</div>' +
+          '<div class="t-field"><label>' + esc(task.f2_label) + '</label>' + f2Html + '</div>';
+      } else {
+        fieldsHtml = '<div class="paper-note">📎 نفّذ هذه المهمة على جهازك وعلّم على قائمة التحقق أدناه، ثم أرسل الروابط/لقطات الشاشة مباشرةً في محادثة واتساب مع المدرب.</div>';
+      }
+
+      var checksHtml = task.checks.map(function(c, ci){
+        var ch = ts.checks && ts.checks[ci] ? " checked" : "";
+        return '<label class="chk-item"><input type="checkbox" data-ci="' + ci + '"' + ch + '><span>' + esc(c) + '</span></label>';
+      }).join("");
+
+      card.innerHTML =
+        '<div class="task-top"><div class="t-h"><span class="q-num">م' + task.num + '</span><span>' + esc(task.title) + '</span></div><span class="pts-badge">' + task.pts + ' درجة</span></div>' +
+        '<p class="task-desc">' + esc(task.desc) + '</p>' +
+        fieldsHtml +
+        '<div class="chk-list"><div style="font-size:.82rem;font-weight:800;color:var(--pri);margin-bottom:2px">✅ قائمة التحقق الذاتي قبل التسليم:</div>' + checksHtml + '</div>';
+
+      card.querySelectorAll("[data-f]").forEach(function(el){
+        el.addEventListener("input", function(){
+          var key = this.getAttribute("data-f");
+          getTaskState(idx)[key] = this.value;
+          card.classList.toggle("done-task", isTaskCompleted(idx));
+          persist();
+          updateProgress();
+          if(S.graded) updateReportPreview();
+        });
+      });
+      card.querySelectorAll("[data-ci]").forEach(function(cb){
+        cb.addEventListener("change", function(){
+          var ci = Number(this.getAttribute("data-ci"));
+          var st = getTaskState(idx);
+          if(!st.checks) st.checks = [false, false, false];
+          st.checks[ci] = this.checked;
+          card.classList.toggle("done-task", isTaskCompleted(idx));
+          persist();
+          updateProgress();
+          if(S.graded) updateReportPreview();
+        });
+      });
+      list.appendChild(card);
+    });
+  }
+
+  document.getElementById("portBack").onclick = function(){ switchTab("quiz"); };
+  document.getElementById("finishBtn").onclick = function(){ switchTab("result"); };
+
+  /* Scoring & Reports */
+  function computeScores(){
+    var mOk = 0, tOk = 0;
+    MCQ.forEach(function(x, i){ if(S.mcq[i] === x.a) mOk++; });
+    TF.forEach(function(x, i){ if(S.tf[i] === x.a) tOk++; });
+    return { mcq: mOk, tf: tOk, total: mOk + tOk, pct: Math.round(((mOk + tOk) / 60) * 100) };
+  }
+
+  function findFirstUnanswered(){
+    for(var i=0; i<MCQ.length; i++) if(S.mcq[i] === undefined) return { sub:"mcq", page: Math.floor(i/10) };
+    for(var j=0; j<TF.length; j++) if(S.tf[j] === undefined) return { sub:"tf", page: Math.floor(j/10) };
+    return null;
+  }
+
+  function buildShortScoreMsg(){
+    var sc = computeScores();
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var em = (currentAuth && currentAuth.email) || "";
+    var cd = (currentAuth && currentAuth.code) || "";
+    var tc = countCompletedTasks();
+    var portLine = S.portMode === "direct"
+      ? ("🛠️ ملف الإنجاز العملي (90 درجة): أنجزت " + tc + " من 6 مهام وسأرسل الروابط واللقطات وملف التقرير الآن مباشرةً.")
+      : ("🛠️ ملف الإنجاز العملي (90 درجة): وثّقت " + tc + " من 6 مهام على الموقع، وسألصق لك ملف الإنجاز الكامل في الرسالة التالية.");
+    return [
+      "السلام عليكم ورحمة الله وبركاته 🌿",
+      "*تقرير المعمل التطبيقي — المحاضرة الثالثة (الذكاء الاصطناعي في خدمة المعلم)*",
+      "دورة المعلم المستقل | أكاديمية الساجد",
+      "━━━━━━━━━━━━━━",
+      "👤 الاسم: " + nm,
+      "🔑 الكود: " + cd + (em ? " | " + em : ""),
+      "━━━━━━━━━━━━━━",
+      "1️⃣ مواقف وقرارات ذكية: *" + sc.mcq + " / 30*",
+      "2️⃣ صح أم خطأ تطبيقي: *" + sc.tf + " / 30*",
+      "📊 *المجموع الآلي (اختبار الكفاءة): " + sc.total + " / 60 (" + sc.pct + "%)*",
+      "━━━━━━━━━━━━━━",
+      portLine,
+      "بانتظار تقييمك لملف الإنجاز والدرجة النهائية من 150 🌟"
+    ].join("\n");
+  }
+
+  function buildPortfolioText(){
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var lines = [
+      "*🛠️ ملف إنجاز ورشة الذكاء الاصطناعي (6 مهام × 15 درجة = 90 درجة)*",
+      "دورة المعلم المستقل — المتدرب/ة: " + nm,
+      "━━━━━━━━━━━━━━"
+    ];
+    TASKS.forEach(function(task, i){
+      var ts = getTaskState(i);
+      var chkDone = (ts.checks || []).filter(Boolean).length;
+      lines.push("*المهمة " + task.num + ": " + task.title + "* (قائمة التحقق: " + chkDone + "/3)");
+      if(S.portMode === "site"){
+        lines.push("• " + task.f1_label.replace(/:$/, "") + ":\n" + ((ts.f1 || "").trim() || "(لم يُكتب)"));
+        lines.push("• " + task.f2_label.replace(/:$/, "") + ":\n" + ((ts.f2 || "").trim() || "(لم يُكتب)"));
+      } else {
+        lines.push("• تم التحقق من: " + chkDone + " من 3 بنود (التسليم مرفق مباشرة في واتساب).");
+      }
+      lines.push("");
+    });
+    return lines.join("\n");
+  }
+
+  function updateReportPreview(){
+    var full = buildShortScoreMsg() + "\n\n" + buildPortfolioText();
+    document.getElementById("reportPreview").textContent = full;
+  }
+
+  function renderResult(){
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 60 - (m + t);
+    var ungradedBox = document.getElementById("ungradedBox");
+    var gradedBox = document.getElementById("gradedBox");
+    var jumpBtn = document.getElementById("jumpUnansBtn");
+
+    if(!S.graded){
+      ungradedBox.classList.remove("hidden");
+      gradedBox.classList.add("hidden");
+      if(rem > 0){
+        document.getElementById("readySummary").textContent = "تبقّى لديك " + rem + " سؤال في اختبار الكفاءة بدون إجابة (أجبت عن " + (m+t) + " من 60). يُفضّل إكمالها أولًا، أو يمكنك اعتماد النتيجة الآن.";
+        jumpBtn.classList.remove("hidden");
+      } else {
+        document.getElementById("readySummary").textContent = "أحسنت! أكملت جميع أسئلة الكفاءة الـ 60 (وملف الإنجاز: " + countCompletedTasks() + " من 6 مهام). اضغط أدناه لحساب نتيجتك وتجهيز الإرسال لواتساب.";
+        jumpBtn.classList.add("hidden");
+      }
+      return;
+    }
+
+    ungradedBox.classList.add("hidden");
+    gradedBox.classList.remove("hidden");
+    var sc = computeScores();
+    document.getElementById("rTotal").textContent = sc.total;
+    document.getElementById("rMcq").textContent = sc.mcq + " / 30";
+    document.getElementById("rTf").textContent = sc.tf + " / 30";
+    document.getElementById("rPort").textContent = countCompletedTasks() + " / 6 مهام (90 د)";
+
+    var title = "", sub = "";
+    if(sc.total >= 54){ title = "🌟 ممتاز جدًا! قيادة واعية لأدوات الذكاء الاصطناعي"; sub = "أداء رائع في اختبار الكفاءة (" + sc.pct + "%)؛ أرسل نتيجتك وملف الإنجاز العملي للمدرب لتستكمل الدرجة النهائية من 150."; }
+    else if(sc.total >= 48){ title = "✅ جيد جدًا! فهم عملي متماسك للأدوات"; sub = "مستوى ممتاز (" + sc.pct + "%)؛ راجع الأخطاء البسيطة أدناه ثم أرسل تقريرك وملف إنجازك عبر واتساب."; }
+    else if(sc.total >= 42){ title = "👍 جيد! اجتزت اختبار الكفاءة"; sub = "راجع الأخطاء والتعليلات بالأسفل لتثبيت الفهم، ثم أرسل تقريرك وملف الإنجاز للمدرب."; }
+    else { title = "📖 يحتاج مراجعة سريعة لأدوات المحاضرة"; sub = "راجع الأخطاء بالأسفل وطبّق قوالب خزنة البرومبتات عمليًا، ويمكنك إعادة اختبار الكفاءة في أي وقت."; }
+    document.getElementById("rGradeTitle").textContent = title;
+    document.getElementById("rGradeSub").textContent = sub;
+
+    var portWaBtn = document.getElementById("sendPortfolioWaBtn");
+    if(S.portMode === "direct"){
+      portWaBtn.classList.add("hidden");
+      document.getElementById("waHint").textContent = "اخترت التسليم المباشر للمهام عبر واتساب. اضغط الزر أدناه لإرسال نتيجة اختبار الكفاءة، ثم أرسل الروابط ولقطات الشاشة وملف التقرير PDF مباشرة في المحادثة.";
+    } else {
+      portWaBtn.classList.remove("hidden");
+      document.getElementById("waHint").textContent = "لضمان وصول ملف الإنجاز كاملًا بدون قصّ من واتساب: أرسل أولًا نتيجة اختبار الكفاءة (زر ١)، ثم اضغط (زر ٢) لنسخ ملف الإنجاز (المهام الـ 6) وفتح واتساب للصقه مع أي لقطات شاشة.";
+    }
+
+    updateReportPreview();
+    renderReview("wrong");
+  }
+
+  document.getElementById("jumpUnansBtn").onclick = function(){
+    var u = findFirstUnanswered();
+    if(!u) return;
+    if(u.sub === "mcq") S.mcqPage = u.page; else S.tfPage = u.page;
+    S.subTab = u.sub;
+    switchTab("quiz");
+  };
+
+  document.getElementById("gradeNowBtn").onclick = function(){
+    if(!(S.name || "").trim()){
+      toast("⚠️ يرجى كتابة اسمك في خانة «اسم المتدرب/ة» بالأعلى أولًا");
+      tNameInput.focus();
+      tNameInput.scrollIntoView({ behavior:"smooth", block:"center" });
+      return;
+    }
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 60 - (m + t);
+    if(rem > 0 && !confirm("تبقّى " + rem + " سؤال في اختبار الكفاءة دون إجابة (سيُحسب صفرًا). هل تريد اعتماد النتيجة الآن؟")) return;
+    S.graded = true;
+    persist();
+    updateProgress();
+    renderResult();
+    scrollToTop();
+  };
+
+  document.getElementById("sendScoreWaBtn").onclick = function(){
+    var msg = buildShortScoreMsg();
+    window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+  };
+
+  document.getElementById("sendPortfolioWaBtn").onclick = function(){
+    var txt = buildPortfolioText();
+    if(txt.length <= 1500){
+      window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(txt), "_blank", "noopener,noreferrer");
+    } else {
+      copyText(txt, "✅ تم نسخ ملف الإنجاز العملي كاملًا! الصقه في محادثة واتساب الآن.");
+      setTimeout(function(){
+        window.open("https://wa.me/" + WA_PHONE, "_blank", "noopener,noreferrer");
+      }, 700);
+    }
+  };
+
+  document.getElementById("copyFullReportBtn").onclick = function(){
+    var full = buildShortScoreMsg() + "\n\n" + buildPortfolioText();
+    copyText(full, "✅ تم نسخ التقرير الكامل وملف الإنجاز للحافظة!");
+  };
+
+  /* Review */
+  function renderReview(filter){
+    var list = document.getElementById("revList");
+    var html = [], wrong = 0;
+    MCQ.forEach(function(item, i){
+      var u = S.mcq[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : item.o[u];
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (i+1) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + esc(uTxt) + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + esc(item.o[item.a]) + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    TF.forEach(function(item, i){
+      var u = S.tf[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : (u ? "صح" : "خطأ");
+      var cTxt = item.a ? "صح" : "خطأ";
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (31+i) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + uTxt + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + cTxt + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    document.getElementById("wrongCnt").textContent = wrong;
+    if(!html.length){
+      list.innerHTML = '<div class="msg-box ok">🎉 ممتاز! لا توجد أي أخطاء في اختبار الكفاءة (60 / 60).</div>';
+    } else {
+      list.innerHTML = html.join("");
+    }
+  }
+
+  document.getElementById("revWrongBtn").onclick = function(){ renderReview("wrong"); };
+  document.getElementById("revAllBtn").onclick = function(){ renderReview("all"); };
+  document.getElementById("retakeBtn").onclick = function(){
+    if(!confirm("هل تريد مسح إجابات اختبار الكفاءة وإعادة المحاولة؟ (سيبقى ملف إنجازك ومهامك الست محفوظة)")) return;
+    S.mcq = {}; S.tf = {}; S.graded = false; S.mcqPage = 0; S.tfPage = 0; S.subTab = "mcq";
+    persist();
+    switchTab("quiz");
+    updateProgress();
+    toast("تمت إعادة ضبط اختبار الكفاءة — بالتوفيق!");
+  };
+
+  /* Main Tabs */
+  function switchTab(name){
+    S.tab = name;
+    persist();
+    ["vault","quiz","portfolio","result"].forEach(function(t){
+      document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-tab") === name);
+    });
+    if(name === "vault") renderVault();
+    else if(name === "quiz") setSubTab(S.subTab || "mcq");
+    else if(name === "portfolio") renderPortfolio();
+    else if(name === "result") renderResult();
+    scrollToTop();
+  }
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.onclick = function(){ switchTab(this.getAttribute("data-tab")); };
+  });
+
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: "smooth" }); }
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function enterExam(){
+    gateView.classList.add("hidden");
+    examView.classList.remove("hidden");
+    var lbl = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    document.getElementById("userLabel").textContent = lbl;
+    if(!S.name && currentAuth.name) S.name = currentAuth.name;
+    tNameInput.value = S.name || "";
+    updateProgress();
+    switchTab(S.tab || "vault");
+  }
+
+  if(currentAuth){ enterExam(); }
+})();
+</script>
+</body>
+</html>
