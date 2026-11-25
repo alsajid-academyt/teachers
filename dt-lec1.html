@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>اختبار المحاضرة الأولى: النية والمجال والحصة التجريبية | المعلم الرقمي المحترف — أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08)}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(980px,93%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.4vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.42rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.94rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.98rem;padding:12px 20px;border-radius:13px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-pri{background:var(--primary-light);color:#fff;border-color:var(--primary-light)}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-soft{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-bad{background:var(--bad-bg);color:var(--bad);border-color:rgba(220,38,38,.35)}
+.btn-full{width:100%}
+
+/* Exam Hero & Info */
+main{padding:22px 0 56px}
+.exam-banner{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:22px clamp(16px,3.5vw,28px);margin-bottom:18px}
+.exam-banner .top-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pill-gold{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.82rem;padding:4px 13px;border-radius:999px}
+.user-chip{font-size:.84rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+.exam-banner h1{font-size:clamp(1.3rem,3.8vw,1.85rem);color:var(--gold-light);line-height:1.4;margin-bottom:6px}
+.exam-banner p{font-size:.94rem;color:#e7f0ea;margin-bottom:14px}
+.marks-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.m-box{background:rgba(255,255,255,.1);border:1px solid rgba(232,197,104,.32);border-radius:12px;padding:9px 10px;text-align:center}
+.m-box b{display:block;color:var(--gold-light);font-size:1.05rem}
+.m-box span{font-size:.8rem;color:#e6efe8}
+
+/* Trainee Bar & Sticky Progress */
+.trainee-bar{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.trainee-bar label{font-weight:800;color:var(--pri);font-size:.95rem;white-space:nowrap}
+.trainee-bar input{flex:1;min-width:210px;padding:9px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:700}
+.trainee-bar input:focus{outline:none;border-color:var(--gold)}
+.save-ind{font-size:.82rem;color:var(--ok);font-weight:700;background:var(--ok-bg);padding:4px 11px;border-radius:999px;white-space:nowrap}
+
+.sticky-nav{position:sticky;top:67px;z-index:35;background:var(--bg);padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.86rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
+.prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
+.prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 8px;font:inherit;font-weight:800;font-size:.86rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
+.tab span.cnt{font-size:.76rem;color:var(--mut);font-weight:700}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
+.tab.active span.cnt{color:var(--gold-light)}
+
+/* Pagination pills */
+.pager{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:16px}
+.p-pills{display:flex;gap:6px;flex-wrap:wrap}
+.p-pill{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.83rem;font-weight:800;padding:5px 11px;border-radius:999px;cursor:pointer;transition:.18s}
+.p-pill.cur{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.p-pill.done:not(.cur){background:var(--ok-bg);color:var(--ok);border-color:rgba(22,163,74,.45)}
+
+/* Question Cards */
+.q-list{display:grid;gap:14px}
+.q-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);transition:border-color .2s}
+.q-card.answered{border-inline-start:5px solid var(--gold)}
+.q-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
+.q-num{flex:none;min-width:34px;height:34px;border-radius:10px;background:var(--hl);color:var(--pri);border:1px solid var(--gold);display:grid;place-items:center;font-weight:900;font-size:.9rem}
+.q-txt{font-weight:800;font-size:1.02rem;line-height:1.7;color:var(--ink)}
+
+.opts{display:grid;gap:9px}
+.opt{display:flex;align-items:center;gap:11px;width:100%;text-align:right;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:11px 14px;font:inherit;font-size:.96rem;font-weight:600;cursor:pointer;transition:.16s;line-height:1.65}
+.opt:hover{border-color:var(--gold);background:var(--hl)}
+.opt.sel{background:rgba(15,76,41,.11);border-color:var(--primary);color:var(--pri);font-weight:800;box-shadow:inset 0 0 0 1px var(--primary)}
+:root[data-theme="dark"] .opt.sel{background:rgba(232,197,104,.18);border-color:var(--gold-light);box-shadow:inset 0 0 0 1px var(--gold-light)}
+.opt .ltr-c{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.82rem;font-weight:900;background:var(--card)}
+.opt.sel .ltr-c{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tf-btn{padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:800;font-size:1rem;cursor:pointer;transition:.16s}
+.tf-btn:hover{border-color:var(--gold)}
+.tf-btn.sel-t{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.tf-btn.sel-f{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+
+/* Essay Mode */
+.mode-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.mode-box h3{color:var(--pri);font-size:1.1rem;margin-bottom:6px}
+.mode-box p.sm{color:var(--mut);font-size:.9rem;margin-bottom:13px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.m-opt{text-align:right;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}
+.m-opt b{display:block;color:var(--pri);font-size:.98rem;margin-bottom:3px}
+.m-opt span{font-size:.85rem;color:var(--mut);line-height:1.6;display:block}
+.m-opt.active{border-color:var(--gold);background:var(--hl);box-shadow:0 4px 14px rgba(198,149,43,.16)}
+.essay-hint{font-size:.86rem;color:var(--mut);background:var(--hl);border-radius:10px;padding:8px 12px;margin-bottom:10px}
+.essay-ta{width:100%;min-height:110px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.96rem;line-height:1.75;resize:vertical}
+.essay-ta:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.wc{font-size:.8rem;color:var(--mut);margin-top:5px;text-align:left}
+.paper-note{background:var(--ok-bg);border:1px dashed var(--ok);border-radius:12px;padding:10px 14px;font-size:.9rem;font-weight:700;color:var(--ok);margin-top:6px}
+
+.nav-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* Result Section */
+.res-hero{background:linear-gradient(150deg,#09321A,#17693B);color:#fff;border:2px solid var(--gold);border-radius:22px;padding:28px clamp(16px,4vw,32px);text-align:center;margin-bottom:20px}
+.score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:142px;height:142px;border-radius:50%;border:5px solid var(--gold-light);background:rgba(0,0,0,.22);margin-bottom:14px}
+.score-ring b{font-size:2.4rem;color:var(--gold-light);line-height:1.1}
+.score-ring span{font-size:.86rem;color:#e7f0ea}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.r-stat{background:rgba(255,255,255,.11);border:1px solid rgba(232,197,104,.35);border-radius:14px;padding:12px}
+.r-stat b{display:block;font-size:1.25rem;color:var(--gold-light)}
+.r-stat span{font-size:.84rem;color:#e7f0ea}
+
+.wa-panel{background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:var(--shadow)}
+.wa-panel h3{color:var(--pri);font-size:1.18rem;margin-bottom:6px}
+.wa-panel p.sm{color:var(--mut);font-size:.92rem;margin-bottom:14px}
+.wa-actions{display:grid;gap:10px;margin-bottom:14px}
+.preview-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.88rem;white-space:pre-wrap;max-height:240px;overflow:auto;line-height:1.75;color:var(--ink)}
+
+/* Review */
+.rev-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.rev-item{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;margin-bottom:11px}
+.rev-item.is-ok{border-inline-start:5px solid var(--ok)}
+.rev-item.is-bad{border-inline-start:5px solid var(--bad)}
+.rev-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:.88rem;margin-top:8px}
+.tag-ok{background:var(--ok-bg);color:var(--ok);padding:3px 10px;border-radius:8px;font-weight:800}
+.tag-bad{background:var(--bad-bg);color:var(--bad);padding:3px 10px;border-radius:8px;font-weight:800}
+.rev-exp{margin-top:8px;font-size:.9rem;color:var(--mut);background:var(--hl);padding:8px 12px;border-radius:10px}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.92rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+
+footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:720px){
+  body{font-size:15.5px}
+  .marks-strip{grid-template-columns:repeat(2,1fr)}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+  .mode-grid,.res-grid{grid-template-columns:1fr}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">اختبار المحاضرة الأولى | المعلم الرقمي المحترف<small>أكاديمية الساجد — Al-Sajid Academy</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="digital-teacher.html">← <span>صفحة الدورة</span></a>
+  </div>
+</header>
+
+<!-- GATE VIEW -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 بوابة المشتركين — الكود الموحّد</div>
+      <h2>اختبار المحاضرة الأولى التفاعلي</h2>
+      <p class="desc">النية والمجال والحصة التجريبية (110 أسئلة · 150 درجة). أدخل بريدك الإلكتروني وكودك الموحّد لفتح اختبارات دورة «المعلم الرقمي المحترف».</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق والدخول للاختبار</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%20%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D8%B1%D9%81%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب كود التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="digital-teacher.html">📚 العودة لتفاصيل ومنهج الدورة</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM VIEW -->
+<main id="examView" class="hidden">
+  <div class="wrap">
+    <div class="exam-banner">
+      <div class="top-row">
+        <span class="pill-gold">المحاضرة ١ · النية والمجال والحصة التجريبية</span>
+        <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+      </div>
+      <h1>الاختبار التفاعلي الشامل للمحاضرة الأولى</h1>
+      <p>أجب بهدوء؛ إجاباتك تُحفظ تلقائيًا على جهازك أولًا بأول. عند الانتهاء ستحصل على تصحيح فوري للجزء الموضوعي (100 درجة) وترسل النتيجة والأسئلة المقالية عبر واتساب.</p>
+      <div class="marks-strip">
+        <div class="m-box"><b>50 درجة</b><span>50 اختيارًا من متعدد (آلي)</span></div>
+        <div class="m-box"><b>50 درجة</b><span>50 صح وخطأ (آلي)</span></div>
+        <div class="m-box"><b>50 درجة</b><span>10 أسئلة مقالية (تقييم المدرب)</span></div>
+        <div class="m-box"><b>150 درجة</b><span>الإجمالي الكلي للمحاضرة</span></div>
+      </div>
+    </div>
+
+    <div class="trainee-bar">
+      <label for="tName">👤 اسم المتدرب/ة:</label>
+      <input id="tName" type="text" placeholder="اكتب اسمك الثلاثي ليظهر في تقرير النتيجة...">
+      <span class="save-ind" id="saveInd">💾 حفظ تلقائي مفعّل</span>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="prog-row">
+        <span id="progText">أجبت عن 0 من 100 سؤال موضوعي</span>
+        <span id="essayProgText">المقالي: 0 من 10</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="mcq" type="button">1️⃣ اختيار من متعدد<span class="cnt" id="cntMcq">0 / 50</span></button>
+        <button class="tab" data-tab="tf" type="button">2️⃣ صح وخطأ<span class="cnt" id="cntTf">0 / 50</span></button>
+        <button class="tab" data-tab="essay" type="button">3️⃣ الأسئلة المقالية<span class="cnt" id="cntEssay">0 / 10</span></button>
+        <button class="tab" data-tab="result" type="button">📊 النتيجة وواتساب<span class="cnt" id="cntRes">اعرض النتيجة</span></button>
+      </div>
+    </div>
+
+    <!-- TAB 1: MCQ -->
+    <section id="sec-mcq">
+      <div class="pager">
+        <strong style="color:var(--pri);font-size:.94rem">القسم الأول: الاختيار من متعدد (50 سؤالًا · درجة لكل سؤال)</strong>
+        <div class="p-pills" id="mcqPills"></div>
+      </div>
+      <div class="q-list" id="mcqList"></div>
+      <div class="nav-foot">
+        <button class="btn btn-out" id="mcqPrev" type="button">→ المجموعة السابقة</button>
+        <button class="btn btn-pri" id="mcqNext" type="button">المجموعة التالية ←</button>
+      </div>
+    </section>
+
+    <!-- TAB 2: TF -->
+    <section id="sec-tf" class="hidden">
+      <div class="pager">
+        <strong style="color:var(--pri);font-size:.94rem">القسم الثاني: الصح والخطأ (50 سؤالًا · درجة لكل سؤال)</strong>
+        <div class="p-pills" id="tfPills"></div>
+      </div>
+      <div class="q-list" id="tfList"></div>
+      <div class="nav-foot">
+        <button class="btn btn-out" id="tfPrev" type="button">→ المجموعة السابقة</button>
+        <button class="btn btn-pri" id="tfNext" type="button">المجموعة التالية ←</button>
+      </div>
+    </section>
+
+    <!-- TAB 3: ESSAY -->
+    <section id="sec-essay" class="hidden">
+      <div class="mode-box">
+        <h3>القسم الثالث: الأسئلة المقالية (10 أسئلة · 5 درجات لكل سؤال = 50 درجة)</h3>
+        <p class="sm">اختر الطريقة الأريح لك لتسليم إجابات الأسئلة المقالية للمدرب عبر واتساب:</p>
+        <div class="mode-grid">
+          <button type="button" class="m-opt active" id="modeSite">
+            <b>✍️ الكتابة هنا داخل الموقع</b>
+            <span>تكتب إجاباتك تحت كل سؤال وتُحفظ تلقائيًا، ثم تنسخها وترسلها للمدرب عبر واتساب بضغطة زر.</span>
+          </button>
+          <button type="button" class="m-opt" id="modePaper">
+            <b>📝 الكتابة في ورقة أو رسالة واتساب منفصلة</b>
+            <span>تقرأ الأسئلة الـ 10 هنا وتجيب عنها في ورقة خارجية (أو مباشرة في واتساب) وترسلها للمدرب مع نتيجتك الآلية.</span>
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn btn-soft" id="copyEssayQsBtn">📋 نسخ الأسئلة المقالية الـ 10 فقط</button>
+        </div>
+      </div>
+      <div class="q-list" id="essayList"></div>
+      <div class="nav-foot">
+        <button class="btn btn-out" id="essayBack" type="button">→ العودة للصح والخطأ</button>
+        <button class="btn btn-gold" id="finishBtn" type="button">✅ تصحيح الاختبار وعرض النتيجة والإرسال لواتساب</button>
+      </div>
+    </section>
+
+    <!-- TAB 4: RESULT -->
+    <section id="sec-result" class="hidden">
+      <div id="ungradedBox" class="mode-box" style="text-align:center">
+        <h3>هل أنت جاهز لإنهاء الاختبار وعرض نتيجتك؟</h3>
+        <p class="sm" id="readySummary">سيتم تصحيح الـ 100 سؤال الموضوعي (50 اختياري + 50 صح وخطأ) فورًا وتجهيز تقريرك لإرساله للمدرب عبر واتساب.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-gold" id="gradeNowBtn" type="button">📊 اعتمد إجاباتي واحسب النتيجة الآن</button>
+          <button class="btn btn-out hidden" id="jumpUnansBtn" type="button">🔎 انتقل لأول سؤال لم تُجب عنه</button>
+        </div>
+      </div>
+
+      <div id="gradedBox" class="hidden">
+        <div class="res-hero">
+          <div class="score-ring">
+            <b id="rTotal">0</b>
+            <span>من 100 (آلي)</span>
+          </div>
+          <h2 id="rGradeTitle" style="color:var(--gold-light);margin-bottom:4px">—</h2>
+          <p id="rGradeSub" style="color:#e6efe8;font-size:.96rem">—</p>
+          <div class="res-grid">
+            <div class="r-stat"><b id="rMcq">0 / 50</b><span>الاختيار من متعدد</span></div>
+            <div class="r-stat"><b id="rTf">0 / 50</b><span>الصح والخطأ</span></div>
+            <div class="r-stat"><b>من 50 درجة</b><span>المقالي (يقيّمه المدرب على واتساب)</span></div>
+          </div>
+        </div>
+
+        <div class="wa-panel">
+          <h3>📤 إرسال النتيجة والأسئلة المقالية عبر واتساب</h3>
+          <p class="sm" id="waHint">أرسل أولًا نتيجتك الآلية عبر واتساب، ثم أرسل إجاباتك المقالية الـ 10 (منسوخة من الموقع أو مصوّرة من ورقتك) ليقيّمها المدرب ويمنحك الدرجة النهائية من 150.</p>
+          <div class="wa-actions">
+            <button type="button" class="btn btn-wa btn-full" id="sendScoreWaBtn">💬 ١) إرسال النتيجة الآلية (من 100) عبر واتساب</button>
+            <button type="button" class="btn btn-gold btn-full" id="sendEssaysWaBtn">📋 ٢) نسخ الإجابات المقالية الـ 10 وفتح واتساب للصقها</button>
+            <button type="button" class="btn btn-soft btn-full" id="copyFullReportBtn">📄 نسخ التقرير الكامل (النتيجة + المقالي) للحافظة</button>
+          </div>
+          <details>
+            <summary style="cursor:pointer;font-weight:800;color:var(--pri);margin-bottom:8px">👁️ معاينة نص التقرير الذي سيُرسل عبر واتساب</summary>
+            <div class="preview-box" id="reportPreview"></div>
+          </details>
+        </div>
+
+        <div class="mode-box">
+          <h3>🔍 مراجعة إجاباتك في الأسئلة الموضوعية (100 سؤال)</h3>
+          <p class="sm">راجع أخطاءك وتعلّم من التعليل المختصر لتثبيت الفهم قبل الانتقال للمحاضرة الثانية.</p>
+          <div class="rev-controls">
+            <button type="button" class="btn btn-pri" id="revWrongBtn">❌ عرض الأخطاء فقط (<span id="wrongCnt">0</span>)</button>
+            <button type="button" class="btn btn-out" id="revAllBtn">📋 عرض جميع الـ 100 سؤال</button>
+            <button type="button" class="btn btn-bad" id="retakeBtn" style="margin-inline-start:auto">🔄 إعادة الاختبار</button>
+          </div>
+          <div id="revList"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · دورة المعلم الرقمي المحترف · إعداد وإشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,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";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const COURSE_ID = "digital";
+const EXPECTED_KEY = "Alsajid#2026!Digital$101";
+const WA_PHONE = "201091102946";
+const AUTH_KEY = "sajid_auth:digital";
+const QUIZ_KEY = "sajid_quiz:dt_lec1";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+
+const MCQ = [{"q": "لماذا يجب على طالب العلم والمعلم أن يبدأ بتطهير قلبه أولًا؟", "o": ["لأن القلب هو محلّ العلم ووعاؤه", "لأن تطهير القلب يغني عن المذاكرة", "لأنه يختصر مدة الدورات المسجلة", "لأنه شرط لفتح حساب على برامج التدريس"], "a": 0, "e": "القلب هو محلّ العلم؛ فالعلم يدخل كل قلب طاهر، ويترك القلب الذي لا يُطهَّر ويرحل عنه."}, {"q": "ما الأمر الذي ذكر المحاضر أنه يملأ النفس سرورًا ويشرح الصدر ويمده نورًا؟", "o": ["إقبال الناس على مقاعد العلم", "الاعتماد على الحفظ دون فهم", "اختصار وقت الحصة إلى عشر دقائق", "كثرة الأرباح السريعة من الإنترنت"], "a": 0, "e": "ذكر المحاضر أن مما يملأ النفس سرورًا ويشرح الصدر ويمده نورًا: إقبال الناس على مقاعد العلم."}, {"q": "بحسب البيت المذكور في المحاضرة: «والعلم يدخل قلب كلّ موفَّق...»، ما حال المحروم مع العلم؟", "o": ["يستبدله بالتقنية الحديثة", "يردّ العلم من خذلانه", "يطلبه في الكبر فقط", "يدخله العلم رغمًا عنه"], "a": 1, "e": "جاء في القول: «والعلم يدخل قلب كل موفّق من غير بوّاب ولا استئذان، ويردّه المحروم من خذلانه»."}, {"q": "ماذا ينصح المحاضر به من قعد عن طلب العلم أو ضعفت همّته؟", "o": ["أن يكتفي بحضور دورة واحدة فقط", "أن ينظر إلى أحوال من مضى من سلف الأمة", "أن يترك المجال ويبحث عن عمل بدني", "أن يؤجّل التعلم حتى يتقن الإنجليزية تمامًا"], "a": 1, "e": "النصيحة عند ضعف الهمة: النظر إلى أحوال سلف الأمة والتشبه بالكرام؛ «فإن التشبه بالكرام فلاح»."}, {"q": "استُشهد في المحاضرة بقوله تعالى {وَثِيَابَكَ فَطَهِّرْ} على قول من يفسّر «الثوب» هنا بـ:", "o": ["الباطن والقلب من شهوات الدنيا", "الزي الرسمي أمام الكاميرا", "الأدوات التقنية في الحصة", "الكتب والمناهج المطبوعة"], "a": 0, "e": "على قول من يقول إن المراد بالثوب الباطن، فالمقصود تطهير القلب من شهوات الدنيا ليستقر فيه العلم."}, {"q": "ما أثر «الصورة الواحدة» المحرّمة أو المشتّتة التي يراها الإنسان كما ورد في المحاضرة؟", "o": ["تُعكّر قلبه فلا يسكنه العلم", "لا تؤثر على التعلم ما دام ذكيًا", "تزيد من تركيزه الذهني لاحقًا", "تؤثر في الحصة التجريبية فقط"], "a": 0, "e": "نبّه المحاضر بقوله: «فرُبّ صورة واحدة تراها تُعكّر قلبك، فلا يسكنه العلم»."}, {"q": "إذا وجدت نفسك لا تستطيع أن تصبر على التعلّم، فما أول خطوة نصح بها المحاضر؟", "o": ["أن تزيد ساعات الترفيه اليومية", "أن تتوقف عن التدريس نهائيًا", "أن تغيّر المدرب فورًا", "أن تنظر في حالك وحال قلبك"], "a": 3, "e": "قال المحاضر: «إن وجدت نفسك لا تستطيع أن تصبر على التعلم، فانظر في حالك»."}, {"q": "المعنى المقصود من عبارة «فأين الثرى من الثريا؟» في سياق المحاضرة هو:", "o": ["المقارنة بين العمل البدني والعمل الذهني", "المقارنة بين الطفل الآسيوي والطفل العربي", "بيان الفرق بين اللهجة العامية والفصحى", "بيان الفارق الكبير بين هممنا وهمم سلف الأمة"], "a": 3, "e": "ذُكرت العبارة عند مقارنة أحوالنا وهمتنا بأحوال من مضى من سلف الأمة في طلب العلم."}, {"q": "ما ثمرة «التشبّه بالكرام» كما ورد في البيت الشعري الذي يحب المحاضر ترديده؟", "o": ["الربح المضمون", "الراحة من الاجتهاد", "الفلاح", "الشهرة السريعة"], "a": 2, "e": "البيت المذكور: «فتشبّهوا إن لم تكونوا مثلهمُ / إنّ التشبّه بالكرامِ فلاحُ»."}, {"q": "ما مصير العلم مع القلب الذي لا يُطهّره صاحبه وفق ما جاء في المحاضرة؟", "o": ["ينتقل إلى الحفظ دون فهم", "يزداد بالتكرار وحده", "يتركه العلم ويرحل", "يبقى فيه لكن ببطء"], "a": 2, "e": "العلم يدخل كل قلب طاهر، وأما الذي لا يطهّر قلبه يتركه العلم ويرحل."}, {"q": "ما الترتيب الصحيح للهمة والنية عند دخول هذه الدورة كما قرره المحاضر؟", "o": ["التعرف على التقنية دون حاجة لنية محددة", "جمع المال أولًا ثم التعلم إن تبقّى وقت", "رفع الجهل عن نفسك أولًا ثم نفع المسلمين في مشارق الأرض ومغاربها", "الحصول على شهادة فقط ثم البحث عن أكاديمية"], "a": 2, "e": "يجب أن تكون همتك الأولى رفع الجهل عن نفسك، ثم نفع المسلمين في مشارق الأرض ومغاربها."}, {"q": "ما حكم اجتماع نية التربّح الحلال مع نية رفع الجهل ونفع المسلمين في العمل؟", "o": ["يتعارضان تمامًا ويبطل العمل", "يُمنع على معلم القرآن ويجوز لمعلم العربية فقط", "يجوز في الأعمال البدنية دون التدريس عبر الإنترنت", "لا يتعارضان، فالعمل تصلح أن تجتمع فيه نيّات"], "a": 3, "e": "أوضح المحاضر أن نية التربّح لا تتعارض مع الإخلاص؛ فالعمل تصلح أن تجتمع فيه نيّات."}, {"q": "من القائل: «وإنما يُنال المرء العلم على قدر إخلاصه» و«من ضيّع الإخلاص فاته علم كثير وخير وفير»؟", "o": ["أبو الوفاء ابن عقيل", "الإمام الشافعي", "عبد الرحمن بن حسن آل الشيخ", "الإمام أحمد بن حنبل"], "a": 3, "e": "نسب المحاضر هذين القولين الجليلين في الإخلاص للإمام أحمد بن حنبل رحمه الله."}, {"q": "ماذا يحدث لاجتهاد الإنسان إذا لم يكن معه عونٌ من الله تعالى وفق البيت المذكور في المحاضرة؟", "o": ["يكفيه حضور الدورات المسجلة", "يكون أول ما يجني عليه اجتهاده", "يبلغ به غاية الأمل سريعًا", "يعوّضه بالذكاء الفطري"], "a": 1, "e": "البيت: «إن لم يكن عون من الله للفتى / فأول ما يجني عليه اجتهاده»."}, {"q": "أكمل المعنى الصحيح لبيت الشعر المذكور: «الجَدُّ بالجِدِّ، والحرمانُ بـ...»:", "o": ["الكسل", "كثرة السؤال", "التقدم في العمر", "الفقر"], "a": 0, "e": "البيت: «الجَدُّ بالجِدِّ، والحرمانُ بالكسلِ / فانْصَبْ تُصِبْ عن قريبٍ غايةَ الأملِ»."}, {"q": "ما «العيب» الحقيقي في نظر الشيخ عبد الرحمن بن حسن آل الشيخ كما ورد في أبياته بالمحاضرة؟", "o": ["أن تسأل وتباحث كثيرًا", "أن تكون جَهُولًا", "أن تنفق المال في طلب العلم", "أن تتعلم في سن متأخرة"], "a": 1, "e": "قال: «واصلِ السؤالَ هُديتَ مُباحِثًا / فالعيبُ عندي أن تكونَ جَهُولَا»."}, {"q": "في أي عمر كان أبو الوفاء ابن عقيل حين دخل عليه رجل وهو يتعلّم فأنشد أبياته في الهمة؟", "o": ["في الأربعين من عمره", "في الخمسين من عمره", "في الستين من عمره", "في الثمانين من عمره"], "a": 3, "e": "كان أبو الوفاء ابن عقيل في الثمانين من عمره وقال: «والشيبُ في الشعرِ غيرُ الشيبِ في الهِمَمِ»."}, {"q": "تدلّ أبيات أبي الوفاء ابن عقيل في المحاضرة على مبدأ أساسي في طلب العلم هو:", "o": ["الكتفاء بما حصّله المرء في شبابه", "التعلم خاص بالشباب الصغار فقط", "توقف المعلم عن التعلم بعد خمس سنوات خبرة", "تقدّم السن لا يُضعف العزم والهمة في التعلم"], "a": 3, "e": "أكّد ابن عقيل أن الشيب في الشعر غير الشيب في الهمم، وأن العزم والحزم لا يشيخان بالتقدم في العمر."}, {"q": "لماذا يسلك طالب العلم كل طريق يوصله إلى التعلم حتى ولو كان الثمن غاليًا؟", "o": ["لأن السعر المرتفع يضمن الفهم التلقائي", "لأن العبد لا يُؤجر على الثمرة فقط، بل يُؤجر على السعي والاجتهاد أيضًا", "لأن الأكاديميات تشترط دفع مبالغ كبيرة", "لأن الأجر مقصور على الثمرة النهائية فقط"], "a": 1, "e": "أشار المحاضر إلى أن هذا من فضل الله علينا: أنك لا تُؤجر على الثمرة فقط، بل تُؤجر على السعي والاجتهاد."}, {"q": "أي آية قرآنية استُشهد بها في المحاضرة لوجوب إخلاص النية لله تعالى؟", "o": ["{وَقُل رَّبِّ زِدْنِي عِلْمًا}", "{وَثِيَابَكَ فَطَهِّرْ}", "{وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ}", "{اقْرَأْ بِاسْمِ رَبِّكَ}"], "a": 2, "e": "استُشهد في محور إخلاص النية بقوله تعالى: {وما أمروا إلا ليعبدوا الله مخلصين له الدين حنفاء} وحديث «إنما الأعمال بالنيات»."}, {"q": "ما التصوّر الخاطئ الشائع لدى معظم الناس عن العمل عبر الإنترنت كما ذكر المحاضر؟", "o": ["أنه يتطلب تعلم اللغة الإنجليزية", "أنه يحتاج إلى جهد ذهني كبير", "أنه مالٌ يدخل إلى جيبك وأنت نائم", "أنه يحتاج إلى إتقان المادة العلمية"], "a": 2, "e": "نبّه المحاضر إلى أن معظم الناس يظنون العمل عبر الإنترنت مالًا يدخل جيبك وأنت نائم، وهذا خطأ كبير."}, {"q": "بمَ يتميّز نوع الجهد في العمل من داخل البيت عبر الإنترنت مقارنةً بأكثر الأعمال في الخارج؟", "o": ["يحتاج إلى الجهد البدني فقط دون الذهني", "يحتاج إلى الجهد الذهني كثيرًا، مما يجعله قد يحمل مشقة حقيقية", "يقتصر على حفظ نصوص جاهزة فقط", "لا يحتاج إلى أي نوع من الجهد"], "a": 1, "e": "أكثر الأعمال في الخارج تحتاج جهدًا بدنيًا فقط، أما العمل من داخل البيت فتحتاج فيه إلى الجهد الذهني كثيرًا."}, {"q": "ما الدليل الذي ساقه المحاضر على أن مجال التدريس عبر الإنترنت ليس سهلًا كما يتوهّم البعض؟", "o": ["أن الجميع يرفض تعلّم اللغات الأجنبية", "أن الأدوات التقنية مستحيلة التعلم", "أنه لو كان سهلًا لما دفع الناس فيه الغالي والنفيس ولما طلبت الأكاديميات أناسًا على قدر عالٍ من التأهّل", "أن الطلاب لا يفضلون الحصص الأونلاين"], "a": 2, "e": "لو كان المجال سهلًا لما دفع الناس فيه الغالي والنفيس، ولما طلبت الأكاديميات معلمين على قدر عالٍ من التأهل."}, {"q": "ما إجابة المحاضر الحاسمة عن سؤال: «هل حضور الدورات فقط يؤهّل المعلم ليكون معلمًا عبر الإنترنت؟»", "o": ["نعم، بشرط حفظ تعريفات الباب الأول", "نعم، إذا كان متقنًا لاستخدام الحاسوب", "لا، وألف لا؛ بل يجب أن يجتهد مع نفسه اجتهادًا كبيرًا", "نعم، تكفي دورة واحدة مسجلة"], "a": 2, "e": "كان الجواب صريحًا: «لا، وألف لا»، بل لا بد من اجتهاد شخصي كبير بجانب الدورات."}, {"q": "ما المهارة الأولى التي أكّد المحاضر أنه ما نصح أحدًا بدخول هذا المجال إلا نصحه بالاجتهاد فيها؟", "o": ["تعلّم اللغة الإنجليزية", "إتقان اللهجات المحلية كلها", "تصميم المواقع الإلكترونية", "المونتاج وتصوير الفيديو"], "a": 0, "e": "قال المحاضر: «فما نصحت أحدًا يريد دخول هذا المجال إلا نصحته بتعلّم اللغة الإنجليزية»."}, {"q": "ما الشرط العلمي الأساسي لمن أراد العمل في مجال «التأسيس» وفق المحاضرة؟", "o": ["أن يدرّس الكبار فقط", "أن يكون عالمًا بكتب التأسيس", "أن يركز على اللهجة العامية وحوارات الشارع", "أن يكتفي بحفظ المصطلحات المهنية"], "a": 1, "e": "اشترط المحاضر أن يكون معلم التجويد متقنًا للقرآن والتجويد، ومعلم العربية من أهل العربية، ومعلم التأسيس عالمًا بكتب التأسيس."}, {"q": "هل يستطيع المعلم أن يتخصّص ويُدرّس في مجال واحد فقط (كالتجويد أو العربية أو التأسيس)؟", "o": ["نعم، ولكن للكبار فقط دون الأطفال", "نعم، يستطيع التدريس في مجال واحد منها", "لا، إلا بعد خمس سنوات من العمل", "لا، يجب أن يدرّس المجالات الثلاثة معًا من اليوم الأول"], "a": 1, "e": "أجاب المحاضر بوضوح عن سؤال «هل تستطيع أن تدرّس في مجال واحد من هذه المجالات؟» بقوله: «نعم، تستطيع»."}, {"q": "على أي ثلاثة جوانب يركّز هذا الكتاب/البرنامج لتحقيق التميز وضمان تجربة تعلم فريدة للطالب؟", "o": ["الجوانب التربوية والنفسية والتقنية", "الجوانب البدنية والرياضية والصوتية", "الجوانب المالية والتسويقية والإدارية فقط", "الجوانب التاريخية والأدبية والشعرية"], "a": 0, "e": "صُمم المنهج لتزويد المعلمين بالأدوات والاستراتيجيات مع التركيز على الجوانب التربوية والنفسية والتقنية."}, {"q": "سألك زميل متحمّس: «هل مجال التدريس أونلاين يستحق أن أتعب وأنفق على تأهيل نفسي فيه؟» فما الجواب الموافق للمحاضرة؟", "o": ["نعم، لأنه يدخل لك المال وأنت نائم", "لا، لأنه يحتاج وقتًا طويلًا", "لا، يكفي حضور دورة مجانية قصيرة", "نعم، يستاهل؛ لكنه يحتاج جدًا واجتهادًا وأخذًا بالأسباب"], "a": 3, "e": "أكّد المحاضر أن المجال يستاهل التعب والإنفاق، وأنه لن يصل إليه إلا من جدّ واجتهد وأخذ بالأسباب."}, {"q": "إذا أتقن المعلم اللغة الإنجليزية والتقنية لكنه لم يتقن القرآن وأحكام التجويد، فهل يصلح لتدريس التجويد وفق المحاضرة؟", "o": ["نعم، إذا كان يبتسم في الحصة التجريبية", "نعم، مع الأطفال المبتدئين فقط", "لا، فإتقان القرآن وأحكام التجويد شرط أساسي يسبق غيره", "نعم، لأن الإنجليزية تعوّض نقص المادة"], "a": 2, "e": "شدّد المحاضر بقوله: «وطبعًا قبل ذلك: يجب أن يكون متقنًا للقرآن وأحكام التجويد إن أراد أن يكون معلمًا للتجويد»."}, {"q": "ما «القاعدة الذهبية» للباب الأول (الحصة الأولى التجريبية)؟", "o": ["الحصة الأولى مخصصة لشرح قواعد النحو كاملة", "الحصة الأولى لا تؤثر في استمرار الطالب", "الحصة الأولى يجب أن تكون نظرية بالكامل", "الحصة الأولى تحدد مصير الدورة كاملة"], "a": 3, "e": "القاعدة الذهبية في الباب الأول: «الحصة الأولى تحدد مصير الدورة كاملة»."}, {"q": "كيف وصفت المحاضرة طبيعة الحصة التجريبية في المحتوى النظري؟", "o": ["حصة لمراجعة الواجبات السابقة", "اختبار تحريري صارم للطالب", "محاضرة جامعية يسرد فيها المعلم سيرته", "ليست مجرد درس، بل هي «مقابلة تعارف»"], "a": 3, "e": "الحصة التجريبية ليست مجرد درس، بل هي «مقابلة تعارف» هدفها إزالة الشك وبناء جسر من الثقة."}, {"q": "بأي شعور يأتي الطالب غالبًا إلى الحصة التجريبية الأولى؟", "o": ["الرغبة في سماع السيرة الذاتية للمعلم بالتفصيل", "التوتر والشك: «هل هذا المعلم جيد؟ هل سأفهم؟»", "الملل التام قبل أن تبدأ الحصة", "ثقة مطلقة وعدم وجود أي تساؤلات"], "a": 1, "e": "يأتي الطالب وهو يشعر بالتوتر والشك («هل هذا المعلم جيد؟ هل سأفهم؟»)، ومهمة المعلم إزالة هذا الشك."}, {"q": "أي مما يلي يندرج تحت سؤال «كيف يستقبل الطالب المعلومة؟» في فهم سيكولوجية الطالب؟", "o": ["هل يفهم بالشرح المباشر أم يحتاج لأمثلة أم يتعلم بالمشاهدة والسماع أكثر؟", "هل يتحمس بالمدح أم بالتحدي؟", "هل هو طفل آسيوي أم طفل عربي؟", "هل يريد تعلم العربية للعمل أم للسياحة؟"], "a": 0, "e": "استقبال المعلومة يتعلق بطريقته في الفهم: بالشرح المباشر، أم بالأمثلة، أم بالمشاهدة والسماع أكثر."}, {"q": "ملاحظة المعلم أن الطالب «يتوتر من كثرة القواعد أو يملّ بسرعة ويحتاج خطوات قصيرة جدًا» تندرج تحت:", "o": ["القيمة الفورية", "رسم المستقبل", "التعريف بالنفس", "ما الذي يُربكه أو يُثقّل عقله"], "a": 3, "e": "البُعد الثالث في سيكولوجية الطالب هو معرفة ما يُربكه أو يثقل عقله: الخجل، التوتر من كثرة القواعد، الملل السريع، والحاجة لخطوات قصيرة."}, {"q": "ملاحظة أن «الطفل الآسيوي مختلف عن الطفل العربي، والطفل مختلف عن الشاب في طريقة التفكير والتعبير» تتبع بُعد:", "o": ["ما الذي يحفّزه فقط", "العادات الذهنية فقط", "التعريف بالنفس", "خلفيته وثقافته وطريقة رؤيته للأمور"], "a": 3, "e": "هذا المثال ذُكر تحديدًا تحت البُعد الرابع: معرفة خلفية الطالب وثقافته وطريقة رؤيته للأمور."}, {"q": "أي الأسئلة التالية يقيس «العادات الذهنية» للطالب في الحصة الأولى؟", "o": ["هل يربط المعلومات ببعضها أم يحفظ دون فهم؟ وهل يسأل كثيرًا أم يتجنب التجربة خوفًا من الخطأ؟", "هل يحب القهوة أم الشاي؟", "هل لديه اتصال إنترنت سريع؟", "كم ساعة سيتدرب يوميًا؟"], "a": 0, "e": "العادات الذهنية تشمل: ربط المعلومات مقابل الحفظ دون فهم، وكثرة السؤال مقابل تجنب التجربة خوفًا من الخطأ."}, {"q": "إذا لاحظت في الحصة الأولى أن الطالب يتجنب المحاولة والإجابة خوفًا من الوقوع في الخطأ، فإن هذا الفهم يساعدك في:", "o": ["سرد شهاداتك العلمية لإبهاره", "زيادة عدد القواعد النحوية عليه فورًا", "إنهاء الحصة مبكرًا", "فهم سيكولوجيته وعاداته الذهنية وبناء جسر ثقة يزيل توتره"], "a": 3, "e": "فهم خوف الطالب من الأخطاء وتجنبه التجربة يوجّه المعلم لإزالة التوتر والشك وبناء جسر من الثقة."}, {"q": "أي مما يلي ليس من الأهداف الثلاثة المذكورة للباب الأول في المحاضرة؟", "o": ["تعلّم خطوات عملية لبناء انطباع أول قوي", "تحديد أسعار الباقات الشهرية وتحصيل الرسوم", "تقديم قيمة فورية تجعل الطالب متحمسًا للاستمرار", "فهم سيكولوجية الطالب في الحصة الأولى"], "a": 1, "e": "أهداف الباب الأول الثلاثة هي: فهم سيكولوجية الطالب، خطوات بناء انطباع أول قوي، وتقديم قيمة فورية محفزة للاستمرار."}, {"q": "البحث في «هل يتحمس الطالب بالمدح أم يحب التحدي أم يحتاج وقتًا طويلًا للاندماج؟» يمثّل بُعد:", "o": ["ما الذي يُحفّزه", "كيف يستقبل المعلومة", "رسم المستقبل", "خلفيته الثقافية"], "a": 0, "e": "هذه الأسئلة هي بالضبط عناصر البُعد الثاني في سيكولوجية الطالب: «ما الذي يحفّزه؟»."}, {"q": "ما الثلاثية المطلوبة في الخطوة الأولى «التعريف بالنفس» داخل الحصة التجريبية؟", "o": ["قراءة سيرة ذاتية مكتوبة + صمت + اختبار", "جدية شديدة + طول + سرد كل الشهادات", "ابتسامة + ثقة + اختصار", "سرعة + قواعد نحوية + واجب منزلي"], "a": 2, "e": "الخطوة الأولى هي التعريف بالنفس بـ: ابتسامة + ثقة + اختصار، دون سرد السيرة الذاتية كاملة."}, {"q": "ما الفائدة التربوية من ذكر «هواية إنسانية» بسيطة أثناء تعريفك بنفسك (مثل حب القهوة أو السينما)؟", "o": ["جعلك قريبًا إنسانيًا من الطالب وكسر الجليد معه", "تجنب سؤاله عن هدفه من التعلم", "إثبات تفوقك الأكاديمي عليه", "إطالة وقت الحصة التجريبية"], "a": 0, "e": "أوضحت المحاضرة أن ذكر هواية إنسانية يجعلك قريبًا من الطالب ويكسر الحاجز النفسي في أول لقاء."}, {"q": "في خطوة «تحليل هدف الطالب»، ما العبارة التي شبّهت بها المحاضرة إجابة الطالب على سؤال «لماذا تريد تعلم العربية؟»؟", "o": ["أنها مجرد مجاملة ترحيبية", "أنها «بوصلتك» التي توجه المنهج والتركيز", "أنها اختبار لقوة نطقه", "أنها غير مهمة في الحصة الأولى"], "a": 1, "e": "جاء في المحاضرة نصًا: «اسأل: لماذا تريد تعلم العربية؟ إجابته هي بوصلتك»."}, {"q": "إذا أجاب الطالب أن هدفه من تعلم العربية هو «العمل»، فعلى ماذا تركّز وفق التطبيق العملي بالمحاضرة؟", "o": ["اللهجة العامية وحوارات الشارع", "أغاني الأطفال والقصص المصورة", "اللغة الرسمية والمصطلحات المهنية", "قواعد الشعر الجاهلي فقط"], "a": 2, "e": "إذا قال الطالب «للعمل»، تركّز على اللغة الرسمية والمصطلحات المهنية."}, {"q": "إذا أجاب الطالب أن هدفه من تعلم العربية هو «السياحة»، فعلى ماذا تركّز وفق التطبيق العملي بالمحاضرة؟", "o": ["اللهجة العامية وحوارات الشارع", "المصطلحات القانونية والرسمية", "الخطب الأدبية الكلاسيكية", "سرد السيرة الذاتية للمعلم"], "a": 0, "e": "إذا قال الطالب «للسياحة»، تركّز على اللهجة العامية وحوارات الشارع."}, {"q": "ما المقصود بالخطوة الثالثة «القيمة الفورية» في الحصة التجريبية؟", "o": ["إعطاؤه خصمًا ماليًا في نهاية الحصة", "تعليمه شيئًا صغيرًا يمكنه استخدامه فورًا بدل جعل الحصة كلامًا نظريًا فقط", "تسميع قائمة قواعد صرفية طويلة", "إرسال كتاب من مئة صفحة ليقرأه وحده"], "a": 1, "e": "القيمة الفورية تعني ألا تكون الحصة كلامًا نظريًا فقط، بل تعلّمه شيئًا صغيرًا يستخدمه فورًا مثل «شكرًا جزيلًا» أو «أحب القهوة»."}, {"q": "ماذا يحدث نفسيًا للطالب حين يغلق الكاميرا بعد الحصة ويستخدم الجملة التي تعلمها (مثل «شكرًا جزيلًا») مع صديقه؟", "o": ["يشعر بأن الدورة صعبة جدًا فينسحب", "يكتفي بتلك الجملة ولا يحتاج لدروس أخرى", "يشعر بالإنجاز ويعود إليك متحمسًا للاستمرار", "ينسى المعلم تمامًا"], "a": 2, "e": "عندما يغلق الطالب الكاميرا ويستخدم الجملة فورًا مع صديقه، يشعر بالإنجاز ويعود إليك."}, {"q": "ما السؤال العملي المقترح في المحاضرة لتطبيق الخطوة الرابعة «رسم المستقبل»؟", "o": ["«لماذا تخاف من ارتكاب الأخطاء؟»", "«كم عدد الكتب التي قرأتها العام الماضي؟»", "«ماذا ستحقق بعد شهر من الآن؟»", "«هل أعجبتك سيرتي الذاتية؟»"], "a": 2, "e": "في خطوة رسم المستقبل تسأله: «ماذا ستحقق بعد شهر من الآن؟» وتساعده على تصور نجاحه لتحفيزه."}, {"q": "ما الترتيب التسلسلي الصحيح للخطوات الأربع لتنفيذ الحصة التجريبية كما وردت في المحاضرة؟", "o": ["تحليل هدف الطالب ← رسم المستقبل ← التعريف بالنفس ← القيمة الفورية", "التعريف بالنفس ← تحليل هدف الطالب ← القيمة الفورية ← رسم المستقبل", "رسم المستقبل ← القيمة الفورية ← التعريف بالنفس ← تحليل الهدف", "القيمة الفورية ← التعريف بالنفس ← رسم المستقبل ← تحليل الهدف"], "a": 1, "e": "الخطوات الأربع بالترتيب: 1- التعريف بالنفس، 2- تحليل هدف الطالب، 3- القيمة الفورية، 4- رسم المستقبل."}, {"q": "معلم قضى أول 15 دقيقة من الحصة التجريبية يسرد شهاداته ودوراته ثم شرح نظرية اللغة دون أن يُنطق الطالب كلمة واحدة؛ ما الخطأان اللذان وقع فيهما وفق المحاضرة؟", "o": ["أهمل الاختصار في التعريف بالنفس، وحرم الطالب من القيمة الفورية العملية", "استخدم اللهجة العامية، وذكر هواية إنسانية", "ابتسم كثيرًا، وسأل الطالب عن هدفه", "ساعد الطالب على تصور نجاحه بعد شهر، واستخدم أمثلة"], "a": 0, "e": "حذّرت المحاضرة من سرد السيرة الذاتية كاملة، ومن جعل الحصة كلامًا نظريًا بلا قيمة فورية يستخدمها الطالب."}];
+const TF = [{"q": "القلب هو محلّ العلم، ولذلك فإن تطهير القلب هو أول ما يجب على طالب العلم فعله.", "a": true, "e": "صحيح؛ فالقلب محل العلم، وتطهيره هو الخطوة الأولى قبل كل شيء."}, {"q": "العلم يدخل كل قلب سواء كان صاحبه مهتمًا بتطهيره من الشهوات أم لا.", "a": false, "e": "خطأ؛ العلم يدخل كل قلب طاهر، وأما الذي لا يطهّر قلبه يتركه العلم ويرحل."}, {"q": "إقبال الناس على مقاعد العلم مما يملأ النفس سرورًا ويشرح الصدر ويمده نورًا.", "a": true, "e": "صحيح؛ وهذا ما عبّر به المحاضر في مفتتح محاضرته."}, {"q": "رؤية صورة واحدة محرّمة أو غير لائقة لا تؤثر على سكون العلم في القلب.", "a": false, "e": "خطأ؛ رب صورة واحدة تراها تعكّر قلبك فلا يسكنه العلم."}, {"q": "إذا وجدت نفسك لا تصبر على التعلّم فينبغي أن تنظر في حالك وتراجع قلبك.", "a": true, "e": "صحيح؛ فضعف الصبر على التعلم قد يكون علامة تستدعي مراجعة حال القلب."}, {"q": "عند ضعف الهمة والقعود عن طلب العلم، يُنصح بالنظر إلى أحوال سلف الأمة والتشبه بهم.", "a": true, "e": "صحيح؛ «فتشبهوا إن لم تكونوا مثلهم إن التشبه بالكرام فلاح»."}, {"q": "تفسير {وَثِيَابَكَ فَطَهِّرْ} بالباطن والقلب ذُكر في المحاضرة على قول من يرى ذلك من المفسرين.", "a": true, "e": "صحيح؛ فقد نُسب إلى قول من يقول إن المراد بالثوب هنا الباطن."}, {"q": "إخلاص النية في طلب العلم يعني أنه يحرم على المعلم أن ينوي التربّح الحلال من عمله.", "a": false, "e": "خطأ؛ لا يتعارض الإخلاص مع إرادة التربّح الحلال، فالعمل تصلح أن تجتمع فيه نيات."}, {"q": "إن كانت نيتك في دخول الدورة مجرد العمل وجمع المال فقط فيجب عليك أن تراجع نفسك.", "a": true, "e": "صحيح؛ ينبغي أن تكون الهمة الأولى رفع الجهل عن نفسك ثم نفع المسلمين."}, {"q": "نُقل عن الإمام أحمد بن حنبل أن المرء ينال العلم على قدر إخلاصه.", "a": true, "e": "صحيح؛ وقال أيضًا: من ضيّع الإخلاص فاته علم كثير وخير وفير."}, {"q": "الاجتهاد البشري وحده يكفي لتحصيل العلم ولو لم يكن معه عونٌ من الله عز وجل.", "a": false, "e": "خطأ؛ «إن لم يكن عون من الله للفتى / فأول ما يجني عليه اجتهاده»."}, {"q": "العبد لا يُؤجر في طلب العلم إلا إذا وصل إلى الثمرة النهائية فقط دون السعي.", "a": false, "e": "خطأ؛ من فضل الله أنك لا تُؤجر على الثمرة فقط، بل تُؤجر على السعي والاجتهاد أيضًا."}, {"q": "من أبيات عبد الرحمن بن حسن آل الشيخ الحثّ على مواصلة السؤال والمباحثة ونبذ الجهل.", "a": true, "e": "صحيح؛ «واصل السؤال هديت مباحثًا / فالعيب عندي أن تكون جهولا»."}, {"q": "أبو الوفاء ابن عقيل توقّف عن طلب العلم عندما بلغ الأربعين من عمره.", "a": false, "e": "خطأ؛ بل كان يتعلم وهو في الثمانين من عمره، وقال: «والشيب في الشعر غير الشيب في الهمم»."}, {"q": "التشابه اللفظي بين «الجَدّ» (الحظ والتوفيق) و«الجِدّ» (الاجتهاد) في البيت الشعري يربط التوفيق بالاجتهاد والحرمان بالكسل.", "a": true, "e": "صحيح؛ «الجَدُّ بالجِدِّ، والحرمانُ بالكسلِ / فانصب تصب عن قريب غاية الأمل»."}, {"q": "العمل عبر الإنترنت يُدِرّ مالًا يدخل جيبك وأنت نائم دون تعب أو جهد.", "a": false, "e": "خطأ؛ هذا ظن خاطئ شائع لدى معظم الناس، فالعمل عبر الإنترنت عمل كغيره بل قد تكون فيه مشقة."}, {"q": "يحتاج العمل من داخل البيت عبر الإنترنت إلى الجهد الذهني كثيرًا مقارنةً بأكثر الأعمال الخارجية التي تعتمد على الجهد البدني فقط.", "a": true, "e": "صحيح؛ وهذا ما يجعل العمل عبر الإنترنت ذا مشقة حقيقية تحتاج لتأهيل."}, {"q": "مجال التدريس عبر الإنترنت لا يستحق التعب أو الإنفاق المالي على التأهيل.", "a": false, "e": "خطأ؛ أجاب المحاضر بوضوح: «نعم، يستاهل»."}, {"q": "لو كان التدريس عبر الإنترنت سهلًا لما طلبت الأكاديميات معلمين على قدر عالٍ من التأهّل.", "a": true, "e": "صحيح؛ ولما دفع الناس فيه الغالي والنفيس."}, {"q": "حضور الدورات التدريبية وحدها يكفي تمامًا لتأهيل المعلم للعمل عبر الإنترنت.", "a": false, "e": "خطأ؛ أجاب المحاضر: «لا، وألف لا»، فلا بد من اجتهاد المعلم مع نفسه اجتهادًا كبيرًا."}, {"q": "تعلّم اللغة الإنجليزية نصيحة أساسية يوجّهها المحاضر لكل من يريد دخول هذا المجال.", "a": true, "e": "صحيح؛ فقد أكد أنه ما نصح أحدًا بدخول المجال إلا نصحه بتعلم اللغة الإنجليزية."}, {"q": "يجوز لمن لم يتقن القرآن وأحكام التجويد أن يبدأ بتدريس التجويد لغير الناطقين ما دام يتقن الإنجليزية.", "a": false, "e": "خطأ؛ يجب قبل ذلك أن يكون متقنًا للقرآن وأحكام التجويد إن أراد أن يكون معلمًا للتجويد."}, {"q": "معلم العربية لغير الناطقين بها يجب أن يكون من أهل العربية.", "a": true, "e": "صحيح؛ وكذلك معلم التأسيس يجب أن يكون عالمًا بكتب التأسيس."}, {"q": "لا يمكن للمعلم أن يعمل في مجال واحد فقط من مجالات التدريس (القرآن أو العربية أو التأسيس) بل يجب أن يجمعها كلها.", "a": false, "e": "خطأ؛ سأل المحاضر: هل تستطيع أن تدرّس في مجال واحد من هذه المجالات؟ وأجاب: «نعم، تستطيع»."}, {"q": "يركّز الكتاب/المنهج على الجوانب التربوية والنفسية والتقنية معًا لضمان تجربة تعلم فريدة للطالب.", "a": true, "e": "صحيح؛ وهذا ما صُرّح به في مقدمة الكتاب بالمحاضرة."}, {"q": "القاعدة الذهبية في الباب الأول هي أن الحصة الأولى تحدد مصير الدورة كاملة.", "a": true, "e": "صحيح؛ فالحصة التجريبية هي حجر الأساس لاستمرار الطالب أو انقطاعه."}, {"q": "الحصة التجريبية هي مجرد درس تقليدي لا يختلف عن بقية الحصص في طبيعته.", "a": false, "e": "خطأ؛ الحصة التجريبية ليست مجرد درس، بل هي «مقابلة تعارف»."}, {"q": "يأتي الطالب إلى الحصة التجريبية غالبًا وهو يشعر بالشك والتوتر متسائلًا: «هل هذا المعلم جيد؟ هل سأفهم؟».", "a": true, "e": "صحيح؛ ولذلك فإن مهمة المعلم الأولى هي إزالة هذا الشك وبناء جسر من الثقة."}, {"q": "جميع الطلاب يستقبلون المعلومة بنفس الطريقة، وهي الشرح المباشر فقط.", "a": false, "e": "خطأ؛ بعضهم يفهم بالشرح المباشر، وبعضهم يحتاج أمثلة، وبعضهم يتعلم بالمشاهدة والسماع أكثر."}, {"q": "من فهم سيكولوجية الطالب معرفة ما الذي يُحفّزه: هل هو المدح أم التحدي أم أنه يحتاج وقتًا للاندماج.", "a": true, "e": "صحيح؛ وهو العنصر الثاني في فهم سيكولوجية الطالب."}, {"q": "كثرة القواعد النحوية في الحصة الأولى لا تسبّب توترًا أو إرباكًا للطالب المبتدئ أبدًا.", "a": false, "e": "خطأ؛ من الأمور التي تربك الطالب وتثقل عقله: التوتر من كثرة القواعد."}, {"q": "بعض الطلاب يملّون بسرعة ويحتاجون إلى خطوات تعليمية قصيرة جدًا.", "a": true, "e": "صحيح؛ وقد ذُكر هذا ضمن ما يربك الطالب أو يثقل عقله."}, {"q": "الطفل الآسيوي والطفل العربي متطابقان تمامًا في طريقة التفكير والتعبير ولا أثر للخلفية الثقافية.", "a": false, "e": "خطأ؛ نصّت المحاضرة على أن الطفل مختلف عن الشاب، والطفل الآسيوي مختلف عن الطفل العربي في طريقة التفكير والتعبير."}, {"q": "معرفة هل يربط الطالب المعلومات ببعضها أم يحفظ دون فهم جزء من فهم عاداته الذهنية.", "a": true, "e": "صحيح؛ وهو البُعد الخامس في فهم سيكولوجية الطالب."}, {"q": "تجنّب الطالب للتجربة والمشاركة قد يكون سببه الخوف من الوقوع في الخطأ.", "a": true, "e": "صحيح؛ وقد نُبّه إليه في بند المحفزات والعادات الذهنية للطالب."}, {"q": "يُستحسن في بداية الحصة التجريبية أن يسرد المعلم سيرته الذاتية كاملة لإظهار مكانته العلمية.", "a": false, "e": "خطأ؛ نصّت المحاضرة صراحة: «لا تسرد سيرتك الذاتية كاملة»، بل عرّف بنفسك بابتسامة وثقة واختصار."}, {"q": "ذكر هواية إنسانية بسيطة أثناء التعريف بالنفس (مثل حب القهوة) يجعل المعلم قريبًا من الطالب.", "a": true, "e": "صحيح؛ فذكر هواية إنسانية يكسر الحاجز الرسمي ويبني ألفة سريعة."}, {"q": "سؤال الطالب «لماذا تريد تعلم العربية؟» يُعدّ بوصلة المعلم في توجيه الدرس.", "a": true, "e": "صحيح؛ فإجابته تحدد نوع اللغة والموضوعات التي يركز عليها المعلم."}, {"q": "إذا أخبرك الطالب أنه يريد تعلم العربية لأجل «العمل»، فعليك التركيز على اللهجة العامية وحوارات الشارع.", "a": false, "e": "خطأ؛ بل العكس: للعمل تركّز على اللغة الرسمية والمصطلحات المهنية، وللسياحة تركّز على العامية وحوارات الشارع."}, {"q": "إذا كان هدف الطالب هو «السياحة»، فمن المناسب التركيز على اللهجة العامية وحوارات الشارع.", "a": true, "e": "صحيح؛ لأن هذا ما يحتاجه السائح فعليًا في رحلته."}, {"q": "يُفضّل أن تكون الحصة التجريبية كلها كلامًا نظريًا وتخطيطًا دون تعليم أي جملة عملية.", "a": false, "e": "خطأ؛ نصّت المحاضرة: «لا تجعل الحصة مجرد كلام نظري»، بل قدّم قيمة فورية."}, {"q": "تعليم الطالب جملة صغيرة يستخدمها فورًا مثل «شكرًا جزيلًا» أو «أحب القهوة» يمثّل تطبيقًا لمبدأ القيمة الفورية.", "a": true, "e": "صحيح؛ لأنها صغيرة وعملية وقابلة للاستخدام الفوري بعد الحصة."}, {"q": "استخدام الطالب للجملة التي تعلمها مع صديقه بعد إغلاق الكاميرا يشعره بالإنجاز ويدفعه للعودة إليك.", "a": true, "e": "صحيح؛ فالشعور الفوري بالإنجاز هو أقوى محفّز للاستمرار."}, {"q": "سؤال الطالب «ماذا ستحقق بعد شهر من الآن؟» يندرج ضمن خطوة «رسم المستقبل».", "a": true, "e": "صحيح؛ فهذا السؤال يساعده على تصور نجاحه وتحفيز نفسه."}, {"q": "الهدف من خطوة «رسم المستقبل» هو تخويف الطالب من صعوبة اللغة العربية حتى يلتزم.", "a": false, "e": "خطأ؛ الهدف هو مساعدته على تصور نجاحه لتحفيزه."}, {"q": "تقديم القيمة الفورية في الحصة الأولى ليس من أهداف الباب الأول.", "a": false, "e": "خطأ؛ بل هو الهدف الثالث المذكور صراحةً في أهداف الباب الأول."}, {"q": "تتألف خطوات التنفيذ العملية للحصة التجريبية في المحاضرة من أربع خطوات متكاملة.", "a": true, "e": "صحيح: التعريف بالنفس، تحليل هدف الطالب، القيمة الفورية، ورسم المستقبل."}, {"q": "الابتسامة والثقة والاختصار هي العناصر الثلاثة المطلوبة عند التعريف بالنفس في الحصة الأولى.", "a": true, "e": "صحيح؛ كما ورد في الخطوة الأولى من التطبيق العملي."}, {"q": "العيب الحقيقي عند طلب العلم هو كثرة السؤال والبحث مع المعلمين.", "a": false, "e": "خطأ؛ بل العكس: «واصل السؤال هديت مباحثًا / فالعيب عندي أن تكون جهولا»."}, {"q": "يصل إلى النجاح في التدريس عبر الإنترنت كل من أراد ذلك بمجرد التمني دون أخذ بالأسباب.", "a": false, "e": "خطأ؛ «لن يصل إلى هذا العمل إلا من جدّ واجتهد وأخذ بالأسباب»."}];
+const ESSAY = [{"q": "ما العلاقة بين «طهارة القلب» و«إخلاص النية» وبين ثبات العلم والبركة في التدريس؟ وهل يتعارض إخلاص النية مع الرغبة في الكسب المادي الحلال؟ استدلّ بما ورد في المحاضرة.", "hint": "تذكّر: القلب محل العلم، أثر الشهوات والصورة الواحدة، قول الإمام أحمد، وترتيب النيات وجواز اجتماعها."}, {"q": "كيف تردّ بردٍّ علمي واقعي على شخص يقول لك: «التدريس عبر الإنترنت سهل ويدخل لك مالًا وأنت نائم، وتكفيك دورة واحدة مسجلة لتبدأ فورًا»؟", "hint": "قارن بين الجهد البدني والذهني، وتحدّث عن متطلبات الأكاديميات، وشروط التأهيل (المادة العلمية + الإنجليزية + الاجتهاد الشخصي)."}, {"q": "استخرج من قصة أبي الوفاء ابن عقيل (في الثمانين من عمره) وأبيات الشيخ عبد الرحمن بن حسن آل الشيخ ثلاث قواعد عملية تعالج بها فتور الهمة أثناء رحلتك لتأهيل نفسك كمعلم رقمي.", "hint": "اربط بين علو الهمة، مواصلة السؤال والمباحثة، والأجر على السعي والاجتهاد لا على الثمرة فقط."}, {"q": "اشرح المقصود بالقاعدة الذهبية: «الحصة الأولى تحدد مصير الدورة كاملة»، ووضّح لماذا تُعدّ الحصة التجريبية «مقابلة تعارف» وليست مجرد درس تقليدي.", "hint": "تحدّث عن مشاعر التوتر والشك لدى الطالب قبل اللقاء ومهمة المعلم في بناء جسر الثقة."}, {"q": "اذكر الأبعاد الخمسة لفهم «سيكولوجية الطالب» في الحصة الأولى، مع ضرب مثال تطبيقي مختصر من عندك لأحد هذه الأبعاد داخل حصة أونلاين.", "hint": "استقبال المعلومة، المحفزات، ما يربك العقل، الخلفية الثقافية، والعادات الذهنية."}, {"q": "صُغْ تعريفًا شخصيًا لنفسك تلقيه في بداية حصة تجريبية (في 3 أسطر كحد أقصى) يطبّق قاعدة «ابتسامة + ثقة + اختصار» مع تضمين هواية إنسانية قريبة، وبيّن لماذا تجنّبت سرد سيرتك الذاتية كاملة.", "hint": "اكتب الصياغة التي ستقولها فعليًا أمام الكاميرا لطالبك الجديد."}, {"q": "جاءك طالبان بالغان في حصتين تجريبيتين منفصلتين: الأول يريد تعلم العربية لأجل «العمل» في شركة عربية، والثاني لأجل «السياحة» في مصر؛ كيف ستختلف «بوصلتك» التعليمية مع كل منهما منذ الحصة الأولى؟", "hint": "وضّح الفرق في نوع اللغة والمفردات والمواقف التي ستركز عليها لكل هدف."}, {"q": "موقف عملي: دخل معك طفل آسيوي عمره 9 سنوات يبدو عليه الخجل الشديد، ويتجنّب المحاولة خوفًا من الخطأ، ويتوتر إذا كثرت القواعد؛ كيف ستوظّف ما تعلمته في «سيكولوجية الطالب» للتعامل معه في أول 15 دقيقة؟", "hint": "راعِ الخلفية الثقافية، والخطوات القصيرة جدًا، والمحفزات المناسبة، وتخفيف القواعد."}, {"q": "صمّم نشاطًا سريعًا (دقيقتين فقط) يحقق مبدأ «القيمة الفورية» لطالب أجنبي مبتدئ في الحصة التجريبية (سواء في القرآن أو العربية)، واشرح الأثر النفسي المتوقع بعد أن يغلق الكاميرا.", "hint": "اختر شيئًا صغيرًا ومحددًا يستخدمه الطالب فورًا مع أسرته أو صديقه."}, {"q": "كيف تطبّق خطوة «رسم المستقبل» في ختام الحصة التجريبية؟ اكتب حوارًا قصيرًا من 4 جمل بينك وبين طالبك تجعله يتصوّر نجاحه بعد شهر من الآن ويتحمس للاستمرار معك.", "hint": "استخدم سؤال «ماذا ستحقق بعد شهر من الآن؟» وساعده على تخيل نتيجة ملموسة واقعية."}];
+
+(function(){
+  /* Logo & Favicon */
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+
+  /* Theme Sync */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* Toast Helper */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 3000);
+  }
+
+  /* Copy Helper */
+  function copyText(txt, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }).catch(function(){ fallbackCopy(txt, okMsg); });
+    } else { fallbackCopy(txt, okMsg); }
+  }
+  function fallbackCopy(txt, okMsg){
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); }catch(e){ toast("تعذر النسخ التلقائي، يمكنك النسخ يدويًا من المعاينة."); }
+    document.body.removeChild(ta);
+  }
+
+  /* Device ID */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = "";
+    try{
+      var arr = new Uint8Array(6); crypto.getRandomValues(arr);
+      rnd = Array.from(arr).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("").toUpperCase();
+    }catch(e){
+      rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    }
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Auth State */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key === EXPECTED_KEY) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var examView = document.getElementById("examView");
+  var authForm = document.getElementById("authForm");
+  var authMsg = document.getElementById("authMsg");
+  var authBtn = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){
+    authMsg.textContent = text;
+    authMsg.className = "msg-box " + type;
+  }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true;
+    authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key === EXPECTED_KEY){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح الاختبار...", "ok");
+        setTimeout(enterExam, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من البيانات والمحاولة مرة أخرى.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false;
+      authBtn.textContent = "🔓 التحقق والدخول للاختبار";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف إجاباتك المحفوظة)")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    examView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* Quiz State */
+  function defaultState(){
+    return { name: "", mcq: {}, tf: {}, essay: {}, essayMode: "site", graded: false, tab: "mcq", mcqPage: 0, tfPage: 0 };
+  }
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(QUIZ_KEY);
+      if(raw){ return Object.assign(defaultState(), JSON.parse(raw)); }
+    }catch(e){}
+    return defaultState();
+  }
+  var S = loadState();
+  var saveInd = document.getElementById("saveInd");
+  var saveTimer = null;
+  function persist(){
+    try{ localStorage.setItem(QUIZ_KEY, JSON.stringify(S)); }catch(e){}
+    saveInd.textContent = "✅ تم الحفظ الآن";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveInd.textContent = "💾 حفظ تلقائي مفعّل"; }, 1400);
+  }
+
+  /* Helpers */
+  var AR_LETTERS = ["أ","ب","ج","د"];
+  var tNameInput = document.getElementById("tName");
+  tNameInput.addEventListener("input", function(){
+    S.name = this.value;
+    persist();
+    if(S.graded) updateReportPreview();
+  });
+
+  function countObj(o){ return Object.keys(o).length; }
+  function countEssayFilled(){
+    return ESSAY.reduce(function(acc, _, i){ return acc + ((S.essay[i] || "").trim().length >= 3 ? 1 : 0); }, 0);
+  }
+
+  function updateProgress(){
+    var m = countObj(S.mcq), t = countObj(S.tf), tot = m + t, es = countEssayFilled();
+    document.getElementById("cntMcq").textContent = m + " / 50";
+    document.getElementById("cntTf").textContent = t + " / 50";
+    document.getElementById("cntEssay").textContent = S.essayMode === "paper" ? "ورقي / واتساب" : (es + " / 10");
+    document.getElementById("progText").textContent = "أجبت عن " + tot + " من 100 سؤال موضوعي";
+    document.getElementById("essayProgText").textContent = S.essayMode === "paper" ? "المقالي: تسليم ورقي / واتساب" : ("المقالي: " + es + " من 10");
+    document.getElementById("progFill").style.width = Math.round(tot) + "%";
+    if(S.graded){
+      var sc = computeScores();
+      document.getElementById("cntRes").textContent = sc.total + " / 100";
+    } else {
+      document.getElementById("cntRes").textContent = tot === 100 ? "جاهز للتصحيح" : "اعرض النتيجة";
+    }
+  }
+
+  /* Render MCQ Page */
+  function renderMcq(){
+    var pills = document.getElementById("mcqPills");
+    pills.innerHTML = "";
+    for(var p=0; p<5; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.mcq[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.mcqPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (start+1) + "–" + end + (done ? " ✓" : "");
+        b.onclick = function(){ S.mcqPage = pg; persist(); renderMcq(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("mcqList");
+    list.innerHTML = "";
+    var s = S.mcqPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = MCQ[idx], sel = S.mcq[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        var optsHtml = item.o.map(function(txt, oi){
+          return '<button type="button" class="opt' + (sel===oi ? ' sel' : '') + '" data-i="' + idx + '" data-o="' + oi + '"><span class="ltr-c">' + AR_LETTERS[oi] + '</span><span>' + esc(txt) + '</span></button>';
+        }).join("");
+        card.innerHTML = '<div class="q-head"><span class="q-num">' + (idx+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div><div class="opts">' + optsHtml + '</div>';
+        card.querySelectorAll(".opt").forEach(function(btn){
+          btn.onclick = function(){
+            S.mcq[idx] = Number(this.getAttribute("data-o"));
+            persist();
+            renderMcq();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("mcqPrev").disabled = (S.mcqPage === 0);
+    document.getElementById("mcqNext").textContent = S.mcqPage === 4 ? "الانتقال لقسم الصح والخطأ ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("mcqPrev").onclick = function(){
+    if(S.mcqPage > 0){ S.mcqPage--; persist(); renderMcq(); scrollToTop(); }
+  };
+  document.getElementById("mcqNext").onclick = function(){
+    if(S.mcqPage < 4){ S.mcqPage++; persist(); renderMcq(); scrollToTop(); }
+    else { switchTab("tf"); }
+  };
+
+  /* Render TF Page */
+  function renderTf(){
+    var pills = document.getElementById("tfPills");
+    pills.innerHTML = "";
+    for(var p=0; p<5; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.tf[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.tfPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (50+start+1) + "–" + (50+end) + (done ? " ✓" : "");
+        b.onclick = function(){ S.tfPage = pg; persist(); renderTf(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("tfList");
+    list.innerHTML = "";
+    var s = S.tfPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = TF[idx], sel = S.tf[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        card.innerHTML =
+          '<div class="q-head"><span class="q-num">' + (51+idx) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+          '<div class="tf-row">' +
+            '<button type="button" class="tf-btn' + (sel===true ? ' sel-t' : '') + '" data-v="1">✅ صح</button>' +
+            '<button type="button" class="tf-btn' + (sel===false ? ' sel-f' : '') + '" data-v="0">❌ خطأ</button>' +
+          '</div>';
+        card.querySelectorAll(".tf-btn").forEach(function(btn){
+          btn.onclick = function(){
+            S.tf[idx] = this.getAttribute("data-v") === "1";
+            persist();
+            renderTf();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("tfPrev").textContent = S.tfPage === 0 ? "→ العودة للاختيار من متعدد" : "→ المجموعة السابقة";
+    document.getElementById("tfNext").textContent = S.tfPage === 4 ? "الانتقال للأسئلة المقالية ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("tfPrev").onclick = function(){
+    if(S.tfPage > 0){ S.tfPage--; persist(); renderTf(); scrollToTop(); }
+    else { switchTab("mcq"); }
+  };
+  document.getElementById("tfNext").onclick = function(){
+    if(S.tfPage < 4){ S.tfPage++; persist(); renderTf(); scrollToTop(); }
+    else { switchTab("essay"); }
+  };
+
+  /* Render Essay */
+  var modeSiteBtn = document.getElementById("modeSite");
+  var modePaperBtn = document.getElementById("modePaper");
+  modeSiteBtn.onclick = function(){ S.essayMode = "site"; persist(); renderEssay(); updateProgress(); if(S.graded) renderResult(); };
+  modePaperBtn.onclick = function(){ S.essayMode = "paper"; persist(); renderEssay(); updateProgress(); if(S.graded) renderResult(); };
+
+  document.getElementById("copyEssayQsBtn").onclick = function(){
+    var txt = "الأسئلة المقالية الـ 10 — المحاضرة الأولى (المعلم الرقمي المحترف | أكاديمية الساجد):\n\n" +
+      ESSAY.map(function(x, i){ return (i+1) + ". " + x.q; }).join("\n\n");
+    copyText(txt, "✅ تم نسخ الأسئلة المقالية الـ 10 بنجاح!");
+  };
+
+  function renderEssay(){
+    modeSiteBtn.classList.toggle("active", S.essayMode === "site");
+    modePaperBtn.classList.toggle("active", S.essayMode === "paper");
+    var list = document.getElementById("essayList");
+    list.innerHTML = "";
+    ESSAY.forEach(function(item, idx){
+      var val = S.essay[idx] || "";
+      var card = document.createElement("div");
+      card.className = "q-card" + (S.essayMode==="site" && val.trim().length >= 3 ? " answered" : "");
+      var body = "";
+      if(S.essayMode === "site"){
+        var words = val.trim() ? val.trim().split(/\s+/).length : 0;
+        body = '<textarea class="essay-ta" placeholder="اكتب إجابتك هنا (تُحفظ تلقائيًا)..." data-ei="' + idx + '">' + esc(val) + '</textarea>' +
+               '<div class="wc" id="wc-' + idx + '">' + words + ' كلمة · 5 درجات</div>';
+      } else {
+        body = '<div class="paper-note">📝 أجب عن هذا السؤال في ورقتك الخارجية أو في رسالتك على واتساب (5 درجات).</div>';
+      }
+      card.innerHTML =
+        '<div class="q-head"><span class="q-num">م' + (idx+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+        '<div class="essay-hint">💡 ' + esc(item.hint) + '</div>' + body;
+      if(S.essayMode === "site"){
+        var ta = card.querySelector("textarea");
+        ta.addEventListener("input", function(){
+          S.essay[idx] = this.value;
+          var w = this.value.trim() ? this.value.trim().split(/\s+/).length : 0;
+          var wcEl = document.getElementById("wc-" + idx);
+          if(wcEl) wcEl.textContent = w + " كلمة · 5 درجات";
+          card.classList.toggle("answered", this.value.trim().length >= 3);
+          persist();
+          updateProgress();
+          if(S.graded) updateReportPreview();
+        });
+      }
+      list.appendChild(card);
+    });
+  }
+
+  document.getElementById("essayBack").onclick = function(){ switchTab("tf"); };
+  document.getElementById("finishBtn").onclick = function(){ switchTab("result"); };
+
+  /* Scoring & Result */
+  function computeScores(){
+    var mOk = 0, tOk = 0;
+    MCQ.forEach(function(x, i){ if(S.mcq[i] === x.a) mOk++; });
+    TF.forEach(function(x, i){ if(S.tf[i] === x.a) tOk++; });
+    return { mcq: mOk, tf: tOk, total: mOk + tOk };
+  }
+
+  function findFirstUnanswered(){
+    for(var i=0; i<MCQ.length; i++) if(S.mcq[i] === undefined) return { tab:"mcq", page: Math.floor(i/10) };
+    for(var j=0; j<TF.length; j++) if(S.tf[j] === undefined) return { tab:"tf", page: Math.floor(j/10) };
+    return null;
+  }
+
+  function buildShortScoreMsg(){
+    var sc = computeScores();
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var em = (currentAuth && currentAuth.email) || "";
+    var cd = (currentAuth && currentAuth.code) || "";
+    var esCnt = countEssayFilled();
+    var esLine = S.essayMode === "paper"
+      ? "📝 الأسئلة المقالية (50 درجة): سأرسل صور/إجابات الأسئلة الـ 10 الآن في الرسالة التالية."
+      : ("✍️ الأسئلة المقالية (50 درجة): أجبت عن " + esCnt + " من 10 على الموقع، وسألصقها لك الآن في الرسالة التالية.");
+    return [
+      "السلام عليكم ورحمة الله وبركاته 🌿",
+      "*تقرير اختبار المحاضرة الأولى — المعلم الرقمي المحترف*",
+      "أكاديمية الساجد | Al-Sajid Academy",
+      "━━━━━━━━━━━━━━",
+      "👤 الاسم: " + nm,
+      "🔑 الكود: " + cd + (em ? " | " + em : ""),
+      "━━━━━━━━━━━━━━",
+      "1️⃣ الاختيار من متعدد: *" + sc.mcq + " / 50*",
+      "2️⃣ الصح والخطأ: *" + sc.tf + " / 50*",
+      "📊 *المجموع الآلي (الموضوعي): " + sc.total + " / 100 (" + sc.total + "%)*",
+      "━━━━━━━━━━━━━━",
+      esLine,
+      "بانتظار تقييمك للجزء المقالي والدرجة النهائية من 150 🌟"
+    ].join("\n");
+  }
+
+  function buildEssaysText(){
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var lines = [
+      "*إجابات الأسئلة المقالية الـ 10 — المحاضرة الأولى*",
+      "المتدرب/ة: " + nm,
+      "━━━━━━━━━━━━━━"
+    ];
+    ESSAY.forEach(function(item, i){
+      var ans = (S.essay[i] || "").trim() || "(لم تُكتب إجابة)";
+      lines.push("*س" + (i+1) + ":* " + item.q + "\n*ج" + (i+1) + ":* " + ans + "\n");
+    });
+    return lines.join("\n");
+  }
+
+  function updateReportPreview(){
+    var full = buildShortScoreMsg() + (S.essayMode === "site" ? "\n\n" + buildEssaysText() : "");
+    document.getElementById("reportPreview").textContent = full;
+  }
+
+  function renderResult(){
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 100 - (m + t);
+    var ungradedBox = document.getElementById("ungradedBox");
+    var gradedBox = document.getElementById("gradedBox");
+    var jumpBtn = document.getElementById("jumpUnansBtn");
+
+    if(!S.graded){
+      ungradedBox.classList.remove("hidden");
+      gradedBox.classList.add("hidden");
+      if(rem > 0){
+        document.getElementById("readySummary").textContent = "تبقّى لديك " + rem + " سؤال موضوعي بدون إجابة (أجبت عن " + (m+t) + " من 100). يُفضّل إكمالها أولًا، أو يمكنك اعتماد النتيجة الآن.";
+        jumpBtn.classList.remove("hidden");
+      } else {
+        document.getElementById("readySummary").textContent = "أحسنت! أكملت جميع الأسئلة الموضوعية الـ 100. اضغط الزر أدناه لحساب نتيجتك وتجهيز الإرسال عبر واتساب.";
+        jumpBtn.classList.add("hidden");
+      }
+      return;
+    }
+
+    ungradedBox.classList.add("hidden");
+    gradedBox.classList.remove("hidden");
+    var sc = computeScores();
+    document.getElementById("rTotal").textContent = sc.total;
+    document.getElementById("rMcq").textContent = sc.mcq + " / 50";
+    document.getElementById("rTf").textContent = sc.tf + " / 50";
+
+    var title = "", sub = "";
+    if(sc.total >= 90){ title = "🌟 ممتاز جدًا! استيعاب متقن للمحاضرة"; sub = "مستواك رائع جدًا في المحاضرة الأولى؛ أرسل نتيجتك والأسئلة المقالية للمدرب لتستكمل الدرجة النهائية من 150."; }
+    else if(sc.total >= 80){ title = "✅ جيد جدًا! فهم قوي ومتماسك"; sub = "أداء ممتاز؛ راجع الأخطاء البسيطة أدناه ثم أرسل تقريرك وإجاباتك المقالية عبر واتساب."; }
+    else if(sc.total >= 70){ title = "👍 جيد! اجتزت الجزء الموضوعي"; sub = "راجع الأخطاء والتعليلات بالأسفل لتثبيت النقاط التي التبست عليك، ثم أرسل تقريرك للمدرب."; }
+    else { title = "📖 يحتاج مراجعة سريعة للمحاضرة"; sub = "لا بأس أبدًا! راجع الأخطاء بالأسفل وأعد قراءة نقاط المحاضرة، ويمكنك إعادة الاختبار في أي وقت."; }
+    document.getElementById("rGradeTitle").textContent = title;
+    document.getElementById("rGradeSub").textContent = sub;
+
+    var essaysWaBtn = document.getElementById("sendEssaysWaBtn");
+    if(S.essayMode === "paper"){
+      essaysWaBtn.classList.add("hidden");
+      document.getElementById("waHint").textContent = "اخترت كتابة الأسئلة المقالية خارجيًا (في ورقة أو رسالة واتساب). اضغط الزر أدناه لإرسال نتيجتك الآلية للمدرب، ثم أرسل له صور/نص إجاباتك المقالية الـ 10 مباشرةً.";
+    } else {
+      essaysWaBtn.classList.remove("hidden");
+      document.getElementById("waHint").textContent = "لضمان وصول المقالات الـ 10 كاملة بدون قصّ من واتساب: أرسل أولًا نتيجتك الآلية (زر ١)، ثم اضغط (زر ٢) لنسخ إجاباتك المقالية وفتح واتساب للصقها وإرسالها.";
+    }
+
+    updateReportPreview();
+    renderReview("wrong");
+  }
+
+  document.getElementById("jumpUnansBtn").onclick = function(){
+    var u = findFirstUnanswered();
+    if(!u) return;
+    if(u.tab === "mcq"){ S.mcqPage = u.page; switchTab("mcq"); }
+    else { S.tfPage = u.page; switchTab("tf"); }
+  };
+
+  document.getElementById("gradeNowBtn").onclick = function(){
+    if(!(S.name || "").trim()){
+      toast("⚠️ يرجى كتابة اسمك في خانة «اسم المتدرب/ة» بالأعلى أولًا");
+      tNameInput.focus();
+      tNameInput.scrollIntoView({ behavior:"smooth", block:"center" });
+      return;
+    }
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 100 - (m + t);
+    if(rem > 0 && !confirm("تبقّى " + rem + " سؤال موضوعي دون إجابة (سيُحسب صفرًا). هل تريد اعتماد النتيجة الآن؟")) return;
+    S.graded = true;
+    persist();
+    updateProgress();
+    renderResult();
+    scrollToTop();
+  };
+
+  document.getElementById("sendScoreWaBtn").onclick = function(){
+    var msg = buildShortScoreMsg();
+    window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+  };
+
+  document.getElementById("sendEssaysWaBtn").onclick = function(){
+    var txt = buildEssaysText();
+    if(txt.length <= 1500){
+      window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(txt), "_blank", "noopener,noreferrer");
+    } else {
+      copyText(txt, "✅ تم نسخ الإجابات المقالية الـ 10 كاملة! الصقها في محادثة واتساب الآن.");
+      setTimeout(function(){
+        window.open("https://wa.me/" + WA_PHONE, "_blank", "noopener,noreferrer");
+      }, 700);
+    }
+  };
+
+  document.getElementById("copyFullReportBtn").onclick = function(){
+    var full = buildShortScoreMsg() + (S.essayMode === "site" ? "\n\n" + buildEssaysText() : "");
+    copyText(full, "✅ تم نسخ التقرير الكامل للحافظة!");
+  };
+
+  /* Review */
+  function renderReview(filter){
+    var list = document.getElementById("revList");
+    var html = [], wrong = 0;
+    MCQ.forEach(function(item, i){
+      var u = S.mcq[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : item.o[u];
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (i+1) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + esc(uTxt) + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + esc(item.o[item.a]) + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    TF.forEach(function(item, i){
+      var u = S.tf[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : (u ? "صح" : "خطأ");
+      var cTxt = item.a ? "صح" : "خطأ";
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (51+i) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + uTxt + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + cTxt + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    document.getElementById("wrongCnt").textContent = wrong;
+    if(!html.length){
+      list.innerHTML = '<div class="msg-box ok">🎉 ممتاز! لا توجد أي أخطاء في الأسئلة الموضوعية (100 / 100).</div>';
+    } else {
+      list.innerHTML = html.join("");
+    }
+  }
+
+  document.getElementById("revWrongBtn").onclick = function(){ renderReview("wrong"); };
+  document.getElementById("revAllBtn").onclick = function(){ renderReview("all"); };
+  document.getElementById("retakeBtn").onclick = function(){
+    if(!confirm("هل تريد مسح إجابات الجزء الموضوعي وإعادة المحاولة؟ (ستبقى إجاباتك المقالية محفوظة)")) return;
+    S.mcq = {}; S.tf = {}; S.graded = false; S.mcqPage = 0; S.tfPage = 0;
+    persist();
+    switchTab("mcq");
+    updateProgress();
+    toast("تمت إعادة ضبط الأسئلة الموضوعية — بالتوفيق!");
+  };
+
+  /* Tabs */
+  function switchTab(name){
+    S.tab = name;
+    persist();
+    ["mcq","tf","essay","result"].forEach(function(t){
+      document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-tab") === name);
+    });
+    if(name === "mcq") renderMcq();
+    else if(name === "tf") renderTf();
+    else if(name === "essay") renderEssay();
+    else if(name === "result") renderResult();
+    scrollToTop();
+  }
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.onclick = function(){ switchTab(this.getAttribute("data-tab")); };
+  });
+
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: "smooth" }); }
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function enterExam(){
+    gateView.classList.add("hidden");
+    examView.classList.remove("hidden");
+    var lbl = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    document.getElementById("userLabel").textContent = lbl;
+    if(!S.name && currentAuth.name) S.name = currentAuth.name;
+    tNameInput.value = S.name || "";
+    updateProgress();
+    switchTab(S.tab || "mcq");
+  }
+
+  if(currentAuth){ enterExam(); }
+})();
+</script>
+</body>
+</html>

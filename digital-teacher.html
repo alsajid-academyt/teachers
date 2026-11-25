@@ -97,6 +97,8 @@ header{position:sticky;top:0;z-index:50;background:var(--primary-dark);color:#ff
 .blk{background:var(--hl);border-radius:12px;padding:14px 18px}
 .blk b{display:block;color:var(--pri);margin-bottom:2px}
 .quiz-slot{display:inline-flex;align-items:center;gap:8px;border:2px dashed var(--line);color:var(--mut);border-radius:999px;padding:6px 18px;font-weight:700;font-size:.92rem;justify-self:start;cursor:not-allowed;user-select:none}
+.quiz-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold-grad);color:#2a1d00;border:2px solid var(--gold);border-radius:999px;padding:9px 20px;font-weight:800;font-size:.95rem;justify-self:start;text-decoration:none;transition:transform .18s,box-shadow .18s}
+.quiz-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(198,149,43,.3)}
 /* includes + diff */
 .grid{display:grid;gap:18px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
@@ -194,14 +196,14 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
 <!-- Curriculum -->
 <section id="curriculum">
   <div class="wrap">
-    <div class="hd"><h2>ماذا ستتعلم؟</h2><p class="sub">المنهج التفصيلي للمحاضرات الست، افتح كل محاضرة لترى ما ستتقنه وأثره في حصتك.</p></div>
+    <div class="hd"><h2>ماذا ستتعلم؟</h2><p class="sub">المنهج التفصيلي للمحاضرات الست — افتح كل محاضرة لترى ما ستتقنه وأثره في حصتك، وللمشتركين: <strong>اختبار المحاضرة الأولى متاح الآن بالكود الموحّد</strong>.</p></div>
 
     <details class="lec" id="lec-1" open>
       <summary><span class="num">١</span><span class="t">المحاضرة ١: النية والمجال والحصة التجريبية</span><span class="chev">▼</span></summary>
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>طهارة القلب وإخلاص النية، فهم المجال، والحصة الأولى بوصفها «مقابلة تعارف».</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تكسب الطالب من أول حصة بأربع خطوات: تعريف قصير، تحليل هدفه، قيمة فورية، ورسم المستقبل.</div>
-        <div class="quiz-slot" data-quiz="1">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
+        <a class="quiz-btn" href="dt-lec1.html" data-quiz="1">🔓 ابدأ اختبار المحاضرة الأولى التفاعلي (110 أسئلة · للمشتركين) ←</a>
       </div>
     </details>
 
@@ -210,7 +212,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>العلاقة الإنسانية، الاستماع الفعال، أدوات الانطلاق، الثناء الوصفي، البيئة الآمنة، الأسئلة الشخصية مع طلاب الغرب.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>طالبك يتكلم بلا خوف من الخطأ، وتتحدث بثناء يبني ثقته بدل «أحسنت» التي تُنسى.</div>
-        <div class="quiz-slot" data-quiz="2">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="2">🔒 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -219,7 +221,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>التخطيط المرن، هيكل الحصة (٦٠ دقيقة و٣٠ دقيقة)، صندوق الإنقاذ، هندسة الدقائق، قراءة السرحان.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تدخل كل حصة بخارطة واضحة، وتتصرف بثقة حين تتعطل التقنية أو يسرح الطالب.</div>
-        <div class="quiz-slot" data-quiz="3">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="3">🔒 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -228,7 +230,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>أدوات الوقت، شرح <span class="en">Zoom</span> والسبورة والمستند المشترك، تقرير التقدم، إدارة ولي الأمر.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>حصة منظمة في وقتها، وتقنية بسيطة تخدمك، وأسرة تثق بك وتستمر.</div>
-        <div class="quiz-slot" data-quiz="4">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="4">🔒 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -237,7 +239,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>الحركة والتحفيز، التأسيس القرائي للطفل الأجنبي، المراهقون، وتخصيص الدرس لأهداف الكبار.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تعرف كيف تعلّم كل فئة بما يناسبها، لا بقالب واحد للجميع.</div>
-        <div class="quiz-slot" data-quiz="5">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="5">🔒 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
 
@@ -246,7 +248,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
       <div class="lbody">
         <div class="blk"><b>ما ستتقنه</b>إعادة الصياغة والتلميح، جسور النطق للحروف الصعبة، فواصل التنشيط، ختام الحصة، والبدء بلا خبرة تقنية.</div>
         <div class="blk"><b>كيف سيظهر أثرها في حصتك</b>تصحح دون إحباط، وتبني جسرًا من لغة طالبك إلى الحرف العربي، وتنهي كل حصة بما يجعله يعود.</div>
-        <div class="quiz-slot" data-quiz="6">📝 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
+        <div class="quiz-slot" data-quiz="6">🔒 اختبار المحاضرة التفاعلي (110 أسئلة) — يُضاف قريبًا</div>
       </div>
     </details>
   </div>
