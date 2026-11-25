@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>بوابة التدريب العملي (60 محطة تطبيقية) | أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08)}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(980px,93%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.4vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.4rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.94rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.96rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+.msg-box.warn{background:var(--hl);color:var(--pri);border:1px dashed var(--gold)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.94rem;padding:10px 18px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-sm{padding:7px 13px;font-size:.84rem;border-radius:10px}
+.btn-pri{background:var(--primary-light);color:#fff;border-color:var(--primary-light)}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-soft{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.btn-locked{background:var(--bg);color:var(--mut);border-color:var(--line);border-style:dashed}
+.btn-full{width:100%}
+
+/* Banner & Nav */
+main{padding:22px 0 56px}
+.exam-banner{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:22px clamp(16px,3.5vw,28px);margin-bottom:18px}
+.exam-banner .top-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pill-gold{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.82rem;padding:4px 13px;border-radius:999px}
+.user-chip{font-size:.84rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+.exam-banner h1{font-size:clamp(1.28rem,3.6vw,1.8rem);color:var(--gold-light);line-height:1.4;margin-bottom:6px}
+.exam-banner p{font-size:.94rem;color:#e7f0ea;margin-bottom:14px}
+.marks-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.m-box{background:rgba(255,255,255,.1);border:1px solid rgba(232,197,104,.32);border-radius:12px;padding:9px 10px;text-align:center}
+.m-box b{display:block;color:var(--gold-light);font-size:1.05rem}
+.m-box span{font-size:.79rem;color:#e6efe8}
+
+.trainee-bar{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.trainee-bar label{font-weight:800;color:var(--pri);font-size:.95rem;white-space:nowrap}
+.trainee-bar input{flex:1;min-width:210px;padding:9px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:700}
+.trainee-bar input:focus{outline:none;border-color:var(--gold)}
+.save-ind{font-size:.82rem;color:var(--ok);font-weight:700;background:var(--ok-bg);padding:4px 11px;border-radius:999px;white-space:nowrap}
+
+.sticky-nav{position:sticky;top:67px;z-index:35;background:var(--bg);padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.85rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
+.prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
+.prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 6px;font:inherit;font-weight:800;font-size:.83rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
+.tab span.cnt{font-size:.74rem;color:var(--mut);font-weight:700}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
+.tab.active span.cnt{color:var(--gold-light)}
+
+/* Info / Prompt / Team Cards */
+.mode-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.mode-box h3{color:var(--pri);font-size:1.1rem;margin-bottom:6px}
+.mode-box p.sm{color:var(--mut);font-size:.9rem;margin-bottom:12px}
+.prompt-box{background:var(--bg);border:1.5px dashed var(--gold);border-radius:13px;padding:13px 15px;font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;text-align:left;font-size:.88rem;line-height:1.65;color:var(--ink);margin-bottom:10px;white-space:pre-wrap}
+
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}
+.gtype-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.gtype-btn{flex:1;min-width:160px;padding:9px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:800;font-size:.9rem;cursor:pointer;transition:.16s}
+.gtype-btn.active{border-color:var(--gold);background:var(--hl);color:var(--pri)}
+
+/* Session Cards */
+.sess-list{display:grid;gap:12px}
+.s-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.s-card.s-done{border-inline-start:5px solid var(--ok)}
+.s-card.s-ready{border-inline-start:5px solid var(--gold)}
+.s-card summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:12px;font-weight:800;color:var(--pri)}
+.s-card summary::-webkit-details-marker{display:none}
+.s-num{flex:none;width:36px;height:36px;border-radius:10px;background:var(--gold-grad);color:#261900;display:grid;place-items:center;font-weight:900;font-size:.96rem}
+.s-title{flex:1;min-width:0;font-size:.96rem}
+.s-badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.mini-b{font-size:.74rem;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--mut);white-space:nowrap}
+.mini-b.ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.mini-b.ready{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.s-body{padding:0 18px 18px;display:grid;gap:11px}
+.t-ta{width:100%;min-height:90px;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.93rem;line-height:1.7;resize:vertical}
+.t-ta:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.sel-inp{width:100%;padding:10px 12px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.92rem;font-weight:700}
+.sel-inp:focus{outline:none;border-color:var(--gold)}
+.hint-row{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.82rem;color:var(--mut);flex-wrap:wrap}
+.roles-row{display:flex;flex-wrap:wrap;gap:8px}
+.role-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.84rem;font-weight:700;cursor:pointer;transition:.15s}
+.role-chip.on{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:800}
+.s-acts{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap;margin-top:2px}
+
+/* Report Tab */
+.res-hero{background:linear-gradient(150deg,#09321A,#17693B);color:#fff;border:2px solid var(--gold);border-radius:22px;padding:26px clamp(16px,4vw,30px);text-align:center;margin-bottom:20px}
+.score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:136px;height:136px;border-radius:50%;border:5px solid var(--gold-light);background:rgba(0,0,0,.22);margin-bottom:12px}
+.score-ring b{font-size:2.3rem;color:var(--gold-light);line-height:1.1}
+.score-ring span{font-size:.84rem;color:#e7f0ea}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.r-stat{background:rgba(255,255,255,.11);border:1px solid rgba(232,197,104,.35);border-radius:14px;padding:13px}
+.r-stat b{display:block;font-size:1.25rem;color:var(--gold-light)}
+.r-stat span{font-size:.83rem;color:#e7f0ea}
+.preview-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.88rem;white-space:pre-wrap;max-height:290px;overflow:auto;line-height:1.75;color:var(--ink)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.9rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s;max-width:92%;text-align:center}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:720px){
+  body{font-size:15.5px}
+  .marks-strip,.tabs{grid-template-columns:repeat(2,1fr)}
+  .team-grid,.res-grid{grid-template-columns:1fr}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">بوابة التدريب العملي (60 محطة) | أكاديمية الساجد<small class="en">Al-Sajid Academy · Practical Training</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="practical.html">← <span>صفحة البرنامج</span></a>
+  </div>
+</header>
+
+<!-- GATE VIEW -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 بوابة المشتركين — الكود الموحّد</div>
+      <h2>بوابة التدريب العملي والاعتماد</h2>
+      <p class="desc">60 محطة تطبيقية (20 معايشة لواقع التدريس + 20 محاكاة بالذكاء الاصطناعي + 20 لقاءً مع فريقك الرباعي على القاعدة البغدادية). أدخل بريدك وكودك الموحّد للدخول.</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق والدخول لبوابة التدريب العملي</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%D9%8A%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="practical.html">🎙️ العودة لتفاصيل التدريب العملي</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB VIEW -->
+<main id="labView" class="hidden">
+  <div class="wrap">
+    <div class="exam-banner">
+      <div class="top-row">
+        <span class="pill-gold">التدريب العملي الميداني · 60 محطة تطبيقية · شرط شهادة البرنامج الكامل</span>
+        <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+      </div>
+      <h1>سجل التدريب العملي والاعتماد</h1>
+      <p>لكي تفتح علامة الصح (✅) في أي محطة: اكتب جملك أو تقريرك بجدية هنا داخل الموقع (30 حرفًا على الأقل)، <strong>أو</strong> أرسلها للمدرب عبر واتساب بالزر المخصص داخل كل بطاقة.</p>
+      <div class="marks-strip">
+        <div class="m-box"><b id="topObs">0 / 20</b><span>معايشة واقع التدريس</span></div>
+        <div class="m-box"><b id="topAi">0 / 20</b><span>محاكاة الذكاء الاصطناعي</span></div>
+        <div class="m-box"><b id="topTeam">0 / 20</b><span>لقاءات فريق الأربعة</span></div>
+        <div class="m-box"><b id="topAll">0 / 60</b><span>الإجمالي نحو الشهادة</span></div>
+      </div>
+    </div>
+
+    <div class="trainee-bar">
+      <label for="tName">👤 اسم المتدرب/ة:</label>
+      <input id="tName" type="text" placeholder="اكتب اسمك الثلاثي ليظهر في تقاريرك وشهادتك...">
+      <span class="save-ind" id="saveInd">💾 حفظ تلقائي مفعّل</span>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="prog-row">
+        <span id="progAllText">الإنجاز الكلي: 0 من 60 محطة عملية (0%)</span>
+        <span id="certStatusBadge">🎓 الشهادة: قيد الاستكمال</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="obs" type="button">👁️ ١) معايشة التدريس<span class="cnt" id="cntObs">0 / 20</span></button>
+        <button class="tab" data-tab="ai" type="button">🤖 ٢) محاكاة الذكاء<span class="cnt" id="cntAi">0 / 20</span></button>
+        <button class="tab" data-tab="team" type="button">👥 ٣) فريق الأربعة<span class="cnt" id="cntTeam">0 / 20</span></button>
+        <button class="tab" data-tab="report" type="button">🏆 ٤) التقرير والشهادة<span class="cnt" id="cntRep">0 / 60</span></button>
+      </div>
+    </div>
+
+    <!-- TAB 1: 20 OBSERVATION SESSIONS -->
+    <section id="sec-obs">
+      <div class="mode-box">
+        <h3>👁️ المسار الأول: معايشة واقع التدريس والانغماس اللغوي (20 جلسة)</h3>
+        <p class="sm" style="margin-bottom:0">بعد كل جلسة معايشة، دوّن أهم الجمل الإنجليزية وملاحظات إدارة الحصة والتصحيح التي اكتسبتها. <strong>لن تُفتح علامة الصح (✅) إلا بعد كتابة الجمل هنا (30 حرفًا فأكثر) أو إرسالها عبر واتساب.</strong></p>
+      </div>
+      <div class="sess-list" id="obsList"></div>
+    </section>
+
+    <!-- TAB 2: 20 AI ROLEPLAY + VOICE RECORDING -->
+    <section id="sec-ai" class="hidden">
+      <div class="mode-box">
+        <h3>🤖 المسار الثاني: المحاكاة الفردية بالذكاء الاصطناعي + التسجيل الصوتي (20 جلسة)</h3>
+        <p class="sm">انسخ هذا الأمر الجاهز والصقه في <strong>ChatGPT الصوتي</strong> أو <strong>Gemini Live</strong> ليأخذ الذكاء الاصطناعي دور «الطالب الأجنبي المبتدئ» وتقود أنت الحصة كمعلم، وسجّل مقطعًا صوتيًا أثناء تدريبك للاستماع لنفسك:</p>
+        <div class="prompt-box" id="aiPromptBox"></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="button" class="btn btn-gold btn-sm" id="copyPromptBtn">📋 نسخ الأمر الجاهز للمحاكاة (Prompt)</button>
+        </div>
+      </div>
+      <div class="sess-list" id="aiList"></div>
+    </section>
+
+    <!-- TAB 3: 20 TEAM OF 4 MEETINGS (BAGHDADIYYAH) -->
+    <section id="sec-team" class="hidden">
+      <div class="mode-box">
+        <h3>👥 بطاقة تشكيل «فريق التطبيق الرباعي» (4 أعضاء · شرط الشهادة الكاملة)</h3>
+        <p class="sm">سجّل أسماء أعضاء فريقك الأربعة (4 متدربين أو 4 متدربات) للتطبيق التبادلي على محاضرات القاعدة البغدادية الـ 20. <strong>لن تحصل على شهادة البرنامج الكامل إلا بإثبات إتمام الـ 20 لقاءً مع فريقك الأربعة.</strong></p>
+        <div class="gtype-row">
+          <button type="button" class="gtype-btn active" id="gtMen">👨‍🏫 مجموعة معلمين (4 متدربين)</button>
+          <button type="button" class="gtype-btn" id="gtWomen">👩‍🏫 مجموعة معلمات (4 متدربات)</button>
+        </div>
+        <div class="team-grid">
+          <div><label style="font-size:.84rem;font-weight:800;color:var(--pri)">العضو ١ (أنت):</label><input id="tm0" class="inp" type="text" placeholder="اسمك الكامل"></div>
+          <div><label style="font-size:.84rem;font-weight:800;color:var(--pri)">العضو ٢:</label><input id="tm1" class="inp" type="text" placeholder="اسم الزميل/ة الثاني"></div>
+          <div><label style="font-size:.84rem;font-weight:800;color:var(--pri)">العضو ٣:</label><input id="tm2" class="inp" type="text" placeholder="اسم الزميل/ة الثالث"></div>
+          <div><label style="font-size:.84rem;font-weight:800;color:var(--pri)">العضو ٤:</label><input id="tm3" class="inp" type="text" placeholder="اسم الزميل/ة الرابع"></div>
+        </div>
+        <div id="teamReadyMsg" class="msg-box warn" style="margin-bottom:0">⚠️ أدخل أسماء أعضاء الفريق الأربعة كاملةً أولًا لفتح علامة إتمام اللقاءات الـ 20.</div>
+      </div>
+      <div class="sess-list" id="teamList"></div>
+    </section>
+
+    <!-- TAB 4: CUMULATIVE REPORT & CERTIFICATE -->
+    <section id="sec-report" class="hidden">
+      <div class="res-hero">
+        <div class="score-ring">
+          <b id="rTotal">0</b>
+          <span>من 60 محطة</span>
+        </div>
+        <h2 id="rTitle" style="color:var(--gold-light);margin-bottom:4px">رحلتك نحو الاعتماد والشهادة</h2>
+        <p id="rSub" style="color:#e6efe8;font-size:.95rem">أكمل المحطات الستين (وخصوصًا الـ 20 لقاءً مع فريقك الرباعي) وأرسل تقريرك الشامل للأكاديمية عبر واتساب.</p>
+        <div class="res-grid">
+          <div class="r-stat"><b id="rObs">0 / 20</b><span>معايشة واقع التدريس</span></div>
+          <div class="r-stat"><b id="rAi">0 / 20</b><span>محاكاة الذكاء الاصطناعي</span></div>
+          <div class="r-stat"><b id="rTeam">0 / 20</b><span>لقاءات فريق الأربعة</span></div>
+        </div>
+      </div>
+
+      <div class="mode-box">
+        <h3>📤 إرسال التقرير الشامل للتدريب العملي وطلب الشهادة عبر واتساب</h3>
+        <p class="sm">يمكنك إرسال تقرير مرحلي في أي وقت (بعد أول 5 أو 10 جلسات)، أو إرسال التقرير النهائي عند إتمام الـ 60 محطة لاعتماد شهادة البرنامج الكامل:</p>
+        <div style="display:grid;gap:10px;margin-bottom:14px">
+          <button type="button" class="btn btn-wa btn-full" id="sendCumWaBtn">💬 إرسال التقرير الشامل الآن عبر واتساب</button>
+          <button type="button" class="btn btn-gold btn-full" id="copyFullBtn">📋 نسخ السجل الكامل (مع جميع الجمل والتقارير وأسماء الفريق)</button>
+        </div>
+        <details open>
+          <summary style="cursor:pointer;font-weight:800;color:var(--pri);margin-bottom:8px">👁️ معاينة نص التقرير الذي سيُرسل لواتساب</summary>
+          <div class="preview-box" id="cumPreview"></div>
+        </details>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · برنامج التدريب العملي · إعداد وإشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,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";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const COURSE_ID = "practical";
+const EXPECTED_KEY = "Alsajid#2026!Pract$104";
+const WA_PHONE = "201091102946";
+const AUTH_KEY = "sajid_auth:practical";
+const DATA_KEY = "sajid_lab:practical_v1";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+const MIN_CHARS = 30;
+
+const BAGH_TITLES = ["المحاضرة ١: كيف تشرح الحروف العربية للناطقين بغير العربية", "المحاضرة ٢: كيف نعلّم أشكال الحروف العربية وحركاتها للناطقين بغير العربية", "المحاضرة ٣: شرح حركة الفتحة والتركيب التدريجي (القاعدة البغدادية)", "المحاضرة ٤: إتقان شرح الفتحة (Apple / Octopus والتدريب العملي)", "المحاضرة ٥: شرح حركة الكسرة وتدريب الحروف والكلمات (القاعدة البغدادية)", "المحاضرة ٦: إتقان الكسرة وقراءة الجمل الطويلة (التقسيم التراكمي)", "المحاضرة ٧: شرح حركة الضمة وتدريب الكلمات بالحركات الثلاث", "المحاضرة ٨: الحركات الطويلة — الألف الممدودة (ألف المد)", "المحاضرة ٩: الحركات الطويلة — الياء الممدودة (ياء المد)", "المحاضرة ١٠: الحركات الطويلة — الواو الممدودة والألف الفارقة", "المحاضرة ١١: الألف الصغيرة ومد الصلة الصغرى ومد الـ 4 حركات", "المحاضرة ١٢: التنوين بالفتح (تنوين الفتحتين والألف الزائدة والتاء المربوطة)", "المحاضرة ١٣: التنوين بالكسر والتنوين بالضم وتطبيقات قرآنية", "المحاضرة ١٤: درس السكون (قاعدة الصفر والواحد والتكرار التوجيهي)", "المحاضرة ١٥: درس القلقلة (لغز الأسماء وحروف قطب جد والتصحيح التوجيهي)", "المحاضرة ١٦: حروف اللين (الحروف الإسفنجية) ومدخل همزة الوصل والقطع", "المحاضرة ١٧: همزة الوصل والقطع (الوصل بالفاء والواو والبدء بها)", "المحاضرة ١٨: اللام القمرية (Lunar / Moon Laam) وفتح همزة الوصل مع «ال»", "المحاضرة ١٩: درس الشدة (التشديد مع الحركات الثلاث وغنة النون والميم)", "المحاضرة ٢٠ (الختام): اللام الشمسية (Solar Laam) وختام القاعدة البغدادية"];
+const AI_PROMPT = "Act as a beginner non-Arabic speaking student (age 9–12 or adult beginner) learning Arabic reading using Al-Qaidah Al-Baghdadiyyah and short Quran surahs. I am your online Arabic & Quran teacher. Speak to me in simple, natural English. During our practice session: (1) Greet me warmly when I start, (2) Follow my instructions step by step, (3) Intentionally make 2–3 realistic beginner mistakes (such as confusing heavy and light letters, mixing ح with هـ or ق with ك, cutting words letter-by-letter, or stretching a short vowel) so I can practice guiding and correcting you gently without saying 'No/Wrong', (4) Ask 1–2 natural student questions about why a letter looks different or how to pronounce it. Keep your responses short (1–2 sentences) so we have a real interactive live class!";
+const AI_TOPICS = [
+  "الحصة التجريبية والتعارف الأول",
+  "شرح الحروف العربية بعلم اللغة التقابلي",
+  "أشكال الحروف وكرسي الهمزة",
+  "شرح حركة الفتحة (نصف الألف)",
+  "التفخيم والترقيق (Apple / Octopus)",
+  "شرح حركة الكسرة وترقيق الراء",
+  "قراءة الجمل الطويلة بالتقسيم التراكمي",
+  "شرح حركة الضمة والحركات الثلاث",
+  "ألف المد (Two beats)",
+  "ياء المد والتفخيم النسبي",
+  "واو المد والألف الفارقة",
+  "الألف الصغيرة ومد الصلة ومد الـ 4 حركات",
+  "التنوين بالفتح والتاء المربوطة",
+  "التنوين بالكسر والضم",
+  "درس السكون (Zero Harakah)",
+  "درس القلقلة ولغز الأسماء",
+  "حروف اللين (الحروف الإسفنجية)",
+  "همزة الوصل والقطع",
+  "اللام القمرية والشدة واللام الشمسية",
+  "تصحيح تلاوة سورة قصيرة وتجويد مبسّط"
+];
+
+(function(){
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+  document.getElementById("aiPromptBox").textContent = AI_PROMPT;
+
+  /* Theme */
+  var root = document.documentElement, themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* Toast & Copy */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt; toastEl.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 3200);
+  }
+  function copyText(txt, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }).catch(function(){ fallbackCopy(txt, okMsg); });
+    } else { fallbackCopy(txt, okMsg); }
+  }
+  function fallbackCopy(txt, okMsg){
+    var ta = document.createElement("textarea"); ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); }catch(e){ toast("تعذر النسخ التلقائي."); }
+    document.body.removeChild(ta);
+  }
+
+  document.getElementById("copyPromptBtn").onclick = function(){
+    copyText(AI_PROMPT, "✅ تم نسخ الأمر الجاهز! الصقه الآن في ChatGPT الصوتي أو Gemini Live.");
+  };
+
+  /* Device ID */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Auth */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key === EXPECTED_KEY) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var labView = document.getElementById("labView");
+  var authForm = document.getElementById("authForm");
+  var authMsg = document.getElementById("authMsg");
+  var authBtn = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){ authMsg.textContent = text; authMsg.className = "msg-box " + type; }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true; authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key === EXPECTED_KEY){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح بوابة التدريب العملي...", "ok");
+        setTimeout(enterLab, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من تفعيل التدريب العملي على كودك.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false; authBtn.textContent = "🔓 التحقق والدخول لبوابة التدريب العملي";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف تقاريرك المحفوظة)")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    labView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* State */
+  function defaultState(){
+    return {
+      name: "",
+      tab: "obs",
+      obs: {},   // key "1".."20": { text: "", wa: false, done: false }
+      ai: {},    // key "1".."20": { topic: "", rec: false, text: "", wa: false, done: false }
+      teamType: "men",
+      members: ["", "", "", ""],
+      team: {}   // key "1".."20": { lec: 1..20, date: "", rTeacher: false, rStudent: false, rFeedback: false, text: "", wa: false, done: false }
+    };
+  }
+  function loadState(){
+    try{ var raw = localStorage.getItem(DATA_KEY); if(raw) return Object.assign(defaultState(), JSON.parse(raw)); }catch(e){}
+    return defaultState();
+  }
+  var S = loadState();
+  var saveInd = document.getElementById("saveInd"), saveTimer = null;
+  function persist(){
+    try{ localStorage.setItem(DATA_KEY, JSON.stringify(S)); }catch(e){}
+    saveInd.textContent = "✅ تم الحفظ الآن";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveInd.textContent = "💾 حفظ تلقائي مفعّل"; }, 1300);
+  }
+
+  function getObs(i){ var k = String(i); if(!S.obs[k]) S.obs[k] = { text: "", wa: false, done: false }; return S.obs[k]; }
+  function getAi(i){ var k = String(i); if(!S.ai[k]) S.ai[k] = { topic: AI_TOPICS[i-1] || "", rec: false, text: "", wa: false, done: false }; return S.ai[k]; }
+  function getTeam(i){ var k = String(i); if(!S.team[k]) S.team[k] = { lec: i, date: "", rTeacher: false, rStudent: false, rFeedback: false, text: "", wa: false, done: false }; return S.team[k]; }
+
+  function isTeamComplete(){
+    return S.members.every(function(m){ return (m || "").trim().length >= 2; });
+  }
+  function isObsUnlocked(o){ return ((o.text || "").trim().length >= MIN_CHARS) || !!o.wa; }
+  function isAiUnlocked(a){ return ((a.text || "").trim().length >= MIN_CHARS) || !!a.wa; }
+  function isTeamUnlocked(t){
+    var hasRole = !!(t.rTeacher || t.rStudent || t.rFeedback);
+    var hasProof = ((t.text || "").trim().length >= MIN_CHARS) || !!t.wa;
+    return isTeamComplete() && hasRole && hasProof;
+  }
+
+  function countDone(){
+    var o = 0, a = 0, t = 0;
+    for(var i=1; i<=20; i++){
+      if(getObs(i).done) o++;
+      if(getAi(i).done) a++;
+      if(getTeam(i).done) t++;
+    }
+    return { obs: o, ai: a, team: t, total: o + a + t };
+  }
+
+  var tNameInput = document.getElementById("tName");
+  tNameInput.addEventListener("input", function(){
+    S.name = this.value;
+    if(!S.members[0] || S.members[0] === this.dataset.prev){
+      S.members[0] = this.value;
+      var tm0 = document.getElementById("tm0");
+      if(tm0) tm0.value = this.value;
+    }
+    this.dataset.prev = this.value;
+    persist();
+    updateTeamReadyUI();
+    if(S.tab === "report") renderReport();
+  });
+
+  function updateProgress(){
+    var c = countDone(), pct = Math.round((c.total / 60) * 100);
+    document.getElementById("topObs").textContent = c.obs + " / 20";
+    document.getElementById("topAi").textContent = c.ai + " / 20";
+    document.getElementById("topTeam").textContent = c.team + " / 20";
+    document.getElementById("topAll").textContent = c.total + " / 60";
+    document.getElementById("cntObs").textContent = c.obs + " / 20";
+    document.getElementById("cntAi").textContent = c.ai + " / 20";
+    document.getElementById("cntTeam").textContent = c.team + " / 20";
+    document.getElementById("cntRep").textContent = c.total + " / 60";
+    document.getElementById("progAllText").textContent = "الإنجاز الكلي: " + c.total + " من 60 محطة عملية (" + pct + "%)";
+    document.getElementById("progFill").style.width = pct + "%";
+    var cb = document.getElementById("certStatusBadge");
+    if(c.total === 60 && isTeamComplete()){
+      cb.textContent = "🏆 مؤهّل لاعتماد شهادة البرنامج الكامل!";
+      cb.style.color = "var(--ok)";
+    } else {
+      cb.textContent = "🎓 الشهادة: متبقّي " + (60 - c.total) + " محطة";
+      cb.style.color = "var(--mut)";
+    }
+  }
+
+  /* TAB 1: OBSERVATION (20) */
+  function renderObs(){
+    var list = document.getElementById("obsList");
+    list.innerHTML = "";
+    for(var i=1; i<=20; i++){
+      (function(idx){
+        var o = getObs(idx);
+        var unl = isObsUnlocked(o);
+        if(!unl && o.done){ o.done = false; persist(); }
+        var len = (o.text || "").trim().length;
+        var det = document.createElement("details");
+        det.className = "s-card" + (o.done ? " s-done" : (unl ? " s-ready" : ""));
+        if(idx === 1) det.open = true;
+
+        var badgeHtml = o.done
+          ? '<span class="mini-b ok">✅ مكتملة</span>'
+          : (unl ? '<span class="mini-b ready">🔓 جاهز للتأكيد</span>' : '<span class="mini-b">🔒 اكتب الجمل أو أرسل لواتساب</span>');
+
+        var hintTxt = o.wa
+          ? "✅ تم فتح التوثيق عبر واتساب"
+          : (len >= MIN_CHARS ? "✅ النص مكتمل (" + len + " حرفًا) — يمكنك الآن الضغط على تأكيد الإتمام" : "اكتب الجمل المستخلصة (" + len + " / " + MIN_CHARS + " حرفًا لفتح علامة الصح) أو أرسلها عبر واتساب");
+
+        var doneBtnCls = o.done ? "btn btn-ok btn-sm" : (unl ? "btn btn-gold btn-sm" : "btn btn-locked btn-sm");
+        var doneBtnTxt = o.done ? "✅ تم إتمام الجلسة (مُعتمد)" : (unl ? "⬜ اضغط لتأكيد إتمام الجلسة ✓" : "🔒 تأكيد الإتمام (مغلق)");
+
+        det.innerHTML =
+          '<summary>' +
+            '<span class="s-num">' + idx + '</span>' +
+            '<span class="s-title">جلسة معايشة واقع التدريس رقم ' + idx + '</span>' +
+            '<span class="s-badges">' + badgeHtml + '</span>' +
+          '</summary>' +
+          '<div class="s-body">' +
+            '<textarea class="t-ta" placeholder="اكتب هنا أهم الجمل الإنجليزية وملاحظات إدارة الحصة والتصحيح التي اكتسبتها من جلسة المعايشة رقم ' + idx + '...">' + esc(o.text) + '</textarea>' +
+            '<div class="hint-row"><span data-hint="1">' + hintTxt + '</span></div>' +
+            '<div class="s-acts">' +
+              '<button type="button" class="' + doneBtnCls + '" data-done="1">' + doneBtnTxt + '</button>' +
+              '<button type="button" class="btn btn-wa btn-sm" data-wa="1">💬 إرسال جمل الجلسة ' + idx + ' عبر واتساب</button>' +
+            '</div>' +
+          '</div>';
+
+        var ta = det.querySelector("textarea");
+        var doneBtn = det.querySelector("[data-done]");
+        var hintEl = det.querySelector("[data-hint]");
+        var badgeWrap = det.querySelector(".s-badges");
+
+        function refreshCardState(){
+          var u = isObsUnlocked(o), l = (o.text || "").trim().length;
+          if(!u && o.done) o.done = false;
+          det.className = "s-card" + (o.done ? " s-done" : (u ? " s-ready" : ""));
+          doneBtn.className = o.done ? "btn btn-ok btn-sm" : (u ? "btn btn-gold btn-sm" : "btn btn-locked btn-sm");
+          doneBtn.textContent = o.done ? "✅ تم إتمام الجلسة (مُعتمد)" : (u ? "⬜ اضغط لتأكيد إتمام الجلسة ✓" : "🔒 تأكيد الإتمام (مغلق)");
+          hintEl.textContent = o.wa
+            ? "✅ تم فتح التوثيق عبر واتساب"
+            : (l >= MIN_CHARS ? "✅ النص مكتمل (" + l + " حرفًا) — يمكنك الآن الضغط على تأكيد الإتمام" : "اكتب الجمل المستخلصة (" + l + " / " + MIN_CHARS + " حرفًا لفتح علامة الصح) أو أرسلها عبر واتساب");
+          badgeWrap.innerHTML = o.done
+            ? '<span class="mini-b ok">✅ مكتملة</span>'
+            : (u ? '<span class="mini-b ready">🔓 جاهز للتأكيد</span>' : '<span class="mini-b">🔒 اكتب الجمل أو أرسل لواتساب</span>');
+          updateProgress();
+        }
+
+        ta.addEventListener("input", function(){ o.text = this.value; persist(); refreshCardState(); });
+
+        doneBtn.onclick = function(){
+          if(!isObsUnlocked(o)){
+            toast("🔒 اكتب الجمل التي اكتسبتها هنا (30 حرفًا على الأقل) أو أرسلها عبر واتساب أولًا لفتح علامة الصح.");
+            ta.focus();
+            return;
+          }
+          o.done = !o.done;
+          persist();
+          refreshCardState();
+          if(o.done) toast("✅ أحسنت! تم تسجيل إتمام جلسة المعايشة رقم " + idx);
+        };
+
+        det.querySelector("[data-wa]").onclick = function(){
+          o.wa = true;
+          o.done = true;
+          persist();
+          refreshCardState();
+          var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+          var body = (o.text || "").trim() || "(سأكتب/أرسل الجمل المستخلصة من جلسة المعايشة الآن في المحادثة)";
+          var msg = [
+            "السلام عليكم ورحمة الله وبركاته 🌿",
+            "*التدريب العملي — معايشة واقع التدريس (الجلسة " + idx + " / 20)*",
+            "👤 المتدرب/ة: " + nm + " | 🔑 " + ((currentAuth && currentAuth.code) || ""),
+            "━━━━━━━━━━━━━━",
+            "✍️ الجمل والملاحظات المكتسبة:",
+            body
+          ].join("\n");
+          window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+        };
+
+        list.appendChild(det);
+      })(i);
+    }
+  }
+
+  /* TAB 2: AI SIMULATION + VOICE RECORDING (20) */
+  function renderAi(){
+    var list = document.getElementById("aiList");
+    list.innerHTML = "";
+    for(var i=1; i<=20; i++){
+      (function(idx){
+        var a = getAi(idx);
+        var unl = isAiUnlocked(a);
+        if(!unl && a.done){ a.done = false; persist(); }
+        var len = (a.text || "").trim().length;
+        var det = document.createElement("details");
+        det.className = "s-card" + (a.done ? " s-done" : (unl ? " s-ready" : ""));
+        if(idx === 1) det.open = true;
+
+        var badgeHtml = a.done
+          ? '<span class="mini-b ok">✅ مكتملة</span>'
+          : (unl ? '<span class="mini-b ready">🔓 جاهز للتأكيد</span>' : '<span class="mini-b">🔒 قيّم تسجيلك أو أرسله لواتساب</span>');
+
+        var hintTxt = a.wa
+          ? "✅ تم فتح التوثيق عبر واتساب"
+          : (len >= MIN_CHARS ? "✅ التقييم الذاتي مكتمل (" + len + " حرفًا) — يمكنك التأكيد الآن" : "اكتب تقييمك الذاتي بعد سماع تسجيلك (" + len + " / " + MIN_CHARS + " حرفًا) أو أرسل المقطع عبر واتساب");
+
+        var doneBtnCls = a.done ? "btn btn-ok btn-sm" : (unl ? "btn btn-gold btn-sm" : "btn btn-locked btn-sm");
+        var doneBtnTxt = a.done ? "✅ تم إتمام المحاكاة" : (unl ? "⬜ اضغط لتأكيد إتمام المحاكاة ✓" : "🔒 تأكيد الإتمام (مغلق)");
+
+        det.innerHTML =
+          '<summary>' +
+            '<span class="s-num">' + idx + '</span>' +
+            '<span class="s-title">جلسة المحاكاة بالذكاء الاصطناعي رقم ' + idx + '</span>' +
+            '<span class="s-badges">' + badgeHtml + '</span>' +
+          '</summary>' +
+          '<div class="s-body">' +
+            '<div><label style="display:block;font-size:.84rem;font-weight:800;color:var(--pri);margin-bottom:4px">🎯 موضوع جلسة المحاكاة:</label><input type="text" class="inp" data-topic="1" value="' + esc(a.topic) + '" placeholder="مثال: شرح حركة الفتحة أو حصة تجريبية..."></div>' +
+            '<div class="roles-row"><button type="button" class="role-chip' + (a.rec ? ' on' : '') + '" data-rec="1">' + (a.rec ? '🎙️✅' : '⬜') + ' سجّلتُ مقطعي الصوتي أثناء المحاكاة واستمعتُ لنفسي</button></div>' +
+            '<textarea class="t-ta" placeholder="اكتب هنا ملاحظاتك بعد سماع تسجيلك الصوتي (ما نجحتَ فيه، الجمل التي استخدمتها، وما ستحسّنه في المرة القادمة)...">' + esc(a.text) + '</textarea>' +
+            '<div class="hint-row"><span data-hint="1">' + hintTxt + '</span></div>' +
+            '<div class="s-acts">' +
+              '<button type="button" class="' + doneBtnCls + '" data-done="1">' + doneBtnTxt + '</button>' +
+              '<button type="button" class="btn btn-wa btn-sm" data-wa="1">💬 إرسال المقطع الصوتي / التقرير عبر واتساب</button>' +
+            '</div>' +
+          '</div>';
+
+        var topicInp = det.querySelector("[data-topic]");
+        var recBtn = det.querySelector("[data-rec]");
+        var ta = det.querySelector("textarea");
+        var doneBtn = det.querySelector("[data-done]");
+        var hintEl = det.querySelector("[data-hint]");
+        var badgeWrap = det.querySelector(".s-badges");
+
+        function refreshAiCard(){
+          var u = isAiUnlocked(a), l = (a.text || "").trim().length;
+          if(!u && a.done) a.done = false;
+          det.className = "s-card" + (a.done ? " s-done" : (u ? " s-ready" : ""));
+          doneBtn.className = a.done ? "btn btn-ok btn-sm" : (u ? "btn btn-gold btn-sm" : "btn btn-locked btn-sm");
+          doneBtn.textContent = a.done ? "✅ تم إتمام المحاكاة" : (u ? "⬜ اضغط لتأكيد إتمام المحاكاة ✓" : "🔒 تأكيد الإتمام (مغلق)");
+          hintEl.textContent = a.wa
+            ? "✅ تم فتح التوثيق عبر واتساب"
+            : (l >= MIN_CHARS ? "✅ التقييم الذاتي مكتمل (" + l + " حرفًا) — يمكنك التأكيد الآن" : "اكتب تقييمك الذاتي بعد سماع تسجيلك (" + l + " / " + MIN_CHARS + " حرفًا) أو أرسل المقطع عبر واتساب");
+          badgeWrap.innerHTML = a.done
+            ? '<span class="mini-b ok">✅ مكتملة</span>'
+            : (u ? '<span class="mini-b ready">🔓 جاهز للتأكيد</span>' : '<span class="mini-b">🔒 قيّم تسجيلك أو أرسله لواتساب</span>');
+          updateProgress();
+        }
+
+        topicInp.addEventListener("input", function(){ a.topic = this.value; persist(); });
+        recBtn.onclick = function(){
+          a.rec = !a.rec;
+          this.classList.toggle("on", a.rec);
+          this.textContent = (a.rec ? "🎙️✅" : "⬜") + " سجّلتُ مقطعي الصوتي أثناء المحاكاة واستمعتُ لنفسي";
+          persist();
+        };
+        ta.addEventListener("input", function(){ a.text = this.value; persist(); refreshAiCard(); });
+
+        doneBtn.onclick = function(){
+          if(!isAiUnlocked(a)){
+            toast("🔒 اكتب تقييمك الذاتي بعد سماع تسجيلك (30 حرفًا على الأقل) أو أرسل المقطع الصوتي عبر واتساب أولًا.");
+            ta.focus();
+            return;
+          }
+          a.done = !a.done;
+          persist();
+          refreshAiCard();
+          if(a.done) toast("✅ ممتاز! تم اعتماد جلسة المحاكاة بالذكاء الاصطناعي رقم " + idx);
+        };
+
+        det.querySelector("[data-wa]").onclick = function(){
+          a.wa = true;
+          a.rec = true;
+          a.done = true;
+          persist();
+          recBtn.classList.add("on");
+          recBtn.textContent = "🎙️✅ سجّلتُ مقطعي الصوتي أثناء المحاكاة واستمعتُ لنفسي";
+          refreshAiCard();
+          var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+          var body = (a.text || "").trim() || "(سأرسل المقطع الصوتي الخاص بالمحاكاة الآن في المحادثة)";
+          var msg = [
+            "السلام عليكم ورحمة الله وبركاته 🌿",
+            "*التدريب العملي — المحاكاة بالذكاء الاصطناعي (الجلسة " + idx + " / 20)*",
+            "👤 المتدرب/ة: " + nm + " | 🔑 " + ((currentAuth && currentAuth.code) || ""),
+            "🎯 الموضوع: " + (a.topic || "تدريب عملي"),
+            "🎙️ التسجيل الصوتي: ✅ تم",
+            "━━━━━━━━━━━━━━",
+            "✍️ ملاحظات التقييم الذاتي:",
+            body
+          ].join("\n");
+          window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+        };
+
+        list.appendChild(det);
+      })(i);
+    }
+  }
+
+  /* TAB 3: TEAM OF 4 MEETINGS (20 — BAGHDADIYYAH) */
+  var gtMen = document.getElementById("gtMen"), gtWomen = document.getElementById("gtWomen");
+  gtMen.onclick = function(){ S.teamType = "men"; persist(); updateTeamReadyUI(); };
+  gtWomen.onclick = function(){ S.teamType = "women"; persist(); updateTeamReadyUI(); };
+
+  [0,1,2,3].forEach(function(mi){
+    var el = document.getElementById("tm" + mi);
+    el.addEventListener("input", function(){
+      S.members[mi] = this.value;
+      persist();
+      updateTeamReadyUI();
+      renderTeam();
+    });
+  });
+
+  function updateTeamReadyUI(){
+    gtMen.classList.toggle("active", S.teamType === "men");
+    gtWomen.classList.toggle("active", S.teamType === "women");
+    [0,1,2,3].forEach(function(mi){
+      var el = document.getElementById("tm" + mi);
+      if(el && el.value !== (S.members[mi] || "")) el.value = S.members[mi] || "";
+    });
+    var box = document.getElementById("teamReadyMsg");
+    if(isTeamComplete()){
+      box.className = "msg-box ok";
+      box.textContent = "✅ فريق الأربعة مكتمل (" + S.members.map(function(x){ return x.trim(); }).join(" · ") + ") — يمكنك الآن توثيق لقاءاتك الـ 20.";
+    } else {
+      box.className = "msg-box warn";
+      box.textContent = "⚠️ أدخل أسماء أعضاء الفريق الأربعة كاملةً أولًا لفتح علامة إتمام اللقاءات الـ 20 (شرط الشهادة).";
+    }
+  }
+
+  function renderTeam(){
+    updateTeamReadyUI();
+    var list = document.getElementById("teamList");
+    list.innerHTML = "";
+    var optsHtmlBase = BAGH_TITLES.map(function(title, bi){
+      return '<option value="' + (bi+1) + '">' + esc(title) + '</option>';
+    }).join("");
+
+    for(var i=1; i<=20; i++){
+      (function(idx){
+        var t = getTeam(idx);
+        var unl = isTeamUnlocked(t);
+        if(!unl && t.done){ t.done = false; persist(); }
+        var len = (t.text || "").trim().length;
+        var det = document.createElement("details");
+        det.className = "s-card" + (t.done ? " s-done" : (unl ? " s-ready" : ""));
+        if(idx === 1) det.open = true;
+
+        var badgeHtml = t.done
+          ? '<span class="mini-b ok">✅ لقاء مُعتمد</span>'
+          : (unl ? '<span class="mini-b ready">🔓 جاهز للتأكيد</span>' : '<span class="mini-b">🔒 أكمل الفريق والأدوار والتقرير</span>');
+
+        var doneBtnCls = t.done ? "btn btn-ok btn-sm" : (unl ? "btn btn-gold btn-sm" : "btn btn-locked btn-sm");
+        var doneBtnTxt = t.done ? "✅ تم حضور وتطبيق اللقاء" : (unl ? "⬜ اضغط لتأكيد إتمام اللقاء ✓" : "🔒 تأكيد اللقاء (مغلق)");
+
+        det.innerHTML =
+          '<summary>' +
+            '<span class="s-num">' + idx + '</span>' +
+            '<span class="s-title">اللقاء التطبيقي رقم ' + idx + ' مع فريق الأربعة</span>' +
+            '<span class="s-badges">' + badgeHtml + '</span>' +
+          '</summary>' +
+          '<div class="s-body">' +
+            '<div>' +
+              '<label style="display:block;font-size:.84rem;font-weight:800;color:var(--pri);margin-bottom:4px">📖 محاضرة القاعدة البغدادية التي تدرّبتم عليها:</label>' +
+              '<select class="sel-inp" data-lec="1">' + optsHtmlBase + '</select>' +
+            '</div>' +
+            '<div>' +
+              '<label style="display:block;font-size:.84rem;font-weight:800;color:var(--pri);margin-bottom:5px">🎭 الأدوار التي طبّقتموها في اللقاء (اختر واحدًا على الأقل):</label>' +
+              '<div class="roles-row">' +
+                '<button type="button" class="role-chip' + (t.rTeacher ? ' on' : '') + '" data-rt="1">' + (t.rTeacher ? '✅' : '⬜') + ' أخذتُ دور المعلم (شرح وتصحيح)</button>' +
+                '<button type="button" class="role-chip' + (t.rStudent ? ' on' : '') + '" data-rs="1">' + (t.rStudent ? '✅' : '⬜') + ' أخذتُ دور الطالب (محاكاة الأخطاء)</button>' +
+                '<button type="button" class="role-chip' + (t.rFeedback ? ' on' : '') + '" data-rf="1">' + (t.rFeedback ? '✅' : '⬜') + ' تبادلنا التقييم والتصحيح التوجيهي</button>' +
+              '</div>' +
+            '</div>' +
+            '<textarea class="t-ta" placeholder="اكتب تقرير اللقاء رقم ' + idx + ': ماذا فعلتم معًا؟ كيف قسّمتم دوري المعلم والطالب؟ وما أبرز التصحيحات التي استفدتم منها؟...">' + esc(t.text) + '</textarea>' +
+            '<div class="hint-row"><span data-hint="1"></span></div>' +
+            '<div class="s-acts">' +
+              '<button type="button" class="' + doneBtnCls + '" data-done="1">' + doneBtnTxt + '</button>' +
+              '<button type="button" class="btn btn-wa btn-sm" data-wa="1">💬 إرسال تقرير اللقاء ' + idx + ' بأسماء الفريق لواتساب</button>' +
+            '</div>' +
+          '</div>';
+
+        var sel = det.querySelector("[data-lec]");
+        sel.value = String(t.lec || idx);
+        var ta = det.querySelector("textarea");
+        var doneBtn = det.querySelector("[data-done]");
+        var hintEl = det.querySelector("[data-hint]");
+        var badgeWrap = det.querySelector(".s-badges");
+
+        function getTeamHint(){
+          if(!isTeamComplete()) return "⚠️ أكمل أسماء أعضاء الفريق الأربعة في البطاقة بالأعلى أولًا";
+          if(!(t.rTeacher || t.rStudent || t.rFeedback)) return "⚠️ اختر دورًا واحدًا على الأقل مما طبّقتموه في اللقاء";
+          if(t.wa) return "✅ تم إرسال تقرير اللقاء عبر واتساب";
+          var l = (t.text || "").trim().length;
+          return l >= MIN_CHARS
+            ? "✅ التقرير مكتمل (" + l + " حرفًا) — يمكنك الضغط لتأكيد اللقاء"
+            : "اكتب تقرير اللقاء (" + l + " / " + MIN_CHARS + " حرفًا) أو أرسله عبر واتساب";
+        }
+
+        function refreshTeamCard(){
+          var u = isTeamUnlocked(t);
+          if(!u && t.done) t.done = false;
+          det.className = "s-card" + (t.done ? " s-done" : (u ? " s-ready" : ""));
+          doneBtn.className = t.done ? "btn btn-ok btn-sm" : (u ? "btn btn-gold btn-sm" : "btn btn-locked btn-sm");
+          doneBtn.textContent = t.done ? "✅ تم حضور وتطبيق اللقاء" : (u ? "⬜ اضغط لتأكيد إتمام اللقاء ✓" : "🔒 تأكيد اللقاء (مغلق)");
+          hintEl.textContent = getTeamHint();
+          badgeWrap.innerHTML = t.done
+            ? '<span class="mini-b ok">✅ لقاء مُعتمد</span>'
+            : (u ? '<span class="mini-b ready">🔓 جاهز للتأكيد</span>' : '<span class="mini-b">🔒 أكمل الفريق والأدوار والتقرير</span>');
+          updateProgress();
+        }
+        hintEl.textContent = getTeamHint();
+
+        sel.addEventListener("change", function(){ t.lec = Number(this.value); persist(); });
+        function wireRole(attr, prop, label){
+          var b = det.querySelector("[" + attr + "]");
+          b.onclick = function(){
+            t[prop] = !t[prop];
+            this.classList.toggle("on", t[prop]);
+            this.textContent = (t[prop] ? "✅ " : "⬜ ") + label;
+            persist();
+            refreshTeamCard();
+          };
+        }
+        wireRole("data-rt", "rTeacher", "أخذتُ دور المعلم (شرح وتصحيح)");
+        wireRole("data-rs", "rStudent", "أخذتُ دور الطالب (محاكاة الأخطاء)");
+        wireRole("data-rf", "rFeedback", "تبادلنا التقييم والتصحيح التوجيهي");
+
+        ta.addEventListener("input", function(){ t.text = this.value; persist(); refreshTeamCard(); });
+
+        doneBtn.onclick = function(){
+          if(!isTeamComplete()){ toast("🔒 اكتب أسماء أعضاء الفريق الأربعة في البطاقة بالأعلى أولًا."); document.getElementById("tm1").focus(); return; }
+          if(!(t.rTeacher || t.rStudent || t.rFeedback)){ toast("🔒 اختر الأدوار التي طبّقتموها في اللقاء أولًا."); return; }
+          if(!isTeamUnlocked(t)){ toast("🔒 اكتب تقرير اللقاء (30 حرفًا على الأقل) أو أرسله عبر واتساب أولًا."); ta.focus(); return; }
+          t.done = !t.done;
+          persist();
+          refreshTeamCard();
+          if(t.done) toast("✅ رائع! تم توثيق اللقاء التطبيقي رقم " + idx + " مع فريق الأربعة");
+        };
+
+        det.querySelector("[data-wa]").onclick = function(){
+          if(!isTeamComplete()){ toast("⚠️ يرجى كتابة أسماء أعضاء الفريق الأربعة بالأعلى قبل إرسال التقرير."); document.getElementById("tm1").focus(); return; }
+          if(!(t.rTeacher || t.rStudent || t.rFeedback)){ t.rTeacher = true; }
+          t.wa = true;
+          t.done = true;
+          persist();
+          refreshTeamCard();
+          var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+          var lecTitle = BAGH_TITLES[(t.lec || idx) - 1] || ("المحاضرة " + idx);
+          var roles = [];
+          if(t.rTeacher) roles.push("دور المعلم");
+          if(t.rStudent) roles.push("دور الطالب");
+          if(t.rFeedback) roles.push("تبادل التقييم والتصحيح");
+          var msg = [
+            "السلام عليكم ورحمة الله وبركاته 🌿",
+            "*تقرير اللقاء التطبيقي رقم (" + idx + " / 20) — فريق الأربعة*",
+            "التدريب العملي | أكاديمية الساجد",
+            "━━━━━━━━━━━━━━",
+            "👤 مُرسِل التقرير: " + nm + " | 🔑 " + ((currentAuth && currentAuth.code) || ""),
+            "👥 أعضاء الفريق (" + (S.teamType === "women" ? "معلمات" : "معلمون") + "):",
+            "1) " + S.members[0].trim() + "  2) " + S.members[1].trim() + "  3) " + S.members[2].trim() + "  4) " + S.members[3].trim(),
+            "📖 المحاضرة المطبّقة: " + lecTitle,
+            "🎭 الأدوار: " + roles.join(" + "),
+            "━━━━━━━━━━━━━━",
+            "✍️ ملخص ما تم تطبيقه في اللقاء:",
+            (t.text || "").trim() || "(سأرسل تفاصيل اللقاء / المرفق الآن في المحادثة)"
+          ].join("\n");
+          window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+        };
+
+        list.appendChild(det);
+      })(i);
+    }
+  }
+
+  /* TAB 4: CUMULATIVE REPORT */
+  function buildCumMsg(includeDetails){
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var c = countDone();
+    var teamLine = isTeamComplete()
+      ? S.members.map(function(x, idx){ return (idx+1) + ") " + x.trim(); }).join(" | ")
+      : "(لم تكتمل أسماء الفريق الأربعة بعد)";
+    var certState = (c.total === 60 && isTeamComplete())
+      ? "🏆 مكتمل 100% — مؤهّل لاعتماد شهادة البرنامج التأهيلي الكامل!"
+      : "⏳ قيد الاستكمال (" + c.total + " / 60 محطة)";
+
+    var lines = [
+      "السلام عليكم ورحمة الله وبركاته 🌿",
+      "*التقرير الشامل للتدريب العملي — أكاديمية الساجد*",
+      "━━━━━━━━━━━━━━",
+      "👤 المتدرب/ة: " + nm,
+      "🔑 الكود: " + ((currentAuth && currentAuth.code) || ""),
+      "━━━━━━━━━━━━━━",
+      "👁️ معايشة واقع التدريس: *" + c.obs + " / 20 جلسة*",
+      "🤖 المحاكاة بالذكاء الاصطناعي: *" + c.ai + " / 20 جلسة*",
+      "👥 لقاءات فريق الأربعة (القاعدة البغدادية): *" + c.team + " / 20 لقاءً*",
+      "📊 *الإجمالي الكلي: " + c.total + " / 60 (" + Math.round((c.total/60)*100) + "%)*",
+      "━━━━━━━━━━━━━━",
+      "👥 *فريق الأربعة (" + (S.teamType === "women" ? "معلمات" : "معلمون") + "):*",
+      teamLine,
+      "━━━━━━━━━━━━━━",
+      "🎓 حالة الشهادة: " + certState
+    ];
+
+    if(includeDetails){
+      lines.push("\n━━ تفاصيل المسار ١ (معايشة التدريس) ━━");
+      for(var i=1; i<=20; i++){
+        var o = getObs(i);
+        if(o.done || (o.text || "").trim()) lines.push("• جلسة " + i + " (" + (o.done ? "✅" : "⬜") + "): " + ((o.text || "").trim() || "مُرسَل عبر واتساب"));
+      }
+      lines.push("\n━━ تفاصيل المسار ٢ (محاكاة الذكاء الاصطناعي) ━━");
+      for(var j=1; j<=20; j++){
+        var a = getAi(j);
+        if(a.done || (a.text || "").trim()) lines.push("• محاكاة " + j + " [" + (a.topic || "") + "] (" + (a.done ? "✅" : "⬜") + "): " + ((a.text || "").trim() || "مُرسَل عبر واتساب"));
+      }
+      lines.push("\n━━ تفاصيل المسار ٣ (لقاءات فريق الأربعة) ━━");
+      for(var k=1; k<=20; k++){
+        var t = getTeam(k);
+        if(t.done || (t.text || "").trim()){
+          var lt = BAGH_TITLES[(t.lec || k) - 1] || ("المحاضرة " + k);
+          lines.push("• لقاء " + k + " [" + lt + "] (" + (t.done ? "✅" : "⬜") + "): " + ((t.text || "").trim() || "مُرسَل عبر واتساب"));
+        }
+      }
+    }
+    return lines.join("\n");
+  }
+
+  function renderReport(){
+    var c = countDone();
+    document.getElementById("rTotal").textContent = c.total;
+    document.getElementById("rObs").textContent = c.obs + " / 20";
+    document.getElementById("rAi").textContent = c.ai + " / 20";
+    document.getElementById("rTeam").textContent = c.team + " / 20";
+    if(c.total === 60 && isTeamComplete()){
+      document.getElementById("rTitle").textContent = "🏆 مبارك! استوفيتَ جميع شروط شهادة البرنامج الكامل";
+      document.getElementById("rSub").textContent = "أتممت الـ 60 محطة عملية بما فيها الـ 20 لقاءً مع فريقك الرباعي! أرسل تقريرك الآن للأكاديمية عبر واتساب.";
+    } else {
+      document.getElementById("rTitle").textContent = "📊 تقدّمك الحالي: " + c.total + " من 60 محطة عملية";
+      document.getElementById("rSub").textContent = "واصل رحلتك! الشهادة النهائية تُعتمد بإتمام الـ 60 محطة وخصوصًا الـ 20 لقاءً مع فريقك الرباعي.";
+    }
+    document.getElementById("cumPreview").textContent = buildCumMsg(false);
+  }
+
+  document.getElementById("sendCumWaBtn").onclick = function(){
+    window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(buildCumMsg(false)), "_blank", "noopener,noreferrer");
+  };
+  document.getElementById("copyFullBtn").onclick = function(){
+    copyText(buildCumMsg(true), "✅ تم نسخ السجل الكامل بجميع الجمل والتقارير وأسماء الفريق!");
+  };
+
+  /* Tabs */
+  function switchTab(name){
+    S.tab = name; persist();
+    ["obs","ai","team","report"].forEach(function(t){
+      document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-tab") === name);
+    });
+    if(name === "obs") renderObs();
+    else if(name === "ai") renderAi();
+    else if(name === "team") renderTeam();
+    else if(name === "report") renderReport();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll(".tab").forEach(function(b){ b.onclick = function(){ switchTab(this.getAttribute("data-tab")); }; });
+
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function enterLab(){
+    gateView.classList.add("hidden");
+    labView.classList.remove("hidden");
+    document.getElementById("userLabel").textContent = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    if(!S.name && currentAuth.name) S.name = currentAuth.name;
+    tNameInput.value = S.name || "";
+    tNameInput.dataset.prev = S.name || "";
+    if(!S.members[0] && S.name) S.members[0] = S.name;
+    updateProgress();
+    switchTab(S.tab || "obs");
+  }
+
+  if(currentAuth){ enterLab(); }
+})();
+</script>
+</body>
+</html>
