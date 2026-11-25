@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>بوابة المتابعة والتطبيق والاختبارات | إعداد معلمي القاعدة البغدادية — أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08)}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(980px,93%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.4vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.4rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.94rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.95rem;padding:10px 18px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-sm{padding:7px 13px;font-size:.85rem;border-radius:10px}
+.btn-pri{background:var(--primary-light);color:#fff;border-color:var(--primary-light)}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-soft{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-bad{background:var(--bad-bg);color:var(--bad);border-color:rgba(220,38,38,.35)}
+.btn-full{width:100%}
+
+/* Banner & Nav */
+main{padding:22px 0 56px}
+.exam-banner{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:22px clamp(16px,3.5vw,28px);margin-bottom:18px}
+.exam-banner .top-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pill-gold{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.82rem;padding:4px 13px;border-radius:999px}
+.user-chip{font-size:.84rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+.exam-banner h1{font-size:clamp(1.28rem,3.6vw,1.8rem);color:var(--gold-light);line-height:1.4;margin-bottom:6px}
+.exam-banner p{font-size:.94rem;color:#e7f0ea;margin-bottom:14px}
+.marks-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.m-box{background:rgba(255,255,255,.1);border:1px solid rgba(232,197,104,.32);border-radius:12px;padding:9px 10px;text-align:center}
+.m-box b{display:block;color:var(--gold-light);font-size:1.05rem}
+.m-box span{font-size:.8rem;color:#e6efe8}
+
+.trainee-bar{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.trainee-bar label{font-weight:800;color:var(--pri);font-size:.95rem;white-space:nowrap}
+.trainee-bar input{flex:1;min-width:210px;padding:9px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:700}
+.trainee-bar input:focus{outline:none;border-color:var(--gold)}
+.save-ind{font-size:.82rem;color:var(--ok);font-weight:700;background:var(--ok-bg);padding:4px 11px;border-radius:999px;white-space:nowrap}
+
+.sticky-nav{position:sticky;top:67px;z-index:35;background:var(--bg);padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.86rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
+.prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
+.prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:10px 8px;font:inherit;font-weight:800;font-size:.86rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
+.tab span.cnt{font-size:.76rem;color:var(--mut);font-weight:700}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
+.tab.active span.cnt{color:var(--gold-light)}
+
+/* Tracker Cards */
+.mode-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.mode-box h3{color:var(--pri);font-size:1.1rem;margin-bottom:6px}
+.mode-box p.sm{color:var(--mut);font-size:.9rem;margin-bottom:12px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.m-opt{text-align:right;padding:13px 15px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}
+.m-opt b{display:block;color:var(--pri);font-size:.96rem;margin-bottom:3px}
+.m-opt span{font-size:.84rem;color:var(--mut);line-height:1.55;display:block}
+.m-opt.active{border-color:var(--gold);background:var(--hl)}
+
+.lec-list{display:grid;gap:12px}
+.l-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.l-card.l-full{border-inline-start:5px solid var(--ok)}
+.l-card.l-part{border-inline-start:5px solid var(--gold)}
+.l-card summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:12px;font-weight:800;color:var(--pri)}
+.l-card summary::-webkit-details-marker{display:none}
+.l-num{flex:none;width:36px;height:36px;border-radius:10px;background:var(--gold-grad);color:#261900;display:grid;place-items:center;font-weight:900;font-size:.98rem}
+.l-title{flex:1;min-width:0;font-size:.98rem}
+.l-badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.mini-b{font-size:.74rem;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--mut);white-space:nowrap}
+.mini-b.ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.l-body{padding:0 18px 18px;display:grid;gap:12px}
+.tog-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tog-btn{display:flex;align-items:center;gap:8px;padding:10px 13px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.89rem;font-weight:800;cursor:pointer;text-align:right;transition:.16s}
+.tog-btn:hover{border-color:var(--gold)}
+.tog-btn.on{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.t-ta{width:100%;min-height:86px;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.93rem;line-height:1.7;resize:vertical}
+.t-ta:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.paper-note{background:var(--ok-bg);border:1px dashed var(--ok);border-radius:11px;padding:9px 13px;font-size:.88rem;font-weight:700;color:var(--ok)}
+.l-acts{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+
+/* Quiz Tab */
+.q-sel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:18px}
+.q-sel{padding:9px 10px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:.84rem;font-weight:800;cursor:pointer;text-align:center;transition:.16s}
+.q-sel.avail{border-color:var(--gold);background:var(--hl);color:var(--pri)}
+.q-sel.cur{background:var(--primary);color:#fff;border-color:var(--gold)}
+.q-sel.soon{opacity:.55;cursor:not-allowed}
+
+.q-list{display:grid;gap:13px}
+.q-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:17px 19px;box-shadow:var(--shadow)}
+.q-card.answered{border-inline-start:5px solid var(--gold)}
+.q-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.q-num{flex:none;min-width:32px;height:32px;border-radius:9px;background:var(--hl);color:var(--pri);border:1px solid var(--gold);display:grid;place-items:center;font-weight:900;font-size:.88rem}
+.q-txt{font-weight:800;font-size:.99rem;line-height:1.68}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:10px;width:100%;text-align:right;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:11px;padding:10px 13px;font:inherit;font-size:.94rem;font-weight:600;cursor:pointer;transition:.16s}
+.opt:hover{border-color:var(--gold);background:var(--hl)}
+.opt.sel{background:rgba(15,76,41,.11);border-color:var(--primary);color:var(--pri);font-weight:800}
+:root[data-theme="dark"] .opt.sel{background:rgba(232,197,104,.18);border-color:var(--gold-light)}
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tf-btn{padding:11px 14px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:800;cursor:pointer}
+.tf-btn.sel-t{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.tf-btn.sel-f{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.rev-exp{margin-top:9px;font-size:.88rem;color:var(--mut);background:var(--hl);padding:8px 11px;border-radius:9px}
+
+/* Report Tab */
+.res-hero{background:linear-gradient(150deg,#09321A,#17693B);color:#fff;border:2px solid var(--gold);border-radius:22px;padding:26px clamp(16px,4vw,30px);text-align:center;margin-bottom:20px}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.r-stat{background:rgba(255,255,255,.11);border:1px solid rgba(232,197,104,.35);border-radius:14px;padding:13px}
+.r-stat b{display:block;font-size:1.35rem;color:var(--gold-light)}
+.r-stat span{font-size:.84rem;color:#e7f0ea}
+.preview-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.88rem;white-space:pre-wrap;max-height:280px;overflow:auto;line-height:1.75;color:var(--ink)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.92rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:720px){
+  body{font-size:15.5px}
+  .marks-strip{grid-template-columns:repeat(2,1fr)}
+  .tabs,.mode-grid,.tog-row,.res-grid{grid-template-columns:1fr}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">بوابة المتابعة والاختبارات | القاعدة البغدادية<small>أكاديمية الساجد — Al-Sajid Academy</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="baghdadiyyah.html">← <span>صفحة الدورة</span></a>
+  </div>
+</header>
+
+<!-- GATE VIEW -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 بوابة المشتركين — الكود الموحّد</div>
+      <h2>بوابة متابعة دورة «إعداد معلمي القاعدة البغدادية»</h2>
+      <p class="desc">20 محاضرة (~26 ساعة) · 40 أيقونة لمتابعة المشاهدة والتدريب العملي + الاختبارات الخفيفة لكل محاضرة. أدخل بريدك الإلكتروني وكودك الموحّد للدخول.</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق والدخول للبوابة</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A5%D8%B9%D8%AF%D8%A7%D8%AF%20%D9%85%D8%B9%D9%84%D9%85%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF%D9%8A%D8%A9%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب كود التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="baghdadiyyah.html">📖 العودة لتفاصيل الدورة</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB VIEW -->
+<main id="labView" class="hidden">
+  <div class="wrap">
+    <div class="exam-banner">
+      <div class="top-row">
+        <span class="pill-gold">إعداد معلمي القاعدة البغدادية · 20 محاضرة (~26 ساعة)</span>
+        <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+      </div>
+      <h1>بوابة المتابعة والتدريب العملي والاختبارات الخفيفة</h1>
+      <p>تابع رحلتك محاضرةً بمحاضرة: علّم على أيقونة المشاهدة والمذاكرة + أيقونة التدريب العملي بالمحاكاة، واكتب ما خرجت به (أو أرسل PDF/صورة على واتساب)، واختبر فهمك في الاختبار الخفيف لكل محاضرة.</p>
+      <div class="marks-strip">
+        <div class="m-box"><b>20 محاضرة</b><span>متابعة المشاهدة والتلخيص</span></div>
+        <div class="m-box"><b>20 تطبيقًا</b><span>تأكيد التدريب الصوتي بالمحاكاة</span></div>
+        <div class="m-box"><b>اختبار خفيف</b><span>10 أسئلة آلية لكل محاضرة</span></div>
+        <div class="m-box"><b>تسليم مرن</b><span>كتابة بالموقع أو PDF/صور لواتساب</span></div>
+      </div>
+    </div>
+
+    <div class="trainee-bar">
+      <label for="tName">👤 اسم المتدرب/ة:</label>
+      <input id="tName" type="text" placeholder="اكتب اسمك الثلاثي ليظهر في تقاريرك على واتساب...">
+      <span class="save-ind" id="saveInd">💾 حفظ تلقائي مفعّل</span>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="prog-row">
+        <span id="progWatch">المشاهدة والمذاكرة: 0 / 20</span>
+        <span id="progPrac">التدريب العملي بالمحاكاة: 0 / 20</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="tracker" type="button">📋 خريطة الـ 20 محاضرة<span class="cnt" id="cntTrack">0 / 40 أيقونة</span></button>
+        <button class="tab" data-tab="quizzes" type="button">🧠 الاختبارات الخفيفة<span class="cnt" id="cntQuiz">المحاضرة ١ متاحة</span></button>
+        <button class="tab" data-tab="report" type="button">📊 التقرير التراكمي لواتساب<span class="cnt">إرسال التقدم</span></button>
+      </div>
+    </div>
+
+    <!-- TAB 1: 20 LECTURES TRACKER -->
+    <section id="sec-tracker">
+      <div class="mode-box">
+        <h3>اختر طريقتك المفضلة لتسليم «ما خرجت به» من كل محاضرة:</h3>
+        <p class="sm">يمكنك التبديل بين الخيارين في أي وقت، وكل علاماتك وإجاباتك محفوظة تلقائيًا على جهازك:</p>
+        <div class="mode-grid">
+          <button type="button" class="m-opt active" id="modeSite">
+            <b>✍️ الكتابة هنا داخل الموقع</b>
+            <span>تكتب خلاصتك أو الجمل الإنجليزية التي استخرجتها تحت كل محاضرة وترسلها لواتساب بضغطة زر.</span>
+          </button>
+          <button type="button" class="m-opt" id="modeFile">
+            <b>📎 إرسال ملف PDF أو صور من الدفتر على واتساب</b>
+            <span>تعلّم هنا على أيقونتي «المشاهدة» و«التدريب العملي» لكل محاضرة، ثم ترسل ملخصك المكتوب (PDF أو صور) على واتساب.</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="lec-list" id="lecList"></div>
+    </section>
+
+    <!-- TAB 2: LIGHT QUIZZES -->
+    <section id="sec-quizzes" class="hidden">
+      <div class="mode-box">
+        <h3>🧠 الاختبارات الخفيفة السريعة (10 أسئلة لكل محاضرة · تصحيح آلي فوري)</h3>
+        <p class="sm" style="margin-bottom:10px">اختر رقم المحاضرة المتاحة للبدء. تُضاف اختبارات باقي المحاضرات تباعًا داخل نفس البوابة دون أي تغيير في رابطك:</p>
+        <div class="q-sel-grid" id="qSelGrid"></div>
+      </div>
+      <div id="quizContainer"></div>
+    </section>
+
+    <!-- TAB 3: CUMULATIVE REPORT -->
+    <section id="sec-report" class="hidden">
+      <div class="res-hero">
+        <h2 style="color:var(--gold-light);margin-bottom:6px">📊 لوحة التقدم التراكمي — القاعدة البغدادية</h2>
+        <p style="color:#e7f0ea;font-size:.95rem">أرسل تقرير تقدمك للمدرب عبر واتساب في أي مرحلة (بعد أول 5 محاضرات، أو منتصف الدورة، أو عند الختام).</p>
+        <div class="res-grid">
+          <div class="r-stat"><b id="rWatch">0 / 20</b><span>محاضرات تمت مشاهدتها</span></div>
+          <div class="r-stat"><b id="rPrac">0 / 20</b><span>محاضرات تدرّبت على شرحها</span></div>
+          <div class="r-stat"><b id="rQScore">0 / 10</b><span>درجة الاختبارات المتاحة</span></div>
+        </div>
+      </div>
+
+      <div class="mode-box">
+        <h3>📤 إرسال التقرير التراكمي عبر واتساب</h3>
+        <p class="sm">يجمع التقرير عدد المحاضرات التي شاهدتها والتي تدرّبت عليها بالمحاكاة ونتائجك في الاختبارات الخفيفة:</p>
+        <div style="display:grid;gap:10px;margin-bottom:14px">
+          <button type="button" class="btn btn-wa btn-full" id="sendCumWaBtn">💬 إرسال التقرير التراكمي الآن عبر واتساب</button>
+          <button type="button" class="btn btn-soft btn-full" id="copyCumBtn">📋 نسخ التقرير التراكمي مع جميع ملخصاتي المكتوبة</button>
+        </div>
+        <details open>
+          <summary style="cursor:pointer;font-weight:800;color:var(--pri);margin-bottom:8px">👁️ معاينة نص التقرير التراكمي</summary>
+          <div class="preview-box" id="cumPreview"></div>
+        </details>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · إعداد معلمي القاعدة البغدادية · إشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,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";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const COURSE_ID = "baghdadiyyah";
+const WA_PHONE = "201091102946";
+const AUTH_KEY = "sajid_auth:baghdadiyyah";
+const DATA_KEY = "sajid_lab:baghdadiyyah_v1";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+
+const LECTURES = [{"n": 1, "t": "المحاضرة ١: كيف تشرح الحروف العربية للناطقين بغير العربية", "tag": "علم اللغة التقابلي · اختبار متاح"}, {"n": 2, "t": "المحاضرة ٢: كيف نعلّم أشكال الحروف العربية وحركاتها للناطقين بغير العربية", "tag": "أشكال الحروف"}, {"n": 3, "t": "المحاضرة ٣: شرح حركة الفتحة", "tag": "الحركات القصيرة"}, {"n": 4, "t": "المحاضرة ٤: إتقان شرح حركة الفتحة", "tag": "تطبيق وتقييم الفتحة"}, {"n": 5, "t": "المحاضرة ٥: حركة الكسرة", "tag": "الحركات القصيرة"}, {"n": 6, "t": "المحاضرة ٦: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 7, "t": "المحاضرة ٧: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 8, "t": "المحاضرة ٨: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 9, "t": "المحاضرة ٩: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 10, "t": "المحاضرة ١٠: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "منتصف الدورة"}, {"n": 11, "t": "المحاضرة ١١: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 12, "t": "المحاضرة ١٢: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 13, "t": "المحاضرة ١٣: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 14, "t": "المحاضرة ١٤: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 15, "t": "المحاضرة ١٥: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 16, "t": "المحاضرة ١٦: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 17, "t": "المحاضرة ١٧: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 18, "t": "المحاضرة ١٨: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 19, "t": "المحاضرة ١٩: استكمال التأسيس (تسلسل كتاب القاعدة البغدادية)", "tag": "تسلسل الكتاب"}, {"n": 20, "t": "المحاضرة ٢٠: الختام والتطبيق الشامل للقاعدة البغدادية", "tag": "ختام الـ 26 ساعة"}];
+const QUIZZES = {"1": {"title": "اختبار المحاضرة الأولى الخفيف: شرح الحروف العربية بعلم اللغة التقابلي", "mcq": [{"q": "ما المنهجية السريعة التي اعتمدها المدرب في المحاضرة الأولى لتعليم الحروف العربية للناطقين بالإنجليزية؟", "o": ["علم اللغة التقابلي (المقارنة بين أصوات العربية وأصوات الإنجليزية)", "منع الطالب من سماع أي مقارنة بالإنجليزية", "تلقين المخارج التشريحية المعقدة منذ الدقيقة الأولى", "البدء بالقواعد النحوية قبل الحروف"], "a": 0, "e": "استخدم المدرب علم اللغة التقابلي كأسرع وسيلة لربط الحروف العربية بأصوات يعرفها الطالب في الإنجليزية."}, {"q": "كيف فرّق المدرب للطالب الأجنبي بين صوت «الثاء (ث)» وصوت «الذال (ذ)» باستخدام كلمات إنجليزية مألوفة؟", "o": ["كلاهما يُنطق مثل حرف Z", "الثاء مثل (Thank you)، والذال مثل (Better than)", "الثاء مثل (Better than)، والذال مثل (Thank you)", "كلاهما يُنطق مثل حرف S في الإنجليزية"], "a": 1, "e": "ربط الثاء بـ (Thank you) والذال بـ (Better than) يزيل الخلط الفوري بين صوتي (th) في الإنجليزية."}, {"q": "لماذا نصح المدرب بالمبالغة في تفخيم حرف «الخاء» بنسبة 200% عند تعليمه للطالب الأجنبي، وبمَ شبّه تجويف الفم مع الحروف المفخمة؟", "o": ["لأن المبالغة تُضعف صوت الحرف", "لأن الخاء لا يوجد لها صوت قريب مثل (KH) في اسم خان", "لأنك إذا فخّمت 200% فسيصل الطالب إلى 60–70%، وشبّه الفم بالكهف أو القاعة الكبيرة (Big hall)", "لجعل الخاء مرققة مثل الكاف"], "a": 2, "e": "المبالغة التربوية في التفخيم (200%) مع تشبيه الفم بـ Big hall وربط الخاء بـ (KH) في خان تضمن نطقًا صحيحًا."}, {"q": "في المحاضرة الأولى، ما المصطلحان المبسّطان (بجانب Light وHeavy) اللذان استخدمهما المدرب لربط التفخيم والترقيق بشكل الفم؟", "o": ["Sun (للمفخم) و Moon (للمرقق)", "Cat (للمفخم) و Lion (للمرقق)", "River (للمفخم) و Ocean (للمرقق)", "Octopus (للمفخم — Heavy) و Apple (للمرقق — Light مع الابتسامة)"], "a": 3, "e": "Octopus للحروف المفخمة وApple للحروف المرققة؛ تقريب بصري رائع يناسب الصغار جدًا."}, {"q": "بمَ شبّه المدرب حرفَي «العين (ع)» و«الغين (غ)» لتبسيط نطقهما للطالب الأجنبي في المحاضرة الأولى؟", "o": ["كلاهما لا يمكن تقريبه بأي تشبيه عملي", "العين بشيء عالق في الحلق وصوت الذئب، والغين بصوت الغرغرة بشوية ماء (Gargling sound)", "العين بالنفخ على نظارة، والغين بحرف K", "العين بحرف A، والغين بحرف G الإنجليزي فقط"], "a": 1, "e": "الغرغرة بالماء للغين وتضييق الحلق وصوت الذئب للعين جعلا أصعب حرفين سهلين وممتعين للطالب."}], "tf": [{"q": "يُقابل حرف الباء في العربية حرف (B) في الإنجليزية وليس (P)، ويجب نطق المرقق مرققًا والمفخم مفخمًا منذ أول لقاء.", "a": true, "e": "صحيح؛ لأن أول نطق يسمعه الطالب منك هو ما سيثبت في ذهنه (باء لا باء مفخمة، وتاء لا طاء)."}, {"q": "يمكن تقريب حرف «الحاء» للطالب عبر اسم النبي ﷺ «محمد» مع توجيهه لتضييق الحلق بصوت حاد (Sharp throat).", "a": true, "e": "صحيح؛ فأكثر الطلاب يعرفون نطق اسم النبي ﷺ محمد فيُبنى عليه مباشرة."}, {"q": "عند تعليم حرف الضاد للمبتدئ، يُشترط حفظ المصطلحات التشريحية المعقدة بالإنجليزية حتى لو تعقّد الطالب.", "a": false, "e": "خطأ؛ نُبسّط الأمر بالصورة والإشارة والنطق الصحيح (مثل D + O)، ثم نزيد التفاصيل كلما تقدم مستوى الطالب."}, {"q": "المقابل الحقيقي لصوت حرف (A) في كلمة (Apple) هو «الهمزة» وليست الألف المدية الجوفية.", "a": true, "e": "صحيح؛ الهمزة هي التي تحمل النبرة (أَ)، بينما الألف تخرج من الجوف كمد في «قال، باع»."}, {"q": "عدد الحروف التي تُعطى للطالب في الحصة الأولى ثابت لا يتغير (دائمًا 28 حرفًا للجميع مهما كان عمر الطالب).", "a": false, "e": "خطأ؛ كل طالب على قدر مستواه وعمره (قد يأخذ الصغير 4 حروف فقط، وقد يُنهي البالغ الحروف كلها)."}]}};
+
+(function(){
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+
+  /* Theme */
+  var root = document.documentElement, themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* Toast & Copy */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt; toastEl.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 2800);
+  }
+  function copyText(txt, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }).catch(function(){ fallbackCopy(txt, okMsg); });
+    } else { fallbackCopy(txt, okMsg); }
+  }
+  function fallbackCopy(txt, okMsg){
+    var ta = document.createElement("textarea"); ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); }catch(e){ toast("تعذر النسخ التلقائي."); }
+    document.body.removeChild(ta);
+  }
+
+  /* Device ID */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Auth */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var labView = document.getElementById("labView");
+  var authForm = document.getElementById("authForm");
+  var authMsg = document.getElementById("authMsg");
+  var authBtn = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){ authMsg.textContent = text; authMsg.className = "msg-box " + type; }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true; authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح البوابة...", "ok");
+        setTimeout(enterLab, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من تفعيل دورة القاعدة البغدادية على كودك.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false; authBtn.textContent = "🔓 التحقق والدخول للبوابة";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف متابعتك المحفوظة)")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    labView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* State */
+  function defaultState(){
+    return { name: "", watched: {}, practiced: {}, notes: {}, mode: "site", tab: "tracker", curQuiz: "1", qAns: {}, qGraded: {} };
+  }
+  function loadState(){
+    try{ var raw = localStorage.getItem(DATA_KEY); if(raw) return Object.assign(defaultState(), JSON.parse(raw)); }catch(e){}
+    return defaultState();
+  }
+  var S = loadState();
+  var saveInd = document.getElementById("saveInd"), saveTimer = null;
+  function persist(){
+    try{ localStorage.setItem(DATA_KEY, JSON.stringify(S)); }catch(e){}
+    saveInd.textContent = "✅ تم الحفظ الآن";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveInd.textContent = "💾 حفظ تلقائي مفعّل"; }, 1300);
+  }
+
+  var tNameInput = document.getElementById("tName");
+  tNameInput.addEventListener("input", function(){ S.name = this.value; persist(); if(S.tab === "report") renderReport(); });
+
+  function countTrue(obj){ return Object.keys(obj).filter(function(k){ return !!obj[k]; }).length; }
+
+  function calcQuizScore(qId){
+    var q = QUIZZES[qId]; if(!q) return { ok: 0, tot: 0 };
+    var ans = S.qAns[qId] || { mcq: {}, tf: {} }, ok = 0;
+    q.mcq.forEach(function(item, i){ if(ans.mcq && ans.mcq[i] === item.a) ok++; });
+    q.tf.forEach(function(item, i){ if(ans.tf && ans.tf[i] === item.a) ok++; });
+    return { ok: ok, tot: q.mcq.length + q.tf.length };
+  }
+
+  function calcAllQuizScores(){
+    var ok = 0, tot = 0;
+    Object.keys(QUIZZES).forEach(function(k){
+      var s = calcQuizScore(k);
+      tot += s.tot;
+      if(S.qGraded[k]) ok += s.ok;
+    });
+    return { ok: ok, tot: tot };
+  }
+
+  function updateProgress(){
+    var w = countTrue(S.watched), p = countTrue(S.practiced);
+    document.getElementById("progWatch").textContent = "المشاهدة والمذاكرة: " + w + " / 20";
+    document.getElementById("progPrac").textContent = "التدريب العملي بالمحاكاة: " + p + " / 20";
+    document.getElementById("cntTrack").textContent = (w + p) + " / 40 أيقونة";
+    document.getElementById("progFill").style.width = Math.round(((w + p) / 40) * 100) + "%";
+    var qs = calcAllQuizScores();
+    document.getElementById("cntQuiz").textContent = S.qGraded["1"] ? ("الدرجة: " + qs.ok + " / " + qs.tot) : (Object.keys(QUIZZES).length + " اختبار متاح");
+  }
+
+  /* Tab 1: 20 Lectures Tracker */
+  var modeSiteBtn = document.getElementById("modeSite");
+  var modeFileBtn = document.getElementById("modeFile");
+  modeSiteBtn.onclick = function(){ S.mode = "site"; persist(); renderTracker(); };
+  modeFileBtn.onclick = function(){ S.mode = "file"; persist(); renderTracker(); };
+
+  function renderTracker(){
+    modeSiteBtn.classList.toggle("active", S.mode === "site");
+    modeFileBtn.classList.toggle("active", S.mode === "file");
+    var list = document.getElementById("lecList");
+    list.innerHTML = "";
+    LECTURES.forEach(function(lec){
+      var n = String(lec.n);
+      var w = !!S.watched[n], p = !!S.practiced[n], note = S.notes[n] || "";
+      var det = document.createElement("details");
+      det.className = "l-card" + (w && p ? " l-full" : (w || p ? " l-part" : ""));
+      if(lec.n === 1) det.open = true;
+
+      var noteBlock = S.mode === "site"
+        ? '<textarea class="t-ta" placeholder="اكتب هنا خلاصة ما خرجت به من المحاضرة ' + lec.n + ' (أو أهم الجمل الإنجليزية والتشبيهات)...">' + esc(note) + '</textarea>'
+        : '<div class="paper-note">📎 اخترت إرسال ملخصك في ملف PDF أو صور على واتساب — يكفي هنا الضغط على أيقونتي المشاهدة والتدريب العملي!</div>';
+
+      var quizBtnHtml = QUIZZES[n]
+        ? '<button type="button" class="btn btn-gold btn-sm" data-openq="' + n + '">🧠 افتح الاختبار الخفيف (10 أسئلة)</button>'
+        : '';
+
+      det.innerHTML =
+        '<summary>' +
+          '<span class="l-num">' + lec.n + '</span>' +
+          '<span class="l-title">' + esc(lec.t) + '</span>' +
+          '<span class="l-badges">' +
+            '<span class="mini-b' + (w ? ' ok' : '') + '">' + (w ? '✅ شاهدت' : '⬜ مشاهدة') + '</span>' +
+            '<span class="mini-b' + (p ? ' ok' : '') + '">' + (p ? '🎙️ تدرّبت' : '⬜ تدريب') + '</span>' +
+          '</span>' +
+        '</summary>' +
+        '<div class="l-body">' +
+          '<div class="tog-row">' +
+            '<button type="button" class="tog-btn' + (w ? ' on' : '') + '" data-w="1">' + (w ? '✅' : '⬜') + ' شاهدتُ المحاضرة ولخّصتُها</button>' +
+            '<button type="button" class="tog-btn' + (p ? ' on' : '') + '" data-p="1">' + (p ? '🎙️' : '⬜') + ' تدرّبتُ على شرحها بصوتي / مع زميل</button>' +
+          '</div>' +
+          noteBlock +
+          '<div class="l-acts">' +
+            quizBtnHtml +
+            '<button type="button" class="btn btn-wa btn-sm" data-wa1="1">💬 إرسال متابعة المحاضرة ' + lec.n + ' عبر واتساب</button>' +
+          '</div>' +
+        '</div>';
+
+      det.querySelector("[data-w]").onclick = function(){ S.watched[n] = !S.watched[n]; persist(); renderTracker(); updateProgress(); };
+      det.querySelector("[data-p]").onclick = function(){ S.practiced[n] = !S.practiced[n]; persist(); renderTracker(); updateProgress(); };
+      var ta = det.querySelector("textarea");
+      if(ta){ ta.addEventListener("input", function(){ S.notes[n] = this.value; persist(); }); }
+      var oq = det.querySelector("[data-openq]");
+      if(oq){ oq.onclick = function(){ S.curQuiz = n; switchTab("quizzes"); }; }
+      det.querySelector("[data-wa1]").onclick = function(){
+        var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+        var body = S.mode === "file"
+          ? "📎 سأرسل ملف PDF / صور ملخصي للمحاضرة الآن."
+          : ("✍️ خلاصة ما خرجت به:\n" + ((S.notes[n] || "").trim() || "(لم يُكتب ملخص بعد)"));
+        var msg = [
+          "السلام عليكم ورحمة الله وبركاته 🌿",
+          "*متابعة " + lec.t + " — دورة إعداد معلمي القاعدة البغدادية*",
+          "👤 المتدرب/ة: " + nm + " | 🔑 " + ((currentAuth && currentAuth.code) || ""),
+          "• المشاهدة والمذاكرة: " + (S.watched[n] ? "✅ تم" : "⬜ لم يتم"),
+          "• التدريب العملي بالمحاكاة: " + (S.practiced[n] ? "🎙️ تم" : "⬜ لم يتم"),
+          body
+        ].join("\n");
+        window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+      };
+      list.appendChild(det);
+    });
+  }
+
+  /* Tab 2: Light Quizzes */
+  var AR_LETTERS = ["أ","ب","ج","د"];
+  function renderQuizzes(){
+    var grid = document.getElementById("qSelGrid");
+    grid.innerHTML = "";
+    LECTURES.forEach(function(lec){
+      var n = String(lec.n), avail = !!QUIZZES[n];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "q-sel" + (avail ? " avail" : " soon") + (S.curQuiz === n && avail ? " cur" : "");
+      b.textContent = "المحاضرة " + lec.n + (avail ? (S.qGraded[n] ? " ✓" : " 🔓") : " 🔒");
+      if(avail) b.onclick = function(){ S.curQuiz = n; persist(); renderQuizzes(); };
+      grid.appendChild(b);
+    });
+
+    var box = document.getElementById("quizContainer");
+    var q = QUIZZES[S.curQuiz];
+    if(!q){ box.innerHTML = ""; return; }
+    if(!S.qAns[S.curQuiz]) S.qAns[S.curQuiz] = { mcq: {}, tf: {} };
+    var ans = S.qAns[S.curQuiz], graded = !!S.qGraded[S.curQuiz];
+
+    var html = '<div class="mode-box"><h3>' + esc(q.title) + '</h3><p class="sm">5 أسئلة اختيار من متعدد + 5 صح وخطأ (10 درجات آليًا)</p>';
+    if(graded){
+      var sc = calcQuizScore(S.curQuiz);
+      html += '<div class="msg-box ok">🎯 نتيجتك في هذا الاختبار الخفيف: <strong>' + sc.ok + ' / ' + sc.tot + '</strong> (' + Math.round((sc.ok/sc.tot)*100) + '%)</div>';
+    }
+    html += '</div><div class="q-list" id="qItems"></div>';
+    html += '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">' +
+      (!graded ? '<button type="button" class="btn btn-gold" id="gradeQBtn">✅ تصحيح الاختبار الخفيف الآن</button>'
+               : '<button type="button" class="btn btn-bad" id="retakeQBtn">🔄 إعادة المحاولة</button>') +
+    '</div>';
+    box.innerHTML = html;
+
+    var qItems = document.getElementById("qItems");
+    q.mcq.forEach(function(item, i){
+      var sel = ans.mcq[i];
+      var card = document.createElement("div");
+      card.className = "q-card" + (sel !== undefined ? " answered" : "");
+      var opts = item.o.map(function(txt, oi){
+        return '<button type="button" class="opt' + (sel===oi ? ' sel' : '') + '" data-o="' + oi + '"><strong>' + AR_LETTERS[oi] + ')</strong> <span>' + esc(txt) + '</span></button>';
+      }).join("");
+      var fb = graded ? '<div class="rev-exp">' + (sel===item.a ? '✅ إجابة صحيحة — ' : '❌ الصحيح: ' + esc(item.o[item.a]) + ' — ') + esc(item.e) + '</div>' : '';
+      card.innerHTML = '<div class="q-head"><span class="q-num">' + (i+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div><div class="opts">' + opts + '</div>' + fb;
+      if(!graded){
+        card.querySelectorAll(".opt").forEach(function(btn){
+          btn.onclick = function(){ ans.mcq[i] = Number(this.getAttribute("data-o")); persist(); renderQuizzes(); };
+        });
+      }
+      qItems.appendChild(card);
+    });
+
+    q.tf.forEach(function(item, i){
+      var sel = ans.tf[i];
+      var card = document.createElement("div");
+      card.className = "q-card" + (sel !== undefined ? " answered" : "");
+      var fb = graded ? '<div class="rev-exp">' + (sel===item.a ? '✅ إجابة صحيحة — ' : '❌ الصحيح: ' + (item.a ? 'صح' : 'خطأ') + ' — ') + esc(item.e) + '</div>' : '';
+      card.innerHTML = '<div class="q-head"><span class="q-num">' + (6+i) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+        '<div class="tf-row">' +
+          '<button type="button" class="tf-btn' + (sel===true ? ' sel-t' : '') + '" data-v="1">✅ صح</button>' +
+          '<button type="button" class="tf-btn' + (sel===false ? ' sel-f' : '') + '" data-v="0">❌ خطأ</button>' +
+        '</div>' + fb;
+      if(!graded){
+        card.querySelectorAll(".tf-btn").forEach(function(btn){
+          btn.onclick = function(){ ans.tf[i] = this.getAttribute("data-v") === "1"; persist(); renderQuizzes(); };
+        });
+      }
+      qItems.appendChild(card);
+    });
+
+    var gb = document.getElementById("gradeQBtn");
+    if(gb) gb.onclick = function(){ S.qGraded[S.curQuiz] = true; persist(); updateProgress(); renderQuizzes(); toast("✅ تم التصحيح!"); };
+    var rb = document.getElementById("retakeQBtn");
+    if(rb) rb.onclick = function(){ S.qAns[S.curQuiz] = { mcq: {}, tf: {} }; S.qGraded[S.curQuiz] = false; persist(); updateProgress(); renderQuizzes(); };
+  }
+
+  /* Tab 3: Cumulative Report */
+  function buildCumMsg(includeNotes){
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var w = countTrue(S.watched), p = countTrue(S.practiced), qs = calcAllQuizScores();
+    var lines = [
+      "السلام عليكم ورحمة الله وبركاته 🌿",
+      "*التقرير التراكمي — دورة إعداد معلمي القاعدة البغدادية*",
+      "أكاديمية الساجد | Al-Sajid Academy",
+      "━━━━━━━━━━━━━━",
+      "👤 المتدرب/ة: " + nm,
+      "🔑 الكود: " + ((currentAuth && currentAuth.code) || ""),
+      "━━━━━━━━━━━━━━",
+      "📺 المشاهدة والمذاكرة: *" + w + " / 20 محاضرة*",
+      "🎙️ التدريب العملي بالمحاكاة: *" + p + " / 20 محاضرة*",
+      "🧠 الاختبارات الخفيفة المتاحة: *" + qs.ok + " / " + qs.tot + "*",
+      "📎 طريقة التسليم المختارة: " + (S.mode === "file" ? "ملف PDF / صور على واتساب" : "الكتابة داخل الموقع"),
+      "━━━━━━━━━━━━━━"
+    ];
+    if(includeNotes){
+      LECTURES.forEach(function(l){
+        var txt = (S.notes[String(l.n)] || "").trim();
+        if(txt) lines.push("*ملخص المحاضرة " + l.n + ":*\n" + txt + "\n");
+      });
+    }
+    return lines.join("\n");
+  }
+
+  function renderReport(){
+    var w = countTrue(S.watched), p = countTrue(S.practiced), qs = calcAllQuizScores();
+    document.getElementById("rWatch").textContent = w + " / 20";
+    document.getElementById("rPrac").textContent = p + " / 20";
+    document.getElementById("rQScore").textContent = qs.ok + " / " + qs.tot;
+    document.getElementById("cumPreview").textContent = buildCumMsg(false);
+  }
+
+  document.getElementById("sendCumWaBtn").onclick = function(){
+    window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(buildCumMsg(false)), "_blank", "noopener,noreferrer");
+  };
+  document.getElementById("copyCumBtn").onclick = function(){
+    copyText(buildCumMsg(true), "✅ تم نسخ التقرير التراكمي مع جميع ملخصاتك المكتوبة!");
+  };
+
+  /* Tabs */
+  function switchTab(name){
+    S.tab = name; persist();
+    ["tracker","quizzes","report"].forEach(function(t){
+      document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-tab") === name);
+    });
+    if(name === "tracker") renderTracker();
+    else if(name === "quizzes") renderQuizzes();
+    else if(name === "report") renderReport();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll(".tab").forEach(function(b){ b.onclick = function(){ switchTab(this.getAttribute("data-tab")); }; });
+
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function enterLab(){
+    gateView.classList.add("hidden");
+    labView.classList.remove("hidden");
+    document.getElementById("userLabel").textContent = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    if(!S.name && currentAuth.name) S.name = currentAuth.name;
+    tNameInput.value = S.name || "";
+    updateProgress();
+    switchTab(S.tab || "tracker");
+  }
+
+  if(currentAuth){ enterLab(); }
+})();
+</script>
+</body>
+</html>
