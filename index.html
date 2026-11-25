@@ -155,6 +155,13 @@ header h1 small{display:block;font-size:.76rem;color:var(--gold-light);font-weig
 .c-pts li{margin-bottom:4px}
 .c-acts{display:flex;flex-direction:column;gap:8px;margin-top:auto}
 
+.card.wide-card{grid-column:1 / -1}
+.card.wide-card .c-body{display:grid;grid-template-columns:1fr 250px;gap:14px 20px;align-items:center}
+.card.wide-card .c-info{min-width:0}
+.card.wide-card .c-pts{margin-bottom:0}
+.card.wide-card .c-acts{margin-top:0}
+@media(max-width:720px){.card.wide-card .c-body{grid-template-columns:1fr}.card.wide-card .c-pts{margin-bottom:12px}}
+
 /* VERIFIED REVIEWS SECTION */
 .reviews-sec{margin-top:28px;background:var(--card);border:1.5px solid var(--gold);border-radius:22px;padding:22px clamp(14px,3vw,24px);box-shadow:var(--shadow)}
 .rev-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
@@ -351,38 +358,16 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
     </section>
 
     <div class="sec-head">
-      <h3>🏛️ نوافذ وبرامج أكاديمية الساجد</h3>
-      <span>6 نوافذ مكتملة لمسارك من تحديد المستوى حتى التطبيق العملي</span>
+      <h3>🏛️ برامج ودورات أكاديمية الساجد</h3>
+      <span>4 برامج تأهيلية أساسية + الدليل المساند للغة الإنجليزية</span>
     </div>
 
     <section class="grid" aria-label="برامج أكاديمية الساجد">
-      <!-- 1. اختبار تحديد المستوى -->
-      <article class="card active-card">
-        <div class="c-cover gold-bg">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">1</span>
-            <span class="badge free">✨ مجاني ومفتوح الآن</span>
-          </div>
-          <div class="c-ic">🎯</div>
-        </div>
-        <div class="c-body">
-          <h4>اختبار تحديد المستوى</h4>
-          <p>قيّم مستواك العملي في لغة حصة القرآن والعربية أونلاين خلال 6 – 8 دقائق لتعرف هل تناسبك البرامج مباشرةً أم تبدأ بكورس الـ 500 جملة.</p>
-          <ul class="c-pts">
-            <li>• 4 مهارات: استماع، قراءة، حوار حصة حقيقي، ونطق آلي.</li>
-            <li>• نتيجة فورية من 100% + توصية مخصّصة (الاجتياز 70%).</li>
-          </ul>
-          <div class="c-acts">
-            <a class="btn gold full" href="placement-test.html">🚀 ابدأ الاختبار الآن مجاناً</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2. المعلم الرقمي المحترف -->
+      <!-- 1. المعلم الرقمي المحترف -->
       <article class="card active-card">
         <div class="c-cover">
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">2</span>
+            <span class="c-num">1</span>
             <span class="badge live">✅ المنهج متاح الآن</span>
           </div>
           <div class="c-ic">💻</div>
@@ -401,11 +386,11 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
         </div>
       </article>
 
-      <!-- 3. إعداد معلمي القاعدة البغدادية -->
+      <!-- 2. إعداد معلمي القاعدة البغدادية -->
       <article class="card active-card">
         <div class="c-cover">
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">3</span>
+            <span class="c-num">2</span>
             <span class="badge live">✅ متاح الآن</span>
           </div>
           <div class="c-ic">📖</div>
@@ -424,11 +409,11 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
         </div>
       </article>
 
-      <!-- 4. المعلم المستقل -->
+      <!-- 3. المعلم المستقل -->
       <article class="card active-card">
         <div class="c-cover gold-bg">
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">4</span>
+            <span class="c-num">3</span>
             <span class="badge live">✅ المنهج متاح الآن</span>
           </div>
           <div class="c-ic">🌟</div>
@@ -447,11 +432,11 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
         </div>
       </article>
 
-      <!-- 5. التدريب العملي -->
+      <!-- 4. التدريب العملي -->
       <article class="card active-card">
         <div class="c-cover gold-bg">
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">5</span>
+            <span class="c-num">4</span>
             <span class="badge live">✅ متاح الآن</span>
           </div>
           <div class="c-ic">🎙️</div>
@@ -470,22 +455,24 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
         </div>
       </article>
 
-      <!-- 6. كورس الـ 500 جملة (خيار مساند لتقوية اللغة الإنجليزية) -->
-      <article class="card active-card">
+      <!-- 5. كورس الـ 500 جملة (خيار مساند لتقوية اللغة الإنجليزية) -->
+      <article class="card active-card wide-card">
         <div class="c-cover">
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">6</span>
+            <span class="c-num">5</span>
             <span class="badge live">🌐 مساند للغة الإنجليزية</span>
           </div>
           <div class="c-ic">🗣️</div>
         </div>
         <div class="c-body">
-          <h4>كورس الـ 500 جملة</h4>
-          <p>الخيار العملي المساند لمن لديه صعوبة في اللغة الإنجليزية لإدارة حصة القرآن والعربية أونلاين من أول تحية حتى ختام الحصة.</p>
-          <ul class="c-pts">
-            <li>• 12 بابًا عمليًا + جمل إنقاذ الحصة + نطق أمريكي وبريطاني واختبار نطق.</li>
-            <li>• تفكيك الجمل وبدائل للطفل والشاب وولي الأمر (دخول المشتركين بالكود).</li>
-          </ul>
+          <div class="c-info">
+            <h4>كورس الـ 500 جملة</h4>
+            <p>الخيار العملي المساند لمن لديه صعوبة في اللغة الإنجليزية لإدارة حصة القرآن والعربية أونلاين من أول تحية حتى ختام الحصة.</p>
+            <ul class="c-pts">
+              <li>• 12 بابًا عمليًا + جمل إنقاذ الحصة + نطق أمريكي وبريطاني واختبار نطق.</li>
+              <li>• تفكيك الجمل وبدائل للطفل والشاب وولي الأمر (دخول المشتركين بالكود).</li>
+            </ul>
+          </div>
           <div class="c-acts">
             <a class="btn pri full" href="sentences-course.html">🗣️ عرض تفاصيل وأبواب الكورس</a>
             <a class="btn full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D9%88%D8%B7%D9%84%D8%A8%20%D9%83%D9%88%D8%AF%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A3%D9%87%D9%85%20500%20%D8%AC%D9%85%D9%84%D8%A9%20%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%AD%D8%B5%D8%B5%20%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86%20%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D9%84%D9%84%D8%A3%D8%AC%D8%A7%D9%86%D8%A8%20%D9%85%D9%86%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 الاستفسار وطلب كود التفعيل عبر واتساب</a>
