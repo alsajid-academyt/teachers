@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>اختبار المحاضرة الثالثة: تخطيط الدرس — الخطة خارطة الطريق | المعلم الرقمي المحترف — أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08)}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(980px,93%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.4vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.42rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.94rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.98rem;padding:12px 20px;border-radius:13px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-pri{background:var(--primary-light);color:#fff;border-color:var(--primary-light)}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-soft{background:var(--hl);color:var(--pri);border-color:var(--gold)}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-bad{background:var(--bad-bg);color:var(--bad);border-color:rgba(220,38,38,.35)}
+.btn-full{width:100%}
+
+/* Exam Hero & Info */
+main{padding:22px 0 56px}
+.exam-banner{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:22px clamp(16px,3.5vw,28px);margin-bottom:18px}
+.exam-banner .top-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.pill-gold{background:var(--gold-grad);color:#261900;font-weight:800;font-size:.82rem;padding:4px 13px;border-radius:999px}
+.user-chip{font-size:.84rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+.exam-banner h1{font-size:clamp(1.3rem,3.8vw,1.85rem);color:var(--gold-light);line-height:1.4;margin-bottom:6px}
+.exam-banner p{font-size:.94rem;color:#e7f0ea;margin-bottom:14px}
+.marks-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.m-box{background:rgba(255,255,255,.1);border:1px solid rgba(232,197,104,.32);border-radius:12px;padding:9px 10px;text-align:center}
+.m-box b{display:block;color:var(--gold-light);font-size:1.05rem}
+.m-box span{font-size:.8rem;color:#e6efe8}
+
+/* Trainee Bar & Sticky Progress */
+.trainee-bar{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.trainee-bar label{font-weight:800;color:var(--pri);font-size:.95rem;white-space:nowrap}
+.trainee-bar input{flex:1;min-width:210px;padding:9px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:700}
+.trainee-bar input:focus{outline:none;border-color:var(--gold)}
+.save-ind{font-size:.82rem;color:var(--ok);font-weight:700;background:var(--ok-bg);padding:4px 11px;border-radius:999px;white-space:nowrap}
+
+.sticky-nav{position:sticky;top:67px;z-index:35;background:var(--bg);padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.86rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
+.prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
+.prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 8px;font:inherit;font-weight:800;font-size:.86rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
+.tab span.cnt{font-size:.76rem;color:var(--mut);font-weight:700}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
+.tab.active span.cnt{color:var(--gold-light)}
+
+/* Pagination pills */
+.pager{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:16px}
+.p-pills{display:flex;gap:6px;flex-wrap:wrap}
+.p-pill{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.83rem;font-weight:800;padding:5px 11px;border-radius:999px;cursor:pointer;transition:.18s}
+.p-pill.cur{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.p-pill.done:not(.cur){background:var(--ok-bg);color:var(--ok);border-color:rgba(22,163,74,.45)}
+
+/* Question Cards */
+.q-list{display:grid;gap:14px}
+.q-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);transition:border-color .2s}
+.q-card.answered{border-inline-start:5px solid var(--gold)}
+.q-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
+.q-num{flex:none;min-width:34px;height:34px;border-radius:10px;background:var(--hl);color:var(--pri);border:1px solid var(--gold);display:grid;place-items:center;font-weight:900;font-size:.9rem}
+.q-txt{font-weight:800;font-size:1.02rem;line-height:1.7;color:var(--ink)}
+
+.opts{display:grid;gap:9px}
+.opt{display:flex;align-items:center;gap:11px;width:100%;text-align:right;background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:11px 14px;font:inherit;font-size:.96rem;font-weight:600;cursor:pointer;transition:.16s;line-height:1.65}
+.opt:hover{border-color:var(--gold);background:var(--hl)}
+.opt.sel{background:rgba(15,76,41,.11);border-color:var(--primary);color:var(--pri);font-weight:800;box-shadow:inset 0 0 0 1px var(--primary)}
+:root[data-theme="dark"] .opt.sel{background:rgba(232,197,104,.18);border-color:var(--gold-light);box-shadow:inset 0 0 0 1px var(--gold-light)}
+.opt .ltr-c{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.82rem;font-weight:900;background:var(--card)}
+.opt.sel .ltr-c{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tf-btn{padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-weight:800;font-size:1rem;cursor:pointer;transition:.16s}
+.tf-btn:hover{border-color:var(--gold)}
+.tf-btn.sel-t{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.tf-btn.sel-f{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+
+/* Essay Mode */
+.mode-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow)}
+.mode-box h3{color:var(--pri);font-size:1.1rem;margin-bottom:6px}
+.mode-box p.sm{color:var(--mut);font-size:.9rem;margin-bottom:13px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.m-opt{text-align:right;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer;transition:.2s}
+.m-opt b{display:block;color:var(--pri);font-size:.98rem;margin-bottom:3px}
+.m-opt span{font-size:.85rem;color:var(--mut);line-height:1.6;display:block}
+.m-opt.active{border-color:var(--gold);background:var(--hl);box-shadow:0 4px 14px rgba(198,149,43,.16)}
+.essay-hint{font-size:.86rem;color:var(--mut);background:var(--hl);border-radius:10px;padding:8px 12px;margin-bottom:10px}
+.essay-ta{width:100%;min-height:110px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:.96rem;line-height:1.75;resize:vertical}
+.essay-ta:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.wc{font-size:.8rem;color:var(--mut);margin-top:5px;text-align:left}
+.paper-note{background:var(--ok-bg);border:1px dashed var(--ok);border-radius:12px;padding:10px 14px;font-size:.9rem;font-weight:700;color:var(--ok);margin-top:6px}
+
+.nav-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+/* Result Section */
+.res-hero{background:linear-gradient(150deg,#09321A,#17693B);color:#fff;border:2px solid var(--gold);border-radius:22px;padding:28px clamp(16px,4vw,32px);text-align:center;margin-bottom:20px}
+.score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:142px;height:142px;border-radius:50%;border:5px solid var(--gold-light);background:rgba(0,0,0,.22);margin-bottom:14px}
+.score-ring b{font-size:2.4rem;color:var(--gold-light);line-height:1.1}
+.score-ring span{font-size:.86rem;color:#e7f0ea}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.r-stat{background:rgba(255,255,255,.11);border:1px solid rgba(232,197,104,.35);border-radius:14px;padding:12px}
+.r-stat b{display:block;font-size:1.25rem;color:var(--gold-light)}
+.r-stat span{font-size:.84rem;color:#e7f0ea}
+
+.wa-panel{background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:var(--shadow)}
+.wa-panel h3{color:var(--pri);font-size:1.18rem;margin-bottom:6px}
+.wa-panel p.sm{color:var(--mut);font-size:.92rem;margin-bottom:14px}
+.wa-actions{display:grid;gap:10px;margin-bottom:14px}
+.preview-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.88rem;white-space:pre-wrap;max-height:240px;overflow:auto;line-height:1.75;color:var(--ink)}
+
+/* Review */
+.rev-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.rev-item{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;margin-bottom:11px}
+.rev-item.is-ok{border-inline-start:5px solid var(--ok)}
+.rev-item.is-bad{border-inline-start:5px solid var(--bad)}
+.rev-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:.88rem;margin-top:8px}
+.tag-ok{background:var(--ok-bg);color:var(--ok);padding:3px 10px;border-radius:8px;font-weight:800}
+.tag-bad{background:var(--bad-bg);color:var(--bad);padding:3px 10px;border-radius:8px;font-weight:800}
+.rev-exp{margin-top:8px;font-size:.9rem;color:var(--mut);background:var(--hl);padding:8px 12px;border-radius:10px}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.92rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:99;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+
+footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;border-top:1px solid var(--line)}
+@media(max-width:720px){
+  body{font-size:15.5px}
+  .marks-strip{grid-template-columns:repeat(2,1fr)}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+  .mode-grid,.res-grid{grid-template-columns:1fr}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">اختبار المحاضرة الثالثة | المعلم الرقمي المحترف<small>أكاديمية الساجد — Al-Sajid Academy</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="digital-teacher.html">← <span>صفحة الدورة</span></a>
+  </div>
+</header>
+
+<!-- GATE VIEW -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 بوابة المشتركين — الكود الموحّد</div>
+      <h2>اختبار المحاضرة الثالثة التفاعلي</h2>
+      <p class="desc">تخطيط الدرس — الخطة خارطة الطريق (110 أسئلة · 150 درجة). أدخل بريدك الإلكتروني وكودك الموحّد لفتح اختبارات دورة «المعلم الرقمي المحترف» (إذا سبق تفعيلك على هذا الجهاز فسيفتح تلقائيًا).</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق والدخول للاختبار</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%20%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D8%B1%D9%81%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب كود التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="digital-teacher.html">📚 العودة لتفاصيل ومنهج الدورة</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM VIEW -->
+<main id="examView" class="hidden">
+  <div class="wrap">
+    <div class="exam-banner">
+      <div class="top-row">
+        <span class="pill-gold">المحاضرة ٣ · تخطيط الدرس — الخطة خارطة الطريق</span>
+        <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+      </div>
+      <h1>الاختبار التفاعلي الشامل للمحاضرة الثالثة</h1>
+      <p>أجب بهدوء؛ إجاباتك تُحفظ تلقائيًا على جهازك أولًا بأول. عند الانتهاء ستحصل على تصحيح فوري للجزء الموضوعي (100 درجة) وترسل النتيجة والأسئلة المقالية عبر واتساب.</p>
+      <div class="marks-strip">
+        <div class="m-box"><b>50 درجة</b><span>50 اختيارًا من متعدد (آلي)</span></div>
+        <div class="m-box"><b>50 درجة</b><span>50 صح وخطأ (آلي)</span></div>
+        <div class="m-box"><b>50 درجة</b><span>10 أسئلة مقالية (تقييم المدرب)</span></div>
+        <div class="m-box"><b>150 درجة</b><span>الإجمالي الكلي للمحاضرة</span></div>
+      </div>
+    </div>
+
+    <div class="trainee-bar">
+      <label for="tName">👤 اسم المتدرب/ة:</label>
+      <input id="tName" type="text" placeholder="اكتب اسمك الثلاثي ليظهر في تقرير النتيجة...">
+      <span class="save-ind" id="saveInd">💾 حفظ تلقائي مفعّل</span>
+    </div>
+
+    <div class="sticky-nav">
+      <div class="prog-row">
+        <span id="progText">أجبت عن 0 من 100 سؤال موضوعي</span>
+        <span id="essayProgText">المقالي: 0 من 10</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="mcq" type="button">1️⃣ اختيار من متعدد<span class="cnt" id="cntMcq">0 / 50</span></button>
+        <button class="tab" data-tab="tf" type="button">2️⃣ صح وخطأ<span class="cnt" id="cntTf">0 / 50</span></button>
+        <button class="tab" data-tab="essay" type="button">3️⃣ الأسئلة المقالية<span class="cnt" id="cntEssay">0 / 10</span></button>
+        <button class="tab" data-tab="result" type="button">📊 النتيجة وواتساب<span class="cnt" id="cntRes">اعرض النتيجة</span></button>
+      </div>
+    </div>
+
+    <!-- TAB 1: MCQ -->
+    <section id="sec-mcq">
+      <div class="pager">
+        <strong style="color:var(--pri);font-size:.94rem">القسم الأول: الاختيار من متعدد (50 سؤالًا · درجة لكل سؤال)</strong>
+        <div class="p-pills" id="mcqPills"></div>
+      </div>
+      <div class="q-list" id="mcqList"></div>
+      <div class="nav-foot">
+        <button class="btn btn-out" id="mcqPrev" type="button">→ المجموعة السابقة</button>
+        <button class="btn btn-pri" id="mcqNext" type="button">المجموعة التالية ←</button>
+      </div>
+    </section>
+
+    <!-- TAB 2: TF -->
+    <section id="sec-tf" class="hidden">
+      <div class="pager">
+        <strong style="color:var(--pri);font-size:.94rem">القسم الثاني: الصح والخطأ (50 سؤالًا · درجة لكل سؤال)</strong>
+        <div class="p-pills" id="tfPills"></div>
+      </div>
+      <div class="q-list" id="tfList"></div>
+      <div class="nav-foot">
+        <button class="btn btn-out" id="tfPrev" type="button">→ المجموعة السابقة</button>
+        <button class="btn btn-pri" id="tfNext" type="button">المجموعة التالية ←</button>
+      </div>
+    </section>
+
+    <!-- TAB 3: ESSAY -->
+    <section id="sec-essay" class="hidden">
+      <div class="mode-box">
+        <h3>القسم الثالث: الأسئلة المقالية (10 أسئلة · 5 درجات لكل سؤال = 50 درجة)</h3>
+        <p class="sm">اختر الطريقة الأريح لك لتسليم إجابات الأسئلة المقالية للمدرب عبر واتساب:</p>
+        <div class="mode-grid">
+          <button type="button" class="m-opt active" id="modeSite">
+            <b>✍️ الكتابة هنا داخل الموقع</b>
+            <span>تكتب إجاباتك تحت كل سؤال وتُحفظ تلقائيًا، ثم تنسخها وترسلها للمدرب عبر واتساب بضغطة زر.</span>
+          </button>
+          <button type="button" class="m-opt" id="modePaper">
+            <b>📝 الكتابة في ورقة أو رسالة واتساب منفصلة</b>
+            <span>تقرأ الأسئلة الـ 10 هنا وتجيب عنها في ورقة خارجية (أو مباشرة في واتساب) وترسلها للمدرب مع نتيجتك الآلية.</span>
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="btn btn-soft" id="copyEssayQsBtn">📋 نسخ الأسئلة المقالية الـ 10 فقط</button>
+        </div>
+      </div>
+      <div class="q-list" id="essayList"></div>
+      <div class="nav-foot">
+        <button class="btn btn-out" id="essayBack" type="button">→ العودة للصح والخطأ</button>
+        <button class="btn btn-gold" id="finishBtn" type="button">✅ تصحيح الاختبار وعرض النتيجة والإرسال لواتساب</button>
+      </div>
+    </section>
+
+    <!-- TAB 4: RESULT -->
+    <section id="sec-result" class="hidden">
+      <div id="ungradedBox" class="mode-box" style="text-align:center">
+        <h3>هل أنت جاهز لإنهاء الاختبار وعرض نتيجتك؟</h3>
+        <p class="sm" id="readySummary">سيتم تصحيح الـ 100 سؤال الموضوعي (50 اختياري + 50 صح وخطأ) فورًا وتجهيز تقريرك لإرساله للمدرب عبر واتساب.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-gold" id="gradeNowBtn" type="button">📊 اعتمد إجاباتي واحسب النتيجة الآن</button>
+          <button class="btn btn-out hidden" id="jumpUnansBtn" type="button">🔎 انتقل لأول سؤال لم تُجب عنه</button>
+        </div>
+      </div>
+
+      <div id="gradedBox" class="hidden">
+        <div class="res-hero">
+          <div class="score-ring">
+            <b id="rTotal">0</b>
+            <span>من 100 (آلي)</span>
+          </div>
+          <h2 id="rGradeTitle" style="color:var(--gold-light);margin-bottom:4px">—</h2>
+          <p id="rGradeSub" style="color:#e6efe8;font-size:.96rem">—</p>
+          <div class="res-grid">
+            <div class="r-stat"><b id="rMcq">0 / 50</b><span>الاختيار من متعدد</span></div>
+            <div class="r-stat"><b id="rTf">0 / 50</b><span>الصح والخطأ</span></div>
+            <div class="r-stat"><b>من 50 درجة</b><span>المقالي (يقيّمه المدرب على واتساب)</span></div>
+          </div>
+        </div>
+
+        <div class="wa-panel">
+          <h3>📤 إرسال النتيجة والأسئلة المقالية عبر واتساب</h3>
+          <p class="sm" id="waHint">أرسل أولًا نتيجتك الآلية عبر واتساب، ثم أرسل إجاباتك المقالية الـ 10 (منسوخة من الموقع أو مصوّرة من ورقتك) ليقيّمها المدرب ويمنحك الدرجة النهائية من 150.</p>
+          <div class="wa-actions">
+            <button type="button" class="btn btn-wa btn-full" id="sendScoreWaBtn">💬 ١) إرسال النتيجة الآلية (من 100) عبر واتساب</button>
+            <button type="button" class="btn btn-gold btn-full" id="sendEssaysWaBtn">📋 ٢) نسخ الإجابات المقالية الـ 10 وفتح واتساب للصقها</button>
+            <button type="button" class="btn btn-soft btn-full" id="copyFullReportBtn">📄 نسخ التقرير الكامل (النتيجة + المقالي) للحافظة</button>
+          </div>
+          <details>
+            <summary style="cursor:pointer;font-weight:800;color:var(--pri);margin-bottom:8px">👁️ معاينة نص التقرير الذي سيُرسل عبر واتساب</summary>
+            <div class="preview-box" id="reportPreview"></div>
+          </details>
+        </div>
+
+        <div class="mode-box">
+          <h3>🔍 مراجعة إجاباتك في الأسئلة الموضوعية (100 سؤال)</h3>
+          <p class="sm">راجع أخطاءك وتعلّم من التعليل المختصر لتثبيت الفهم قبل الانتقال للمحاضرة الرابعة.</p>
+          <div class="rev-controls">
+            <button type="button" class="btn btn-pri" id="revWrongBtn">❌ عرض الأخطاء فقط (<span id="wrongCnt">0</span>)</button>
+            <button type="button" class="btn btn-out" id="revAllBtn">📋 عرض جميع الـ 100 سؤال</button>
+            <button type="button" class="btn btn-bad" id="retakeBtn" style="margin-inline-start:auto">🔄 إعادة الاختبار</button>
+          </div>
+          <div id="revList"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · دورة المعلم الرقمي المحترف · إعداد وإشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,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";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const COURSE_ID = "digital";
+const EXPECTED_KEY = "Alsajid#2026!Digital$101";
+const WA_PHONE = "201091102946";
+const AUTH_KEY = "sajid_auth:digital";
+const QUIZ_KEY = "sajid_quiz:dt_lec3";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+
+const MCQ = [{"q": "لماذا يرتقي التخطيط في شأن معلمي القرآن والعربية إلى درجة «أقرب إلى الوجوب» وأعلى من مجرد مهارة دنيوية؟", "o": ["لأنه يمنع المعلم من أي تفاعل إنساني داخل الحصة", "لأن المنصات الرقمية تفرض خطة مكتوبة قبل فتح Zoom", "لأن التخطيط يُغني عن إخلاص النية", "لأننا لا نخطط لكلمات فحسب، بل لقلوب تشرق بالإيمان وعقول تتشرب الحكمة وألسنة تنطق بأحب الكلمات إلى السماء"], "a": 3, "e": "أكّدت المقدمة أننا لا نخطط لكلمات فقط بل لقلوب وعقول وألسنة تحمل لغة القرآن، مما يجعل التخطيط أقرب إلى الوجوب."}, {"q": "استُشهد في المحاضرة بآية توثيق الدَّين {وَلَا تَسْأَمُوا أَنْ تَكْتُبُوهُ صَغِيرًا أَوْ كَبِيرًا إِلَى أَجَلِهِ} بوصفها دليلًا على:", "o": ["حكم المعاملات التجارية عبر الإنترنت", "ضرورة كتابة نصوص الحصة وحفظها حرفيًا", "روحية النظام والتوثيق والإتقان في هدي الإسلام", "عدم جواز تعديل خطة الدرس أثناء التنفيذ"], "a": 2, "e": "استشهد المحاضر بآية الدَّين لتأصيل روحية النظام والترتيب والتوثيق في الإسلام."}, {"q": "من كان «الدليل الخبير» الذي اختاره النبي ﷺ ضمن خطة الهجرة المحكمة كما ورد في المحاضرة؟", "o": ["عبد الله بن أريقط", "مصعب بن عمير", "زيد بن حارثة", "سلمان الفارسي"], "a": 0, "e": "شملت خطة الهجرة اختيار الصحبة (أبو بكر)، ووسيلة النقل (الإبل)، والدليل الخبير (عبد الله بن أريقط)، وتحديد الطريق وتأمين المؤونة."}, {"q": "ما الترتيب الصحيح لمراحل «تخطيط الدعوة» النبوية كما عُرضت في المحاضرة؟", "o": ["البحث عن حماية ← السرية ← الجهر ← بناء الدولة", "بناء الدولة ← الجهر ← السرية ← البحث عن حماية", "السرية ← الجهر ← البحث عن حماية خارج مكة ← بناء الدولة في المدينة", "الجهر ← السرية ← غزوة الخندق ← الهجرة"], "a": 2, "e": "مرت الدعوة بمراحل مخططة واضحة: السرية، ثم الجهر، ثم البحث عن حماية خارج مكة، ثم بناء الدولة في المدينة."}, {"q": "ذكرت المحاضرة أن حصة العربية والقرآن أمانة ثلاثية؛ ما هي الأمانات الثلاث المذكورة نصًا؟", "o": ["أمانة الحفظ والمراجعة والواجب", "أمانة الإنترنت والكاميرا والسبورة", "أمانة كلمة «الله» في النطق، وآية «الرحمن» في التجويد، ومعنى «الإسلام» في الشرح", "أمانة التسعير والتسويق والمتابعة"], "a": 2, "e": "نصّت المحاضرة على أنها أمانة كلمة «الله» في النطق، وأمانة آية «الرحمن» في التجويد، وأمانة معنى «الإسلام» في الشرح."}, {"q": "كيف وصفت المحاضرة روح التخطيط المطلوب لحصصنا اقتداءً بتخطيط النبي ﷺ؟", "o": ["التزامًا حرفيًا بسكريبت لا يتغير أبدًا", "تعقيدًا وجمودًا وثقلًا على النفس", "ارتجالًا كاملًا دون أي تحضير مسبق", "ليس تعقيدًا بل تبصرًا، وليس جمودًا بل ترتيبًا، وليس ثقلًا بل طمأنينة للقلب وإعدادًا للنجاح"], "a": 3, "e": "التخطيط الواعي تبصّر وترتيب وطمأنينة للقلب، وهو تعبير عملي عن إخلاص النية وحديث «إن الله يحب إذا عمل أحدكم عملًا أن يتقنه»."}, {"q": "ما الرسالة اللاواعية التي تصل إلى الطالب حين يدخل المعلم الحصة غير مستعد ويتردد ويضيع الوقت في البحث عن الملفات؟", "o": ["أن المنهج مرن ويعتمد على التلقائية", "أن المعلم قال في نفسه: «هذا الدرس لم يكن يستحق التحضير له»، فتتساقط هيبته ويهرب انتباه الطالب", "أن الحصة مخصصة للتعارف فقط", "أن المعلم متمكن ويجيد الارتجال"], "a": 1, "e": "السبب الأول لكون الارتجال عدوًا أنه يقتل الثقة ويبعثر الهيبة بهذه الرسالة اللاواعية الخطيرة."}, {"q": "بمَ شبّهت المحاضرة الحصص المرتجلة المنفصلة غير المترابطة التي تُفقد العملية التعليمية توازنها؟", "o": ["بخارطة طريق مرنة", "بسيمفونية موسيقية متكاملة", "بحقيبة طوارئ تعليمية", "بحلقة مسلسل ناقصة تُنتج طالبًا مشوشًا يملك معلومات مبعثرة"], "a": 3, "e": "الارتجال يُنتج حصصًا غير مترابطة مثل حلقة مسلسل ناقصة (كشرح ظرف أو جر فجأة قبل الأساس النحوي)."}, {"q": "ما «المفارقة» التي ذكرتها المحاضرة حول علاقة الارتجال بطاقة المعلم؟", "o": ["أن الطاقة الذهنية لا تتأثر بالتحضير المسبق", "أن الارتجال يوفّر طاقة المعلم الذهنية بالكامل", "أن الارتجال أكثر إرهاقًا من التخطيط؛ لأن التوتر المستمر لصنع المحتوى على الهواء يستهلك طاقة ذهنية هائلة", "أن التخطيط يستنزف طاقة أكبر أثناء الشرح من الارتجال"], "a": 2, "e": "الارتجال أشد إرهاقًا؛ بينما المعلم المخطط يدخل واثقًا ومسترخيًا يركز طاقته على التفاعل لا على إنقاذ الحصة."}, {"q": "ما المقصود بـ «التخطيط المرن» الذي قدمته المحاضرة كبديل عن الارتجال العشوائي وعن السكريبت الجامد؟", "o": ["بناء هيكل واضح مع ترك مساحات آمنة للانحراف الإيجابي وخلق إيقاع التعلم", "قراءة سكريبت مكتوب كلمة بكلمة كالروبوت", "الاعتماد على مراجعة الماضي طوال الساعة", "إلغاء تحديد هدف الحصة وترك الطالب يختار كل شيء"], "a": 0, "e": "التخطيط المرن يجمع بين متانة الهيكل الواضح وترك مساحات آمنة للانحراف الإيجابي."}, {"q": "في هيكل خطة الدرس المرنة (60 دقيقة)، كيف ينبغي صياغة «الهدف الواضح»؟", "o": ["في صفحة كاملة من النظريات التربوية", "لا يُكتب الهدف إلا في نهاية الحصة", "في جملة واحدة تصف ما سيكون الطالب قادرًا على فعله بنهاية الحصة", "على هيئة قائمة من 20 قاعدة نحوية"], "a": 2, "e": "المكوّن الأول هو الهدف الواضح في جملة واحدة قابلة للقياس (مثل: أن يقدم نفسه ويطرح ثلاثة أسئلة شخصية)."}, {"q": "كم المدة الزمنية المخصصة لـ «النواة الصلبة» (شرح المفهوم الجديد الأساسي) في هيكل الحصة ذات الـ 60 دقيقة، وكم مثالًا يُحضَّر لها؟", "o": ["35–40 دقيقة مع شرح نظري كامل بلا أمثلة", "3 دقائق فقط مع لعبة سريعة", "5–7 دقائق مع مثال واحد فقط", "15–20 دقيقة مع تحضير مثالين أساسيين و3–4 أمثلة احتياطية"], "a": 3, "e": "النواة الصلبة تستغرق 15–20 دقيقة ويُحضّر لها مثالان أساسيان و3–4 أمثلة احتياطية."}, {"q": "ما المكوّن الذي يستحوذ على أطول مساحة زمنية (20–25 دقيقة) في هيكل الـ 60 دقيقة ويتحول فيه التركيز من المعلم إلى الطالب؟", "o": ["مساحة الممارسة المرنة (اختيار النشاط الأنسب لطاقة الطالب من 2–3 خيارات)", "الختام الموجّه", "النواة الصلبة", "البداية الثابتة"], "a": 0, "e": "مساحة الممارسة المرنة (20–25 دقيقة) هي قلب التحول نحو الطالب بأنشطة تطبيقية يختار المعلم أنسبها في اللحظة."}, {"q": "ماذا يتضمن «الختام الموجّه» (5–10 دقائق) في هيكل الـ 60 دقيقة؟", "o": ["تلخيص إلزامي لما تم إنجازه + واجب واضح وصغير", "اختبار مفاجئ من خمسين سؤالًا", "إغلاق الحصة فجأة عند انتهاء الوقت دون تلخيص", "بدء قاعدة نحوية جديدة تمامًا"], "a": 0, "e": "الختام الموجّه (5–10 دقائق) يتكون من تلخيص إلزامي لما أُنجز مع واجب واضح وصغير."}, {"q": "لماذا تفشل غالبًا بداية الحصة مع الطفل الأجنبي بالسؤال التقليدي «Hello, how are you today?»؟", "o": ["لأن جوابه «I'm fine!» جاهز أوتوماتيكيًا من كثرة التكرار، فيجيب بلسانه وعقله شارد في مكان آخر", "لأن الطفل لا يعرف معناها بالإنجليزية", "لأنها تستغرق عشر دقائق من الحصة", "لأنها من الأسئلة الحمراء التي تزعج ولي الأمر"], "a": 0, "e": "العقل يعتاد المكرر المألوف فيقل انتباهه له تلقائيًا، فيرد الطفل آليًا بـ I'm fine دون حضور ذهني."}, {"q": "ما المقصود بمبدأ «كسر النمط (Pattern Interrupt)» في أول 5 ثوانٍ من الحصة؟", "o": ["تغيير موعد الحصة كل أسبوع", "البدء بأمر غير متوقع (صوت حرف غريب، لغز بصري سريع، أو حركة طريفة) يلتفت إليه العقل فورًا", "أمر الطفل فورًا بفتح الكتاب والتسميع", "تكرار نفس الجملة الترحيبية في كل حصة"], "a": 1, "e": "العقل البشري يلتفت فورًا للجديد وغير المتوقع؛ فكسر النمط في أول 5 ثوانٍ يوقظ عين الطفل وتركيزه."}, {"q": "ما «سر الربط بالأصل» في قاعدة الـ 90 ثانية الأولى وبنك الافتتاحيات الجاهزة؟", "o": ["أن يحل المعلم اللغز بنفسه دون إشراك الطالب", "أن يكون اللغز الصغير مراجعةً لدرس البارحة، فيجتمع الإحماء والمراجعة السريعة وكسر النمط في لحظة واحدة", "أن يطول اللغز إلى 15 دقيقة كاملة", "أن يكون اللغز منفصلًا تمامًا عن المنهج ولا علاقة له بالدرس"], "a": 1, "e": "جعل التحدي البصري أو اللغز الصوتي الصغير مرتبطًا بدرس البارحة يجمع بين الإحماء والمراجعة وكسر النمط معًا."}, {"q": "ما «الاختبار الصامت» الذي يكشف فورًا الفرق بين المعلم التقليدي والمعلم المتمكن لو راقبتَ حصتين بدون صوت؟", "o": ["سرعة الكتابة على لوحة المفاتيح", "عدد الألوان المستخدمة في الشرائح", "«مؤشر الميكروفون»؛ عند التقليدي يضيء ميكروفون المعلم طوال الوقت، وعند المتمكن يكون ميكروفون الطالب هو الأنشط", "حجم خط الكتاب على الشاشة"], "a": 2, "e": "مؤشر الميكروفون اختبار صامت فوري يكشف من المستحوذ على الكلام داخل الحصة."}, {"q": "ماذا تشير إليه أدبيات تحليل التفاعل الصفي القديمة (مثل أعمال فلاندرز) التي استشهدت بها المحاضرة بأمانة علمية؟", "o": ["أن المعلم يجب ألا يتكلم أي كلمة داخل الحصة", "أن الطالب يجب أن يصمت طوال الحصة التجريبية", "أن نسبة 70% ثابتة ومثبتة رياضيًا لكل الأعمار بلا استثناء", "أن المعلم في الصف التقليدي يستحوذ عادة على نحو ثلثي الكلام، والمقصود بقاعدة 70/30 قلب هذه المعادلة لا الدقة الحسابية"], "a": 3, "e": "ذكرت المحاضرة بأمانة أن قاعدة 70/30 إرشادية ميدانية لقلب معادلة الصف التقليدي (حيث يستحوذ المعلم على نحو ثلثي الكلام وفق أعمال فلاندرز)."}, {"q": "ما السبب الميداني الأبرز لانصراف بعض الأسر بعد الحصة التجريبية رغم «قوة شرح المعلم»؟", "o": ["أن المعلم تحمّس وشرح قرابة 25 دقيقة ولم يترك الطفل ينطق إلا 5 دقائق، فخرج ولي الأمر بانطباع أن ابنه لم يتعلم شيئًا بنفسه", "أن المعلم قدّم خطة واضحة لولي الأمر في آخر 5 دقائق", "أن المعلم استخدم السبورة البيضاء", "أن الطفل قرأ ونطق أغلب وقت الحصة"], "a": 0, "e": "عندما يستحوذ المعلم على الشرح في الحصة التجريبية لا يرى ولي الأمر ابنه ينجز بنفسه، فينصرف رغم جودة الشرح."}, {"q": "أي خطوة ليست من «الخطوات الأربع العملية لزيادة كلام الطالب فورًا» في الإضافة المطورة (2)؟", "o": ["اختصار الشرح في 15 ثانية بدل محاضرة في 5 دقائق", "منح الطالب 3 ثوانٍ صمتًا وعدم إكمال الإجابة عنه", "التطبيق قبل زيادة الشرح ومراقبة مؤشر الميكروفون كعداد سرعة", "زيادة وقت الشرح النظري المتواصل إلى عشرين دقيقة"], "a": 3, "e": "الخطوات الأربع هي: اختصار الشرح، عدم إكمال الإجابة (3 ثوانٍ صمتًا)، التطبيق قبل زيادة الشرح، ومراقبة مؤشر الميكروفون كعداد سرعة."}, {"q": "ما «أكبر غلطة» يقع فيها المعلم عند تدريس حصة مدتها 30 دقيقة للأطفال والمبتدئين؟", "o": ["تخصيص 5 دقائق في الحصة التجريبية لولي الأمر", "ضغط هيكل الساعة (60 دقيقة) ضغطًا أعمى فتنتهي الحصة ونحن ما زلنا في المراجعة", "تعديل أرقام القالب حسب مستوى الطالب", "تخصيص 3 دقائق لكسر الجليد"], "a": 1, "e": "الضغط الأعمى لهيكل الساعة داخل 30 دقيقة يُضيع الحصة في المراجعة، ولذلك صُمّمت ثلاثة قوالب مخصصة للـ 30 دقيقة."}, {"q": "ما التوزيع الزمني المعتمد في «القالب الثاني: الحصة التجريبية (30 دقيقة)»؟", "o": ["3 + 7 + 12 + 5 + 3", "15 + 15 (شرح المعلم ثم واجب)", "3 + 10 + 12 + 5", "3 + 22 + 5 (كسر جليد + 22 دقيقة يقرأ وينطق فيها الطفل 70% + 5 دقائق خطة واضحة لولي الأمر)"], "a": 3, "e": "قالب الحصة التجريبية هو 3 + 22 + 5 لضمان إحساس الطفل بالإنجاز الفوري ومنح ولي الأمر خطة زمنية واضحة."}, {"q": "متى تختار «القالب الثالث (3 + 7 + 12 + 5 + 3)» لحصة الـ 30 دقيقة؟", "o": ["عندما يرفض الطالب فتح الميكروفون نهائيًا", "في أول لقاء تجريبي مع أسرة جديدة", "عندما يكون الدرس عبارة عن حوار مع ولي الأمر فقط", "إذا بلغ الطالب مرحلة تسمح له بـ«تطبيق مستقل» يقوم به وحده لمدة 5 دقائق دون مساعدة، يعقبه 3 دقائق تلخيص ومدح وصفي"], "a": 3, "e": "القالب الثالث (3+7+12+5+3) مخصص للطالب الذي يستطيع أداء تطبيق مستقل 5 دقائق وحده، بينما القالب الأول (3+10+12+5) للحصة العامة للأطفال."}, {"q": "ما القاعدة التي ينبغي اتباعها في «نصيحة: خطط للهدف وليس لكل كلمة»؟", "o": ["الاستغناء عن كتابة أي نقاط رئيسية", "كتابة نقاط رئيسية وعبارات انتقال مع الاستعداد لشرح المفهوم بطرق مختلفة", "كتابة نصوص كاملة وحفظها عن ظهر قلب قبل الحصة", "تحديد مثال واحد فقط لكل مفهوم دون بدائل"], "a": 1, "e": "لا تكتب نصوصًا تحفظها؛ بل اكتب نقاطًا رئيسية وعبارات انتقال تمنحك حرية شرح المفهوم بطرق متنوعة."}, {"q": "كيف تُطبَّق «قاعدة 80/20 في التحضير» المذكورة ضمن بنود صندوق الإنقاذ؟", "o": ["80% من وقت التحضير لتخطيط الهيكل وتجميع الموارد، و20% من التفاصيل قابلة للتعديل المباشر خلال الحصة حسب سير التعلم", "80% للارتجال و20% لتجهيز الروابط", "80% كلام للمعلم و20% للطالب", "80% مراجعة و20% درس جديد"], "a": 0, "e": "قاعدة 80/20 في التحضير توازن بين متانة الهيكل وتجميع الموارد (80%) ومرونة التعديل المباشر أثناء الحصة (20%)."}, {"q": "أي مما يلي يُعدّ من محتويات «صندوق الإنقاذ» المذكور في العنصر الثاني؟", "o": ["صور غريبة أو مضحكة، ورابطان احتياطيان لفيديو قصير (دقيقة)، وقائمة أسئلة محادثة طارئة مثل «لو سافرت إلى القمر»", "سيرة ذاتية مفصلة للمعلم من 10 صفحات", "فواتير الاشتراك الشهري لولي الأمر", "اختبارات سنوية من 300 سؤال"], "a": 0, "e": "صندوق الإنقاذ يضم صورًا طريفة، ورابطين احتياطيين لفيديوهات دقيقة واحدة، وأسئلة محادثة طارئة، مع خطة للطوارئ التقنية."}, {"q": "ما المثال الذي ذكرته المحاضرة لـ «التخطيط للطوارئ التقنية» عند انقطاع الإنترنت فجأة؟", "o": ["تأجيل الدرس شهرًا كاملًا", "إلغاء الدورة وإرجاع الرسوم", "الانتظار في صمت لمدة نصف ساعة", "تحديد مهمة مسبقة يقوم بها الطالب فورًا (مثل كتابة فقرة في ملف مشترك) حتى يعود الاتصال"], "a": 3, "e": "الاتفاق المسبق على مهمة فورية (ككتابة فقرة في ملف مشترك) يحوّل انقطاع الاتصال من توقف سلبي إلى وقت منتج."}, {"q": "كيف أنقذ المدرب حصته التجريبية المهمة عندما تعطّل برنامج عرض الكتب فجأة أمام ولي الأمر في الإضافة المطورة (4)؟", "o": ["اعتذر وأنهى الحصة بعد خمس دقائق", "طلب من ولي الأمر شراء نسخة ورقية فورًا", "أمسك ورقة بيضاء وقلم فلوماستر سميكًا وكتب الحرف بيده أمام الكاميرا وبدأ لعبة «توقّع الحرف القادم»", "استغرق 15 دقيقة في إعادة تثبيت البرنامج"], "a": 2, "e": "استخدم «حقيبة الخطة ب» فورًا دون ارتباك، فكانت من أمتع الحصص وأكثرها تفاعلًا واشترك الطالب بعدها."}, {"q": "ما «القاعدة الذهبية» المستخلصة من قصة الورقة البيضاء وقلم الفلوماستر؟", "o": ["لا يمكن تدريس الأجانب بدون برنامج عرض كتب متطور", "الأدوات والبرامج مجرد وسائل مساعدة، أما المعلم نفسه فهو أساس الحصة", "الاعتماد الكامل على العروض التقديمية هو سر النجاح", "السبورة الورقية ممنوعة في التعليم الرقمي"], "a": 1, "e": "المعلم القائد للحصة لا ينهار عند تعطل برنامج؛ لأن الأدوات وسائل مساعدة والمعلم هو أساس الحصة."}, {"q": "كيف عرّفت المحاضرة «الارتجال الحقيقي» في خاتمة العنصر الثاني؟", "o": ["الإبحار بمهارة ضمن خريطتك عندما تهبّ رياح غير متوقعة والانحراف الذكي حين تتلألأ عين الطالب بفضول", "الدخول إلى الحصة بلا أي تحضير أو خطة مسبقة", "إلقاء خطبة طويلة بلا هدف محدد", "تجاهل أسئلة الطالب العميقة حتى لا تخرج عن الورقة"], "a": 0, "e": "التحضير الجيد هو الذي يمنحك رفاهية التلقائية والانحراف الذكي دون أن تضيع أنت أو تضيّع طلابك."}, {"q": "لماذا شبّهت المحاضرة استغلال وقت الحصة بـ «عقلية مهندس»؟", "o": ["لأن الساعة التدريسية قابلة للتمديد إلى ما لا نهاية", "لأن المعلم يحتاج لحساب معادلات هندسية معقدة", "لأن الوقت هو المورد الوحيد غير القابل للتجديد في الحصة", "لأن الحصص الرقمية مخصصة للمهندسين فقط"], "a": 2, "e": "الوقت هو المورد الوحيد غير القابل للتجديد في الحصة، واستثماره يتطلب عقلية مهندس (هندسة الدقائق)."}, {"q": "ما الفائدة المباشرة من استخدام تقنية «التوقيت المرئي» (مؤقت مرئي للأنشطة: دقيقتان لوصف الصورة مثلًا)؟", "o": ["إشعار الطالب بالملل والبطء", "إطالة وقت الشرح النظري", "خلق تركيز وطاقة إيجابية وإحساس واضح بإيقاع النشاط", "إخفاء الوقت المتبقي عن الطالب"], "a": 2, "e": "المؤقت المرئي للأنشطة القصيرة يضبط الإيقاع ويخلق تركيزًا وطاقة إيجابية لدى الطالب."}, {"q": "ماذا يعني مصطلح «الوقت الميت» الذي حذّرت منه المحاضرة في هندسة الدقائق؟", "o": ["دقيقتا كسر الجليد في أول الحصة", "الوقت الضائع أثناء الحصة في تجهيز الملفات والبحث عن الروابط والتفكير في المثال التالي، مما يقتل الزخم", "الدقائق المخصصة للثناء الوصفي في الختام", "الثواني الثلاث التي ينتظرها المعلم بعد طرح السؤال"], "a": 1, "e": "البحث عن الملفات أو الروابط أو التفكير في المثال التالي أثناء الحصة هو «وقت ميت» يقتل الزخم والهيبة."}, {"q": "ما «فخ الـ 60 ثانية» الذي ينسف هيبة المعلم أمام ولي الأمر قبل أن ينطق بأول كلمة في الدرس؟", "o": ["تجديد النية لمدة 30 ثانية قبل فتح الغرفة", "الترحيب بالطفل بابتسامة خلال دقيقة واحدة", "إعطاء الطفل دقيقة لحل لغز صوتي", "قبول الطالب (Admit) على Zoom ثم الصمت دقيقة كاملة وعينا المعلم تبحثان عن ملف PDF والصفحة المطلوبة"], "a": 3, "e": "صمت 60 ثانية للبحث عن الملف أمام ولي الأمر يزرع فورًا انطباعًا أن المعلم غير مستعد وغير منظم."}, {"q": "كيف تطبّق قاعدة «لا صمت أثناء المشاركة» إذا احتجت بضع ثوانٍ لمشاركة الشاشة على Zoom؟", "o": ["تغلق الكاميرا حتى تفتح الملف", "تقرأ له قائمة قواعد طويلة من الذاكرة", "تطلب من الطالب الانتظار صامتًا وتغلق المايك", "تشغل الطالب فورًا بسؤال حواري سريع وممتع (مثل: «ما أغرب شيء رأيته اليوم؟») حتى تظهر الصفحة"], "a": 3, "e": "تشغيل الطالب بسؤال حواري سريع وممتع يمنع الصمت الثقيل ويحافظ على دفء التواصل حتى تظهر الصفحة."}, {"q": "كيف تطبّق مبدأ «تحويل الانتظار إلى تعلم» إذا تأخر الطالب دقيقتين عن دخول الحصة؟", "o": ["تخصم الدقيقتين من وقت الممارسة المرنة فقط", "تنتظر في صمت سلبي وتتصفح هاتفك", "تبدأ فورًا بتسجيل رسالة صوتية أو فيديو قصير على المنصة ترحب به وتطرح سؤالًا بسيطًا يفكر فيه أثناء دخوله", "تغلق الغرفة فورًا وتحسبها غيابًا"], "a": 2, "e": "بدل الانتظار السلبي، تسجيل رسالة قصيرة ترحيبية فيها سؤال تمهيدي يحوّل التأخر إلى بداية تعلم."}, {"q": "ما الوظيفة المزدوجة لأول 5 دقائق من الحصة في عنصر «تطوير المرونة»؟", "o": ["مراجعة فواتير الاشتراك", "شرح النواة الصلبة كاملة", "التسميع والاختبار فقط", "الإحماء + التشخيص المستمر لحالة الطالب (متحمس، مرهق، مشتت، فضولي) عبر إجاباته ونبرة صوته ولغة جسده"], "a": 3, "e": "أول 5 دقائق ليست للإحماء فقط، بل لتشخيص حالة الطالب وضبط مرونة الحصة وفق مؤشراته."}, {"q": "ما العلامات الصامتة الثلاث التي يرسلها الطفل الأجنبي في «رادار الانتباه» قبل أن يتثاءب بدقائق؟", "o": ["الحركة المتكررة (اللف بالكرسي/العبث بقلم)، والنظرة المجمّدة خارج الشاشة، والترديد الآلي (الببغاء دون نظر للكلمة)", "كثرة الأسئلة، والابتسام، ورفع اليد", "طلب استراحة، وكتابة الواجب، والقراءة البطيئة", "إغلاق الإنترنت، وفتح الكتاب، وشرب الماء"], "a": 0, "e": "هذه هي إشارات الإنذار الصامتة الثلاث قبل التثاؤب، وعند رصد أي منها نطبق فورًا «قاعدة قطع الرتم الفوري»."}, {"q": "رصدتَ طفلك يردّد الكلمات خلفك بنغمة رتيبة كالببغاء وعيناه لا تنظران إلى الشاشة؛ ما التصرف الصحيح فورًا؟", "o": ["إكمال القراءة بنفس الرتم حتى تنتهي الصفحة المقررة", "تطبيق «قاعدة قطع الرتم الفوري» بالهمس المثير أو صوت كرتوني أو حركة جسدية في 5 ثوانٍ أو رسم نجمة مفاجئة على الشاشة", "زيادة عدد السطور المطلوبة منه", "توجيه لوم طويل له لمدة ثلاث دقائق"], "a": 1, "e": "كل دقيقة تشرح فيها لطفل سرحان جهد مهدور؛ لذا تقطع الرتم فورًا بكسر النبرة أو حركة جسدية في 5 ثوانٍ أو سؤال بصري مفاجئ."}, {"q": "وفق مبدأ «الساعة البيولوجية للطالب»، ما الإيقاع الأنسب غالبًا لطفل في لندن الساعة 5 مساءً عائد للتو من المدرسة وبطاريته عند 20%؟", "o": ["حفظ مكثف وقواعد نحوية ثقيلة ومخارج دقيقة لمدة ساعة", "إيقاع هادئ قصصي ومراجعة خفيفة وألعاب بصرية", "نفس الإيقاع المكثف لطفل في نيويورك الساعة 9 صباحًا يوم العطلة", "اختبار تحريري صارم بلا أنشطة"], "a": 1, "e": "طفل آخر اليوم المرهق يناسبه غالبًا إيقاع هادئ قصصي ومراجعة خفيفة، بينما صباح العطلة وقت ذهبي للتأسيس والقواعد الجديدة (مع سؤال الأسرة لأنها ملاحظة مرنة)."}, {"q": "في «حقيبة الطوارئ التعليمية» للمعلم المرن، ماذا يُقدَّم للطالب إذا اكتشفتَ أنه أسرع من المتوقع في استيعاب الدرس؟", "o": ["تكرار نفس المثال السهل عشر مرات", "«مسار مختصر / تحدٍّ إضافي جاهز» (مثل استخدام القاعدة نفسها في زمن الماضي)", "إعطاؤه نشاطًا مفرغًا للطاقة دون أي إضافة علمية", "إنهاء الحصة قبل موعدها بربع ساعة"], "a": 1, "e": "حقيبة الطوارئ تضم: نشاطًا مفرغًا للطاقة للمرهق، ومثالًا عميقًا للفضولي، ومسارًا مختصرًا وتحديًا إضافيًا للطالب السريع."}, {"q": "انجذب حوار طالبك نحو شغفه بكرة القدم أثناء درس عن «صيغ المقارنة»؛ كيف تطبّق «الانعطاف اللطيف»؟", "o": ["تؤجل الدرس كله للحصة القادمة", "تستثمر شغفه وتقول: «ممتع! دعنا نتحدث عن فريقك المفضل باستخدام صيغ المقارنة التي تعلمناها للتو»", "تمنعه من ذكر كرة القدم وتعيده قسرًا لأمثلة الكتاب", "تتحدث معه عن كرة القدم طوال الحصة وتنسى صيغ المقارنة"], "a": 1, "e": "الانعطاف اللطيف يحافظ على الهدف التعليمي وفي الوقت نفسه يستثمر دافع الطالب وشغفه."}, {"q": "ما «الاعتراف الذكي» الذي يجعل الطالب شريكًا في القرار حين تضطر لتعديل الخطة كليًا لصالحه؟", "o": ["التصريح بثقة وإيجابية: «أرى أن تحدثنا عن العمل اليوم أكثر فائدة من التسوق كما خططنا؛ دعنا نوجه حديثنا لعبارات التفاوض»", "تغيير الموضوع سرًا دون إخبار الطالب", "الاعتذار بارتباك والقول إنك نسيت تحضير الدرس", "إصرار المعلم على موضوع التسوق رغم عدم فائدته للطالب اليوم"], "a": 0, "e": "الاعتراف الذكي يظهر ثقة المعلم ومرونته ويجعل الطالب شريكًا حقيقيًا في توجيه تعلّمه."}, {"q": "لماذا يُعدّ سؤال «هل فهمت؟ (Do you understand?)» أكثر سؤال مخادع في حصص الأونلاين؟", "o": ["لأن كثيرًا من الطلاب يهزّون رؤوسهم بأدب ويقولون «Yes!» حتى لو لم يفهموا حرفًا، خجلًا أو لتقصير الشرح أو ظنًا منهم أنهم فهموا", "لأنه يكشف الفهم الحقيقي بدقة 100%", "لأنه مناسب للأطفال الصغار فقط", "لأنه سؤال طويل يصعب نطقه بالإنجليزية"], "a": 0, "e": "سؤال «هل فهمت؟» يخفي عدم الفهم؛ والبديل الاحترافي هو «التحقق التطبيقي الفوري»."}, {"q": "أي سؤال يمثّل تطبيقًا صحيحًا لـ «التحقق التطبيقي الفوري» بدل سؤال «هل فهمت المد؟»؟", "o": ["«هل المد واضح الآن؟»", "«أعد ورائي كلمة: نعم فهمت»", "«استخرج لي كلمة فيها مد من هذا السطر!» — Show me one word with Madd in this line!", "«هل ننتقل للدرس التالي؟»"], "a": 2, "e": "القاعدة الذهبية: التطبيق العملي الفوري هو المقياس الأصدق والوحيد للفهم الحقيقي في الحصة الأونلاين."}, {"q": "من الباحثة التربوية صاحبة أبحاث «وقت الانتظار (قاعدة الـ 3 ثوانٍ الذهبية)» المنشور ملخصها عام 1986 في Journal of Teacher Education؟", "o": ["كلوديا مولر (Claudia Mueller)", "ماري بود رو (Mary Budd Rowe)", "فلاندرز (Flanders)", "كارول دويك (Carol Dweck)"], "a": 1, "e": "الباحثة ماري بود رو (1986) وجدت أن المعلمين ينتظرون ثانية أو أقل، وعند زيادة الانتظار لـ 3 ثوانٍ فأكثر تتحسن المشاركة وجودة الإجابات والثقة."}, {"q": "ماذا يحدث عندما يستعجل المعلم بعد ثانية واحدة من سؤاله ويغشّش الطالب أول حرف من الإجابة؟", "o": ["يضاعف ثقة الطالب بنفسه فورًا", "يقطع عليه «لحظة بناء المسار العصبي» ويعلّمه الاتكالية بدل منحه وقت السماع والمعالجة وتجهيز النطق", "يطبق قاعدة الصمت الذهبي بنجاح", "يساعده على بناء ذاكرة قوية جدًا"], "a": 1, "e": "التغشيش السريع بعد ثانية يسرق من الطالب لحظة معالجة السؤال وتجهيز النطق ويُرسّخ الاتكالية."}, {"q": "إذا انتهت الـ 3 إلى 5 ثوانٍ من «الصمت الذهبي» وبقي الطالب صامتًا لم يجب، ما «التدخل الذكي» الصحيح؟", "o": ["تجاهل السؤال والانتقال لصفحة أخرى بلا تعليق", "الاستمرار في الصمت دقيقتين كاملتين لإحراجه", "عدم إحراجه؛ وإعادة صياغة السؤال بطريقة أسهل أو منحه خيارين بسيطين لينجح", "تأنيبه على عدم المذاكرة وإغلاق التمرين"], "a": 2, "e": "الخطوة الثالثة في الصمت الذهبي هي التدخل الذكي بعد 3–5 ثوانٍ عبر تبسيط السؤال أو منح خيارين بسيطين."}, {"q": "في تشبيه «السيمفونية التعليمية» بخاتمة المحاضرة الثالثة، ماذا يمثّل كل من «الهيكل» و«الاستفادة من الوقت» و«المرونة» على الترتيب؟", "o": ["النوتة الموسيقية (الانسجام) ← إيقاع السيمفونية (منع الملل) ← الارتجال العفوي للموسيقي المتمرس", "الإيقاع ← النوتة ← الملل", "قائمة الواجبات ← السبورة ← الصوت", "الوقت الميت ← كسر النمط ← الختام"], "a": 0, "e": "الهيكل هو النوتة، واستغلال الوقت هو الإيقاع، والمرونة هي الارتجال العفوي المبدع؛ وليس الهدف إنهاء الخطة بل إشعال شرارة التعلم."}];
+const TF = [{"q": "الهجرة النبوية الشريفة كانت حدثًا عفويًا غير مخطط له مسبقًا.", "a": false, "e": "خطأ؛ بل كانت خطة محكمة شملت اختيار الصحبة والإبل والدليل الخبير عبد الله بن أريقط والطريق والمؤونة."}, {"q": "كانت فكرة حفر الخندق في غزوة الخندق مثالًا على التخطيط الدفاعي العبقري النابع من دراسة الموقف.", "a": true, "e": "صحيح؛ وقد استُشهد بها كأحد أمثلة التخطيط في السيرة النبوية."}, {"q": "التخطيط للحصة يُعدّ تعبيرًا عمليًا عن إخلاص النية ووسيلة لاستجلاب بركة الوقت والعلم.", "a": true, "e": "صحيح؛ وإتقان التعليم يبدأ بتخطيطه مصداقًا لحديث «إن الله يحب إذا عمل أحدكم عملًا أن يتقنه»."}, {"q": "المعلم البارع عبر المنصات الرقمية هو من يدخل الحصة بلا تحضير ويرتجل الدروس من فراغ.", "a": false, "e": "خطأ؛ الارتجال العشوائي ليس مهارة بل فخ يهدر فرص التعلم ويقوض مصداقية المعلم."}, {"q": "الارتجال العشوائي يستهلك وقت الطالب وماله ولا يستثمرهما.", "a": true, "e": "صحيح؛ لأنه يؤدي إلى حشو الوقت بكلام عام وتكرار غير هادف وعدم الوصول للأهداف."}, {"q": "الارتجال أقل إرهاقًا ذهنيًا للمعلم من التخطيط المسبق.", "a": false, "e": "خطأ؛ المفارقة أن الارتجال أكثر إرهاقًا بسبب التوتر المستمر لـ«صنع المحتوى على الهواء»."}, {"q": "رفض الارتجال العشوائي يعني أن يتحول المعلم إلى روبوت يقرأ من سكريبت جامد لا يتغير.", "a": false, "e": "خطأ؛ البديل ليس الجمود بل «التخطيط المرن» الذي يبني هيكلًا واضحًا ويترك مساحات آمنة للانحراف الإيجابي."}, {"q": "في هيكل الحصة ذات الـ 60 دقيقة، تستغرق «البداية الثابتة» من 5 إلى 7 دقائق للربط والمراجعة والإحماء.", "a": true, "e": "صحيح؛ البداية الثابتة طقس افتتاحي (5–7 دقائق) يربط اليوم بالبارحة."}, {"q": "يُكتفى في «النواة الصلبة» (15–20 دقيقة) بتحضير مثال واحد فقط دون أمثلة احتياطية.", "a": false, "e": "خطأ؛ يُحضَّر للنواة الصلبة مثالان أساسيان و3–4 أمثلة احتياطية."}, {"q": "في «مساحة الممارسة المرنة» (20–25 دقيقة) يختار المعلم في اللحظة النشاط الأنسب لطاقة الطالب من بين خيارين أو ثلاثة.", "a": true, "e": "صحيح؛ كالقراءة أو الاستماع أو المحادثة بحسب طاقة الطالب وتعلمه."}, {"q": "البدء مع الطفل الأجنبي بجملة «Hello, how are you today?» يضمن دائمًا أعلى درجة من التركيز والانتباه.", "a": false, "e": "خطأ؛ لأن جوابه «I'm fine!» آلي ومحفوظ، فيرد بلسانه وعقله شارد."}, {"q": "مبدأ «كسر النمط» يقوم على أن العقل البشري يلتفت فورًا للجديد وغير المتوقع في أول 5 ثوانٍ.", "a": true, "e": "صحيح؛ كصوت حرف غريب أو لغز بصري سريع أو حركة طريفة."}, {"q": "البدء في أول 90 ثانية بعبارة «افتح كتابك صفحة كذا وسمّع» يفتح شهية الطفل الأجنبي ويزيد حماسه.", "a": false, "e": "خطأ؛ هذه البداية الجافة تغلق ذهن الطفل فورًا، والبديل تحدٍّ بصري أو لغز صوتي مدته دقيقة مرتبط بدرس البارحة."}, {"q": "سؤال الطفل «تفتكر أنا بشرب إيه في المج ده؟» أو «أي حرف مختبئ في هذه الصورة؟» من أمثلة بنك الافتتاحيات الجاهزة لكسر النمط.", "a": true, "e": "صحيح؛ وهي من الأمثلة العملية الجاهزة المذكورة في الإضافة المطورة (1)."}, {"q": "إذا أضاء مؤشر ميكروفون المعلم طوال الحصة بينما الطالب صامت يهز رأسه، فهذه علامة على نجاح الحصة التفاعلية.", "a": false, "e": "خطأ؛ بل هذه علامة المعلم التقليدي، أما المتمكن فميكروفون طالبه هو الأنشط والأكثر إضاءة."}, {"q": "قاعدة 70% للطالب و30% للمعلم هي رقم علمي ثابت أثبتته دراسة تجريبية واحدة لا يجوز الحياد عنه.", "a": false, "e": "خطأ؛ نُبّه بأمانة علمية إلى أنها قاعدة إرشادية ميدانية لقلب معادلة الصف التقليدي، وليست رقمًا ثابتًا من دراسة."}, {"q": "مراقبة مؤشر الميكروفون كـ«عداد سرعة» تساعد المعلم على التوقف فورًا وطرح سؤال كلما لاحظ نفسه يتكلم دقائق متواصلة.", "a": true, "e": "صحيح؛ وهي الخطوة الرابعة لزيادة كلام الطالب فورًا."}, {"q": "القالب الأول لحصة الـ 30 دقيقة العامة للأطفال موزّع كالتالي: 3 + 10 + 12 + 5 دقائق.", "a": true, "e": "صحيح: 3 كسر جليد + 10 مراجعة ذكية + 12 جزء جديد بتطبيق + 5 تحدٍّ أو تلخيص."}, {"q": "في قالب الحصة التجريبية (3 + 22 + 5)، تُخصَّص آخر 5 دقائق لعرض خطة زمنية محددة وواضحة لولي الأمر.", "a": true, "e": "صحيح؛ تجيب لولي الأمر عن: ماذا سننجز، وكيف، ومتى؟"}, {"q": "يجب التعامل مع قوالب حصة الـ 30 دقيقة الثلاثة كقانون صارم لا يُسمح بتعديل دقائقه حسب حالة الطالب.", "a": false, "e": "خطأ؛ نصّت المحاضرة على أنها قوالب ميدانية مرنة تُعدّل أرقامها بحسب طالبك ولا تُعامل كقانون صارم."}, {"q": "من النصائح العملية لتحويل التخطيط إلى محرّك أن تكتب نص الحصة كاملًا وتحفظه حرفيًا قبل الدرس.", "a": false, "e": "خطأ؛ «خطط للهدف وليس لكل كلمة»؛ اكتب نقاطًا رئيسية وعبارات انتقال لا نصوصًا للحفظ."}, {"q": "في قاعدة 80/20 للتحضير، نخصص 80% لتخطيط الهيكل وتجميع الموارد و20% للتعديل المباشر أثناء الحصة.", "a": true, "e": "صحيح؛ وهذا ما يحقق التوازن بين الإعداد المتين والمرونة الميدانية."}, {"q": "يقتصر «صندوق الإنقاذ» على أسئلة نحوية صعبة فقط ولا يضم صورًا طريفة أو أسئلة محادثة خيالية.", "a": false, "e": "خطأ؛ يضم صورًا غريبة أو مضحكة، ورابطين احتياطيين لفيديوهات دقيقة، وأسئلة محادثة طارئة مثل «لو سافرت إلى القمر»."}, {"q": "تضم «حقيبة الخطة ب» ورقة بيضاء كبيرة وقلم فلوماستر سميكًا، ولعبة صوتية لا تحتاج شاشة، ونصًا قصيرًا محفوظًا، وأسئلة محادثة قصيرة.", "a": true, "e": "صحيح؛ هذه هي المحتويات الأربعة لحقيبة الخطة ب التي تبقى بجانب المعلم دائمًا."}, {"q": "لعبة «توقّع الحرف القادم» أو «صيد الصوت المختلف» تحتاج إلى شاشة ومشاركة ملفات PDF حتى تعمل.", "a": false, "e": "خطأ؛ بل هي ألعاب صوتية وتفاعلية لا تحتاج شاشة وتُستخدم لإنقاذ الحصة عند الطوارئ التقنية."}, {"q": "التحضير الجيد هو الذي يمنح المعلم رفاهية أن يكون تلقائيًا ومرنًا مع طلابه دون أن يضيع أو يضيّعهم.", "a": true, "e": "صحيح؛ كما ورد نصًا في خاتمة العنصر الثاني."}, {"q": "الهيكل الواضح للدرس يمثّل قيدًا نفسيًا يُشعر الطالب بالقلق والتشتت.", "a": false, "e": "خطأ؛ «الهيكل الواضح ليس قيدًا، بل هو إطار أمان نفسي للمعلم والطالب معًا»."}, {"q": "الوقت هو المورد الوحيد غير القابل للتجديد داخل الحصة التدريسية.", "a": true, "e": "صحيح؛ ولذلك يحتاج استغلاله إلى عقلية مهندس (هندسة الدقائق)."}, {"q": "من القضاء على «الوقت الميت» فتح جميع الملفات والروابط والصفحة المطلوبة قبل قبول الطالب بـ 3 دقائق.", "a": true, "e": "صحيح؛ وهي الخطوة الأولى في القاعدة الذهبية للقضاء على «فخ الـ 60 ثانية»."}, {"q": "إذا احتجت 10 ثوانٍ لمشاركة الشاشة على Zoom، فمن الاحترافية أن تصمت تمامًا حتى تفتح الصفحة.", "a": false, "e": "خطأ؛ قاعدة «لا صمت أثناء المشاركة» توجب شغل الطالب بسؤال حواري سريع وممتع حتى تظهر الصفحة."}, {"q": "يُستحسن إبقاء نافذة السبورة البيضاء أو الخطة ب مفتوحة مسبقًا في الخلفية لوقت الطوارئ.", "a": true, "e": "صحيح؛ وهي الخطوة الثالثة في القاعدة الذهبية لإنقاذ «فخ الـ 60 ثانية»."}, {"q": "إذا تأخر الطالب دقيقتين عن الحصة، الأفضل انتظار دخوله في صمت سلبي دون إرسال أي رسالة.", "a": false, "e": "خطأ؛ بل نُحوّل الانتظار إلى تعلم بتسجيل رسالة صوتية أو فيديو قصير ترحيبي فيه سؤال يفكر فيه أثناء دخوله."}, {"q": "المرونة التدريسية هي الذكاء العاطفي والتربوي للمعلم أثناء التنفيذ، وتسمح بالخروج عن الخطة حين يكون في صالح الطالب.", "a": true, "e": "صحيح؛ وهذا جوهر «فن الانحراف الإيجابي»."}, {"q": "الطريقة الوحيدة لاكتشاف سرحان الطفل عبر الإنترنت هي الانتظار حتى يتثاءب أو ينام على المكتب.", "a": false, "e": "خطأ؛ يرسل الطفل 3 علامات إنذار صامتة قبل التثاؤب بدقائق: الحركة المتكررة، والنظرة المجمّدة، والترديد الآلي (الببغاء)."}, {"q": "ترديد الطفل للكلمات خلف المعلم بنفس النغمة الرتيبة دون النظر إلى الكلمة على الشاشة يُعدّ علامة تركيز عالٍ.", "a": false, "e": "خطأ؛ هذا «الترديد الآلي (الببغاء)» وهو إحدى علامات السرحان الصامتة التي تستدعي قطع الرتم فورًا."}, {"q": "همس الكلمة القادمة بهمس مثير أو نطقها بصوت كرتوني مرح من حيل «قاعدة قطع الرتم الفوري» عند سرحان الطفل.", "a": true, "e": "صحيح؛ بجانب الحركة الجسدية في 5 ثوانٍ والسؤال المفاجئ على الشاشة."}, {"q": "توحيد إيقاع الحصة بنفس الكثافة لطفل في لندن الساعة 5 مساءً وآخر في نيويورك الساعة 9 صباحًا يوم العطلة أمر صائب تربويًا.", "a": false, "e": "خطأ؛ بل يجب مراعاة «ساعة الطالب البيولوجية» وطاقته الذهنية في توقيت بلده."}, {"q": "قاعدة الساعة البيولوجية ملاحظة ميدانية مرنة؛ لذا يُنصح بسؤال الأسرة في البداية عن الوقت الذي يكون فيه ابنهم في قمة نشاطه وتركيزه.", "a": true, "e": "صحيح؛ فالأطفال يختلفون ولا نعامل الملاحظة الميدانية كقانون جامد."}, {"q": "في «حقيبة الطوارئ التعليمية»، إذا كان الطالب مرهقًا نتحول فجأة إلى نشاط سريع «مُفرغ للطاقة» كلعبة سريعة أو لغز كلمات.", "a": true, "e": "صحيح؛ وإذا أظهر فضولًا نقدم «مثالًا عميقًا»، وإذا كان أسرع من المتوقع نقدم «مسارًا مختصرًا / تحديًا إضافيًا»."}, {"q": "يعني «الانعطاف اللطيف» مقاومة شغف الطالب بقوة ومنعه من ذكر هواياته أثناء الدرس.", "a": false, "e": "خطأ؛ بل يعني توظيف الموضوع الذي يثير شغفه لخدمة هدف الدرس اللغوي نفسه."}, {"q": "إذا سألت الطالب الأجنبي «Do you understand?» وأجابك بـ «Yes»، فهذا دليل قاطع على أنه فهم القاعدة تمامًا.", "a": false, "e": "خطأ؛ كثير من الطلاب يقولون Yes مجاملة أو خجلًا أو لتقصير الشرح دون فهم حقيقي."}, {"q": "البديل الاحترافي لسؤال «هل فهمت؟» هو «التحقق التطبيقي الفوري» بأن يطبّق الطالب القاعدة أو يستخرج المثال بنفسه.", "a": true, "e": "صحيح؛ فالتطبيق العملي الفوري هو المقياس الأصدق والوحيد للفهم الحقيقي."}, {"q": "وجدت أبحاث ماري بود رو (1986) أن معظم المعلمين ينتظرون نحو عشر ثوانٍ كاملة بعد طرح السؤال.", "a": false, "e": "خطأ؛ وجدت أن المعلمين ينتظرون عادة ثانية واحدة أو أقل، وأن زيادة الانتظار لـ 3 ثوانٍ فأكثر تحسّن المشاركة وجودة الإجابات."}, {"q": "مع متعلم يتعلم لغة ثانية، قد يحتاج المعلم إلى انتظار مرن يتراوح بين 3 و5 ثوانٍ بعد طرح السؤال.", "a": true, "e": "صحيح؛ وهو إرشاد عملي مرن يمنح الطالب وقت السماع والمعالجة وتجهيز حركة اللسان للنطق."}, {"q": "مساعدة الطالب بتغشيشه أول حرف من الجواب بعد ثانية واحدة من صمته يُقوّي استقلالية تفكيره.", "a": false, "e": "خطأ؛ بل يقطع عليه لحظة بناء المسار العصبي ويعلّمه الاتكالية."}, {"q": "من خطوات تطبيق «الصمت الذهبي» أن تَعُدّ في سرك (واحد.. اثنان.. ثلاثة) بابتسامة ونظرة مشجعة دافئة.", "a": true, "e": "صحيح؛ مع مسك اللسان عن التغشيش والتدخل الذكي فقط بعد انتهاء الوقت."}, {"q": "في تشبيه «السيمفونية التعليمية»، يمثّل الهيكل «النوتة الموسيقية» التي تضمن الانسجام وتمنع الفوضى.", "a": true, "e": "صحيح؛ ويمثل استغلال الوقت الإيقاع، وتمثل المرونة الارتجال العفوي للموسيقي المتمرس."}, {"q": "الهدف الأسمى من تخطيط الدرس هو إنهاء كل بنود الخطة المكتوبة بأي ثمن حتى لو فقد الطالب شغفه.", "a": false, "e": "خطأ؛ «ليس الهدف إنهاء الخطة، بل إشعال شرارة التعلم»."}, {"q": "الخطة الذكية متينة بقدر يمكّنها من أن تكون دليلًا، ومرنة بقدر يمكّنها من أن تحترق إذا لزم الأمر لتعطي الطالب الضوء والحرارة.", "a": true, "e": "صحيح؛ وهذه هي العبارة الختامية الملهمة في المحاضرة الثالثة."}, {"q": "التخطيط في حقيقته هو أعظم شكل من أشكال الاحترام لمهنتك ووقتك ولطالبك الذي وضع ثقته فيك.", "a": true, "e": "صحيح؛ كما ورد صراحةً في خاتمة العنصر الثاني."}];
+const ESSAY = [{"q": "أصّل لمفهوم «التخطيط» من القرآن الكريم والسيرة النبوية (الهجرة، مراحل الدعوة، وغزوة الخندق) كما ورد في مقدمة المحاضرة، وبيّن كيف يحوّل التخطيطُ حصةَ القرآن والعربية من عبء ثقيل إلى مشروع مبارك وأمانة مُتْقنة.", "hint": "اذكر الآيتين الكريمتين، وعناصر خطة الهجرة، والأمانات الثلاث (كلمة الله، آية الرحمن، معنى الإسلام)، وحديث الإتقان."}, {"q": "اشرح الأسباب الأربعة التي تجعل «الارتجال العشوائي» عدوًا للمعلم الناجح في الفصل الافتراضي، ثم وضّح الفرق الجوهري بين الارتجال العشوائي وبين «التخطيط المرن» و«الارتجال الحقيقي».", "hint": "تذكّر: قتل الهيبة، ضياع الوقت والمال، فقدان التوازن (حلقة مسلسل ناقصة)، واستنزاف الطاقة الذهنية مقابل «الإبحار ضمن خريطتك»."}, {"q": "صمّم افتتاحية إبداعية (في 90 ثانية فقط) لحصة قرآن أو عربية مع طفل أجنبي عمره 8 سنوات بدل السؤال المكرر «How are you today?»؛ بحيث تجمع في ثلاث لبنات بين: (1) كسر النمط في أول 5 ثوانٍ، (2) تحدٍّ مرتبط بدرس البارحة، (3) جملة ربط بهدف اليوم.", "hint": "تجنّب البداية الجافة «افتح الكتاب وسمّع»، واستفد من بنك الافتتاحيات الجاهزة وسر الربط بالأصل."}, {"q": "لماذا يغادر بعض أولياء الأمور بعد الحصة التجريبية رغم أن شرح المعلم كان قويًا؟ اشرح دلالة «مؤشر الميكروفون» و«قاعدة 70/30» (مع الأمانة العلمية في توصيفها)، واذكر الخطوات الأربع العملية لزيادة كلام الطالب فورًا.", "hint": "اذكر الاختبار الصامت (مراقبة حصتين بلا صوت)، وأعمال فلاندرز في الصف التقليدي، والخطوات الأربع (اختصار الشرح، 3 ثوانٍ صمتًا، التطبيق أولًا، عداد السرعة)."}, {"q": "اختر طالبًا حقيقيًا أو افتراضيًا لحصة مدتها 30 دقيقة (حدّد هل هي حصة عامة أم تجريبية أم بتطبيق مستقل)، ثم وزّع دقائق الحصة كاملة وفق أحد القوالب الثلاثة الجاهزة مع كتابة نشاط عملي محدد في كل خانة زمنية.", "hint": "القوالب الثلاثة: (3+10+12+5) للعامة، (3+22+5) للتجريبية، و(3+7+12+5+3) للتطبيق المستقل."}, {"q": "تخيّل أنك في منتصف حصة تجريبية مهمة وولي الأمر يتابعك، وفجأة تعطّل برنامج عرض الكتب على جهازك؛ كيف ستنقذ الحصة دون ارتباك اعتمادًا على «حقيبة الخطة ب» و«صندوق الإنقاذ»؟ اكتب أربعة أنشطة عملية لا تحتاج لأي ملف على الكمبيوتر.", "hint": "وظّف الورقة البيضاء والقلم الفلوماستر، ولعبة صوتية (توقّع الحرف القادم)، ونصًا محفوظًا، وأسئلة محادثة قصيرة، وتذكّر القاعدة الذهبية."}, {"q": "اشرح مفهوم «الوقت الميت» و«فخ الـ 60 ثانية» على Zoom، ثم ضع «قائمة فحص (Checklist)» من خمس خطوات تطبّقها قبل قبول الطالب بـ 3 دقائق، واكتب الجملة الحوارية التي ستستخدمها لتطبيق قاعدة «لا صمت أثناء المشاركة».", "hint": "أشر أيضًا إلى كيفية تحويل تأخر الطالب دقيقتين إلى تعلم بدل الانتظار السلبي."}, {"q": "أثناء حصة مع طفل عمره 7 سنوات في لندن الساعة 5 مساءً، لاحظت أنه يلفّ بالكرسي ويردّد الكلمات خلفك بنغمة رتيبة كالببغاء دون النظر للشاشة؛ شخّص الموقف وفق «رادار الانتباه» و«الساعة البيولوجية»، واشرح خطواتك الفورية لقطع الرتم وتعديل إيقاع الحصة.", "hint": "اذكر العلامات الثلاث الصامتة قبل التثاؤب، وحيل قطع الرتم الفوري، والإيقاع المناسب لطفل آخر اليوم الدراسي مقابل طفل صباح العطلة."}, {"q": "لماذا يُعدّ سؤال «Do you understand? / هل فهمت؟» سؤالًا مخادعًا؟ حوّل ثلاثة أسئلة تقليدية من تخصصك (قرآن أو تجويد أو عربية) إلى «أسئلة تحقق تطبيقي فوري»، ثم اشرح كيف ستطبّق «قاعدة الـ 3 ثوانٍ الذهبية (الصمت الذهبي)» بعدها مستشهدًا بأبحاث ماري بود رو.", "hint": "بيّن مراحل ذهن الطفل في الثواني الثلاث، وكيف تتدخل بذكاء إذا بقي صامتًا بعد 3–5 ثوانٍ دون تغشيش أو إحراج."}, {"q": "«الحصة المثلى سيمفونية بين الهيكل واستغلال الوقت والمرونة، وليس الهدف إنهاء الخطة بل إشعال شرارة التعلم»؛ علّق على هذه الخلاصة، واضرب مثالًا عمليًا لحصة استخدمت فيها «الانعطاف اللطيف» و«الاعتراف الذكي» لتعديل خطتك لصالح طالبك.", "hint": "اربط بين النوتة والإيقاع والارتجال العفوي، ومثال توظيف شغف الطالب (رياضة أو عمل أو تقنية) داخل هدف الدرس."}];
+
+(function(){
+  /* Logo & Favicon */
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+
+  /* Theme Sync */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* Toast Helper */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 3000);
+  }
+
+  /* Copy Helper */
+  function copyText(txt, okMsg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }).catch(function(){ fallbackCopy(txt, okMsg); });
+    } else { fallbackCopy(txt, okMsg); }
+  }
+  function fallbackCopy(txt, okMsg){
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast(okMsg); }catch(e){ toast("تعذر النسخ التلقائي، يمكنك النسخ يدويًا من المعاينة."); }
+    document.body.removeChild(ta);
+  }
+
+  /* Device ID */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = "";
+    try{
+      var arr = new Uint8Array(6); crypto.getRandomValues(arr);
+      rnd = Array.from(arr).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("").toUpperCase();
+    }catch(e){
+      rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    }
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Auth State */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key === EXPECTED_KEY) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var examView = document.getElementById("examView");
+  var authForm = document.getElementById("authForm");
+  var authMsg = document.getElementById("authMsg");
+  var authBtn = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){
+    authMsg.textContent = text;
+    authMsg.className = "msg-box " + type;
+  }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true;
+    authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key === EXPECTED_KEY){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح الاختبار...", "ok");
+        setTimeout(enterExam, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من البيانات والمحاولة مرة أخرى.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false;
+      authBtn.textContent = "🔓 التحقق والدخول للاختبار";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف إجاباتك المحفوظة)")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    examView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* Quiz State */
+  function defaultState(){
+    return { name: "", mcq: {}, tf: {}, essay: {}, essayMode: "site", graded: false, tab: "mcq", mcqPage: 0, tfPage: 0 };
+  }
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(QUIZ_KEY);
+      if(raw){ return Object.assign(defaultState(), JSON.parse(raw)); }
+    }catch(e){}
+    return defaultState();
+  }
+  var S = loadState();
+  var saveInd = document.getElementById("saveInd");
+  var saveTimer = null;
+  function persist(){
+    try{ localStorage.setItem(QUIZ_KEY, JSON.stringify(S)); }catch(e){}
+    saveInd.textContent = "✅ تم الحفظ الآن";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){ saveInd.textContent = "💾 حفظ تلقائي مفعّل"; }, 1400);
+  }
+
+  /* Helpers */
+  var AR_LETTERS = ["أ","ب","ج","د"];
+  var tNameInput = document.getElementById("tName");
+  tNameInput.addEventListener("input", function(){
+    S.name = this.value;
+    persist();
+    if(S.graded) updateReportPreview();
+  });
+
+  function countObj(o){ return Object.keys(o).length; }
+  function countEssayFilled(){
+    return ESSAY.reduce(function(acc, _, i){ return acc + ((S.essay[i] || "").trim().length >= 3 ? 1 : 0); }, 0);
+  }
+
+  function updateProgress(){
+    var m = countObj(S.mcq), t = countObj(S.tf), tot = m + t, es = countEssayFilled();
+    document.getElementById("cntMcq").textContent = m + " / 50";
+    document.getElementById("cntTf").textContent = t + " / 50";
+    document.getElementById("cntEssay").textContent = S.essayMode === "paper" ? "ورقي / واتساب" : (es + " / 10");
+    document.getElementById("progText").textContent = "أجبت عن " + tot + " من 100 سؤال موضوعي";
+    document.getElementById("essayProgText").textContent = S.essayMode === "paper" ? "المقالي: تسليم ورقي / واتساب" : ("المقالي: " + es + " من 10");
+    document.getElementById("progFill").style.width = Math.round(tot) + "%";
+    if(S.graded){
+      var sc = computeScores();
+      document.getElementById("cntRes").textContent = sc.total + " / 100";
+    } else {
+      document.getElementById("cntRes").textContent = tot === 100 ? "جاهز للتصحيح" : "اعرض النتيجة";
+    }
+  }
+
+  /* Render MCQ Page */
+  function renderMcq(){
+    var pills = document.getElementById("mcqPills");
+    pills.innerHTML = "";
+    for(var p=0; p<5; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.mcq[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.mcqPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (start+1) + "–" + end + (done ? " ✓" : "");
+        b.onclick = function(){ S.mcqPage = pg; persist(); renderMcq(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("mcqList");
+    list.innerHTML = "";
+    var s = S.mcqPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = MCQ[idx], sel = S.mcq[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        var optsHtml = item.o.map(function(txt, oi){
+          return '<button type="button" class="opt' + (sel===oi ? ' sel' : '') + '" data-i="' + idx + '" data-o="' + oi + '"><span class="ltr-c">' + AR_LETTERS[oi] + '</span><span>' + esc(txt) + '</span></button>';
+        }).join("");
+        card.innerHTML = '<div class="q-head"><span class="q-num">' + (idx+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div><div class="opts">' + optsHtml + '</div>';
+        card.querySelectorAll(".opt").forEach(function(btn){
+          btn.onclick = function(){
+            S.mcq[idx] = Number(this.getAttribute("data-o"));
+            persist();
+            renderMcq();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("mcqPrev").disabled = (S.mcqPage === 0);
+    document.getElementById("mcqNext").textContent = S.mcqPage === 4 ? "الانتقال لقسم الصح والخطأ ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("mcqPrev").onclick = function(){
+    if(S.mcqPage > 0){ S.mcqPage--; persist(); renderMcq(); scrollToTop(); }
+  };
+  document.getElementById("mcqNext").onclick = function(){
+    if(S.mcqPage < 4){ S.mcqPage++; persist(); renderMcq(); scrollToTop(); }
+    else { switchTab("tf"); }
+  };
+
+  /* Render TF Page */
+  function renderTf(){
+    var pills = document.getElementById("tfPills");
+    pills.innerHTML = "";
+    for(var p=0; p<5; p++){
+      (function(pg){
+        var start = pg*10, end = start+10, done = true;
+        for(var k=start; k<end; k++) if(S.tf[k] === undefined) done = false;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "p-pill" + (S.tfPage===pg ? " cur" : "") + (done ? " done" : "");
+        b.textContent = (50+start+1) + "–" + (50+end) + (done ? " ✓" : "");
+        b.onclick = function(){ S.tfPage = pg; persist(); renderTf(); scrollToTop(); };
+        pills.appendChild(b);
+      })(p);
+    }
+
+    var list = document.getElementById("tfList");
+    list.innerHTML = "";
+    var s = S.tfPage * 10, e = s + 10;
+    for(var i=s; i<e; i++){
+      (function(idx){
+        var item = TF[idx], sel = S.tf[idx];
+        var card = document.createElement("div");
+        card.className = "q-card" + (sel !== undefined ? " answered" : "");
+        card.innerHTML =
+          '<div class="q-head"><span class="q-num">' + (51+idx) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+          '<div class="tf-row">' +
+            '<button type="button" class="tf-btn' + (sel===true ? ' sel-t' : '') + '" data-v="1">✅ صح</button>' +
+            '<button type="button" class="tf-btn' + (sel===false ? ' sel-f' : '') + '" data-v="0">❌ خطأ</button>' +
+          '</div>';
+        card.querySelectorAll(".tf-btn").forEach(function(btn){
+          btn.onclick = function(){
+            S.tf[idx] = this.getAttribute("data-v") === "1";
+            persist();
+            renderTf();
+            updateProgress();
+          };
+        });
+        list.appendChild(card);
+      })(i);
+    }
+
+    document.getElementById("tfPrev").textContent = S.tfPage === 0 ? "→ العودة للاختيار من متعدد" : "→ المجموعة السابقة";
+    document.getElementById("tfNext").textContent = S.tfPage === 4 ? "الانتقال للأسئلة المقالية ←" : "المجموعة التالية ←";
+  }
+
+  document.getElementById("tfPrev").onclick = function(){
+    if(S.tfPage > 0){ S.tfPage--; persist(); renderTf(); scrollToTop(); }
+    else { switchTab("mcq"); }
+  };
+  document.getElementById("tfNext").onclick = function(){
+    if(S.tfPage < 4){ S.tfPage++; persist(); renderTf(); scrollToTop(); }
+    else { switchTab("essay"); }
+  };
+
+  /* Render Essay */
+  var modeSiteBtn = document.getElementById("modeSite");
+  var modePaperBtn = document.getElementById("modePaper");
+  modeSiteBtn.onclick = function(){ S.essayMode = "site"; persist(); renderEssay(); updateProgress(); if(S.graded) renderResult(); };
+  modePaperBtn.onclick = function(){ S.essayMode = "paper"; persist(); renderEssay(); updateProgress(); if(S.graded) renderResult(); };
+
+  document.getElementById("copyEssayQsBtn").onclick = function(){
+    var txt = "الأسئلة المقالية الـ 10 — المحاضرة الثالثة: تخطيط الدرس (المعلم الرقمي المحترف | أكاديمية الساجد):\n\n" +
+      ESSAY.map(function(x, i){ return (i+1) + ". " + x.q; }).join("\n\n");
+    copyText(txt, "✅ تم نسخ الأسئلة المقالية الـ 10 بنجاح!");
+  };
+
+  function renderEssay(){
+    modeSiteBtn.classList.toggle("active", S.essayMode === "site");
+    modePaperBtn.classList.toggle("active", S.essayMode === "paper");
+    var list = document.getElementById("essayList");
+    list.innerHTML = "";
+    ESSAY.forEach(function(item, idx){
+      var val = S.essay[idx] || "";
+      var card = document.createElement("div");
+      card.className = "q-card" + (S.essayMode==="site" && val.trim().length >= 3 ? " answered" : "");
+      var body = "";
+      if(S.essayMode === "site"){
+        var words = val.trim() ? val.trim().split(/\s+/).length : 0;
+        body = '<textarea class="essay-ta" placeholder="اكتب إجابتك هنا (تُحفظ تلقائيًا)..." data-ei="' + idx + '">' + esc(val) + '</textarea>' +
+               '<div class="wc" id="wc-' + idx + '">' + words + ' كلمة · 5 درجات</div>';
+      } else {
+        body = '<div class="paper-note">📝 أجب عن هذا السؤال في ورقتك الخارجية أو في رسالتك على واتساب (5 درجات).</div>';
+      }
+      card.innerHTML =
+        '<div class="q-head"><span class="q-num">م' + (idx+1) + '</span><div class="q-txt">' + esc(item.q) + '</div></div>' +
+        '<div class="essay-hint">💡 ' + esc(item.hint) + '</div>' + body;
+      if(S.essayMode === "site"){
+        var ta = card.querySelector("textarea");
+        ta.addEventListener("input", function(){
+          S.essay[idx] = this.value;
+          var w = this.value.trim() ? this.value.trim().split(/\s+/).length : 0;
+          var wcEl = document.getElementById("wc-" + idx);
+          if(wcEl) wcEl.textContent = w + " كلمة · 5 درجات";
+          card.classList.toggle("answered", this.value.trim().length >= 3);
+          persist();
+          updateProgress();
+          if(S.graded) updateReportPreview();
+        });
+      }
+      list.appendChild(card);
+    });
+  }
+
+  document.getElementById("essayBack").onclick = function(){ switchTab("tf"); };
+  document.getElementById("finishBtn").onclick = function(){ switchTab("result"); };
+
+  /* Scoring & Result */
+  function computeScores(){
+    var mOk = 0, tOk = 0;
+    MCQ.forEach(function(x, i){ if(S.mcq[i] === x.a) mOk++; });
+    TF.forEach(function(x, i){ if(S.tf[i] === x.a) tOk++; });
+    return { mcq: mOk, tf: tOk, total: mOk + tOk };
+  }
+
+  function findFirstUnanswered(){
+    for(var i=0; i<MCQ.length; i++) if(S.mcq[i] === undefined) return { tab:"mcq", page: Math.floor(i/10) };
+    for(var j=0; j<TF.length; j++) if(S.tf[j] === undefined) return { tab:"tf", page: Math.floor(j/10) };
+    return null;
+  }
+
+  function buildShortScoreMsg(){
+    var sc = computeScores();
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var em = (currentAuth && currentAuth.email) || "";
+    var cd = (currentAuth && currentAuth.code) || "";
+    var esCnt = countEssayFilled();
+    var esLine = S.essayMode === "paper"
+      ? "📝 الأسئلة المقالية (50 درجة): سأرسل صور/إجابات الأسئلة الـ 10 الآن في الرسالة التالية."
+      : ("✍️ الأسئلة المقالية (50 درجة): أجبت عن " + esCnt + " من 10 على الموقع، وسألصقها لك الآن في الرسالة التالية.");
+    return [
+      "السلام عليكم ورحمة الله وبركاته 🌿",
+      "*تقرير اختبار المحاضرة الثالثة (تخطيط الدرس) — المعلم الرقمي المحترف*",
+      "أكاديمية الساجد | Al-Sajid Academy",
+      "━━━━━━━━━━━━━━",
+      "👤 الاسم: " + nm,
+      "🔑 الكود: " + cd + (em ? " | " + em : ""),
+      "━━━━━━━━━━━━━━",
+      "1️⃣ الاختيار من متعدد: *" + sc.mcq + " / 50*",
+      "2️⃣ الصح والخطأ: *" + sc.tf + " / 50*",
+      "📊 *المجموع الآلي (الموضوعي): " + sc.total + " / 100 (" + sc.total + "%)*",
+      "━━━━━━━━━━━━━━",
+      esLine,
+      "بانتظار تقييمك للجزء المقالي والدرجة النهائية من 150 🌟"
+    ].join("\n");
+  }
+
+  function buildEssaysText(){
+    var nm = (S.name || (currentAuth && currentAuth.name) || "غير مكتوب").trim();
+    var lines = [
+      "*إجابات الأسئلة المقالية الـ 10 — المحاضرة الثالثة (تخطيط الدرس)*",
+      "المتدرب/ة: " + nm,
+      "━━━━━━━━━━━━━━"
+    ];
+    ESSAY.forEach(function(item, i){
+      var ans = (S.essay[i] || "").trim() || "(لم تُكتب إجابة)";
+      lines.push("*س" + (i+1) + ":* " + item.q + "\n*ج" + (i+1) + ":* " + ans + "\n");
+    });
+    return lines.join("\n");
+  }
+
+  function updateReportPreview(){
+    var full = buildShortScoreMsg() + (S.essayMode === "site" ? "\n\n" + buildEssaysText() : "");
+    document.getElementById("reportPreview").textContent = full;
+  }
+
+  function renderResult(){
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 100 - (m + t);
+    var ungradedBox = document.getElementById("ungradedBox");
+    var gradedBox = document.getElementById("gradedBox");
+    var jumpBtn = document.getElementById("jumpUnansBtn");
+
+    if(!S.graded){
+      ungradedBox.classList.remove("hidden");
+      gradedBox.classList.add("hidden");
+      if(rem > 0){
+        document.getElementById("readySummary").textContent = "تبقّى لديك " + rem + " سؤال موضوعي بدون إجابة (أجبت عن " + (m+t) + " من 100). يُفضّل إكمالها أولًا، أو يمكنك اعتماد النتيجة الآن.";
+        jumpBtn.classList.remove("hidden");
+      } else {
+        document.getElementById("readySummary").textContent = "أحسنت! أكملت جميع الأسئلة الموضوعية الـ 100. اضغط الزر أدناه لحساب نتيجتك وتجهيز الإرسال عبر واتساب.";
+        jumpBtn.classList.add("hidden");
+      }
+      return;
+    }
+
+    ungradedBox.classList.add("hidden");
+    gradedBox.classList.remove("hidden");
+    var sc = computeScores();
+    document.getElementById("rTotal").textContent = sc.total;
+    document.getElementById("rMcq").textContent = sc.mcq + " / 50";
+    document.getElementById("rTf").textContent = sc.tf + " / 50";
+
+    var title = "", sub = "";
+    if(sc.total >= 90){ title = "🌟 ممتاز جدًا! استيعاب متقن للمحاضرة"; sub = "مستواك رائع جدًا في المحاضرة الثالثة؛ أرسل نتيجتك والأسئلة المقالية للمدرب لتستكمل الدرجة النهائية من 150."; }
+    else if(sc.total >= 80){ title = "✅ جيد جدًا! فهم قوي ومتماسك"; sub = "أداء ممتاز؛ راجع الأخطاء البسيطة أدناه ثم أرسل تقريرك وإجاباتك المقالية عبر واتساب."; }
+    else if(sc.total >= 70){ title = "👍 جيد! اجتزت الجزء الموضوعي"; sub = "راجع الأخطاء والتعليلات بالأسفل لتثبيت النقاط التي التبست عليك، ثم أرسل تقريرك للمدرب."; }
+    else { title = "📖 يحتاج مراجعة سريعة للمحاضرة"; sub = "لا بأس أبدًا! راجع الأخطاء بالأسفل وأعد قراءة نقاط المحاضرة، ويمكنك إعادة الاختبار في أي وقت."; }
+    document.getElementById("rGradeTitle").textContent = title;
+    document.getElementById("rGradeSub").textContent = sub;
+
+    var essaysWaBtn = document.getElementById("sendEssaysWaBtn");
+    if(S.essayMode === "paper"){
+      essaysWaBtn.classList.add("hidden");
+      document.getElementById("waHint").textContent = "اخترت كتابة الأسئلة المقالية خارجيًا (في ورقة أو رسالة واتساب). اضغط الزر أدناه لإرسال نتيجتك الآلية للمدرب، ثم أرسل له صور/نص إجاباتك المقالية الـ 10 مباشرةً.";
+    } else {
+      essaysWaBtn.classList.remove("hidden");
+      document.getElementById("waHint").textContent = "لضمان وصول المقالات الـ 10 كاملة بدون قصّ من واتساب: أرسل أولًا نتيجتك الآلية (زر ١)، ثم اضغط (زر ٢) لنسخ إجاباتك المقالية وفتح واتساب للصقها وإرسالها.";
+    }
+
+    updateReportPreview();
+    renderReview("wrong");
+  }
+
+  document.getElementById("jumpUnansBtn").onclick = function(){
+    var u = findFirstUnanswered();
+    if(!u) return;
+    if(u.tab === "mcq"){ S.mcqPage = u.page; switchTab("mcq"); }
+    else { S.tfPage = u.page; switchTab("tf"); }
+  };
+
+  document.getElementById("gradeNowBtn").onclick = function(){
+    if(!(S.name || "").trim()){
+      toast("⚠️ يرجى كتابة اسمك في خانة «اسم المتدرب/ة» بالأعلى أولًا");
+      tNameInput.focus();
+      tNameInput.scrollIntoView({ behavior:"smooth", block:"center" });
+      return;
+    }
+    var m = countObj(S.mcq), t = countObj(S.tf), rem = 100 - (m + t);
+    if(rem > 0 && !confirm("تبقّى " + rem + " سؤال موضوعي دون إجابة (سيُحسب صفرًا). هل تريد اعتماد النتيجة الآن؟")) return;
+    S.graded = true;
+    persist();
+    updateProgress();
+    renderResult();
+    scrollToTop();
+  };
+
+  document.getElementById("sendScoreWaBtn").onclick = function(){
+    var msg = buildShortScoreMsg();
+    window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
+  };
+
+  document.getElementById("sendEssaysWaBtn").onclick = function(){
+    var txt = buildEssaysText();
+    if(txt.length <= 1500){
+      window.open("https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(txt), "_blank", "noopener,noreferrer");
+    } else {
+      copyText(txt, "✅ تم نسخ الإجابات المقالية الـ 10 كاملة! الصقها في محادثة واتساب الآن.");
+      setTimeout(function(){
+        window.open("https://wa.me/" + WA_PHONE, "_blank", "noopener,noreferrer");
+      }, 700);
+    }
+  };
+
+  document.getElementById("copyFullReportBtn").onclick = function(){
+    var full = buildShortScoreMsg() + (S.essayMode === "site" ? "\n\n" + buildEssaysText() : "");
+    copyText(full, "✅ تم نسخ التقرير الكامل للحافظة!");
+  };
+
+  /* Review */
+  function renderReview(filter){
+    var list = document.getElementById("revList");
+    var html = [], wrong = 0;
+    MCQ.forEach(function(item, i){
+      var u = S.mcq[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : item.o[u];
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (i+1) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + esc(uTxt) + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + esc(item.o[item.a]) + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    TF.forEach(function(item, i){
+      var u = S.tf[i], ok = (u === item.a);
+      if(!ok) wrong++;
+      if(filter === "wrong" && ok) return;
+      var uTxt = u === undefined ? "لم تُجب" : (u ? "صح" : "خطأ");
+      var cTxt = item.a ? "صح" : "خطأ";
+      html.push(
+        '<div class="rev-item ' + (ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div style="font-weight:800">' + (51+i) + '. ' + esc(item.q) + '</div>' +
+          '<div class="rev-meta">' +
+            '<span class="' + (ok ? 'tag-ok' : 'tag-bad') + '">إجابتك: ' + uTxt + '</span>' +
+            (ok ? '' : '<span class="tag-ok">الصحيح: ' + cTxt + '</span>') +
+          '</div>' +
+          '<div class="rev-exp">💡 ' + esc(item.e) + '</div>' +
+        '</div>'
+      );
+    });
+    document.getElementById("wrongCnt").textContent = wrong;
+    if(!html.length){
+      list.innerHTML = '<div class="msg-box ok">🎉 ممتاز! لا توجد أي أخطاء في الأسئلة الموضوعية (100 / 100).</div>';
+    } else {
+      list.innerHTML = html.join("");
+    }
+  }
+
+  document.getElementById("revWrongBtn").onclick = function(){ renderReview("wrong"); };
+  document.getElementById("revAllBtn").onclick = function(){ renderReview("all"); };
+  document.getElementById("retakeBtn").onclick = function(){
+    if(!confirm("هل تريد مسح إجابات الجزء الموضوعي وإعادة المحاولة؟ (ستبقى إجاباتك المقالية محفوظة)")) return;
+    S.mcq = {}; S.tf = {}; S.graded = false; S.mcqPage = 0; S.tfPage = 0;
+    persist();
+    switchTab("mcq");
+    updateProgress();
+    toast("تمت إعادة ضبط الأسئلة الموضوعية — بالتوفيق!");
+  };
+
+  /* Tabs */
+  function switchTab(name){
+    S.tab = name;
+    persist();
+    ["mcq","tf","essay","result"].forEach(function(t){
+      document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-tab") === name);
+    });
+    if(name === "mcq") renderMcq();
+    else if(name === "tf") renderTf();
+    else if(name === "essay") renderEssay();
+    else if(name === "result") renderResult();
+    scrollToTop();
+  }
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.onclick = function(){ switchTab(this.getAttribute("data-tab")); };
+  });
+
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: "smooth" }); }
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function enterExam(){
+    gateView.classList.add("hidden");
+    examView.classList.remove("hidden");
+    var lbl = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    document.getElementById("userLabel").textContent = lbl;
+    if(!S.name && currentAuth.name) S.name = currentAuth.name;
+    tNameInput.value = S.name || "";
+    updateProgress();
+    switchTab(S.tab || "mcq");
+  }
+
+  if(currentAuth){ enterExam(); }
+})();
+</script>
+</body>
+</html>
