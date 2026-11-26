@@ -6,6 +6,12 @@
   <title>Interactive Quran • Al-Sajid Academy (114 Surahs) — Sheikh Al-Husary</title>
   <meta name="description" content="Al-Sajid Academy Interactive Quran for all 114 Surahs starting with Juz Amma: Story Mode, Recite & Memorize with Sheikh Mahmoud Khalil Al-Husary (Muallim & Murattal), Arabic Word Builder, Full Surah Review, and Printable Certificates.">
   <meta name="theme-color" content="#0F4C29">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Al-Sajid Quran">
   <link id="fav" rel="icon" type="image/webp" href="data:,">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +20,7 @@
 
   <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
   <script src="juz-amma-stories.js"></script>
+  <script src="juz-tabarak-stories.js"></script>
   <script>
     try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
   </script>
@@ -1261,6 +1268,9 @@
           <i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i>
           <span id="total-stars-val">0</span>
         </div>
+        <button class="icon-btn" id="pwa-install-btn" onclick="triggerPwaInstall()" title="Install Al-Sajid App on Phone" aria-label="Install App">
+          <i data-lucide="smartphone" style="width:17px;height:17px;"></i>
+        </button>
         <button class="icon-btn" onclick="copySurahLink()" title="Copy Direct Homework Link for This Surah" aria-label="Share Surah Link">
           <i data-lucide="share-2" style="width:17px;height:17px;"></i>
         </button>
@@ -1551,12 +1561,21 @@
          ============================================================ -->
     <section class="tab-pane" id="pane-trophy">
       <div class="trophy-panel">
-        <div class="juz-meter">
-          <div class="meter-head">
-            <span>Juz Amma Mastery Progress</span>
-            <span id="juz-amma-progress-lbl">0 / 37 Surahs Mastered</span>
+        <div class="juz-meter" style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <div class="meter-head">
+              <span>Juz Amma (Juz 30) Mastery</span>
+              <span id="juz-amma-progress-lbl">0 / 37 Surahs Mastered</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill" id="juz-amma-meter-fill"></div></div>
           </div>
-          <div class="meter-track"><div class="meter-fill" id="juz-amma-meter-fill"></div></div>
+          <div>
+            <div class="meter-head">
+              <span>Juz Tabarak (Juz 29) Mastery</span>
+              <span id="juz-tabarak-progress-lbl">0 / 11 Surahs Mastered</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill" id="juz-tabarak-meter-fill"></div></div>
+          </div>
         </div>
 
         <div>
@@ -1616,7 +1635,8 @@
         <div class="mf-row">
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
             <button type="button" class="fpill active" id="flt-juzamma" onclick="setFilter('juzamma')">Al-Fatihah + Juz Amma (38)</button>
-            <button type="button" class="fpill" id="flt-stories" onclick="setFilter('stories')">Stories Ready (<span id="stories-count-lbl">38</span>)</button>
+            <button type="button" class="fpill" id="flt-tabarak" onclick="setFilter('tabarak')">Juz Tabarak (11)</button>
+            <button type="button" class="fpill" id="flt-stories" onclick="setFilter('stories')">Stories Ready (<span id="stories-count-lbl">49</span>)</button>
             <button type="button" class="fpill" id="flt-all" onclick="setFilter('all')">All 114 Surahs</button>
           </div>
           <button type="button" class="fpill" id="sort-order-btn" onclick="toggleJuzAmmaOrder()">Order: An-Nas → An-Naba</button>
@@ -1630,6 +1650,29 @@
       </div>
 
       <div class="surah-grid-scroll" id="surah-grid"></div>
+    </div>
+  </div>
+
+  <!-- PWA INSTALL MODAL -->
+  <div class="modal-backdrop hidden" id="pwa-modal" role="dialog" aria-modal="true" aria-labelledby="pwa-modal-title">
+    <div class="modal-sheet" style="max-width:520px;">
+      <div class="modal-head">
+        <h3 id="pwa-modal-title">Install Al-Sajid App on Your Phone</h3>
+        <button type="button" class="icon-btn" onclick="closePwaModal()" aria-label="Close">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:14px;font-size:0.92rem;color:var(--ink);">
+        <p style="color:var(--ink-muted);">Add <strong>Al-Sajid Interactive Quran</strong> to your home screen for 1-tap full-screen access:</p>
+        <div style="background:var(--surface-soft);border:1px solid var(--border);border-radius:12px;padding:12px 15px;">
+          <strong style="display:block;margin-bottom:4px;">iPhone / iPad (Safari):</strong>
+          Tap the <strong>Share</strong> icon (⬆️) at the bottom, choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </div>
+        <div style="background:var(--surface-soft);border:1px solid var(--border);border-radius:12px;padding:12px 15px;">
+          <strong style="display:block;margin-bottom:4px;">Android (Google Chrome):</strong>
+          Tap the <strong>3 dots (⋮)</strong> menu at the top right, choose <strong>Install app</strong> (or <strong>Add to Home screen</strong>), then tap <strong>Install</strong>.
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1855,6 +1898,7 @@
     }
     function renderSurahGrid() {
       document.getElementById("flt-juzamma").classList.toggle("active", appState.filterMode === "juzamma" && appState.juzFilter === "all");
+      document.getElementById("flt-tabarak").classList.toggle("active", appState.filterMode === "tabarak" && appState.juzFilter === "all");
       document.getElementById("flt-stories").classList.toggle("active", appState.filterMode === "stories" && appState.juzFilter === "all");
       document.getElementById("flt-all").classList.toggle("active", appState.filterMode === "all" && appState.juzFilter === "all");
       document.getElementById("sort-order-btn").textContent = appState.juzAmmaReverse ? "Order: An-Nas → An-Naba" : "Order: Mushaf (1 → 114)";
@@ -1872,12 +1916,15 @@
       } else if (appState.juzFilter !== "all") {
         const jn = Number(appState.juzFilter);
         list = list.filter(s => s[5] === jn);
-        if (jn === 30 && appState.juzAmmaReverse) list.reverse();
+        if ((jn === 30 || jn === 29) && appState.juzAmmaReverse) list.reverse();
       } else if (appState.filterMode === "juzamma") {
         const fatihah = SURAHS[0];
         let ja = list.filter(s => s[5] === 30);
         if (appState.juzAmmaReverse) ja.reverse();
         list = [fatihah].concat(ja);
+      } else if (appState.filterMode === "tabarak") {
+        list = list.filter(s => s[5] === 29);
+        if (appState.juzAmmaReverse) list.reverse();
       } else if (appState.filterMode === "stories") {
         list = list.filter(s => !!STORIES_DB[String(s[0])]);
         if (appState.juzAmmaReverse) list.reverse();
@@ -2319,7 +2366,7 @@
           '</div>' +
           '<div class="panel" style="align-items:center;text-align:center;">' +
             '<h3 style="font-size:1.2rem;font-weight:800;">Start Memorizing Surah ' + meta[2] + ' Today</h3>' +
-            '<p style="max-width:56ch;color:var(--ink-muted);font-size:0.94rem;">Story Mode chapters are currently live for <strong>Surah Al-Fatihah + All 37 Surahs of Juz Amma (An-Naba 78 → An-Nas 114)</strong>, and Juz Tabarak stories are coming next!</p>' +
+            '<p style="max-width:56ch;color:var(--ink-muted);font-size:0.94rem;">Story Mode chapters are currently live for <strong>49 Surahs: Al-Fatihah + All 37 Surahs of Juz Amma + All 11 Surahs of Juz Tabarak (Al-Mulk 67 → An-Nas 114)</strong>!</p>' +
             '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">' +
               '<button type="button" class="btn btn-gold" onclick="switchTab(\'memorize\')">Start Recite &amp; Memorize</button>' +
               '<button type="button" class="btn btn-emerald" onclick="switchTab(\'puzzle\')">Play Word Builder</button>' +
@@ -2627,6 +2674,11 @@
       document.getElementById("juz-amma-progress-lbl").textContent = juzDone + " / 37 Surahs Mastered";
       document.getElementById("juz-amma-meter-fill").style.width = Math.round((juzDone / 37) * 100) + "%";
 
+      let tabDone = 0;
+      for (let s = 67; s <= 77; s++) { if (isSurahMastered(s)) tabDone++; }
+      document.getElementById("juz-tabarak-progress-lbl").textContent = tabDone + " / 11 Surahs Mastered";
+      document.getElementById("juz-tabarak-meter-fill").style.width = Math.round((tabDone / 11) * 100) + "%";
+
       document.getElementById("cert-surah-ar").textContent = "سُورَةُ " + meta[1];
       document.getElementById("cert-surah-en").textContent = "Surah " + meta[2] + " (" + meta[3] + ") • Chapter " + meta[0];
 
@@ -2686,6 +2738,38 @@
       c.width = window.innerWidth; c.height = window.innerHeight;
     });
 
+
+    /* PWA Service Worker & Smart Install */
+    let deferredPwaPrompt = null;
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      });
+    }
+    window.addEventListener("beforeinstallprompt", e => {
+      e.preventDefault();
+      deferredPwaPrompt = e;
+    });
+    window.addEventListener("appinstalled", () => {
+      deferredPwaPrompt = null;
+      const b = document.getElementById("pwa-install-btn");
+      if (b) b.classList.add("hidden");
+      showToast("Al-Sajid App installed on your device!");
+    });
+    async function triggerPwaInstall() {
+      playPop();
+      if (deferredPwaPrompt) {
+        deferredPwaPrompt.prompt();
+        try { await deferredPwaPrompt.userChoice; } catch (e) {}
+        deferredPwaPrompt = null;
+      } else {
+        document.getElementById("pwa-modal").classList.remove("hidden");
+      }
+    }
+    function closePwaModal() { document.getElementById("pwa-modal").classList.add("hidden"); }
+    document.getElementById("pwa-modal").addEventListener("click", e => { if (e.target.id === "pwa-modal") closePwaModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closePwaModal(); });
+
     /* Boot */
     window.addEventListener("DOMContentLoaded", () => {
       document.getElementById("fav").href = LOGO;
@@ -2700,6 +2784,10 @@
         document.getElementById("sound-btn").innerHTML = '<i data-lucide="volume-x" style="width:17px;height:17px;"></i>';
       }
       if (window.lucide) window.lucide.createIcons();
+      if (window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true) {
+        const pb = document.getElementById("pwa-install-btn");
+        if (pb) pb.classList.add("hidden");
+      }
       loadSurah(appState.currentSurah || 1);
     });
   </script>

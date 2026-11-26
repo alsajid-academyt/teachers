@@ -1,0 +1,55 @@
+{
+  "name": "أكاديمية الساجد | Al-Sajid Academy",
+  "short_name": "أكاديمية الساجد",
+  "description": "بوابة أكاديمية الساجد لتأهيل معلمي القرآن الكريم والعربية لغير الناطقين بها + المصحف التفاعلي (114 سورة).",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FAF9F4",
+  "theme_color": "#0F4C29",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Interactive Quran (114 Surahs)",
+      "short_name": "Interactive Quran",
+      "description": "Open Al-Sajid Interactive Quran with Sheikh Al-Husary",
+      "url": "./quran-quest.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "اختبار تحديد المستوى المجاني",
+      "short_name": "تحديد المستوى",
+      "description": "ابدأ اختبار تحديد المستوى في 6 دقائق",
+      "url": "./placement-test.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
