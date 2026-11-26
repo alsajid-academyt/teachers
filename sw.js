@@ -1,5 +1,5 @@
-/* Al-Sajid Academy PWA Service Worker v12.0 */
-const CACHE_NAME = 'alsajid-academy-v12';
+/* Al-Sajid Academy PWA Service Worker v29.0 */
+const CACHE_NAME = 'alsajid-academy-v29';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -15,6 +15,23 @@ const CORE_ASSETS = [
   './juz-22-stories.js',
   './juz-21-stories.js',
   './juz-20-stories.js',
+  './juz-19-stories.js',
+  './juz-18-stories.js',
+  './juz-17-stories.js',
+  './juz-16-stories.js',
+  './juz-15-stories.js',
+  './juz-14-stories.js',
+  './juz-13-stories.js',
+  './juz-12-stories.js',
+  './juz-11-stories.js',
+  './juz-10-stories.js',
+  './juz-9-stories.js',
+  './juz-8-stories.js',
+  './juz-7-stories.js',
+  './juz-6-stories.js',
+  './juz-4-stories.js',
+  './juz-3-stories.js',
+  './juz-1-stories.js',
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
