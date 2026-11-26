@@ -1332,6 +1332,7 @@
         <button class="icon-btn" onclick="copySurahLink()" title="Copy Direct Homework Link for This Surah" aria-label="Share Surah Link">
           <i data-lucide="share-2" style="width:17px;height:17px;"></i>
         </button>
+        <button type="button" class="fpill" id="lang-toggle-btn" onclick="toggleUiLang()" title="Switch Interface Language (EN / AR)" style="padding:6px 12px;font-size:0.8rem;font-weight:800;background:rgba(232,197,104,0.18);color:var(--gold-300);border-color:rgba(232,197,104,0.55);">عربي / EN</button>
         <button class="icon-btn" id="sound-btn" onclick="toggleSound()" title="Toggle Sound Effects" aria-label="Toggle Sound">
           <i data-lucide="volume-2" style="width:17px;height:17px;"></i>
         </button>
@@ -2210,7 +2211,7 @@
       document.getElementById("flt-juz1").classList.toggle("active", appState.filterMode === "juz1" && appState.juzFilter === "all");
       document.getElementById("flt-stories").classList.toggle("active", appState.filterMode === "stories" && appState.juzFilter === "all");
       document.getElementById("flt-all").classList.toggle("active", appState.filterMode === "all" && appState.juzFilter === "all");
-      document.getElementById("sort-order-btn").textContent = appState.juzAmmaReverse ? "Order: An-Nas → An-Naba" : "Order: Mushaf (1 → 114)";
+      document.getElementById("sort-order-btn").textContent = appState.juzAmmaReverse ? tUi("orderAnNas") : tUi("orderMushaf");
 
       const q = (document.getElementById("surah-search").value || "").trim().toLowerCase();
       let list = SURAHS.slice();
@@ -2434,13 +2435,386 @@
       return ayahObj.ar + ' <span class="ayah-num-mark">﴿' + toArabicIndic(ayahObj.ayahNumber) + '﴾</span>';
     }
 
+    
+    /* ===== BILINGUAL INTERFACE TRANSLATION (AR / EN — STORY CHAPTERS STAY AS-IS) ===== */
+    const UI_STRINGS = {
+      en: {
+        langBtn: "عربي / EN",
+        brandTitle: "Al-Sajid Interactive Quran",
+        brandSub: "114 Surahs • Sheikh Al-Husary",
+        academyLink: "Academy",
+        prevSurah: "Prev Surah",
+        nextSurah: "Next Surah",
+        browseSurahsPrefix: "Switch Surah",
+        tabMemorize: "Recite & Memorize",
+        tabStory: "Story Mode",
+        tabPuzzle: "Word Builder",
+        tabReview: "Full Surah",
+        tabTrophy: "Trophy Room",
+        guideLabel: "Al-Sajid Guide:",
+        guideDefault: "Assalamu Alaikum! Start with Surah Al-Fatihah — recite Ayah 1 from memory, then listen to Sheikh Al-Husary.",
+        guideListenVerify: "Listen closely to Sheikh Al-Husary and compare your recitation.",
+        prevBtn: "Prev",
+        nextBtn: "Next",
+        ayahWord: "Ayah",
+        ofWord: "of",
+        masteredStar: "Mastered ⭐",
+        madinahMushaf: "Madinah Mushaf",
+        tajweedOn: "Tajweed Colors: On",
+        tajweedOff: "Tajweed Colors: Off",
+        hideAndTest: "Hide & Test Myself",
+        shieldHeading: "Recite From Memory First",
+        shieldDesc: "Take a calm breath and recite this Ayah out loud. When you finish, tap below to reveal the Quranic script and verify with Sheikh Al-Husary.",
+        revealBtn: "Reveal Ayah & Listen",
+        meaningLabel: "English Meaning (No Transliteration)",
+        lessonPrefix: "Lesson:",
+        verifiedAudio: "Verified Audio",
+        reciterName: "Sheikh Mahmoud Khalil Al-Husary",
+        muallimBtn: "Muallim (Teacher)",
+        murattalBtn: "Murattal (Continuous)",
+        listenAyah: "Listen to Ayah",
+        pauseRecitation: "Pause Recitation",
+        speed1x: "1.0x Normal",
+        speedSlow: "0.75x Slow",
+        repeatPrefix: "Repeat:",
+        assessQ: "How did your recitation go?",
+        recitedOk: "I Recited Correctly! (+3 ⭐)",
+        practiceAgain: "Listen & Practice Again",
+        nextAyah: "Next Ayah",
+        goTrophy: "Go to Trophy Room",
+        puzzleTitle: "Arabic Word Builder",
+        puzzleSub: "Tap the Arabic words in Quranic order (Right → Left) to assemble the Ayah and hear Sheikh Al-Husary recite it.",
+        puzzleWord: "Word",
+        puzzleMeaningPrefix: "Ayah",
+        puzzleMeaningMid: "Meaning:",
+        hintBtn: "Hint",
+        resetBtn: "Reset",
+        nextPuzzleBtn: "Next Ayah Puzzle",
+        reviewSubPrefix: "All",
+        reviewSubSuffix: "verses with Sheikh Al-Husary",
+        playFullPrefix: "Play All",
+        playFullSuffix: "Ayahs",
+        pauseFull: "Pause Full Surah",
+        modeMuallim: "Mode: Muallim",
+        modeMurattal: "Mode: Murattal",
+        memoryMode: "Memory Mode",
+        showArabic: "Show Arabic",
+        hideEnglish: "Hide English",
+        showEnglish: "Show English",
+        fullQuranMeter: "🏆 Complete Holy Quran Mastery (All 114 Surahs)",
+        surahsMastered: "Surahs Mastered",
+        surahMastered: "Surah Mastered",
+        certKicker: "Al-Sajid Academy • Certificate of Quran Memorization",
+        certHeading: "Quran Star Champion",
+        certPresented: "Proudly presented to:",
+        certFor: "For reciting, memorizing, and studying",
+        certRefTitle: "Recitation Reference",
+        certRefVal: "Sheikh Al-Husary",
+        certAcadTitle: "Academy",
+        certAcadVal: "Al-Sajid Academy",
+        certStatusTitle: "Status",
+        certInProgress: "In Progress",
+        certMastered: "Mastered 🏆",
+        celebrateBtn: "Celebrate",
+        printCertBtn: "Print Certificate",
+        continueBtn: "Continue Practicing",
+        libTitle: "Quran Surah Library (All 114 Surahs)",
+        orderAnNas: "Order: An-Nas → An-Naba",
+        orderMushaf: "Order: Mushaf (1 → 114)",
+        searchPh: "Search by English name, Arabic name, or number (1–114)...",
+        allJuzOpt: "All Juz (1–30)",
+        all114Btn: "All 114 Surahs",
+        storyReadyBadge: "📖 Story Ready",
+        chapterWord: "Chapter",
+        versesWord: "Verses",
+        juzWord: "Juz",
+        storyQuizTitle: "Quick Story Check (+2 Bonus Stars)",
+        storyQuizSubPrefix: "Check what you learned from Surah",
+        questionWord: "Question",
+        storyFallbackHeading: "Start Memorizing Today",
+        storyFallbackBtn1: "Start Recite & Memorize",
+        storyFallbackBtn2: "Play Word Builder"
+      },
+      ar: {
+        langBtn: "English / عربي",
+        brandTitle: "مصحف أكاديمية الساجد التفاعلي",
+        brandSub: "١١٤ سورة • الشيخ محمود خليل الحصري",
+        academyLink: "الأكاديمية",
+        prevSurah: "السورة السابقة",
+        nextSurah: "السورة التالية",
+        browseSurahsPrefix: "الفهرس وتبديل السورة",
+        tabMemorize: "التسميع والحفظ",
+        tabStory: "القصص والمعاني",
+        tabPuzzle: "تركيب الكلمات",
+        tabReview: "مراجعة السورة",
+        tabTrophy: "لوحة الشرف",
+        guideLabel: "مرشد الساجد:",
+        guideDefault: "السلام عليكم! ابدأ قراءة من هنا — سمّع الآية الأولى غيبًا ثم استمع للشيخ الحصري.",
+        guideListenVerify: "استمع جيدًا لتلاوة الشيخ الحصري وقارن قراءتك.",
+        prevBtn: "السابق",
+        nextBtn: "التالي",
+        ayahWord: "آية",
+        ofWord: "من",
+        masteredStar: "محفوظة ⭐",
+        madinahMushaf: "مصحف المدينة",
+        tajweedOn: "ألوان التجويد: مفعّلة",
+        tajweedOff: "ألوان التجويد: متوقفة",
+        hideAndTest: "إخفاء واختبار نفسي",
+        shieldHeading: "اقرأ من هنا — سمّع غيبًا أولًا",
+        shieldDesc: "خذ نفسًا هادئًا واقرأ الآية بصوت واضح، ثم اضغط لإظهار الرسم القرآني ومراجعة التلاوة مع الشيخ الحصري.",
+        revealBtn: "إظهار الآية والاستماع",
+        meaningLabel: "المعنى باللغة الإنجليزية",
+        lessonPrefix: "فائدة الآية:",
+        verifiedAudio: "تلاوة معتمدة",
+        reciterName: "الشيخ محمود خليل الحصري",
+        muallimBtn: "المعلّم (تعليمي)",
+        murattalBtn: "المرتّل (متصل)",
+        listenAyah: "استمع للآية",
+        pauseRecitation: "إيقاف التلاوة",
+        speed1x: "١.٠x عادي",
+        speedSlow: "٠.٧٥x بطيء",
+        repeatPrefix: "تكرار:",
+        assessQ: "كيف كانت تلاوتك لهذه الآية؟",
+        recitedOk: "قرأتُها بإتقان! (+٣ ⭐)",
+        practiceAgain: "أعد الاستماع والتدريب",
+        nextAyah: "الآية التالية",
+        goTrophy: "إلى لوحة الشرف",
+        puzzleTitle: "لعبة تركيب كلمات الآية",
+        puzzleSub: "رتّب كلمات الآية من اليمين إلى اليسار ثم استمع لتلاوة الشيخ الحصري.",
+        puzzleWord: "كلمة",
+        puzzleMeaningPrefix: "معنى الآية",
+        puzzleMeaningMid: ":",
+        hintBtn: "تلميح",
+        resetBtn: "إعادة",
+        nextPuzzleBtn: "آية الترتيب التالية",
+        reviewSubPrefix: "جميع آيات السورة (",
+        reviewSubSuffix: "آية) بصوت الشيخ الحصري",
+        playFullPrefix: "تشغيل السورة كاملة (",
+        playFullSuffix: "آيات)",
+        pauseFull: "إيقاف السورة",
+        modeMuallim: "النمط: المعلّم",
+        modeMurattal: "النمط: المرتّل",
+        memoryMode: "وضع الاختبار",
+        showArabic: "إظهار النص",
+        hideEnglish: "إخفاء الإنجليزية",
+        showEnglish: "إظهار الإنجليزية",
+        fullQuranMeter: "🏆 إتمام المصحف الشريف كاملًا (١١٤ سورة)",
+        surahsMastered: "سورة متقنة",
+        surahMastered: "سورة متقنة",
+        certKicker: "أكاديمية الساجد • شهادة إتقان وتلاوة القرآن",
+        certHeading: "بطل نجوم القرآن",
+        certPresented: "تُمنح بكل فخر إلى:",
+        certFor: "عن تلاوة وحفظ ودراسة",
+        certRefTitle: "مرجع التلاوة",
+        certRefVal: "الشيخ الحصري",
+        certAcadTitle: "الأكاديمية",
+        certAcadVal: "أكاديمية الساجد",
+        certStatusTitle: "الحالة",
+        certInProgress: "قيد الإنجاز",
+        certMastered: "متقَنة بالكامل 🏆",
+        celebrateBtn: "احتفال بالإنجاز",
+        printCertBtn: "طباعة الشهادة",
+        continueBtn: "متابعة التدريب",
+        libTitle: "فهرس سور القرآن الكريم (١١٤ سورة)",
+        orderAnNas: "الترتيب: الناس ← النبأ",
+        orderMushaf: "الترتيب: المصحف (١ ← ١١٤)",
+        searchPh: "ابحث باسم السورة بالعربية أو الإنجليزية أو رقمها (١–١١٤)...",
+        allJuzOpt: "جميع الأجزاء (١–٣٠)",
+        all114Btn: "كل السور (١١٤)",
+        storyReadyBadge: "📖 القصص متاحة",
+        chapterWord: "سورة رقم",
+        versesWord: "آية",
+        juzWord: "الجزء",
+        storyQuizTitle: "اختبار سريع للفهم (+٢ نجمة إضافية)",
+        storyQuizSubPrefix: "اختبر فهمك لرسائل",
+        questionWord: "سؤال",
+        storyFallbackHeading: "ابدأ الحفظ والتدريب الآن",
+        storyFallbackBtn1: "ابدأ التسميع والحفظ",
+        storyFallbackBtn2: "لعبة تركيب الكلمات"
+      }
+    };
+
+    function getUiLang() {
+      return appState.uiLang === "ar" ? "ar" : "en";
+    }
+
+    function tUi(key) {
+      const lang = getUiLang();
+      return (UI_STRINGS[lang] && UI_STRINGS[lang][key]) || UI_STRINGS.en[key] || key;
+    }
+
+    function toggleUiLang() {
+      playPop();
+      appState.uiLang = (getUiLang() === "en") ? "ar" : "en";
+      saveState();
+      applyUiLanguage();
+      showToast(getUiLang() === "ar" ? "تم تحويل العناوين والفهرس إلى العربية" : "Interface headers switched to English");
+    }
+
+    function applyUiLanguage() {
+      const isAr = (getUiLang() === "ar");
+      const langBtn = document.getElementById("lang-toggle-btn");
+      if (langBtn) langBtn.textContent = tUi("langBtn");
+
+      const brandStrong = document.querySelector(".tb-title strong");
+      const brandSmall = document.querySelector(".tb-title small");
+      const acadSpan = document.querySelector(".tb-link span");
+      if (brandStrong) brandStrong.textContent = tUi("brandTitle");
+      if (brandSmall) brandSmall.textContent = tUi("brandSub");
+      if (acadSpan) acadSpan.textContent = tUi("academyLink");
+
+      const prevSBtn = document.querySelector("#prev-surah-btn span");
+      const nextSBtn = document.querySelector("#next-surah-btn span");
+      if (prevSBtn) prevSBtn.textContent = tUi("prevSurah");
+      if (nextSBtn) nextSBtn.textContent = tUi("nextSurah");
+
+      const tabMap = {
+        "tab-btn-memorize": "tabMemorize",
+        "tab-btn-story": "tabStory",
+        "tab-btn-puzzle": "tabPuzzle",
+        "tab-btn-review": "tabReview",
+        "tab-btn-trophy": "tabTrophy"
+      };
+      Object.keys(tabMap).forEach(tid => {
+        const sp = document.querySelector("#" + tid + " span");
+        if (sp) sp.textContent = tUi(tabMap[tid]);
+      });
+
+      const guideStrong = document.querySelector(".coach-copy strong");
+      if (guideStrong) guideStrong.textContent = tUi("guideLabel");
+
+      const prevAySpan = document.querySelector("#prev-ayah-btn span");
+      const nextAyTopSpan = document.querySelector("#next-ayah-top-btn span");
+      if (prevAySpan) prevAySpan.textContent = tUi("prevBtn");
+      if (nextAyTopSpan) nextAyTopSpan.textContent = tUi("nextBtn");
+
+      const rehideSpan = document.querySelector("#rehide-btn span");
+      if (rehideSpan) rehideSpan.textContent = tUi("hideAndTest");
+
+      const shieldH2 = document.querySelector("#memory-shield h2");
+      const shieldP = document.querySelector("#memory-shield p");
+      const revealSpan = document.querySelector("#memory-shield .btn span");
+      if (shieldH2) shieldH2.textContent = tUi("shieldHeading");
+      if (shieldP) shieldP.textContent = tUi("shieldDesc");
+      if (revealSpan) revealSpan.textContent = tUi("revealBtn");
+
+      const mLabel = document.querySelector(".meaning-label");
+      if (mLabel) mLabel.textContent = tUi("meaningLabel");
+
+      const rTag = document.querySelector(".reciter-tag");
+      const rName = document.querySelector(".reciter-name");
+      const rMu = document.getElementById("rec-muallim-btn");
+      const rMr = document.getElementById("rec-murattal-btn");
+      if (rTag) rTag.textContent = tUi("verifiedAudio");
+      if (rName) rName.textContent = tUi("reciterName");
+      if (rMu) rMu.textContent = tUi("muallimBtn");
+      if (rMr) rMr.textContent = tUi("murattalBtn");
+
+      const sp1 = document.getElementById("speed-1x");
+      const spS = document.getElementById("speed-slow");
+      if (sp1) sp1.textContent = tUi("speed1x");
+      if (spS) spS.textContent = tUi("speedSlow");
+      document.getElementById("repeat-label").textContent = tUi("repeatPrefix") + " " + (appState.repeatSetting || 1) + "x";
+
+      const assessQ = document.querySelector(".assess-q");
+      const okSpan = document.querySelector(".assess-row .btn-ok span");
+      const prSpan = document.querySelector(".assess-row .btn-soft span");
+      if (assessQ) assessQ.textContent = tUi("assessQ");
+      if (okSpan) okSpan.textContent = tUi("recitedOk");
+      if (prSpan) prSpan.textContent = tUi("practiceAgain");
+
+      const puzH2 = document.querySelector("#pane-puzzle h2");
+      const puzP = document.querySelector("#pane-puzzle .panel > div:first-child p");
+      const prevPuzSp = document.querySelector("#prev-puz-btn span");
+      const nextPuzSp = document.querySelector("#next-puz-btn span");
+      const puzNextSp = document.querySelector("#puzzle-next-btn span");
+      if (puzH2) puzH2.textContent = tUi("puzzleTitle");
+      if (puzP) puzP.textContent = tUi("puzzleSub");
+      if (prevPuzSp) prevPuzSp.textContent = tUi("prevBtn");
+      if (nextPuzSp) nextPuzSp.textContent = tUi("nextBtn");
+      if (puzNextSp) puzNextSp.textContent = tUi("nextPuzzleBtn");
+
+      const puzActionSpans = document.querySelectorAll("#pane-puzzle .btn-soft span");
+      if (puzActionSpans[0]) puzActionSpans[0].textContent = tUi("hintBtn");
+      if (puzActionSpans[1]) puzActionSpans[1].textContent = tUi("resetBtn");
+
+      const hideEnEl = document.getElementById("hide-en-text");
+      if (hideEnEl) hideEnEl.textContent = appState.hideEnglishInReview ? tUi("showEnglish") : tUi("hideEnglish");
+      const hideArEl = document.getElementById("hide-btn-text");
+      if (hideArEl) hideArEl.textContent = appState.memoryModeHideText ? tUi("showArabic") : tUi("memoryMode");
+
+      const certK = document.querySelector(".cert-kicker");
+      const certH = document.querySelector(".cert-heading");
+      const certP = document.querySelector("#certificate-node > div:nth-child(4)");
+      const certF = document.querySelector("#certificate-node > div:nth-child(6)");
+      if (certK) certK.textContent = tUi("certKicker");
+      if (certH) certH.textContent = tUi("certHeading");
+      if (certP) certP.textContent = tUi("certPresented");
+      if (certF) certF.textContent = tUi("certFor");
+
+      const footCols = document.querySelectorAll(".cert-foot > div");
+      if (footCols[0]) footCols[0].innerHTML = "<strong>" + tUi("certRefTitle") + "</strong><br>" + tUi("certRefVal");
+      if (footCols[1]) footCols[1].innerHTML = "<strong>" + tUi("certAcadTitle") + "</strong><br>" + tUi("certAcadVal");
+      if (footCols[2]) {
+        const curSt = document.getElementById("cert-status-lbl") ? document.getElementById("cert-status-lbl").textContent : "";
+        footCols[2].innerHTML = "<strong>" + tUi("certStatusTitle") + "</strong><br><span id=\"cert-status-lbl\">" + curSt + "</span>";
+      }
+
+      const trophyBtns = document.querySelectorAll("#pane-trophy .trophy-panel > div:last-child .btn");
+      if (trophyBtns[0]) trophyBtns[0].innerHTML = '<i data-lucide="party-popper" style="width:18px;height:18px;"></i><span>' + tUi("celebrateBtn") + '</span>';
+      if (trophyBtns[1]) trophyBtns[1].innerHTML = '<i data-lucide="printer" style="width:17px;height:17px;"></i><span>' + tUi("printCertBtn") + '</span>';
+      if (trophyBtns[2]) trophyBtns[2].innerHTML = '<i data-lucide="rotate-ccw" style="width:17px;height:17px;"></i><span>' + tUi("continueBtn") + '</span>';
+
+      const libTitle = document.getElementById("lib-modal-title");
+      const sInp = document.getElementById("surah-search");
+      const all114Btn = document.getElementById("flt-all");
+      if (libTitle) libTitle.textContent = tUi("libTitle");
+      if (sInp) sInp.placeholder = tUi("searchPh");
+      if (all114Btn) all114Btn.textContent = tUi("all114Btn");
+
+      const pwaTitle = document.getElementById("pwa-modal-title");
+      if (pwaTitle) pwaTitle.textContent = isAr ? "تثبيت تطبيق مصحف الساجد على الهاتف" : "Install Al-Sajid App on Your Phone";
+
+      const meta = getSurahMeta(appState.currentSurah);
+      document.getElementById("hdr-surah-en").innerHTML = isAr
+        ? ("سورة " + meta[1] + " <span>(" + meta[2] + ")</span>")
+        : ("Surah " + meta[2] + " <span>(" + meta[3] + ")</span>");
+      document.getElementById("hdr-meta-pills").innerHTML =
+        '<span class="meta-pill">' + tUi("chapterWord") + ' ' + meta[0] + '</span>' +
+        '<span class="meta-pill">' + meta[4] + ' ' + tUi("versesWord") + '</span>' +
+        '<span class="meta-pill">' + tUi("juzWord") + ' ' + meta[5] + '</span>' +
+        '<span class="meta-pill">' + meta[6] + '</span>' +
+        (STORIES_DB[String(num_or_cur())] ? '<span class="meta-pill" style="background:rgba(232,197,104,0.22);color:var(--gold-300);">' + tUi("storyReadyBadge") + '</span>' : '');
+      document.getElementById("library-btn-lbl").textContent = isAr
+        ? ("السورة " + meta[0] + ": " + meta[1] + " — " + tUi("browseSurahsPrefix"))
+        : ("Surah " + meta[0] + ": " + meta[2] + " — " + tUi("browseSurahsPrefix"));
+
+      document.getElementById("mascot-message").textContent = isAr
+        ? ("سورة " + meta[1] + " — " + tUi("ayahWord") + " " + (activeAyahIndex + 1) + ": اقرأ من هنا غيبًا أولًا ثم استمع للشيخ الحصري.")
+        : ("Surah " + meta[2] + " — Ayah " + (activeAyahIndex + 1) + ": Recite from memory first, then verify with Sheikh Al-Husary.");
+
+      paintTajweedUI();
+      updateReciterButtonsUI();
+      if (currentAyahs.length) {
+        renderMemorizeStepper();
+        renderCurrentAyah();
+        renderPuzzleStepper();
+        renderPuzzle(currentPuzzleIndex);
+        renderFullSurahReview();
+        renderStoryTab();
+      }
+      updateTrophyScreen();
+      if (window.lucide) window.lucide.createIcons();
+    }
+    function num_or_cur() { return appState.currentSurah; }
+
     function paintTajweedUI() {
       const on = !!appState.tajweedColors;
       document.body.classList.toggle("tajweed-mode", on);
       const b1 = document.getElementById("tajweed-btn-lbl");
       const b2 = document.getElementById("review-tajweed-lbl");
-      if (b1) b1.textContent = on ? "Tajweed Colors: On" : "Madinah Mushaf";
-      if (b2) b2.textContent = on ? "Tajweed Colors: On" : "Tajweed Colors: Off";
+      if (b1) b1.textContent = on ? tUi("tajweedOn") : tUi("madinahMushaf");
+      if (b2) b2.textContent = on ? tUi("tajweedOn") : tUi("tajweedOff");
       const btn1 = document.getElementById("tajweed-toggle-btn");
       if (btn1) {
         btn1.classList.toggle("btn-emerald", on);
@@ -2674,6 +3048,7 @@
         currentAyahs = await fetchSurahVerses(num);
         loader.classList.remove("show");
         renderAllTabsForSurah();
+        applyUiLanguage();
       } catch (err) {
         document.getElementById("loading-text").textContent = "Unable to connect right now. Check your internet connection and select the Surah again.";
         showToast("Connection error loading Surah " + meta[2]);
@@ -2734,7 +3109,7 @@
       const isM = appState.reciterMode === "muallim";
       document.getElementById("rec-muallim-btn").classList.toggle("active", isM);
       document.getElementById("rec-murattal-btn").classList.toggle("active", !isM);
-      document.getElementById("review-reciter-btn").textContent = isM ? "Mode: Muallim" : "Mode: Murattal";
+      document.getElementById("review-reciter-btn").textContent = isM ? tUi("modeMuallim") : tUi("modeMurattal");
     }
     function setReciterMode(mode) {
       playPop();
@@ -2902,7 +3277,7 @@
       const isMast = prog.mastered.includes(idx);
       const story = STORIES_DB[String(appState.currentSurah)];
 
-      document.getElementById("ayah-badge-text").textContent = "Ayah " + data.ayahNumber + " of " + currentAyahs.length + (isMast ? " • Mastered ⭐" : "");
+      document.getElementById("ayah-badge-text").textContent = tUi("ayahWord") + " " + data.ayahNumber + " " + tUi("ofWord") + " " + currentAyahs.length + (isMast ? " • " + tUi("masteredStar") : "");
       document.getElementById("bismillah-line").classList.toggle("hidden", !(idx === 0 && appState.currentSurah !== 1 && appState.currentSurah !== 9));
       document.getElementById("arabic-verse-display").innerHTML = renderAyahMarkup(data);
       document.getElementById("english-meaning-display").textContent = data.en;
@@ -2910,12 +3285,12 @@
       const tafsirEl = document.getElementById("tafsir-note-display");
       if (story && story.tafsir && story.tafsir[idx]) {
         tafsirEl.classList.remove("hidden");
-        tafsirEl.innerHTML = "<strong>Lesson:</strong> " + story.tafsir[idx];
+        tafsirEl.innerHTML = "<strong>" + tUi("lessonPrefix") + "</strong> " + story.tafsir[idx];
       } else {
         tafsirEl.classList.add("hidden");
       }
 
-      document.getElementById("next-ayah-lbl").textContent = (idx < currentAyahs.length - 1) ? "Next Ayah" : "Go to Trophy Room";
+      document.getElementById("next-ayah-lbl").textContent = (idx < currentAyahs.length - 1) ? tUi("nextAyah") : tUi("goTrophy");
       document.getElementById("assessment-feedback").className = "callout";
       document.getElementById("aud-cur").textContent = "0:00";
       document.getElementById("aud-dur").textContent = "0:00";
@@ -3114,7 +3489,7 @@
       const data = currentAyahs[idx];
       currentPuzzleItems = buildPuzzleItems(data, data.customWords);
       puzzlePlacedWords = [];
-      document.getElementById("puzzle-clue").innerHTML = "<strong>Ayah " + data.ayahNumber + " Meaning:</strong> " + data.en;
+      document.getElementById("puzzle-clue").innerHTML = "<strong>" + tUi("puzzleMeaningPrefix") + " " + data.ayahNumber + " " + tUi("puzzleMeaningMid") + "</strong> " + data.en;
       document.getElementById("puzzle-feedback").className = "callout";
       document.getElementById("puzzle-next-btn").classList.add("hidden");
 
@@ -3127,7 +3502,7 @@
         const s = document.createElement("div");
         s.className = "word-slot";
         s.id = "slot-" + wi;
-        s.textContent = "Word " + (wi + 1);
+        s.textContent = tUi("puzzleWord") + " " + (wi + 1);
         slots.appendChild(s);
       });
 
@@ -3199,9 +3574,9 @@
     /* ===== FULL SURAH REVIEW (PAGINATED FOR LONG SURAHS) ===== */
     function renderFullSurahReview() {
       const meta = getSurahMeta(appState.currentSurah);
-      document.getElementById("review-heading").textContent = "Surah " + meta[2] + " — Full Review";
-      document.getElementById("review-sub").textContent = "All " + currentAyahs.length + " verses with Sheikh Al-Husary (" + RECITERS[appState.reciterMode].label + ").";
-      document.getElementById("full-play-text").textContent = isFullSurahPlaying ? "Pause Full Surah" : ("Play All " + currentAyahs.length + " Ayahs");
+      document.getElementById("review-heading").textContent = (getUiLang() === "ar" ? ("سورة " + meta[1] + " — " + tUi("tabReview")) : ("Surah " + meta[2] + " — Full Review"));
+      document.getElementById("review-sub").textContent = tUi("reviewSubPrefix") + " " + currentAyahs.length + " " + tUi("reviewSubSuffix");
+      document.getElementById("full-play-text").textContent = isFullSurahPlaying ? tUi("pauseFull") : (tUi("playFullPrefix") + " " + currentAyahs.length + " " + tUi("playFullSuffix"));
       document.getElementById("review-bismillah-wrap").classList.toggle("hidden", (appState.currentSurah === 1 || appState.currentSurah === 9 || reviewPage > 0));
 
       const totalPages = Math.ceil(currentAyahs.length / REVIEW_PAGE_SIZE);
@@ -3234,7 +3609,7 @@
         row.id = "review-row-" + idx;
         row.innerHTML =
           '<div class="ayah-row-top">' +
-            '<span class="ayah-row-num">Ayah ' + v.ayahNumber + '</span>' +
+            '<span class="ayah-row-num">' + tUi("ayahWord") + ' ' + v.ayahNumber + '</span>' +
             '<button type="button" class="btn btn-soft btn-sm" onclick="playSingleReviewAyah(' + idx + ')">' +
               '<i data-lucide="play" style="width:14px;height:14px;fill:currentColor;"></i><span>Listen</span>' +
             '</button>' +
@@ -3296,7 +3671,7 @@
 
       let juzDone = 0;
       for (let s = 78; s <= 114; s++) { if (isSurahMastered(s)) juzDone++; }
-      document.getElementById("juz-amma-progress-lbl").textContent = juzDone + " / 37 Surahs Mastered";
+      document.getElementById("juz-amma-progress-lbl").textContent = juzDone + " / 37 " + tUi("surahsMastered");
       document.getElementById("juz-amma-meter-fill").style.width = Math.round((juzDone / 37) * 100) + "%";
 
       let tabDone = 0;
@@ -3423,16 +3798,16 @@
 
       let j1Done = 0;
       for (let s = 1; s <= 2; s++) { if (isSurahMastered(s)) j1Done++; }
-      document.getElementById("juz-1-progress-lbl").textContent = j1Done + " / 2 Surahs Mastered";
+      document.getElementById("juz-1-progress-lbl").textContent = j1Done + " / 2 " + tUi("surahsMastered");
       document.getElementById("juz-1-meter-fill").style.width = Math.round((j1Done / 2) * 100) + "%";
 
       let allDone = 0;
       for (let s = 1; s <= 114; s++) { if (isSurahMastered(s)) allDone++; }
-      document.getElementById("full-quran-progress-lbl").textContent = allDone + " / 114 Surahs Mastered";
+      document.getElementById("full-quran-progress-lbl").textContent = allDone + " / 114 " + tUi("surahsMastered");
       document.getElementById("full-quran-meter-fill").style.width = Math.round((allDone / 114) * 100) + "%";
 
       document.getElementById("cert-surah-ar").textContent = "سُورَةُ " + meta[1];
-      document.getElementById("cert-surah-en").textContent = "Surah " + meta[2] + " (" + meta[3] + ") • Chapter " + meta[0];
+      document.getElementById("cert-surah-en").textContent = (getUiLang() === "ar" ? ("سورة " + meta[1] + " • " + tUi("chapterWord") + " " + meta[0]) : ("Surah " + meta[2] + " (" + meta[3] + ") • Chapter " + meta[0]));
 
       const h = document.getElementById("trophy-status-heading");
       const sub = document.getElementById("trophy-status-subtext");
