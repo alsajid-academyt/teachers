@@ -119,9 +119,9 @@
     .tb-title strong { display: block; font-size: 1rem; font-weight: 800; color: #FFFFFF; }
     .tb-title small { display: block; font-size: 0.74rem; color: var(--gold-300); font-weight: 600; }
 
-    .tb-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .tb-nav { display: flex; align-items: center; gap: 3px; flex-wrap: nowrap; }
     .nav-link {
-      padding: 7px 12px; border-radius: var(--r-pill); font-size: 0.85rem; font-weight: 700;
+      padding: 6px 10px; border-radius: var(--r-pill); font-size: 0.82rem; font-weight: 700;
       color: rgba(255, 255, 255, 0.88); transition: 0.18s; white-space: nowrap;
     }
     .nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; }
@@ -300,7 +300,7 @@
     }
     .toast.show { opacity: 1; }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1060px) {
       .tb-nav { display: none; }
       .menu-toggle { display: inline-flex; }
       .lib-tabs { grid-template-columns: repeat(3, 1fr); border-radius: var(--r-md); }
@@ -317,7 +317,7 @@
   <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="tb-brand" href="catalog.html">
+      <a class="tb-brand" href="index.html">
         <img class="tb-logo" data-logo="1" alt="شعار أكاديمية الساجد">
         <div class="tb-title">
           <strong>أكاديمية الساجد | المكتبة العلمية</strong>
@@ -326,10 +326,10 @@
       </a>
 
       <nav class="tb-nav" aria-label="التنقل الرئيسي">
-        <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
-        <a class="nav-link" href="index.html">الدليل التفاعلي (+540)</a>
+        <a class="nav-link" href="index.html">الرئيسية</a>
+        <a class="nav-link" href="sentences-course.html">كورس الـ 500 جملة</a>
         <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
-        <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+        <a class="nav-link" href="practical-training.html">مجتمع التدريب</a>
         <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
         <a class="nav-link active" href="library.html">المكتبة العلمية</a>
       </nav>
@@ -343,10 +343,10 @@
     </div>
 
     <div class="mobile-drawer" id="mobile-drawer">
-      <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
-      <a class="nav-link" href="index.html">الدليل التفاعلي (+540 جملة)</a>
-      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي (114 سورة)</a>
-      <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+      <a class="nav-link" href="index.html">الرئيسية</a>
+      <a class="nav-link" href="sentences-course.html">كورس الـ 500 جملة</a>
+      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
+      <a class="nav-link" href="practical-training.html">مجتمع التدريب</a>
       <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
       <a class="nav-link active" href="library.html">المكتبة العلمية</a>
     </div>
@@ -479,7 +479,7 @@
           <span class="badge">أداة مساندة</span>
           <h3>الدليل التفاعلي (+540 جملة إنجليزية)</h3>
           <p>استخدم الجمل الجاهزة في الدليل لتصحيح التلاوة والتشجيع بلطف أثناء حصة القرآن دون توقف أو حرج.</p>
-          <a href="index.html" class="btn btn-soft btn-sm" style="align-self:flex-start;margin-top:auto;">فتح الدليل التفاعلي</a>
+          <a href="sentences-course.html" class="btn btn-soft btn-sm" style="align-self:flex-start;margin-top:auto;">فتح كورس الـ 500 جملة</a>
         </div>
       </div>
     </section>

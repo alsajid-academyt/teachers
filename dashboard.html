@@ -125,9 +125,9 @@
     .tb-title strong { display: block; font-size: 1rem; font-weight: 800; color: #FFFFFF; }
     .tb-title small { display: block; font-size: 0.74rem; color: var(--gold-300); font-weight: 600; }
 
-    .tb-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .tb-nav { display: flex; align-items: center; gap: 3px; flex-wrap: nowrap; }
     .nav-link {
-      padding: 7px 12px; border-radius: var(--r-pill); font-size: 0.85rem; font-weight: 700;
+      padding: 6px 10px; border-radius: var(--r-pill); font-size: 0.82rem; font-weight: 700;
       color: rgba(255, 255, 255, 0.88); transition: 0.18s; white-space: nowrap;
     }
     .nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; }
@@ -435,7 +435,7 @@
     }
     .toast.show { opacity: 1; }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1060px) {
       .tb-nav { display: none; }
       .menu-toggle { display: inline-flex; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); }
@@ -458,7 +458,7 @@
   <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="tb-brand" href="catalog.html">
+      <a class="tb-brand" href="index.html">
         <img class="tb-logo" data-logo="1" alt="شعار أكاديمية الساجد">
         <div class="tb-title">
           <strong>أكاديمية الساجد | لوحة المتدرب</strong>
@@ -467,10 +467,10 @@
       </a>
 
       <nav class="tb-nav" aria-label="التنقل الرئيسي">
-        <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
-        <a class="nav-link" href="index.html">الدليل التفاعلي (+540)</a>
+        <a class="nav-link" href="index.html">الرئيسية</a>
+        <a class="nav-link" href="sentences-course.html">كورس الـ 500 جملة</a>
         <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
-        <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+        <a class="nav-link" href="practical-training.html">مجتمع التدريب</a>
         <a class="nav-link active" href="dashboard.html">لوحة المتدرب</a>
         <a class="nav-link" href="library.html">المكتبة العلمية</a>
       </nav>
@@ -484,10 +484,10 @@
     </div>
 
     <div class="mobile-drawer" id="mobile-drawer">
-      <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
-      <a class="nav-link" href="index.html">الدليل التفاعلي (+540 جملة)</a>
-      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي (114 سورة)</a>
-      <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+      <a class="nav-link" href="index.html">الرئيسية</a>
+      <a class="nav-link" href="sentences-course.html">كورس الـ 500 جملة</a>
+      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
+      <a class="nav-link" href="practical-training.html">مجتمع التدريب</a>
       <a class="nav-link active" href="dashboard.html">لوحة المتدرب</a>
       <a class="nav-link" href="library.html">المكتبة العلمية</a>
     </div>
@@ -759,7 +759,7 @@
           <div class="file-card">
             <h4><i data-lucide="book-open-check" style="width:18px;height:18px;color:var(--emerald-700);"></i> الدليل التفاعلي (+540 جملة عملية)</h4>
             <p>أهم الجمل الإنجليزية لجميع مواقف الحصة مع أداة إنقاذ الحصة والمفضلة.</p>
-            <a href="index.html" class="btn btn-emerald btn-sm" style="align-self:flex-start;">فتح الدليل الآن</a>
+            <a href="sentences-course.html" class="btn btn-emerald btn-sm" style="align-self:flex-start;">فتح كورس الـ 500 جملة</a>
           </div>
           <div class="file-card">
             <h4><i data-lucide="book-marked" style="width:18px;height:18px;color:var(--emerald-700);"></i> المصحف التفاعلي (114 سورة)</h4>
@@ -910,10 +910,13 @@
         if (raw) dashState = Object.assign(dashState, JSON.parse(raw));
       } catch (e) {}
       try {
-        const authRaw = localStorage.getItem(AUTH_KEY);
-        if (authRaw) {
-          const u = JSON.parse(authRaw);
-          if (u && u.name) dashState.traineeName = u.name;
+        const authKeys = [AUTH_KEY, "sajid_auth:practical","sajid_auth:independent","sajid_auth:baghdadiyyah","sajid_auth:digital","sajid_auth:sentences"];
+        for (let i = 0; i < authKeys.length; i++) {
+          const authRaw = localStorage.getItem(authKeys[i]);
+          if (authRaw) {
+            const u = JSON.parse(authRaw);
+            if (u && u.name) { dashState.traineeName = u.name; break; }
+          }
         }
       } catch (e) {}
     }
