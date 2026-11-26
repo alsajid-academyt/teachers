@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Quran • Al-Sajid Academy (114 Surahs) — Sheikh Al-Husary</title>
+  <title>Interactive Quran • Al-Sajid Academy (114 Surahs) — Al-Husary &amp; Al-Minshawi</title>
   <meta name="description" content="Al-Sajid Academy Interactive Quran for all 114 Surahs starting with Juz Amma: Story Mode, Recite & Memorize with Sheikh Mahmoud Khalil Al-Husary (Muallim & Murattal), Arabic Word Builder, Full Surah Review, and Printable Certificates.">
   <meta name="theme-color" content="#0F4C29">
   <link rel="manifest" href="manifest.json">
@@ -728,10 +728,12 @@
     .reciter-name { font-size: 0.96rem; font-weight: 700; color: #FFFFFF; }
     .seg-switch {
       display: inline-flex;
+      flex-wrap: wrap;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: var(--r-pill);
-      padding: 3px;
-      gap: 3px;
+      border-radius: var(--r-md);
+      padding: 4px;
+      gap: 4px;
+      max-width: 100%;
     }
     .seg-btn {
       border: none;
@@ -1317,7 +1319,7 @@
         <img class="tb-logo" data-logo="1" alt="Al-Sajid Academy Logo">
         <div class="tb-title">
           <strong>Al-Sajid Interactive Quran</strong>
-          <small>114 Surahs • Sheikh Al-Husary</small>
+          <small>114 Surahs • Al-Husary &amp; Al-Minshawi</small>
         </div>
       </a>
 
@@ -1483,9 +1485,11 @@
                 <span class="reciter-tag">Verified Audio</span>
                 <span class="reciter-name">Sheikh Mahmoud Khalil Al-Husary</span>
               </div>
-              <div class="seg-switch" role="group" aria-label="Reciter Style">
-                <button type="button" class="seg-btn active" id="rec-muallim-btn" onclick="setReciterMode('muallim')">Muallim (Teacher)</button>
-                <button type="button" class="seg-btn" id="rec-murattal-btn" onclick="setReciterMode('murattal')">Murattal (Continuous)</button>
+              <div class="seg-switch" role="group" aria-label="Reciter &amp; Style">
+                <button type="button" class="seg-btn active" id="rec-muallim-btn" onclick="setReciterMode('muallim')">Al-Husary • Muallim</button>
+                <button type="button" class="seg-btn" id="rec-murattal-btn" onclick="setReciterMode('murattal')">Al-Husary • Murattal</button>
+                <button type="button" class="seg-btn" id="rec-minshawi-murattal-btn" onclick="setReciterMode('minshawi_murattal')">Al-Minshawi • Murattal</button>
+                <button type="button" class="seg-btn" id="rec-minshawi-muallim-btn" onclick="setReciterMode('minshawi_muallim')">Al-Minshawi • Muallim</button>
               </div>
             </div>
 
@@ -1601,7 +1605,7 @@
               <i data-lucide="play" id="full-play-icon" style="width:16px;height:16px;fill:currentColor;"></i>
               <span id="full-play-text">Play Full Surah</span>
             </button>
-            <button type="button" class="btn btn-soft btn-sm" id="review-reciter-btn" onclick="toggleReciterMode()">Muallim</button>
+            <button type="button" class="btn btn-soft btn-sm" id="review-reciter-btn" onclick="cycleReciterMode()">Al-Husary Muallim</button>
             <button type="button" class="btn btn-soft btn-sm" id="toggle-text-hide-btn" onclick="toggleHideTextMode()">
               <i data-lucide="eye-off" id="hide-icon" style="width:15px;height:15px;"></i>
               <span id="hide-btn-text">Memory Mode</span>
@@ -1972,8 +1976,10 @@
     const STORIES_DB = window.SAJID_QURAN_STORIES || {};
 
     const RECITERS = {
-      muallim:  { id: "muallim",  folder: "Husary_Muallim_128kbps", label: "Muallim (Teacher)" },
-      murattal: { id: "murattal", folder: "Husary_128kbps",         label: "Murattal (Continuous)" }
+      muallim:          { id: "muallim",          folder: "Husary_Muallim_128kbps",  label: "Al-Husary • Muallim (Teacher)",  labelAr: "الحصري • المصحف المعلم",   shortEn: "Al-Husary Muallim",  shortAr: "الحصري المعلم",  sheikhEn: "Sheikh Mahmoud Khalil Al-Husary", sheikhAr: "الشيخ محمود خليل الحصري", fallback: "murattal" },
+      murattal:         { id: "murattal",         folder: "Husary_128kbps",          label: "Al-Husary • Murattal",           labelAr: "الحصري • مرتل",          shortEn: "Al-Husary Murattal", shortAr: "الحصري مرتل",   sheikhEn: "Sheikh Mahmoud Khalil Al-Husary", sheikhAr: "الشيخ محمود خليل الحصري", fallback: "minshawi_murattal" },
+      minshawi_murattal:{ id: "minshawi_murattal",folder: "Minshawy_Murattal_128kbps",label: "Al-Minshawi • Murattal",         labelAr: "المنشاوي • مرتل",        shortEn: "Minshawi Murattal",  shortAr: "المنشاوي مرتل", sheikhEn: "Sheikh Muhammad Siddiq Al-Minshawi", sheikhAr: "الشيخ محمد صديق المنشاوي", fallback: "murattal" },
+      minshawi_muallim: { id: "minshawi_muallim", folder: "Minshawy_Muallim_128kbps",label: "Al-Minshawi • Muallim (Teacher)",labelAr: "المنشاوي • المصحف المعلم", shortEn: "Minshawi Muallim",   shortAr: "المنشاوي المعلم",sheikhEn: "Sheikh Muhammad Siddiq Al-Minshawi", sheikhAr: "الشيخ محمد صديق المنشاوي", fallback: "minshawi_murattal" }
     };
 
     let appState = {
@@ -2441,7 +2447,7 @@
       en: {
         langBtn: "عربي / EN",
         brandTitle: "Al-Sajid Interactive Quran",
-        brandSub: "114 Surahs • Sheikh Al-Husary",
+        brandSub: "114 Surahs • Al-Husary & Al-Minshawi",
         academyLink: "Academy",
         prevSurah: "Prev Surah",
         nextSurah: "Next Surah",
@@ -2470,8 +2476,10 @@
         lessonPrefix: "Lesson:",
         verifiedAudio: "Verified Audio",
         reciterName: "Sheikh Mahmoud Khalil Al-Husary",
-        muallimBtn: "Muallim (Teacher)",
-        murattalBtn: "Murattal (Continuous)",
+        muallimBtn: "Al-Husary • Muallim",
+        murattalBtn: "Al-Husary • Murattal",
+        minshawiMurattalBtn: "Al-Minshawi • Murattal",
+        minshawiMuallimBtn: "Al-Minshawi • Muallim",
         listenAyah: "Listen to Ayah",
         pauseRecitation: "Pause Recitation",
         speed1x: "1.0x Normal",
@@ -2538,7 +2546,7 @@
       ar: {
         langBtn: "English / عربي",
         brandTitle: "مصحف أكاديمية الساجد التفاعلي",
-        brandSub: "١١٤ سورة • الشيخ محمود خليل الحصري",
+        brandSub: "١١٤ سورة • الحصري والمنشاوي",
         academyLink: "الأكاديمية",
         prevSurah: "السورة السابقة",
         nextSurah: "السورة التالية",
@@ -2567,8 +2575,10 @@
         lessonPrefix: "فائدة الآية:",
         verifiedAudio: "تلاوة معتمدة",
         reciterName: "الشيخ محمود خليل الحصري",
-        muallimBtn: "المعلّم (تعليمي)",
-        murattalBtn: "المرتّل (متصل)",
+        muallimBtn: "الحصري • المصحف المعلم",
+        murattalBtn: "الحصري • مرتل",
+        minshawiMurattalBtn: "المنشاوي • مرتل",
+        minshawiMuallimBtn: "المنشاوي • المصحف المعلم",
         listenAyah: "استمع للآية",
         pauseRecitation: "إيقاف التلاوة",
         speed1x: "١.٠x عادي",
@@ -2701,14 +2711,19 @@
       const mLabel = document.querySelector(".meaning-label");
       if (mLabel) mLabel.textContent = tUi("meaningLabel");
 
+      const curRec = RECITERS[appState.reciterMode] || RECITERS.muallim;
       const rTag = document.querySelector(".reciter-tag");
       const rName = document.querySelector(".reciter-name");
       const rMu = document.getElementById("rec-muallim-btn");
       const rMr = document.getElementById("rec-murattal-btn");
+      const rMm = document.getElementById("rec-minshawi-murattal-btn");
+      const rMq = document.getElementById("rec-minshawi-muallim-btn");
       if (rTag) rTag.textContent = tUi("verifiedAudio");
-      if (rName) rName.textContent = tUi("reciterName");
+      if (rName) rName.textContent = isAr ? (curRec.sheikhAr + " — " + (curRec.labelAr.split("•")[1] || "").trim()) : (curRec.sheikhEn + " — " + curRec.label);
       if (rMu) rMu.textContent = tUi("muallimBtn");
       if (rMr) rMr.textContent = tUi("murattalBtn");
+      if (rMm) rMm.textContent = tUi("minshawiMurattalBtn");
+      if (rMq) rMq.textContent = tUi("minshawiMuallimBtn");
 
       const sp1 = document.getElementById("speed-1x");
       const spS = document.getElementById("speed-slow");
@@ -3105,24 +3120,52 @@
       const rec = RECITERS[mode] || RECITERS.muallim;
       return "https://everyayah.com/data/" + rec.folder + "/" + pad3(surahNum) + pad3(ayahNum) + ".mp3";
     }
+    function getReciterDisplayLabel(rec) {
+      if (!rec) return "";
+      return getUiLang() === "ar" ? rec.labelAr : rec.label;
+    }
+    function getReciterShortLabel(rec) {
+      if (!rec) return "";
+      return getUiLang() === "ar" ? rec.shortAr : rec.shortEn;
+    }
     function updateReciterButtonsUI() {
-      const isM = appState.reciterMode === "muallim";
-      document.getElementById("rec-muallim-btn").classList.toggle("active", isM);
-      document.getElementById("rec-murattal-btn").classList.toggle("active", !isM);
-      document.getElementById("review-reciter-btn").textContent = isM ? tUi("modeMuallim") : tUi("modeMurattal");
+      const curMode = RECITERS[appState.reciterMode] ? appState.reciterMode : "muallim";
+      const rec = RECITERS[curMode];
+      const map = {
+        muallim: "rec-muallim-btn",
+        murattal: "rec-murattal-btn",
+        minshawi_murattal: "rec-minshawi-murattal-btn",
+        minshawi_muallim: "rec-minshawi-muallim-btn"
+      };
+      Object.keys(map).forEach(k => {
+        const el = document.getElementById(map[k]);
+        if (el) el.classList.toggle("active", k === curMode);
+      });
+      const rName = document.querySelector(".reciter-name");
+      if (rName) {
+        rName.textContent = getUiLang() === "ar" ? rec.sheikhAr : rec.sheikhEn;
+      }
+      const revBtn = document.getElementById("review-reciter-btn");
+      if (revBtn) revBtn.textContent = getReciterShortLabel(rec);
     }
     function setReciterMode(mode) {
+      if (!RECITERS[mode]) mode = "muallim";
       playPop();
       appState.reciterMode = mode;
       saveState();
       updateReciterButtonsUI();
-      showToast("Reciter: Sheikh Al-Husary — " + RECITERS[mode].label);
+      showToast(getReciterDisplayLabel(RECITERS[mode]));
       if (!audioEl.paused) {
         if (isFullSurahPlaying) playFullSurahStep(fullSurahActiveIndex);
         else playAyahAudio(activeAyahIndex, "single");
       }
     }
-    function toggleReciterMode() { setReciterMode(appState.reciterMode === "muallim" ? "murattal" : "muallim"); }
+    function cycleReciterMode() {
+      const order = ["muallim", "murattal", "minshawi_murattal", "minshawi_muallim"];
+      const i = order.indexOf(appState.reciterMode);
+      setReciterMode(order[(i + 1) % order.length]);
+    }
+    function toggleReciterMode() { cycleReciterMode(); }
 
     function playAyahAudio(idx, context = "single") {
       if (!currentAyahs[idx]) return;
@@ -3155,11 +3198,13 @@
     }
 
     audioEl.addEventListener("error", () => {
-      if (!fallbackTried && appState.reciterMode === "muallim") {
+      const curRec = RECITERS[appState.reciterMode] || RECITERS.muallim;
+      const fbMode = curRec.fallback || "murattal";
+      if (!fallbackTried && appState.reciterMode !== fbMode) {
         fallbackTried = true;
         const idx = activePlayContext === "full" ? fullSurahActiveIndex : (activePlayContext === "puzzle" ? currentPuzzleIndex : activeAyahIndex);
         if (currentAyahs[idx]) {
-          audioEl.src = getAudioUrl(appState.currentSurah, currentAyahs[idx].ayahNumber, "murattal");
+          audioEl.src = getAudioUrl(appState.currentSurah, currentAyahs[idx].ayahNumber, fbMode);
           audioEl.playbackRate = appState.playbackSpeed;
           audioEl.play().catch(() => {});
           return;
