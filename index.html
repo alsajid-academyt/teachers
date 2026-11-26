@@ -47,7 +47,7 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#09321A
 .hbar{max-width:1540px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 18px;flex-wrap:wrap}
 header h1{margin:0;font-size:1.06rem;flex:1;min-width:165px;line-height:1.3;font-weight:800}
 header h1 small{display:block;font-size:.76rem;color:var(--gold-light);font-weight:600}
-.hb{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(232,197,104,.4);border-radius:10px;padding:6px 11px;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(232,197,104,.4);border-radius:10px;padding:7px 13px;cursor:pointer;font-family:inherit;font-size:.86rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:.2s}
 .hb:hover{background:rgba(232,197,104,.24)}
 .hb.quran-btn{background:linear-gradient(135deg,rgba(232,197,104,.24),rgba(198,149,43,.16));border-color:var(--gold-light);color:#FFF4C7;font-weight:800}
 .hb.quran-btn:hover{background:var(--gold-grad);color:#261900;border-color:var(--gold-light)}
@@ -258,6 +258,76 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
   .ratio-bar{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){.offer-card,.offer-pill,.offer-pill .dot{animation:none!important}}
+
+/* Header Compact Single-Row + Courses Dropdown */
+.hbar{gap:8px;padding:9px 16px}
+.hb{padding:6px 10px;font-size:.8rem}
+.hb.cat-btn{background:var(--gold-grad);color:#261900;border-color:var(--gold-light);font-weight:900;box-shadow:0 3px 12px rgba(198,149,43,.32)}
+.hb.cat-btn:hover{filter:brightness(1.06);background:var(--gold-grad);color:#261900}
+.nav-dd{position:relative;display:inline-flex}
+.nav-dd-menu{position:absolute;top:calc(100% + 8px);inset-inline-start:0;min-width:255px;background:var(--card);border:2px solid var(--gold);border-radius:16px;padding:8px;box-shadow:0 16px 38px rgba(0,0,0,.28);z-index:90;display:grid;gap:4px}
+.nav-dd-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border-radius:10px;color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:800;transition:.15s}
+.nav-dd-item:hover{background:var(--hl);color:var(--pri)}
+.nav-dd-sep{height:1px;background:var(--line);margin:4px 6px}
+
+/* PRIME CATALOG SECTION IN HOMEPAGE */
+.catalog-showcase{background:var(--card);border:2px solid var(--gold);border-radius:22px;padding:20px clamp(14px,2.5vw,22px);box-shadow:var(--shadow);margin-bottom:20px}
+.cat-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:14px;border-bottom:1.5px dashed var(--line)}
+.cat-header h3{font-size:1.28rem;color:var(--pri);font-weight:900;margin-bottom:3px;display:flex;align-items:center;gap:8px}
+.cat-header p{font-size:.88rem;color:var(--mut);max-width:62ch}
+.cat-filters{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.cat-pill{border:1.5px solid var(--line);background:var(--bg);color:var(--mut);border-radius:999px;padding:6px 14px;font-family:inherit;font-size:.82rem;font-weight:800;cursor:pointer;transition:.16s}
+.cat-pill:hover{border-color:var(--gold);color:var(--ink)}
+.cat-pill.active{background:var(--primary);border-color:var(--primary);color:#fff}
+:root[data-theme="dark"] .cat-pill.active{background:var(--gold-grad);border-color:var(--gold);color:#261900}
+
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.cat-card{background:var(--bg);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.2s;box-shadow:0 6px 18px rgba(15,76,41,.06)}
+.cat-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 12px 26px rgba(15,76,41,.14)}
+.cat-card.featured{grid-column:1 / -1;border:2px solid var(--gold);background:linear-gradient(180deg,var(--card) 0%,var(--hl) 100%)}
+.cat-card-top{background:linear-gradient(135deg,#09321A,#17693B);color:#fff;padding:12px 15px;border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cat-card.featured .cat-card-top{background:linear-gradient(135deg,#09321A,#145B32 55%,#8E6410)}
+.cat-card-body{padding:15px;display:flex;flex-direction:column;gap:9px;flex:1}
+.cat-card-body h4{font-size:1.06rem;font-weight:900;color:var(--pri);line-height:1.4}
+.cat-meta-row{display:flex;flex-wrap:wrap;gap:6px}
+.cat-meta-chip{font-size:.74rem;font-weight:800;background:var(--card);border:1px solid var(--line);color:var(--ink);padding:3px 9px;border-radius:999px}
+.cat-summary{font-size:.86rem;color:var(--mut);line-height:1.68}
+.cat-outcomes{list-style:none;display:grid;gap:5px;font-size:.82rem;color:var(--ink)}
+.cat-outcomes li{position:relative;padding-inline-start:18px;line-height:1.55}
+.cat-outcomes li:before{content:"✓";position:absolute;inset-inline-start:0;color:var(--ok);font-weight:900}
+.cat-card-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:8px}
+.cat-card-acts .btn-wide{grid-column:1 / -1}
+
+/* QUICK COURSE ICONS DOCK ("الدورات كلها أيقونة يدخلون عليها") */
+.courses-dock-sec{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:18px clamp(14px,2.5vw,20px);box-shadow:var(--shadow);margin-bottom:20px}
+.dock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:12px}
+.dock-tile{background:var(--bg);border:1.5px solid var(--line);border-radius:15px;padding:13px 12px;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:11px;transition:.18s}
+.dock-tile:hover{border-color:var(--gold);transform:translateY(-2px);background:var(--hl);box-shadow:0 8px 18px rgba(15,76,41,.1)}
+.dock-ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#09321A,#17693B);border:1.5px solid var(--gold);color:#fff;font-size:1.35rem;display:grid;place-items:center;flex:none}
+.dock-txt strong{display:block;font-size:.88rem;font-weight:900;color:var(--pri);line-height:1.3}
+.dock-txt small{display:block;font-size:.73rem;color:var(--mut);line-height:1.35;margin-top:2px}
+
+/* 4 STEPS & PRE-ENROLLMENT FAQ */
+.steps4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.step4-card{background:var(--bg);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:12px 11px;text-align:center}
+.step4-num{width:28px;height:28px;border-radius:50%;background:var(--gold-grad);color:#261900;font-weight:900;font-size:.84rem;display:inline-grid;place-items:center;margin-bottom:6px}
+.step4-card strong{display:block;font-size:.85rem;color:var(--pri);margin-bottom:3px}
+.step4-card p{font-size:.76rem;color:var(--mut);line-height:1.5}
+
+.faq-sec{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:18px clamp(14px,2.5vw,20px);box-shadow:var(--shadow);margin-bottom:20px}
+.faq-list{display:grid;gap:9px;margin-top:12px}
+.faq-item{background:var(--bg);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--ink);font-family:inherit;font-size:.9rem;font-weight:800;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;text-align:right}
+.faq-a{display:none;padding:0 15px 13px;font-size:.85rem;color:var(--mut);line-height:1.72;border-top:1px dashed var(--line);padding-top:10px}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:.2s;flex:none;color:var(--gold)}
+
+@media(max-width:720px){
+  .cat-grid,.dock-grid,.steps4-grid{grid-template-columns:1fr}
+  .cat-card-acts{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -266,12 +336,26 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
   <div class="hbar">
     <img class="logo sm" data-logo="1" alt="شعار أكاديمية الساجد">
     <h1>أكاديمية الساجد | Al-Sajid Academy<small>تأهيل معلمي القرآن الكريم والعربية لغير الناطقين بها</small></h1>
-    <a class="hb quran-btn" href="quran-quest.html">📖 <span class="en">Interactive Quran</span></a>
+    <a class="hb cat-btn" href="#catalog">📋 الكتالوج والمنهج</a>
+    <div class="nav-dd" id="coursesDdWrap">
+      <button class="hb" type="button" id="coursesDdBtn" aria-haspopup="true" aria-expanded="false">🎓 الدورات ▾</button>
+      <div class="nav-dd-menu hidden" id="coursesDdMenu">
+        <a class="nav-dd-item" href="placement-test.html"><span>🎯</span><span>اختبار تحديد المستوى المجاني</span></a>
+        <div class="nav-dd-sep"></div>
+        <a class="nav-dd-item" href="digital-teacher.html"><span>💻</span><span>1. المعلم الرقمي المحترف</span></a>
+        <a class="nav-dd-item" href="baghdadiyyah.html"><span>📖</span><span>2. إعداد معلمي القاعدة البغدادية</span></a>
+        <a class="nav-dd-item" href="independent-teacher.html"><span>🌟</span><span>3. المعلم المستقل</span></a>
+        <a class="nav-dd-item" href="practical.html"><span>🎙️</span><span>4. التدريب العملي (60 محطة)</span></a>
+        <a class="nav-dd-item" href="sentences-course.html"><span>🗣️</span><span>5. كورس الـ 500 جملة</span></a>
+        <div class="nav-dd-sep"></div>
+        <a class="nav-dd-item" href="catalog.html"><span>📋</span><span>صفحة الكتالوج المستقلة (للمشاركة)</span></a>
+      </div>
+    </div>
+    <a class="hb quran-btn" href="quran-quest.html">📖 المصحف التفاعلي</a>
     <a class="hb" href="practical-training.html">👥 مجتمع التدريب</a>
     <a class="hb" href="dashboard.html">📊 لوحة المتدرب</a>
-    <a class="hb" href="library.html">📚 المكتبة العلمية</a>
-    <a class="hb rev-link" href="#reviews">⭐ الآراء</a>
-    <button class="hb pwa-btn" id="pwaInstallBtn" type="button" title="تثبيت التطبيق على الشاشة الرئيسية">📲 تثبيت</button>
+    <a class="hb" href="library.html">📚 المكتبة</a>
+    <button class="hb pwa-btn" id="pwaInstallBtn" type="button" title="تثبيت التطبيق على الشاشة الرئيسية">📲</button>
     <button class="hb" id="thBtn" type="button" title="تبديل المظهر">🌙</button>
     <a class="hb wa-sm" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AF%D9%88%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A8%D8%B1%D8%A7%D9%85%D8%AC%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 تواصل معنا</a>
   </div>
@@ -364,137 +448,90 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
       <img class="logo hero" data-logo="1" alt="شعار أكاديمية الساجد">
       <div>
         <h2>بوابة أكاديمية الساجد لتأهيل المعلمين</h2>
-        <p>منصتك المتكاملة لتأهيل معلمي القرآن الكريم واللغة العربية للناطقين بغيرها أونلاين — بإشراف الأستاذ ياسر عبد الستار. ابدأ بقياس مستواك مجانًا، ثم انطلق في مسارك الاحترافي.</p>
+        <p>تصفّح الكتالوج الشامل لتعرف بالتفصيل ماذا ستدرس وتتقن في كل دورة قبل الاشتراك — بإشراف الأستاذ ياسر عبد الستار.</p>
         <div class="hero-acts">
-          <a class="btn gold" href="placement-test.html">🎯 ابدأ اختبار تحديد المستوى المجاني (6 دقائق)</a>
-          <a class="btn ghost" href="#reviews">⭐ آراء المشتركين الموثّقين</a>
+          <a class="btn gold" href="#catalog">📋 تصفّح الكتالوج — اعرف ماذا ستدرس</a>
+          <a class="btn ghost" href="placement-test.html">🎯 اختبار تحديد المستوى (6 دقائق)</a>
+          <a class="btn ghost" href="#courses-dock">🎓 أيقونات الدخول للدورات</a>
         </div>
       </div>
     </section>
 
-    <div class="sec-head">
-      <h3>🏛️ برامج ودورات أكاديمية الساجد</h3>
-      <span>4 برامج تأهيلية أساسية + الدليل المساند للغة الإنجليزية</span>
-    </div>
+    <!-- PRIME SPOT #1: THE FULL INTERACTIVE CATALOG ON THE HOMEPAGE -->
+    <section class="catalog-showcase" id="catalog" aria-label="كتالوج برامج ودورات أكاديمية الساجد">
+      <div class="cat-header">
+        <div>
+          <h3>📋 كتالوج برامج أكاديمية الساجد — اعرف ماذا ستدرس قبل أن تشترك</h3>
+          <p>اضغط على <strong>«تفاصيل المنهج كاملًا»</strong> في أي دورة للاطلاع على المحاور التفصيلية، والفئة المستهدفة، وماذا ستتقن بعد الإتمام قبل قرار الاشتراك.</p>
+        </div>
+        <a class="btn soft sm" href="catalog.html" title="فتح الكتالوج في صفحة مستقلة للمشاركة">↗ صفحة الكتالوج المستقلة</a>
+      </div>
 
-    <section class="grid" aria-label="برامج أكاديمية الساجد">
-      <!-- 1. المعلم الرقمي المحترف -->
-      <article class="card active-card">
-        <div class="c-cover">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">1</span>
-            <span class="badge live">✅ المنهج متاح الآن</span>
-          </div>
-          <div class="c-ic">💻</div>
-        </div>
-        <div class="c-body">
-          <h4>المعلم الرقمي المحترف</h4>
-          <p>دورة مسجّلة من 6 محاضرات (12 ساعة) تنقلك من إتقان المادة إلى إتقان صنعة تدريس القرآن والعربية لغير الناطقين بها عبر الشاشة.</p>
-          <ul class="c-pts">
-            <li>• الحصة التجريبية، بناء الثقة، التخطيط، الوقت والتقنية، الأطفال والكبار، والتصحيح الذكي.</li>
-            <li>• ملفات مكتوبة وقوالب جاهزة + 6 اختبارات تفاعلية شاملة (660 سؤالًا).</li>
-          </ul>
-          <div class="c-acts">
-            <a class="btn pri full" href="digital-teacher.html">📚 عرض تفاصيل ومنهج الدورة</a>
-            <a class="btn full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D9%88%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%20%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D8%B1%D9%81%20%D9%85%D9%86%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 الاستفسار والاشتراك عبر واتساب</a>
-          </div>
-        </div>
-      </article>
+      <div class="cat-filters" id="catFilters" role="tablist" aria-label="تصفية الكتالوج">
+        <button type="button" class="cat-pill active" data-filter="all">الكل (6)</button>
+        <button type="button" class="cat-pill" data-filter="bundle">🏆 البرنامج الشامل</button>
+        <button type="button" class="cat-pill" data-filter="core">🏛️ الدورات الأساسية (4)</button>
+        <button type="button" class="cat-pill" data-filter="english">🗣️ دعم اللغة الإنجليزية</button>
+      </div>
 
-      <!-- 2. إعداد معلمي القاعدة البغدادية -->
-      <article class="card active-card">
-        <div class="c-cover">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">2</span>
-            <span class="badge live">✅ متاح الآن</span>
-          </div>
-          <div class="c-ic">📖</div>
-        </div>
-        <div class="c-body">
-          <h4>إعداد معلمي القاعدة البغدادية</h4>
-          <p>تأهيل معلم التأسيس والقراءة العربية من الصفر لغير الناطقين بالعربية: 20 محاضرة (~26 ساعة) + كتاب شرح بالإنجليزية + بوابة متابعة واختبارات.</p>
-          <ul class="c-pts">
-            <li>• تدريب عملي بأسلوب الفصل الحقيقي وتمثيل الأدوار + منهجية تصلح لنور البيان وفتح الرحمن.</li>
-            <li>• بوابة متابعة للـ 20 محاضرة (40 أيقونة إنجاز) + 20 اختبارًا خفيفًا (200 سؤال).</li>
-          </ul>
-          <div class="c-acts">
-            <a class="btn pri full" href="baghdadiyyah.html">📖 عرض تفاصيل الدورة وبوابة المتابعة</a>
-            <a class="btn full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D9%88%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A5%D8%B9%D8%AF%D8%A7%D8%AF%20%D9%85%D8%B9%D9%84%D9%85%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D8%B9%D8%AF%D8%A9%20%D8%A7%D9%84%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF%D9%8A%D8%A9%20%D9%85%D9%86%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 الاستفسار والاشتراك عبر واتساب</a>
-          </div>
-        </div>
-      </article>
+      <div class="cat-grid" id="homeCatalogGrid"></div>
+    </section>
 
-      <!-- 3. المعلم المستقل -->
-      <article class="card active-card">
-        <div class="c-cover gold-bg">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">3</span>
-            <span class="badge live">✅ المنهج متاح الآن</span>
-          </div>
-          <div class="c-ic">🌟</div>
-        </div>
-        <div class="c-body">
-          <h4>المعلم المستقل</h4>
-          <p>تاج برامج الأكاديمية وخلاصة 6 أعوام (+17,000 ساعة): 6 محاور تطبيقية تنقلك من التعلّم إلى العمل الحقيقي والاحتراف المستدام.</p>
-          <ul class="c-pts">
-            <li>• دخول السوق والانترفيو، تفصيل الحصة التجريبية (+2 ساعة + نموذج حي)، الذكاء الاصطناعي، والتجويد المبسّط.</li>
-            <li>• يشمل رابط قناة «طلب معلمين» (الوظائف) + رابط مكتبة المادة العلمية الشاملة.</li>
-          </ul>
-          <div class="c-acts">
-            <a class="btn pri full" href="independent-teacher.html">🌟 عرض تفاصيل ومحاور الدورة</a>
-            <a class="btn full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D9%88%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%82%D9%84%20%D9%85%D9%86%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 الاستفسار والاشتراك عبر واتساب</a>
-          </div>
-        </div>
-      </article>
+    <!-- PRIME SPOT #2: QUICK COURSE ICONS DOCK ("الدورات كلها أيقونة يدخلون عليها") -->
+    <section class="courses-dock-sec" id="courses-dock" aria-label="أيقونات الدخول السريع للدورات">
+      <div class="sec-head" style="margin:0">
+        <h3>🎓 أيقونات الدخول السريع للدورات وبوابات المتدربين</h3>
+        <span>اضغط على أي أيقونة للدخول المباشر إلى صفحة الدورة أو بوابة المتابعة</span>
+      </div>
+      <div class="dock-grid">
+        <a class="dock-tile" href="digital-teacher.html">
+          <div class="dock-ic">💻</div>
+          <div class="dock-txt"><strong>1. المعلم الرقمي المحترف</strong><small>6 محاضرات • 660 سؤالًا</small></div>
+        </a>
+        <a class="dock-tile" href="baghdadiyyah.html">
+          <div class="dock-ic">📖</div>
+          <div class="dock-txt"><strong>2. القاعدة البغدادية</strong><small>20 محاضرة + كتاب بالإنجليزية</small></div>
+        </a>
+        <a class="dock-tile" href="independent-teacher.html">
+          <div class="dock-ic">🌟</div>
+          <div class="dock-txt"><strong>3. المعلم المستقل</strong><small>6 محاور + قناة طلب معلمين</small></div>
+        </a>
+        <a class="dock-tile" href="practical.html">
+          <div class="dock-ic">🎙️</div>
+          <div class="dock-txt"><strong>4. بوابة التدريب العملي</strong><small>60 محطة تطبيقية + الشهادة</small></div>
+        </a>
+        <a class="dock-tile" href="sentences-course.html">
+          <div class="dock-ic">🗣️</div>
+          <div class="dock-txt"><strong>5. كورس الـ 500 جملة</strong><small>12 بابًا + إنقاذ الحصة</small></div>
+        </a>
+        <a class="dock-tile" href="placement-test.html">
+          <div class="dock-ic">🎯</div>
+          <div class="dock-txt"><strong>اختبار تحديد المستوى</strong><small>مجاني • النتيجة خلال 6 دقائق</small></div>
+        </a>
+      </div>
+    </section>
 
-      <!-- 4. التدريب العملي -->
-      <article class="card active-card">
-        <div class="c-cover gold-bg">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">4</span>
-            <span class="badge live">✅ متاح الآن</span>
-          </div>
-          <div class="c-ic">🎙️</div>
-        </div>
-        <div class="c-body">
-          <h4>التدريب العملي</h4>
-          <p>تتويج برامج الأكاديمية: 60 محطة تطبيقية تجمع معايشة واقع التدريس، والمحاكاة بالذكاء الاصطناعي، وفريق التطبيق الرباعي بإشراف الأكاديمية.</p>
-          <ul class="c-pts">
-            <li>• 20 جلسة معايشة + 20 محاكاة صوتية بالذكاء الاصطناعي + 20 لقاءً مع فريقك الرباعي.</li>
-            <li>• بوابة متابعة ذكية بالكود الموحّد — شرط الحصول على شهادة إتمام البرنامج.</li>
-          </ul>
-          <div class="c-acts">
-            <a class="btn pri full" href="practical.html">🎙️ عرض التفاصيل ودخول بوابة التدريب</a>
-            <a class="btn soft full" href="practical-training.html">👥 دخول مجتمع التدريب (رجال / سيدات)</a>
-            <a class="btn full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D9%88%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%A7%D9%84%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%D9%8A%20%D9%81%D9%8A%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 الاستفسار والاشتراك عبر واتساب</a>
-          </div>
-        </div>
-      </article>
+    <!-- HOW TO START IN 4 STEPS -->
+    <section class="courses-dock-sec" aria-label="كيف تبدأ معنا">
+      <div class="sec-head" style="margin:0">
+        <h3>🧭 كيف تبدأ معنا في 4 خطوات بسيطة؟</h3>
+        <span>من الاطلاع على الكتالوج حتى استلام كود التفعيل والبدء العملي</span>
+      </div>
+      <div class="steps4-grid">
+        <div class="step4-card"><span class="step4-num">1</span><strong>تصفّح الكتالوج</strong><p>اطّلع على محاور كل دورة لتعرف ماذا ستدرس بالتفصيل قبل الاشتراك.</p></div>
+        <div class="step4-card"><span class="step4-num">2</span><strong>تقييم عبر واتساب</strong><p>تواصل معنا مباشرة لنحدّد لك المسار والباقة الأنسب لمستواك.</p></div>
+        <div class="step4-card"><span class="step4-num">3</span><strong>استلام كود التفعيل</strong><p>تستلم كودك الموحّد المرتبط ببريدك للدخول إلى دوراتك ومجتمعك.</p></div>
+        <div class="step4-card"><span class="step4-num">4</span><strong>التعلم والتطبيق</strong><p>تحضر المحاضرات، تحل الأسئلة، وتطبّق في مجتمع التدريب المفصول.</p></div>
+      </div>
+    </section>
 
-      <!-- 5. كورس الـ 500 جملة (خيار مساند لتقوية اللغة الإنجليزية) -->
-      <article class="card active-card wide-card">
-        <div class="c-cover">
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="c-num">5</span>
-            <span class="badge live">🌐 مساند للغة الإنجليزية</span>
-          </div>
-          <div class="c-ic">🗣️</div>
-        </div>
-        <div class="c-body">
-          <div class="c-info">
-            <h4>كورس الـ 500 جملة</h4>
-            <p>الخيار العملي المساند لمن لديه صعوبة في اللغة الإنجليزية لإدارة حصة القرآن والعربية أونلاين من أول تحية حتى ختام الحصة.</p>
-            <ul class="c-pts">
-              <li>• 12 بابًا عمليًا + جمل إنقاذ الحصة + نطق أمريكي وبريطاني واختبار نطق.</li>
-              <li>• تفكيك الجمل وبدائل للطفل والشاب وولي الأمر (دخول المشتركين بالكود).</li>
-            </ul>
-          </div>
-          <div class="c-acts">
-            <a class="btn pri full" href="sentences-course.html">🗣️ عرض تفاصيل وأبواب الكورس</a>
-            <a class="btn full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D9%88%D8%B7%D9%84%D8%A8%20%D9%83%D9%88%D8%AF%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D9%84%D9%83%D9%88%D8%B1%D8%B3%20%D8%A3%D9%87%D9%85%20500%20%D8%AC%D9%85%D9%84%D8%A9%20%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9%20%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%AD%D8%B5%D8%B5%20%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86%20%D9%88%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D9%84%D9%84%D8%A3%D8%AC%D8%A7%D9%86%D8%A8%20%D9%85%D9%86%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AC%D8%AF" target="_blank" rel="noopener noreferrer">💬 الاستفسار وطلب كود التفعيل عبر واتساب</a>
-          </div>
-        </div>
-      </article>
+    <!-- PRE-ENROLLMENT FAQ -->
+    <section class="faq-sec" id="faq" aria-label="أسئلة شائعة قبل الاشتراك">
+      <div class="sec-head" style="margin:0">
+        <h3>❓ إجابات واضحة قبل أن تبدأ</h3>
+        <span>أهم الأسئلة التي يطرحها المعلمون قبل الاشتراك</span>
+      </div>
+      <div class="faq-list" id="homeFaqList"></div>
     </section>
 
     <!-- VERIFIED SUBSCRIBER REVIEWS -->
@@ -715,6 +752,21 @@ footer{text-align:center;font-size:.84rem;color:var(--mut);margin-top:20px}
   </div>
 </div>
 
+<!-- COURSE SYLLABUS CATALOG MODAL -->
+<div id="courseCatalogModal" class="modal-bg hidden" role="dialog" aria-modal="true" aria-labelledby="ccmTitle">
+  <div class="modal-card wide">
+    <div class="m-head">
+      <h3 id="ccmTitle">📋 تفاصيل المنهج التدريبي</h3>
+      <button type="button" class="m-close" id="ccmCloseBtn" aria-label="إغلاق">✕</button>
+    </div>
+    <div id="ccmBody" class="bio-blocks"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);justify-content:flex-end">
+      <a id="ccmCourseLink" class="btn pri" href="#">🚀 دخول صفحة الدورة</a>
+      <a id="ccmWaLink" class="btn wa" href="#" target="_blank" rel="noopener noreferrer">💬 استفسر واشترك عبر واتساب</a>
+    </div>
+  </div>
+</div>
+
 <script>
 const LOGO="data:image/webp;base64,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";
 const PORTRAIT="data:image/webp;base64,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";
@@ -907,6 +959,127 @@ const SEED_REVIEWS=[{"name": "أ. علي محمد فتحي شحاته", "course"
   if (pwaModal) {
     pwaModal.addEventListener("click", function(e){ if (e.target === pwaModal) pwaModal.classList.add("hidden"); });
   }
+
+  /* ===== INTERACTIVE CATALOG & COURSES DROPDOWN ===== */
+  var HOME_COURSES = [{"id": "comprehensive-bundle", "category": "bundle", "featured": true, "icon": "🏆", "num": "★", "badge": "الأكثر طلبًا • الباقة الشاملة بخصم خاص", "title": "البرنامج الشامل لتأهيل المعلمين (4 دورات + شهادة إتمام)", "summary": "المسار التأهيلي الكامل من الصفر حتى الاحتراف والقبول في الأكاديميات الدولية: يجمع المعلم الرقمي المحترف + إعداد معلمي القاعدة البغدادية + المعلم المستقل + التدريب العملي (60 محطة) بخصم خاص على الباقة الكاملة.", "level": "من الصفر إلى الاحتراف", "format": "4 برامج متكاملة + 60 محطة تطبيق + شهادة", "courseUrl": "#courses-dock", "courseBtnLabel": "🎓 استعراض أيقونات الدورات الأربع", "audience": "المعلمون والمعلمات الراغبون في خريطة واضحة ومتكاملة لدخول مجال تدريس القرآن والعربية أونلاين دون تشتت، والحصول على شهادة إتمام البرنامج.", "outcomes": ["إتقان صنعة التدريس عبر الشاشة وإدارة الحصة التجريبية وبناء ثقة ولي الأمر.", "احتراف تأسيس القراءة بالقاعدة البغدادية وشرح التجويد والعربية لغير الناطقين بها.", "60 محطة تدريب عملي (20 معايشة + 20 محاكاة ذكاء اصطناعي + 20 لقاء فريق رباعي).", "دعم إضافي لمن يحتاج تقوية في الإنجليزية عبر كورس الـ 500 جملة والدليل التفاعلي."], "syllabus": ["البرنامج 1 — المعلم الرقمي المحترف: 6 محاضرات (12 ساعة) + قوالب جاهزة + 6 اختبارات تفاعلية (660 سؤالًا).", "البرنامج 2 — إعداد معلمي القاعدة البغدادية: 20 محاضرة (~26 ساعة) + كتاب شرح بالإنجليزية + بوابة متابعة (40 أيقونة) و20 اختبارًا (200 سؤال).", "البرنامج 3 — المعلم المستقل: 6 محاور تطبيقية + تفصيل الحصة التجريبية (+2 ساعة + نموذج حي) + الذكاء الاصطناعي + قناة الوظائف والمكتبة.", "البرنامج 4 — التدريب العملي: 20 جلسة معايشة + 20 محاكاة صوتية بالذكاء الاصطناعي + 20 لقاءً مع فريقك الرباعي — شرط الشهادة."], "waText": "السلام عليكم ورحمة الله وبركاته، أود الاستفسار والحصول على البرنامج الشامل (المعلم الرقمي المحترف + إعداد معلمي القاعدة البغدادية + المعلم المستقل + التدريب العملي) بالخصم الخاص وشهادة إتمام البرنامج."}, {"id": "digital-teacher", "category": "core", "featured": false, "icon": "💻", "num": "1", "badge": "✅ المنهج متاح الآن", "title": "المعلم الرقمي المحترف", "summary": "دورة مسجّلة من 6 محاضرات (12 ساعة) تنقلك من إتقان المادة العلمية إلى إتقان صنعة تدريس القرآن والعربية لغير الناطقين بها عبر الشاشة باحترافية وثقة.", "level": "تأسيسي – احترافي", "format": "6 محاضرات (12 ساعة) + 660 سؤالًا تفاعليًا", "courseUrl": "digital-teacher.html", "courseBtnLabel": "📚 دخول صفحة ومنهج الدورة", "audience": "كل معلم أو معلمة يتقن القرآن أو العربية لكنه يريد احتراف إدارة الحصة الأونلاين، وكسر رهبة أول حصة، والتعامل الذكي مع الأطفال والكبار.", "outcomes": ["إتقان إدارة الحصة التجريبية وكسب ثقة الطالب وولي الأمر من الدقائق الأولى.", "التخطيط الذكي للدرس وإدارة الوقت والأدوات التقنية دون ارتباك.", "التعامل الاحترافي مع الأطفال والكبار وتطبيق أساليب التصحيح الذكي المشجّع."], "syllabus": ["المحاضرة 1–2: هيكلة الحصة التجريبية وبناء الثقة وكسر رهبة أول حصة أمام الكاميرا.", "المحاضرة 3–4: تخطيط الدروس، إدارة وقت الحصة بفعالية، وتوظيف التقنية والسبورة الرقمية.", "المحاضرة 5–6: فروق التعامل بين الأطفال والكبار، والتصحيح الذكي للأخطاء دون إحباط.", "الملحقات: ملفات مكتوبة وقوالب جاهزة للحصص + 6 اختبارات تفاعلية شاملة (660 سؤالًا)."], "waText": "السلام عليكم، أود الاستفسار والاشتراك في دورة المعلم الرقمي المحترف من أكاديمية الساجد."}, {"id": "baghdadiyyah", "category": "core", "featured": false, "icon": "📖", "num": "2", "badge": "✅ متاح الآن + كتاب بالإنجليزية", "title": "إعداد معلمي القاعدة البغدادية", "summary": "تأهيل متكامل لمعلم التأسيس والقراءة العربية من الصفر لغير الناطقين بالعربية: 20 محاضرة (~26 ساعة) بأسلوب الفصل الحقيقي وتمثيل الأدوار.", "level": "تأسيس القراءة والطفولة", "format": "20 محاضرة (~26 ساعة) + كتاب + 200 سؤال", "courseUrl": "baghdadiyyah.html", "courseBtnLabel": "📖 دخول بوابة المتابعة والمنهج", "audience": "معلمو التأسيس ومعلمات الأطفال الباحثون عن منهجية عملية مجرّبة تصلح للقاعدة البغدادية وتنسحب بسهولة على نور البيان وفتح الرحمن.", "outcomes": ["تقديم الحروف والحركات والمدود والسكون والشدة والتنوين بتدرّج ممتع للطفل الأجنبي.", "التدريب بأسلوب الفصل الحقيقي وتمثيل الأدوار (معلم وطالب) لمعالجة الأخطاء الشائعة.", "امتلاك كتاب شرح كامل باللغة الإنجليزية + بوابة متابعة بـ 40 أيقونة إنجاز و20 اختبارًا."], "syllabus": ["المحاضرات 1–6: خريطة القاعدة البغدادية، مخارج الحروف وتقديمها للأجانب، والحركات القصيرة.", "المحاضرات 7–13: المدود، السكون، القلقلة، الشدة، والتنوين بالتطبيق الصوتي والمحاكاة.", "المحاضرات 14–17: قراءة الكلمات والجمل والانتقال السلس إلى المصحف الشريف.", "المحاضرات 18–20: أنشطة الـ 3–5 دقائق وبطارية الطاقة وتطبيقات الفصل الحقيقي + 20 اختبارًا (200 سؤال)."], "waText": "السلام عليكم، أود الاستفسار والاشتراك في دورة إعداد معلمي القاعدة البغدادية من أكاديمية الساجد."}, {"id": "independent-teacher", "category": "core", "featured": false, "icon": "🌟", "num": "3", "badge": "✅ تاج البرامج + قناة الوظائف", "title": "المعلم المستقل", "summary": "تاج برامج الأكاديمية وخلاصة 6 أعوام (+17,000 ساعة تدريس): 6 محاور تطبيقية تنقلك من التعلّم إلى العمل الحقيقي والقبول في الأكاديميات والاحتراف المستدام.", "level": "احترافي وتطبيقي", "format": "6 محاور + قناة الوظائف + مكتبة شاملة", "courseUrl": "independent-teacher.html", "courseBtnLabel": "🌟 دخول صفحة ومحاور الدورة", "audience": "المعلمون المستعدون لدخول سوق العمل الدولي، واجتياز مقابلات الأكاديميات (الإنترفيو)، وتقديم حصة تجريبية احترافية تحقّق أعلى قبول.", "outcomes": ["اجتياز مقابلات الأكاديميات الدولية (الإنترفيو) وإعداد فيديو التعريف والسيرة باحتراف.", "إتقان تفصيل الحصة التجريبية (+2 ساعة شرح + نموذج حي تطبيقي).", "توظيف الذكاء الاصطناعي وتبسيط التجويد + الوصول لقناة «طلب معلمين» ومكتبة المادة العلمية."], "syllabus": ["المحور 1–2: دخول سوق العمل أونلاين، أسرار اجتياز الإنترفيو، وبناء حضورك المهني.", "المحور 3–4: التشريح الكامل للحصة التجريبية (+2 ساعة + نموذج حي) ومعادلة (3 + 22 + 5).", "المحور 5–6: التجويد المبسّط لغير الناطقين بالعربية + توظيف الذكاء الاصطناعي في التحضير.", "المزايا المصاحبة: رابط قناة «طلب معلمين» للوظائف المتجددة + مكتبة المادة العلمية الشاملة."], "waText": "السلام عليكم، أود الاستفسار والاشتراك في دورة المعلم المستقل من أكاديمية الساجد."}, {"id": "practical-training", "category": "core", "featured": false, "icon": "🎙️", "num": "4", "badge": "✅ 60 محطة + مجتمع رجال/سيدات", "title": "التدريب العملي (المعايشة + المحاكاة + الفريق الرباعي)", "summary": "تتويج برامج الأكاديمية: 60 محطة تطبيقية ميدانية تجمع معايشة الحصص الحقيقية، والمحاكاة الصوتية بالذكاء الاصطناعي، ومجموعات التطبيق الرباعية المفصولة.", "level": "تطبيق ميداني فعلي", "format": "60 محطة + مجتمع مفصول بالكود", "courseUrl": "practical.html", "courseBtnLabel": "🎙️ بوابة التدريب العملي", "secondaryUrl": "practical-training.html", "secondaryLabel": "👥 دخول مجتمع التدريب (رجال / سيدات)", "audience": "المتدربون الراغبون في كسر حاجز الرهبة بالممارسة الفعلية أمام طلاب وزملاء، وإتمام شرط الحصول على شهادة إتمام البرنامج.", "outcomes": ["حضور 20 جلسة معايشة لحصص حقيقية واستخراج 10 جمل إنجليزية وفوائد من كل حصة.", "تنفيذ 20 محاكاة صوتية تفاعلية بالذكاء الاصطناعي لصقل النطق وسرعة البديهة.", "20 لقاءً عمليًا مع فريقك الرباعي داخل مجتمع خاص مفصول بالكود (رجال مستقل عن السيدات)."], "syllabus": ["المسار الأول (20 محطة): معايشة الحصص الحقيقية اليومية (مع مهلة 48 ساعة للتسجيل لمن تعذّر حضوره).", "المسار الثاني (20 محطة): المحاكاة الصوتية بالذكاء الاصطناعي لمواقف الحصص والأطفال وأولياء الأمور.", "المسار الثالث (20 محطة): التطبيق العملي في مجموعات رباعية متبادلة الأدوار (معلم/طالب/مقيّم).", "المتابعة: بوابة متابعة ذكية بالكود الموحّد — وإتمامها هو شرط الحصول على شهادة البرنامج."], "waText": "السلام عليكم، أود الاستفسار والاشتراك في برنامج التدريب العملي في أكاديمية الساجد."}, {"id": "sentences-500", "category": "english", "featured": false, "icon": "🗣️", "num": "5", "badge": "🌐 مساند للغة الإنجليزية", "title": "كورس الـ 500 جملة في إنجليزية التدريس أونلاين", "summary": "الخيار العملي المساند لمن لديه صعوبة في اللغة الإنجليزية لإدارة حصة القرآن والعربية أونلاين من أول تحية حتى ختام الحصة والتواصل مع ولي الأمر.", "level": "للمبتدئين في الإنجليزية", "format": "12 بابًا + الدليل التفاعلي (+540 جملة) + صوتيات", "courseUrl": "sentences-course.html", "courseBtnLabel": "🗣️ دخول تفاصيل وأبواب الكورس", "audience": "كل معلم أو معلمة يشعر أن اللغة الإنجليزية هي العائق الوحيد أمام بدء التدريس للأجانب ويريد جمل الحصة الجاهزة بالنطق الصحيح.", "outcomes": ["إدارة جميع مواقف الحصة عبر 12 بابًا عمليًا + جمل «إنقاذ الحصة» للمواقف المفاجئة.", "الاستماع بالنطق الأمريكي والبريطاني مع اختبار نطق وتفكيك للجمل.", "بدائل جاهزة تناسب الطفل والشاب وولي الأمر (دخول المشتركين بالكود)."], "syllabus": ["الأبواب 1–4: التحية وكسر الجليد، تجهيز الصوت والكاميرا، وتمهيد الحصة الأولى.", "الأبواب 5–8: جمل شرح القراءة والقرآن والتجويد، والتصحيح اللطيف، والتشجيع والتحفيز.", "الأبواب 9–12: إدارة تشتت الطفل، إنقاذ الحصة عند الطوارئ، الواجبات، والتواصل مع ولي الأمر.", "الأدوات التفاعلية: الدليل التفاعلي (+540 جملة) + نطق أمريكي وبريطاني + اختبار نطق."], "waText": "السلام عليكم، أود الاستفسار وطلب كود تفعيل لكورس أهم 500 جملة إنجليزية لإدارة حصص القرآن والعربية للأجانب من أكاديمية الساجد."}];
+  var HOME_FAQS = [{"q": "كيف أعرف ماذا سأدرس بالتفصيل قبل الاشتراك؟", "a": "اضغط على زر «تفاصيل المنهج كاملًا (ماذا سأدرس؟)» في أي دورة بالكتالوج أعلاه لتظهر لك فورًا الفئة المستهدفة، والمحاور التدريبية، وماذا ستتقن بعد الإتمام، كما يمكنك الدخول لصفحة الدورة مباشرة لمعاينة تفاصيلها الكاملة."}, {"q": "هل أبدأ بالبرنامج الشامل أم بدورة واحدة فقط؟", "a": "إذا كنت تبدأ من الصفر وتريد طريقًا متكاملًا مع شهادة إتمام وخصم خاص، فالبرنامج الشامل (4 دورات) هو الأنسب. وإذا كنت محتارًا، ابدأ باختبار تحديد المستوى المجاني (6 دقائق) أو تواصل معنا على واتساب لنرشّح لك المسار الأدق لمستواك."}, {"q": "هل أستطيع البدء إذا كانت لغتي الإنجليزية ضعيفة؟", "a": "نعم بالتأكيد؛ التدريس أونلاين يحتاج إنجليزية عملية محددة لإدارة الحصة لا إنجليزية أكاديمية معقدة، ولذلك أعددنا لك «كورس الـ 500 جملة» مع النطق الأمريكي والبريطاني والدليل التفاعلي لدعمك من اليوم الأول."}, {"q": "كيف يعمل مجتمع التدريب العملي (رجال / سيدات)؟", "a": "يتم الفصل التام بين مجتمع الرجال ومجتمع السيدات تلقائيًا عبر كود التفعيل الموحّد في قاعدة البيانات، بحيث ينسّق كل متدرب مع زملائه فقط لتكوين مجموعات التدريب الرباعية ومتابعة روابط الحصص التفاعلية بخصوصية كاملة."}];
+
+  /* Header Courses Dropdown */
+  var ddBtn = document.getElementById("coursesDdBtn");
+  var ddMenu = document.getElementById("coursesDdMenu");
+  if(ddBtn && ddMenu){
+    ddBtn.onclick = function(ev){
+      ev.stopPropagation();
+      var open = !ddMenu.classList.toggle("hidden");
+      ddBtn.setAttribute("aria-expanded", String(open));
+    };
+    document.addEventListener("click", function(ev){
+      if(!ddMenu.classList.contains("hidden") && !ev.target.closest("#coursesDdWrap")){
+        ddMenu.classList.add("hidden");
+        ddBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* Render Homepage Interactive Catalog */
+  var ccmModal = document.getElementById("courseCatalogModal");
+  function openCatalogCourseModal(courseId){
+    var c = HOME_COURSES.find(function(x){ return x.id === courseId; });
+    if(!c || !ccmModal) return;
+    document.getElementById("ccmTitle").textContent = c.icon + " " + c.title;
+    var bodyHtml =
+      '<div class="bio-blk"><h5>📌 نبذة عن البرنامج</h5><p>' + esc(c.summary) + '</p>' +
+        '<div class="cat-meta-row" style="margin-top:8px"><span class="cat-meta-chip">🎯 ' + esc(c.level) + '</span><span class="cat-meta-chip">📚 ' + esc(c.format) + '</span></div>' +
+      '</div>' +
+      '<div class="bio-blk"><h5>👤 لمن يناسب هذا البرنامج؟</h5><p>' + esc(c.audience) + '</p></div>' +
+      '<div class="bio-blk"><h5>📋 المحاور والوحدات التي ستدرسها بالتفصيل</h5><ul>' +
+        c.syllabus.map(function(s){ return '<li>' + esc(s) + '</li>'; }).join("") +
+      '</ul></div>' +
+      '<div class="bio-blk"><h5>🏆 ماذا ستتقن بعد إتمام الدورة؟</h5><ul>' +
+        c.outcomes.map(function(o){ return '<li>' + esc(o) + '</li>'; }).join("") +
+      '</ul></div>';
+    document.getElementById("ccmBody").innerHTML = bodyHtml;
+    var cLink = document.getElementById("ccmCourseLink");
+    cLink.href = c.courseUrl || "#courses-dock";
+    cLink.textContent = c.courseBtnLabel || "🚀 دخول صفحة الدورة";
+    cLink.onclick = function(){ if(c.courseUrl && c.courseUrl.charAt(0)==="#") ccmModal.classList.add("hidden"); };
+    document.getElementById("ccmWaLink").href = "https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(c.waText);
+    ccmModal.classList.remove("hidden");
+  }
+  if(document.getElementById("ccmCloseBtn")){
+    document.getElementById("ccmCloseBtn").onclick = function(){ ccmModal.classList.add("hidden"); };
+  }
+  if(ccmModal){
+    ccmModal.addEventListener("click", function(e){ if(e.target === ccmModal) ccmModal.classList.add("hidden"); });
+  }
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && ccmModal) ccmModal.classList.add("hidden");
+  });
+
+  function renderHomeCatalog(filterKey){
+    var grid = document.getElementById("homeCatalogGrid");
+    if(!grid) return;
+    var list = (filterKey && filterKey !== "all")
+      ? HOME_COURSES.filter(function(c){ return c.category === filterKey; })
+      : HOME_COURSES;
+    grid.innerHTML = list.map(function(c){
+      var waHref = "https://wa.me/" + WA_PHONE + "?text=" + encodeURIComponent(c.waText);
+      var outHtml = c.outcomes.slice(0, 3).map(function(o){ return '<li>' + esc(o) + '</li>'; }).join("");
+      var secBtn = c.secondaryUrl
+        ? '<a class="btn soft sm btn-wide" href="' + esc(c.secondaryUrl) + '">' + esc(c.secondaryLabel) + '</a>'
+        : '';
+      return '<article class="cat-card' + (c.featured ? ' featured' : '') + '">' +
+        '<div class="cat-card-top">' +
+          '<div style="display:flex;align-items:center;gap:8px">' +
+            '<span class="c-num">' + esc(c.num) + '</span>' +
+            '<span class="badge ' + (c.featured ? 'free' : 'live') + '">' + esc(c.badge) + '</span>' +
+          '</div>' +
+          '<div class="c-ic">' + c.icon + '</div>' +
+        '</div>' +
+        '<div class="cat-card-body">' +
+          '<h4>' + esc(c.title) + '</h4>' +
+          '<div class="cat-meta-row">' +
+            '<span class="cat-meta-chip">🎯 ' + esc(c.level) + '</span>' +
+            '<span class="cat-meta-chip">📚 ' + esc(c.format) + '</span>' +
+          '</div>' +
+          '<p class="cat-summary">' + esc(c.summary) + '</p>' +
+          '<ul class="cat-outcomes">' + outHtml + '</ul>' +
+          '<div class="cat-card-acts">' +
+            '<button type="button" class="btn gold sm btn-wide" data-cat-modal="' + esc(c.id) + '">📋 تفاصيل المنهج كاملًا (ماذا سأدرس؟)</button>' +
+            '<a class="btn pri sm" href="' + esc(c.courseUrl) + '">' + esc(c.courseBtnLabel) + '</a>' +
+            '<a class="btn wa sm" href="' + waHref + '" target="_blank" rel="noopener noreferrer">💬 اشترك واتساب</a>' +
+            secBtn +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join("");
+    grid.querySelectorAll("[data-cat-modal]").forEach(function(btn){
+      btn.onclick = function(){ openCatalogCourseModal(this.getAttribute("data-cat-modal")); };
+    });
+  }
+  renderHomeCatalog("all");
+  document.querySelectorAll("#catFilters .cat-pill").forEach(function(pill){
+    pill.onclick = function(){
+      document.querySelectorAll("#catFilters .cat-pill").forEach(function(p){ p.classList.remove("active"); });
+      this.classList.add("active");
+      renderHomeCatalog(this.getAttribute("data-filter"));
+    };
+  });
+
+  /* Render Pre-Enrollment FAQs */
+  var faqBox = document.getElementById("homeFaqList");
+  if(faqBox){
+    faqBox.innerHTML = HOME_FAQS.map(function(item, i){
+      return '<div class="faq-item' + (i === 0 ? ' open' : '') + '">' +
+        '<button type="button" class="faq-q"><span>' + esc(item.q) + '</span><span class="faq-arrow">▾</span></button>' +
+        '<div class="faq-a">' + esc(item.a) + '</div>' +
+      '</div>';
+    }).join("");
+    faqBox.querySelectorAll(".faq-q").forEach(function(btn){
+      btn.onclick = function(){ this.parentElement.classList.toggle("open"); };
+    });
+  }
+
 })();
 </script>
 </body>
