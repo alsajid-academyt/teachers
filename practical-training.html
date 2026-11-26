@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قسم التدريب العملي ومجتمع المعلمين | أكاديمية الساجد</title>
+  <meta name="description" content="قسم التدريب العملي في أكاديمية الساجد: الحصص التفاعلية ومجتمعا التدريب المفصولان بالكود (مجتمع الرجال ومجتمع السيدات) لتكوين مجموعات التدريب الرباعية.">
+  <meta name="theme-color" content="#0F4C29">
+  <link rel="manifest" href="manifest.json">
+  <link id="fav" rel="icon" type="image/webp" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="academy-config.js"></script>
+  <script>
+    try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF9F4;
+      --surface: #FFFFFF;
+      --surface-soft: #F3EFE2;
+      --surface-hover: #EAE4D3;
+
+      --emerald-950: #072413;
+      --emerald-900: #09321A;
+      --emerald-800: #0F4C29;
+      --emerald-700: #17693B;
+      --emerald-600: #1F844B;
+      --emerald-soft: #ECF5EF;
+
+      --gold-600: #9E7216;
+      --gold-500: #C6952B;
+      --gold-400: #E2BE5B;
+      --gold-300: #E8C568;
+      --gold-soft: #FBF6E7;
+
+      --wa-green: #189D4E;
+      --wa-dark: #127B3D;
+      --men-accent: #0F4C29;
+      --women-accent: #6B2D5C;
+      --women-soft: #F9EFF6;
+
+      --ink: #15281C;
+      --ink-muted: #52665A;
+      --border: #E3DCCB;
+      --border-strong: #D0C6AE;
+
+      --ok: #138A52;
+      --ok-bg: #E7F7EE;
+      --warn: #A36306;
+      --warn-bg: #FEF5E3;
+      --bad: #C93032;
+      --bad-bg: #FDEAEA;
+
+      --font-ui: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 22px;
+      --r-pill: 999px;
+
+      --sh-sm: 0 2px 10px rgba(9, 50, 26, 0.06);
+      --sh-md: 0 10px 28px rgba(9, 50, 26, 0.09);
+      --sh-lg: 0 18px 42px rgba(9, 50, 26, 0.16);
+      --sh-gold: 0 6px 22px rgba(198, 149, 43, 0.28);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #071910;
+      --surface: #0E2619;
+      --surface-soft: #133121;
+      --surface-hover: #193D29;
+      --emerald-soft: rgba(232, 197, 104, 0.12);
+      --gold-soft: rgba(232, 197, 104, 0.14);
+      --women-soft: rgba(186, 104, 166, 0.16);
+      --ink: #F3F0E6;
+      --ink-muted: #A9BCB0;
+      --border: rgba(232, 197, 104, 0.22);
+      --border-strong: rgba(232, 197, 104, 0.36);
+      --ok-bg: rgba(19, 138, 82, 0.22);
+      --warn-bg: rgba(198, 149, 43, 0.2);
+      --bad-bg: rgba(201, 48, 50, 0.22);
+      --sh-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --sh-md: 0 10px 28px rgba(0, 0, 0, 0.38);
+      --sh-lg: 0 18px 44px rgba(0, 0, 0, 0.52);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font-family: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--gold-500); outline-offset: 2px; }
+    .hidden { display: none !important; }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, var(--emerald-900), var(--emerald-800));
+      border-bottom: 2.5px solid var(--gold-500);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    }
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .tb-brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .tb-logo {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-300); background: #FAF9F4; flex: none;
+    }
+    .tb-title { line-height: 1.25; }
+    .tb-title strong { display: block; font-size: 1rem; font-weight: 800; color: #FFFFFF; }
+    .tb-title small { display: block; font-size: 0.74rem; color: var(--gold-300); font-weight: 600; }
+
+    .tb-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav-link {
+      padding: 7px 12px; border-radius: var(--r-pill); font-size: 0.85rem; font-weight: 700;
+      color: rgba(255, 255, 255, 0.88); transition: 0.18s; white-space: nowrap;
+    }
+    .nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; }
+    .nav-link.active {
+      background: rgba(232, 197, 104, 0.22); color: var(--gold-300);
+      border: 1px solid rgba(232, 197, 104, 0.45);
+    }
+    .tb-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+    .icon-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(232, 197, 104, 0.42); background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .icon-btn:hover { background: rgba(232, 197, 104, 0.25); }
+    .menu-toggle { display: none; }
+    .mobile-drawer {
+      display: none; background: var(--emerald-950);
+      border-top: 1px solid rgba(232, 197, 104, 0.25);
+      padding: 12px 18px 16px; flex-direction: column; gap: 6px;
+    }
+    .mobile-drawer.open { display: flex; }
+
+    /* ===== CONTAINER & BUTTONS ===== */
+    .shell {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 24px 18px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 10px 18px; border-radius: var(--r-pill); border: 1.5px solid transparent;
+      font-size: 0.9rem; font-weight: 800; min-height: 42px;
+      transition: transform 0.15s, background 0.15s; white-space: nowrap;
+    }
+    .btn:hover:not(:disabled) { transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-gold { background: linear-gradient(135deg, var(--gold-300), var(--gold-500)); color: var(--emerald-950); box-shadow: var(--sh-gold); }
+    .btn-emerald { background: var(--emerald-800); color: #FFFFFF; }
+    .btn-emerald:hover:not(:disabled) { background: var(--emerald-700); }
+    .btn-wa { background: linear-gradient(135deg, #22B85E, var(--wa-green)); color: #FFFFFF; }
+    .btn-wa:hover:not(:disabled) { background: var(--wa-dark); }
+    .btn-soft { background: var(--surface-soft); border-color: var(--border-strong); color: var(--ink); }
+    .btn-soft:hover:not(:disabled) { background: var(--surface-hover); }
+    .btn-danger { background: var(--bad-bg); border-color: rgba(201, 48, 50, 0.35); color: var(--bad); }
+    .btn-sm { padding: 6px 13px; font-size: 0.82rem; min-height: 34px; }
+
+    /* ===== LOGIN / ACTIVATION GATE ===== */
+    .gate-card {
+      max-width: 560px;
+      margin: 18px auto;
+      background: var(--surface);
+      border: 2px solid var(--gold-500);
+      border-radius: var(--r-lg);
+      box-shadow: var(--sh-lg);
+      overflow: hidden;
+    }
+    .gate-head {
+      background: linear-gradient(135deg, var(--emerald-950), var(--emerald-800));
+      color: #FFFFFF;
+      padding: 28px 24px 24px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold-500);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .gate-head img {
+      width: 68px; height: 68px; border-radius: 50%;
+      border: 2.5px solid var(--gold-300); background: #FAF9F4;
+    }
+    .gate-head h1 { font-size: 1.4rem; font-weight: 900; color: var(--gold-300); }
+    .gate-head p { font-size: 0.9rem; color: #E2EFE7; max-width: 44ch; }
+    .gate-body { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 0.86rem; font-weight: 800; color: var(--ink); }
+    .inp, .txt, .sel {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: var(--r-sm);
+      border: 1.5px solid var(--border-strong);
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-size: 0.94rem;
+      transition: border-color 0.16s, background 0.16s;
+    }
+    .inp:focus, .txt:focus, .sel:focus {
+      outline: none; border-color: var(--gold-500); background: var(--surface);
+    }
+    .txt { resize: vertical; min-height: 92px; }
+
+    .privacy-note {
+      background: var(--emerald-soft);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--emerald-700);
+      border-radius: var(--r-sm);
+      padding: 11px 14px;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      display: flex; align-items: flex-start; gap: 9px;
+    }
+    .demo-box {
+      background: var(--gold-soft);
+      border: 1.5px dashed var(--gold-500);
+      border-radius: var(--r-md);
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      color: var(--ink);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .demo-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    /* ===== WORKSPACE HEADER ===== */
+    .board-hero {
+      border-radius: var(--r-lg);
+      border: 2px solid var(--gold-500);
+      padding: 22px 24px;
+      color: #FFFFFF;
+      box-shadow: var(--sh-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .board-hero.male { background: linear-gradient(135deg, #072413, #0F4C29, #17693B); }
+    .board-hero.female { background: linear-gradient(135deg, #2D1027, #5B234E, #7A3469); }
+
+    .board-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(232, 197, 104, 0.55);
+      color: var(--gold-300);
+      padding: 4px 12px; border-radius: var(--r-pill);
+      font-size: 0.8rem; font-weight: 800; margin-bottom: 6px;
+    }
+    .board-hero h1 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 900; }
+    .board-hero p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.88); }
+
+    /* ===== ADMIN BAR ===== */
+    .admin-bar {
+      background: var(--gold-soft);
+      border: 2px solid var(--gold-500);
+      border-radius: var(--r-md);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .admin-tag {
+      font-size: 0.86rem; font-weight: 900; color: var(--gold-600);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    :root[data-theme="dark"] .admin-tag { color: var(--gold-300); }
+
+    /* ===== PINNED INTERACTIVE SESSION ===== */
+    .pinned-session {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--gold-soft) 100%);
+      border: 2px solid var(--gold-500);
+      border-radius: var(--r-lg);
+      padding: 20px 22px;
+      box-shadow: var(--sh-gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .pin-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bad-bg); color: var(--bad);
+      border: 1px solid rgba(201, 48, 50, 0.3);
+      padding: 3px 11px; border-radius: var(--r-pill);
+      font-size: 0.78rem; font-weight: 800; margin-bottom: 6px;
+    }
+    .pinned-session h2 { font-size: 1.15rem; font-weight: 900; color: var(--ink); }
+    .pinned-meta {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      font-size: 0.86rem; font-weight: 700; color: var(--emerald-700); margin-top: 4px;
+    }
+    :root[data-theme="dark"] .pinned-meta { color: var(--gold-300); }
+
+    /* ===== INNER TABS ===== */
+    .inner-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      background: var(--surface);
+      padding: 6px;
+      border-radius: var(--r-pill);
+      border: 1.5px solid var(--border);
+      box-shadow: var(--sh-sm);
+    }
+    .inner-tab {
+      border: none; background: transparent; color: var(--ink-muted);
+      font-size: 0.92rem; font-weight: 800; padding: 11px 14px;
+      border-radius: var(--r-pill); display: inline-flex; align-items: center;
+      justify-content: center; gap: 8px; transition: 0.16s;
+    }
+    .inner-tab.active { background: var(--emerald-800); color: #FFFFFF; }
+    .inner-tab.active svg { color: var(--gold-300); }
+
+    /* ===== COMPOSER & TOOLBAR ===== */
+    .panel {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px 22px;
+      box-shadow: var(--sh-md);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .composer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .filter-bar {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--r-md); padding: 12px 14px;
+    }
+
+    /* ===== POSTS FEED ===== */
+    .feed-list { display: flex; flex-direction: column; gap: 14px; }
+    .post-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      box-shadow: var(--sh-sm);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .post-card.is-full { opacity: 0.86; border-style: dashed; }
+    .post-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap;
+    }
+    .author-wrap { display: flex; align-items: center; gap: 10px; }
+    .avatar-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--emerald-800); color: var(--gold-300);
+      font-weight: 900; font-size: 1rem; display: grid; place-items: center; flex: none;
+    }
+    .avatar-circle.female { background: var(--women-accent); }
+    .author-meta strong { display: block; font-size: 0.96rem; font-weight: 800; }
+    .author-meta small { font-size: 0.78rem; color: var(--ink-muted); }
+
+    .post-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.76rem; font-weight: 800; padding: 3px 10px;
+      border-radius: var(--r-pill); display: inline-flex; align-items: center; gap: 4px;
+    }
+    .badge-skill { background: var(--emerald-soft); color: var(--emerald-800); }
+    :root[data-theme="dark"] .badge-skill { color: var(--gold-300); }
+    .badge-open { background: var(--ok-bg); color: var(--ok); }
+    .badge-full { background: var(--warn-bg); color: var(--warn); }
+
+    .avail-strip {
+      background: var(--surface-soft);
+      border-radius: var(--r-sm);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: inline-flex; align-items: center; gap: 7px; flex-wrap: wrap;
+      align-self: flex-start;
+    }
+    .post-msg {
+      font-size: 0.96rem;
+      color: var(--ink);
+      white-space: pre-wrap;
+      line-height: 1.75;
+    }
+    .post-actions {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; flex-wrap: wrap;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
+
+    /* ===== REPLIES ===== */
+    .replies-box {
+      background: var(--surface-soft);
+      border-radius: var(--r-md);
+      padding: 12px 14px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .reply-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 10px 12px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .reply-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      font-size: 0.82rem;
+    }
+    .reply-head strong { font-weight: 800; color: var(--emerald-800); }
+    :root[data-theme="dark"] .reply-head strong { color: var(--gold-300); }
+    .reply-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .reply-form .inp { flex: 1; min-width: 180px; padding: 8px 12px; font-size: 0.88rem; }
+
+    /* ===== SESSIONS ARCHIVE & PROTOCOL ===== */
+    .sessions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .session-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-top: 4px solid var(--gold-500);
+      border-radius: var(--r-md);
+      padding: 18px;
+      display: flex; flex-direction: column; gap: 8px;
+      box-shadow: var(--sh-sm);
+    }
+    .protocol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .proto-step {
+      background: var(--surface-soft); border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 14px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .proto-step strong { font-size: 0.9rem; color: var(--emerald-800); }
+    :root[data-theme="dark"] .proto-step strong { color: var(--gold-300); }
+    .proto-step p { font-size: 0.82rem; color: var(--ink-muted); }
+
+    /* ===== MODAL & TOAST ===== */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(5, 24, 13, 0.72); backdrop-filter: blur(5px);
+      display: flex; align-items: center; justify-content: center; padding: 16px;
+    }
+    .modal-sheet {
+      width: min(560px, 100%); max-height: 90vh;
+      background: var(--surface); border: 2px solid var(--gold-500);
+      border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column;
+    }
+    .modal-head {
+      background: linear-gradient(90deg, var(--emerald-900), var(--emerald-800));
+      color: #FFFFFF; padding: 16px 20px; display: flex;
+      align-items: center; justify-content: space-between; border-bottom: 2px solid var(--gold-500);
+    }
+    .modal-body { padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+    .toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--emerald-900); color: #FFFFFF; border: 1.5px solid var(--gold-300);
+      padding: 10px 20px; border-radius: var(--r-pill); font-weight: 700; font-size: 0.88rem;
+      box-shadow: var(--sh-lg); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    }
+    .toast.show { opacity: 1; }
+    .alert-err {
+      background: var(--bad-bg); color: var(--bad); border: 1px solid rgba(201, 48, 50, 0.35);
+      border-radius: var(--r-sm); padding: 10px 14px; font-size: 0.88rem; font-weight: 700;
+    }
+
+    @media (max-width: 960px) {
+      .tb-nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .composer-grid { grid-template-columns: 1fr; }
+      .sessions-grid { grid-template-columns: 1fr; }
+      .protocol-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .inner-tabs { grid-template-columns: 1fr; border-radius: var(--r-md); }
+      .protocol-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="tb-brand" href="catalog.html">
+        <img class="tb-logo" data-logo="1" alt="شعار أكاديمية الساجد">
+        <div class="tb-title">
+          <strong>أكاديمية الساجد | التدريب العملي</strong>
+          <small>الحصص التفاعلية ومجتمع تكوين المجموعات</small>
+        </div>
+      </a>
+
+      <nav class="tb-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
+        <a class="nav-link" href="index.html">الدليل التفاعلي (+540)</a>
+        <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
+        <a class="nav-link active" href="practical-training.html">التدريب العملي والمجتمع</a>
+        <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
+        <a class="nav-link" href="library.html">المكتبة العلمية</a>
+      </nav>
+
+      <div class="tb-actions">
+        <button type="button" class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل المظهر">🌙</button>
+        <button type="button" class="icon-btn menu-toggle" onclick="toggleMobileMenu()" aria-label="القائمة">
+          <i data-lucide="menu" style="width:19px;height:19px;"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+      <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
+      <a class="nav-link" href="index.html">الدليل التفاعلي (+540 جملة)</a>
+      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي (114 سورة)</a>
+      <a class="nav-link active" href="practical-training.html">التدريب العملي والمجتمع</a>
+      <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
+      <a class="nav-link" href="library.html">المكتبة العلمية</a>
+    </div>
+  </header>
+
+  <main class="shell">
+
+    <!-- =======================================================================
+         1. بوابة التفعيل والدخول (فصل تلقائي لمجتمع الرجال والسيدات بالكود)
+         ======================================================================= -->
+    <section id="gate-view">
+      <div class="gate-card">
+        <div class="gate-head">
+          <img data-logo="1" alt="أكاديمية الساجد">
+          <h1>بوابة قسم التدريب العملي والمجتمع</h1>
+          <p>مخصّص لمشتركي برامج أكاديمية الساجد. يُوجّهك كود التفعيل تلقائيًا إلى مجتمعك الخاص (مجتمع الرجال مستقل عن مجتمع السيدات تمامًا).</p>
+        </div>
+
+        <form class="gate-body" onsubmit="handleLoginSubmit(event)">
+          <div id="gate-error" class="alert-err hidden"></div>
+
+          <div class="field">
+            <label for="login-email">البريد الإلكتروني الشخصي (Email)</label>
+            <input type="email" id="login-email" class="inp" required placeholder="example@gmail.com" dir="ltr" style="text-align:right;">
+          </div>
+
+          <div class="field">
+            <label for="login-code">كود التفعيل (Activation Code)</label>
+            <input type="text" id="login-code" class="inp" required placeholder="أدخل كود التفعيل الخاص بك" dir="ltr" style="text-align:right;text-transform:uppercase;">
+          </div>
+
+          <div class="field">
+            <label for="login-name">اسمك الظاهر داخل مجتمع التدريب (اختياري عند أول دخول)</label>
+            <input type="text" id="login-name" class="inp" placeholder="مثال: أ. محمد أحمد / أ. سارة محمود">
+          </div>
+
+          <button type="submit" class="btn btn-gold" id="login-submit-btn" style="width:100%;">
+            <i data-lucide="unlock" style="width:18px;height:18px;"></i>
+            <span>تفعيل والدخول إلى التدريب العملي</span>
+          </button>
+
+          <div class="privacy-note">
+            <i data-lucide="shield-check" style="width:19px;height:19px;color:var(--emerald-700);flex:none;margin-top:2px;"></i>
+            <span><strong>ضمان الخصوصية والفصل الكامل:</strong> كود المشترك الرجل يفتح له «مجتمع الرجال» فقط، وكود المشتركة السيدة يفتح لها «مجتمع السيدات» فقط، ولا يطّلع أي طرف على المجتمع الآخر.</span>
+          </div>
+
+          <div class="demo-box hidden" id="demo-mode-box">
+            <strong><i data-lucide="flask-conical" style="width:15px;height:15px;vertical-align:middle;"></i> وضع المعاينة المحلي (قبل ربط رابط Google Apps Script):</strong>
+            <span>يمكنك تجربة فصل المجتمعين وصلاحية الإدارة الآن فورًا بأحد الأكواد التجريبية:</span>
+            <div class="demo-btns">
+              <button type="button" class="btn btn-soft btn-sm" onclick="fillDemo('men@test.com','MEN-1001','أ. أحمد محمود')">دخول متدرب (رجال)</button>
+              <button type="button" class="btn btn-soft btn-sm" onclick="fillDemo('women@test.com','WOM-2001','أ. سارة علي')">دخول متدربة (سيدات)</button>
+              <button type="button" class="btn btn-emerald btn-sm" onclick="fillDemo('admin@alsajid.academy','ADMIN-SAJID','أ. ياسر (الإدارة)')">دخول الإدارة (المجتمعان + نشر الروابط)</button>
+            </div>
+          </div>
+
+          <div style="text-align:center;padding-top:6px;">
+            <button type="button" class="btn btn-soft btn-sm" onclick="openSupportWhatsApp()">
+              <i data-lucide="message-circle" style="width:16px;height:16px;color:var(--wa-green);"></i>
+              <span>ليس لديك كود؟ تواصل معنا عبر واتساب</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         2. مساحة العمل الداخلية بعد التفعيل
+         ======================================================================= -->
+    <section id="workspace-view" class="hidden" style="display:flex;flex-direction:column;gap:18px;">
+
+      <!-- شريط الإدارة (يظهر فقط لحساب الإدارة role === 'admin') -->
+      <div class="admin-bar hidden" id="admin-bar">
+        <div class="admin-tag">
+          <i data-lucide="crown" style="width:18px;height:18px;"></i>
+          <span>لوحة تحكم الإدارة — عرض المجتمعين ونشر روابط الحصص التفاعلية</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-sm" id="adm-switch-male" onclick="adminSwitchBoard('male')">مجتمع الرجال</button>
+          <button type="button" class="btn btn-sm" id="adm-switch-female" onclick="adminSwitchBoard('female')">مجتمع السيدات</button>
+          <button type="button" class="btn btn-gold btn-sm" onclick="openSessionModal()">
+            <i data-lucide="video" style="width:15px;height:15px;"></i>
+            <span>نشر رابط حصة تفاعلية</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ترويسة المجتمع الحالي -->
+      <div class="board-hero male" id="board-hero">
+        <div>
+          <div class="board-badge" id="board-badge">
+            <i data-lucide="shield" style="width:15px;height:15px;"></i>
+            <span id="board-badge-text">مجتمع الرجال — خاص بالمتدربين</span>
+          </div>
+          <h1 id="board-title">مجتمع التدريب العملي للرجال</h1>
+          <p id="board-welcome">مرحبًا بك! نسّق مواعيد التدريب مع زملائك لتكوين جروب واتساب رباعي وشاهد الحصص التفاعلية.</p>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-soft btn-sm" onclick="refreshFeed()" id="refresh-btn">
+            <i data-lucide="refresh-cw" style="width:15px;height:15px;"></i>
+            <span>تحديث الرسائل</span>
+          </button>
+          <button type="button" class="btn btn-soft btn-sm" onclick="handleLogout()">
+            <i data-lucide="log-out" style="width:15px;height:15px;"></i>
+            <span>تسجيل الخروج</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- بطاقة الحصة التفاعلية المثبّتة من الإدارة -->
+      <div class="pinned-session" id="pinned-session-card">
+        <div style="flex:1;min-width:240px;">
+          <div class="pin-label">
+            <i data-lucide="radio" style="width:14px;height:14px;"></i>
+            <span>رابط الحصة التفاعلية المثبّت من الإدارة</span>
+          </div>
+          <h2 id="pin-title">جاري تحميل موعد الحصة التفاعلية...</h2>
+          <div class="pinned-meta">
+            <span id="pin-time"></span>
+          </div>
+          <p id="pin-notes" style="font-size:0.88rem;color:var(--ink-muted);margin-top:6px;"></p>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <a id="pin-join-btn" href="#" target="_blank" rel="noopener" class="btn btn-gold">
+            <i data-lucide="video" style="width:18px;height:18px;"></i>
+            <span>الدخول للحصة التفاعلية</span>
+          </a>
+          <button type="button" class="btn btn-soft btn-sm" onclick="copyPinnedLink()">
+            <i data-lucide="copy" style="width:15px;height:15px;"></i>
+            <span>نسخ الرابط</span>
+          </button>
+          <a href="dashboard.html" class="btn btn-emerald btn-sm" title="سجّل حضور المعايشة وأرسل الـ 10 جمل والفوائد">
+            <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i>
+            <span>تسجيل حضور المعايشة (الـ 10 جمل)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- تبويبان داخليان: المجتمع / الحصص التفاعلية وإرشادات الجروب -->
+      <div class="inner-tabs" role="tablist">
+        <button type="button" class="inner-tab active" id="itab-community" onclick="switchInnerTab('community')">
+          <i data-lucide="messages-square" style="width:18px;height:18px;"></i>
+          <span>مجتمع تكوين مجموعات التدريب (<span id="posts-count-lbl">0</span>)</span>
+        </button>
+        <button type="button" class="inner-tab" id="itab-sessions" onclick="switchInnerTab('sessions')">
+          <i data-lucide="play-circle" style="width:18px;height:18px;"></i>
+          <span>الحصص التفاعلية وخطة الجروب الرباعي</span>
+        </button>
+      </div>
+
+      <!-- ============== TAB A: لوحة رسائل المجتمع وتكوين مجموعات الواتساب ============== -->
+      <div id="pane-community" style="display:flex;flex-direction:column;gap:16px;">
+
+        <!-- نموذج كتابة إعلان تدريب جديد -->
+        <form class="panel" onsubmit="handleCreatePost(event)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-size:1.05rem;font-weight:900;display:flex;align-items:center;gap:7px;">
+              <i data-lucide="pen-line" style="width:18px;height:18px;color:var(--emerald-700);"></i>
+              <span>أعلن عن مواعيدك لتكوين جروب تدريب (4 متدربين على واتساب)</span>
+            </h3>
+            <button type="button" class="btn btn-soft btn-sm" onclick="fillTemplateMessage()">
+              <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+              <span>تعبئة صيغة جاهزة</span>
+            </button>
+          </div>
+
+          <div class="composer-grid">
+            <div class="field">
+              <label for="post-skill">مجال التدريب</label>
+              <select id="post-skill" class="sel">
+                <option value="تأسيس القاعدة البغدادية">تأسيس القاعدة البغدادية</option>
+                <option value="شرح التجويد بالإنجليزية">شرح التجويد بالإنجليزية</option>
+                <option value="تدريس القرآن الكريم أونلاين">تدريس القرآن الكريم أونلاين</option>
+                <option value="العربية للناطقين بغيرها">العربية للناطقين بغيرها</option>
+                <option value="محاكاة الحصة التجريبية (3+22+5)">محاكاة الحصة التجريبية (3+22+5)</option>
+                <option value="تطبيق كورس الـ 500 جملة">تطبيق كورس الـ 500 جملة</option>
+                <option value="تدريب عملي شامل">تدريب عملي شامل</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="post-availability">الأيام والمواعيد المتاحة (بتوقيت مصر)</label>
+              <input type="text" id="post-availability" class="inp" required placeholder="مثال: الأحد والثلاثاء 9 مساءً">
+            </div>
+
+            <div class="field">
+              <label for="post-whatsapp">رقم الواتساب لتكوين الجروب (اختياري)</label>
+              <input type="tel" id="post-whatsapp" class="inp" placeholder="مثال: 01012345678 أو +2010..." dir="ltr" style="text-align:right;">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="post-message">رسالتك لزملائك في التدريب</label>
+            <textarea id="post-message" class="txt" required placeholder="مثال: السلام عليكم، اسمي فلان ومتاح للتدرب أيام كذا الساعة كذا، هل من أحد متاح لنكوّن جروب واتساب من 4 متدربين؟"></textarea>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <span style="font-size:0.8rem;color:var(--ink-muted);">
+              مشاركة رقم الواتساب اختيارية تمامًا وتظهر فقط لأعضاء هذا المجتمع المفعّلين بالكود.
+            </span>
+            <button type="submit" class="btn btn-emerald" id="post-submit-btn">
+              <i data-lucide="send" style="width:16px;height:16px;"></i>
+              <span>نشر الرسالة في المجتمع</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- شريط البحث والتصفية -->
+        <div class="filter-bar">
+          <input type="search" id="feed-search" class="inp" style="flex:1;min-width:200px;" placeholder="ابحث بالاسم أو الموعد أو المهارة..." oninput="renderPostsFeed()">
+          <select id="feed-skill-filter" class="sel" style="width:auto;min-width:190px;" onchange="renderPostsFeed()">
+            <option value="all">كل المجالات</option>
+            <option value="تأسيس القاعدة البغدادية">تأسيس القاعدة البغدادية</option>
+            <option value="شرح التجويد بالإنجليزية">شرح التجويد بالإنجليزية</option>
+            <option value="تدريس القرآن الكريم أونلاين">تدريس القرآن الكريم أونلاين</option>
+            <option value="العربية للناطقين بغيرها">العربية للناطقين بغيرها</option>
+            <option value="محاكاة الحصة التجريبية (3+22+5)">محاكاة الحصة التجريبية (3+22+5)</option>
+            <option value="تطبيق كورس الـ 500 جملة">تطبيق كورس الـ 500 جملة</option>
+            <option value="تدريب عملي شامل">تدريب عملي شامل</option>
+          </select>
+          <select id="feed-status-filter" class="sel" style="width:auto;min-width:160px;" onchange="renderPostsFeed()">
+            <option value="all">الكل (المفتوح والمكتمل)</option>
+            <option value="open">المفتوح للانضمام فقط</option>
+          </select>
+        </div>
+
+        <!-- قائمة الرسائل -->
+        <div class="feed-list" id="posts-feed"></div>
+
+        <div style="text-align:center;" id="load-more-wrap" class="hidden">
+          <button type="button" class="btn btn-soft" onclick="loadMorePosts()">
+            <i data-lucide="chevron-down" style="width:17px;height:17px;"></i>
+            <span>عرض المزيد من الرسائل</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============== TAB B: الحصص التفاعلية وإرشادات الجروب الرباعي ============== -->
+      <div id="pane-sessions" class="hidden" style="display:flex;flex-direction:column;gap:18px;">
+        <div class="panel">
+          <h3 style="font-size:1.08rem;font-weight:900;display:flex;align-items:center;gap:8px;">
+            <i data-lucide="users-round" style="width:19px;height:19px;color:var(--gold-500);"></i>
+            <span>كيف تديرون جلسة الجروب الرباعي على واتساب / زووم بنجاح؟ (60 دقيقة)</span>
+          </h3>
+          <div class="protocol-grid">
+            <div class="proto-step">
+              <strong>1. دور المعلّم (12 دقيقة)</strong>
+              <p>يشرح أحدكم مهارة محددة (مثل حرف الضاد أو حكم إدغام) باللغة الإنجليزية المبسطة.</p>
+            </div>
+            <div class="proto-step">
+              <strong>2. دور الطالب الأجنبي</strong>
+              <p>متدرب ثانٍ يمثّل دور طفل أو طالب مبتدئ ويطرح أسئلة حقيقية تحدث داخل الحصص.</p>
+            </div>
+            <div class="proto-step">
+              <strong>3. المقيّمان (2 متدربين)</strong>
+              <p>يدوّن أحدهما ملاحظات النطق والجمل الإنجليزية، والآخر يقيّم التفاعل والوقت والتشجيع.</p>
+            </div>
+            <div class="proto-step">
+              <strong>4. التبادل السريع</strong>
+              <p>بعد 3 دقائق تقييم بنّاء، تتبادلون الأدوار حتى يمارس الأربعة دور المعلّم في نفس الجلسة.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-size:1.08rem;font-weight:900;">سجل روابط الحصص التفاعلية المنشورة من الإدارة</h3>
+            <button type="button" class="btn btn-gold btn-sm hidden" id="sessions-admin-add-btn" onclick="openSessionModal()">
+              <i data-lucide="plus" style="width:15px;height:15px;"></i>
+              <span>إضافة رابط حصة</span>
+            </button>
+          </div>
+          <div class="sessions-grid" id="sessions-archive-list"></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- نافذة نشر رابط حصة تفاعلية (للإدارة فقط) -->
+  <div class="modal-backdrop hidden" id="session-modal" role="dialog" aria-modal="true" aria-labelledby="sm-title">
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3 id="sm-title">نشر رابط حصة تفاعلية جديدة</h3>
+        <button type="button" class="icon-btn" onclick="closeSessionModal()" aria-label="إغلاق">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <form class="modal-body" onsubmit="handlePublishSession(event)">
+        <div class="field">
+          <label for="ses-title">عنوان الحصة التفاعلية</label>
+          <input type="text" id="ses-title" class="inp" required placeholder="مثال: حصة تطبيقية مباشرة — شرح المدود باللغة الإنجليزية">
+        </div>
+        <div class="field">
+          <label for="ses-datetime">الموعد (اليوم والساعة بتوقيت مصر)</label>
+          <input type="text" id="ses-datetime" class="inp" required placeholder="مثال: الجمعة 8:30 مساءً بتوقيت مصر">
+        </div>
+        <div class="field">
+          <label for="ses-link">رابط الدخول (Zoom / Google Meet / YouTube)</label>
+          <input type="url" id="ses-link" class="inp" required placeholder="https://zoom.us/j/..." dir="ltr" style="text-align:right;">
+        </div>
+        <div class="field">
+          <label for="ses-target">الفئة المستهدفة</label>
+          <select id="ses-target" class="sel">
+            <option value="all">الجميع (مجتمع الرجال + مجتمع السيدات)</option>
+            <option value="male">مجتمع الرجال فقط</option>
+            <option value="female">مجتمع السيدات فقط</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ses-notes">ملاحظات للمتدربين (اختياري)</label>
+          <textarea id="ses-notes" class="txt" style="min-height:72px;" placeholder="مثال: الحضور قبل الموعد بـ 5 دقائق وتجهيز الدليل التفاعلي..."></textarea>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;font-size:0.88rem;font-weight:700;cursor:pointer;">
+          <input type="checkbox" id="ses-pin" checked>
+          <span>تثبيت هذه الحصة في أعلى المجتمع كإعلان رئيسي</span>
+        </label>
+        <button type="submit" class="btn btn-gold" id="ses-submit-btn" style="width:100%;">
+          <i data-lucide="send" style="width:17px;height:17px;"></i>
+          <span>نشر الرابط الآن</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast-bar"></div>
+
+  <script>
+    /* =========================================================================
+       إعدادات الربط — الصق رابط Google Apps Script Web App هنا بعد نشره
+       (عند تركه فارغًا يعمل الموقع تلقائيًا في وضع المعاينة المحلي للتجربة)
+       ========================================================================= */
+    const GLOBAL_CFG = window.SAJID_CONFIG || {};
+    const APPS_SCRIPT_URL = GLOBAL_CFG.appsScriptUrl || "";
+    const SUPPORT_WHATSAPP = GLOBAL_CFG.whatsappNumber || "201000000000";
+
+    const LOGO = "data:image/webp;base64,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";
+    const THEME_KEY = "sajidpt:th";
+    const SESSION_STORAGE_KEY = "sajid_pt_auth_v1";
+    const DEMO_DB_KEY = "sajid_pt_demo_db_v1";
+
+    let authUser = null;
+    let activeBoard = "male";
+    let feedPosts = [];
+    let feedSessions = [];
+    let pinnedSession = null;
+    let visibleLimit = 20;
+
+    function isDemoMode() {
+      return !String(APPS_SCRIPT_URL || "").trim();
+    }
+
+    function paintTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      const btn = document.getElementById("theme-btn");
+      if (btn) btn.textContent = dark ? "☀️" : "🌙";
+    }
+    function toggleTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (dark) document.documentElement.removeAttribute("data-theme");
+      else document.documentElement.setAttribute("data-theme", "dark");
+      try { localStorage.setItem(THEME_KEY, dark ? "light" : "dark"); } catch (e) {}
+      paintTheme();
+    }
+    function toggleMobileMenu() {
+      document.getElementById("mobile-drawer").classList.toggle("open");
+    }
+    function showToast(msg) {
+      const el = document.getElementById("toast-bar");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove("show"), 2600);
+    }
+    function openSupportWhatsApp() {
+      const phone = String(SUPPORT_WHATSAPP || "").replace(/[^0-9]/g, "");
+      const msg = "السلام عليكم، أرغب في الحصول على كود التفعيل للدخول إلى قسم التدريب العملي والمجتمع بأكاديمية الساجد.";
+      window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+    }
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+    function formatDateAr(iso) {
+      if (!iso) return "";
+      try {
+        const d = new Date(iso);
+        return d.toLocaleDateString("ar-EG", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+      } catch (e) { return ""; }
+    }
+    function normalizeWhatsAppHref(raw) {
+      let digits = String(raw || "").replace(/[^0-9]/g, "");
+      if (!digits) return "";
+      if (digits.startsWith("01") && digits.length === 11) digits = "2" + digits;
+      return "https://wa.me/" + digits;
+    }
+
+    /* ===== DEMO LOCAL STORAGE ENGINE (FOR INSTANT TESTING BEFORE SHEET LINK) ===== */
+    function getDemoDb() {
+      try {
+        const saved = localStorage.getItem(DEMO_DB_KEY);
+        if (saved) return JSON.parse(saved);
+      } catch (e) {}
+      const now = new Date().toISOString();
+      const seed = {
+        codes: {
+          "ADMIN-SAJID": { code: "ADMIN-SAJID", email: "admin@alsajid.academy", name: "أ. ياسر عبد الستار (الإدارة)", gender: "male", role: "admin" },
+          "MEN-1001": { code: "MEN-1001", email: "", name: "أ. أحمد محمود", gender: "male", role: "member" },
+          "WOM-2001": { code: "WOM-2001", email: "", name: "أ. سارة علي", gender: "female", role: "member" }
+        },
+        posts: [
+          {
+            id: "POST-DEMO-M1", gender: "male", author_name: "أ. عبد الرحمن خالد", author_code: "MEN-1002",
+            skill: "تأسيس القاعدة البغدادية", availability: "الأحد والثلاثاء 9:00 مساءً بتوقيت مصر",
+            whatsapp: "01012345678",
+            message: "السلام عليكم ورحمة الله، اسمي عبد الرحمن ومتاح للتدرب العملي على شرح القاعدة البغدادية للأطفال. أبحث عن 3 إخوة لنكوّن جروب واتساب من 4 متدربين ونتبادل الأدوار على زووم.",
+            group_status: "open", created_at: now,
+            replies: [
+              { id: "REP-M1", post_id: "POST-DEMO-M1", author_name: "أ. عمر طارق", author_code: "MEN-1003", message: "وعليكم السلام، المواعيد مناسبة جدًا لي وسأتواصل معك على واتساب الآن.", created_at: now }
+            ]
+          },
+          {
+            id: "POST-DEMO-W1", gender: "female", author_name: "أ. مريم حسن", author_code: "WOM-2002",
+            skill: "شرح التجويد بالإنجليزية", availability: "السبت والإثنين 8:00 مساءً بتوقيت مصر",
+            whatsapp: "01098765432",
+            message: "السلام عليكم أخواتي، أنا مريم وأرغب في تكوين جروب واتساب رباعي للتدرب على شرح أحكام النون الساكنة والتنوين باللغة الإنجليزية المبسطة. من المواعيد مناسبة لها تتواصل معي.",
+            group_status: "open", created_at: now,
+            replies: []
+          }
+        ],
+        sessions: [
+          {
+            id: "SES-DEMO-1", target_gender: "all",
+            title: "الحصة التفاعلية الأسبوعية — تطبيق عملي على قاعدة الحصة التجريبية (3+22+5)",
+            datetime: "الخميس الساعة 8:00 مساءً بتوقيت مصر",
+            link: "https://zoom.us/",
+            notes: "ادخل قبل الموعد بـ 5 دقائق، وسيتم اختيار متدربين للتطبيق المباشر ومناقشة الملاحظات.",
+            is_pinned: true, created_at: now
+          }
+        ]
+      };
+      saveDemoDb(seed);
+      return seed;
+    }
+    function saveDemoDb(db) {
+      try { localStorage.setItem(DEMO_DB_KEY, JSON.stringify(db)); } catch (e) {}
+    }
+
+    async function apiCall(payload) {
+      if (isDemoMode()) return demoApiCall(payload);
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error("تعذّر الاتصال بالخادم.");
+      return await res.json();
+    }
+
+    function demoApiCall(payload) {
+      const db = getDemoDb();
+      const act = payload.action;
+
+      if (act === "login") {
+        const c = String(payload.code || "").trim().toUpperCase();
+        const em = String(payload.email || "").trim().toLowerCase();
+        const rec = db.codes[c];
+        if (!rec) return { ok: false, error: "كود غير موجود في وضع التجربة. جرّب MEN-1001 أو WOM-2001 أو ADMIN-SAJID." };
+        if (rec.email && rec.email !== em && rec.role !== "admin") {
+          return { ok: false, error: "الكود مرتبط ببريد آخر." };
+        }
+        const user = Object.assign({}, rec, {
+          email: em,
+          name: String(payload.name || "").trim() || rec.name
+        });
+        return { ok: true, user: user };
+      }
+
+      const c = String(payload.code || "").trim().toUpperCase();
+      const user = db.codes[c];
+      if (!user) return { ok: false, error: "جلسة غير صالحة." };
+      const board = (user.role === "admin" && (payload.board === "male" || payload.board === "female")) ? payload.board : user.gender;
+
+      if (act === "feed") {
+        const posts = db.posts.filter(p => !p.deleted && p.gender === board);
+        const sessions = db.sessions.filter(s => s.target_gender === "all" || s.target_gender === board);
+        const pinned = sessions.find(s => s.is_pinned) || sessions[0] || null;
+        return { ok: true, user: user, board: board, posts: posts, sessions: sessions, pinnedSession: pinned };
+      }
+      if (act === "create_post") {
+        const newPost = {
+          id: "POST-" + Date.now(), gender: board,
+          author_name: payload.author_name || user.name, author_code: user.code,
+          skill: payload.skill, availability: payload.availability,
+          whatsapp: payload.whatsapp, message: payload.message,
+          group_status: "open", created_at: new Date().toISOString(), replies: []
+        };
+        db.posts.unshift(newPost);
+        saveDemoDb(db);
+        return { ok: true, id: newPost.id };
+      }
+      if (act === "create_reply") {
+        const target = db.posts.find(p => p.id === payload.post_id && p.gender === board);
+        if (!target) return { ok: false, error: "المنشور غير موجود." };
+        target.replies.push({
+          id: "REP-" + Date.now(), post_id: target.id,
+          author_name: payload.author_name || user.name, author_code: user.code,
+          message: payload.message, created_at: new Date().toISOString()
+        });
+        saveDemoDb(db);
+        return { ok: true };
+      }
+      if (act === "toggle_status") {
+        const target = db.posts.find(p => p.id === payload.post_id);
+        if (target) {
+          target.group_status = target.group_status === "open" ? "full" : "open";
+          saveDemoDb(db);
+          return { ok: true, group_status: target.group_status };
+        }
+      }
+      if (act === "delete_post") {
+        db.posts = db.posts.filter(p => p.id !== payload.id);
+        saveDemoDb(db);
+        return { ok: true };
+      }
+      if (act === "delete_reply") {
+        db.posts.forEach(p => { p.replies = (p.replies || []).filter(r => r.id !== payload.id); });
+        saveDemoDb(db);
+        return { ok: true };
+      }
+      if (act === "publish_session") {
+        if (user.role !== "admin") return { ok: false, error: "متاح للإدارة فقط." };
+        if (payload.is_pinned) {
+          db.sessions.forEach(s => {
+            if (payload.target_gender === "all" || s.target_gender === payload.target_gender || s.target_gender === "all") {
+              s.is_pinned = false;
+            }
+          });
+        }
+        db.sessions.unshift({
+          id: "SES-" + Date.now(),
+          target_gender: payload.target_gender || "all",
+          title: payload.title, datetime: payload.datetime,
+          link: payload.link, notes: payload.notes,
+          is_pinned: !!payload.is_pinned, created_at: new Date().toISOString()
+        });
+        saveDemoDb(db);
+        return { ok: true };
+      }
+      return { ok: false, error: "إجراء غير مدعوم." };
+    }
+
+    function fillDemo(email, code, name) {
+      document.getElementById("login-email").value = email;
+      document.getElementById("login-code").value = code;
+      document.getElementById("login-name").value = name;
+    }
+
+    /* ===== AUTH & WORKSPACE LIFECYCLE ===== */
+    async function handleLoginSubmit(ev) {
+      ev.preventDefault();
+      const errBox = document.getElementById("gate-error");
+      errBox.classList.add("hidden");
+      const btn = document.getElementById("login-submit-btn");
+      btn.disabled = true;
+
+      const email = document.getElementById("login-email").value.trim();
+      const code = document.getElementById("login-code").value.trim().toUpperCase();
+      const name = document.getElementById("login-name").value.trim();
+
+      try {
+        const res = await apiCall({ action: "login", email: email, code: code, name: name, deviceId: navigator.userAgent.slice(0, 60) });
+        if (!res.ok) {
+          errBox.textContent = res.error || "تعذّر التفعيل.";
+          errBox.classList.remove("hidden");
+          btn.disabled = false;
+          return;
+        }
+        authUser = res.user;
+        activeBoard = authUser.gender;
+        try { localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(authUser)); } catch (e) {}
+        enterWorkspace();
+      } catch (err) {
+        errBox.textContent = "حدث خطأ في الاتصال. تأكد من الإنترنت ثم حاول مجددًا.";
+        errBox.classList.remove("hidden");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function handleLogout() {
+      authUser = null;
+      try { localStorage.removeItem(SESSION_STORAGE_KEY); } catch (e) {}
+      document.getElementById("workspace-view").classList.add("hidden");
+      document.getElementById("gate-view").classList.remove("hidden");
+      showToast("تم تسجيل الخروج بنجاح");
+    }
+
+    function enterWorkspace() {
+      document.getElementById("gate-view").classList.add("hidden");
+      document.getElementById("workspace-view").classList.remove("hidden");
+      const isAdmin = authUser && authUser.role === "admin";
+      document.getElementById("admin-bar").classList.toggle("hidden", !isAdmin);
+      document.getElementById("sessions-admin-add-btn").classList.toggle("hidden", !isAdmin);
+      paintBoardHeader();
+      refreshFeed();
+    }
+
+    function adminSwitchBoard(target) {
+      if (!authUser || authUser.role !== "admin") return;
+      activeBoard = target;
+      visibleLimit = 20;
+      paintBoardHeader();
+      refreshFeed();
+    }
+
+    function paintBoardHeader() {
+      const hero = document.getElementById("board-hero");
+      const isFemale = activeBoard === "female";
+      hero.className = "board-hero " + (isFemale ? "female" : "male");
+      document.getElementById("board-badge-text").textContent = isFemale
+        ? "مجتمع السيدات — خاص بالمتدربات فقط"
+        : "مجتمع الرجال — خاص بالمتدربين فقط";
+      document.getElementById("board-title").textContent = isFemale
+        ? "مجتمع التدريب العملي للسيدات"
+        : "مجتمع التدريب العملي للرجال";
+      document.getElementById("board-welcome").textContent =
+        "أهلًا بك يا " + authUser.name + " — يمكنك التنسيق مع " + (isFemale ? "زميلاتك" : "زملائك") + " لتكوين جروب واتساب رباعي وحضور الحصص التفاعلية.";
+
+      if (authUser.role === "admin") {
+        document.getElementById("adm-switch-male").className = "btn btn-sm " + (activeBoard === "male" ? "btn-emerald" : "btn-soft");
+        document.getElementById("adm-switch-female").className = "btn btn-sm " + (activeBoard === "female" ? "btn-emerald" : "btn-soft");
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    async function refreshFeed() {
+      if (!authUser) return;
+      const btn = document.getElementById("refresh-btn");
+      if (btn) btn.disabled = true;
+      try {
+        const res = await apiCall({
+          action: "feed",
+          email: authUser.email,
+          code: authUser.code,
+          board: activeBoard
+        });
+        if (!res.ok) {
+          showToast(res.error || "تعذّر تحديث الرسائل");
+          return;
+        }
+        feedPosts = res.posts || [];
+        feedSessions = res.sessions || [];
+        pinnedSession = res.pinnedSession || null;
+        renderPinnedSession();
+        renderPostsFeed();
+        renderSessionsArchive();
+      } catch (e) {
+        showToast("تعذّر الاتصال بالخادم، حاول مجددًا.");
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    }
+
+    function renderPinnedSession() {
+      const card = document.getElementById("pinned-session-card");
+      if (!pinnedSession) {
+        card.classList.add("hidden");
+        return;
+      }
+      card.classList.remove("hidden");
+      document.getElementById("pin-title").textContent = pinnedSession.title;
+      document.getElementById("pin-time").textContent = pinnedSession.datetime ? ("الموعد: " + pinnedSession.datetime) : "";
+      document.getElementById("pin-notes").textContent = pinnedSession.notes || "";
+      document.getElementById("pin-join-btn").href = pinnedSession.link || "#";
+    }
+
+    function copyPinnedLink() {
+      if (!pinnedSession || !pinnedSession.link) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pinnedSession.link).then(() => showToast("تم نسخ رابط الحصة التفاعلية"));
+      }
+    }
+
+    function fillTemplateMessage() {
+      const isFemale = activeBoard === "female";
+      const av = document.getElementById("post-availability").value.trim() || "الأحد والثلاثاء الساعة 9 مساءً بتوقيت مصر";
+      const sk = document.getElementById("post-skill").value;
+      const tpl = isFemale
+        ? ("السلام عليكم أخواتي، اسمي " + authUser.name + "، متاحة للتدرب العملي في (" + sk + ") في الأوقات التالية: " + av + ". هل توجد أخوات متاحات لنكوّن جروب واتساب من 4 متدربات ونتبادل الأدوار؟")
+        : ("السلام عليكم إخواني، اسمي " + authUser.name + "، متاح للتدرب العملي في (" + sk + ") في الأوقات التالية: " + av + ". هل يوجد إخوة متاحون لنكوّن جروب واتساب من 4 متدربين ونتبادل الأدوار؟");
+      document.getElementById("post-message").value = tpl;
+      document.getElementById("post-message").focus();
+    }
+
+    async function handleCreatePost(ev) {
+      ev.preventDefault();
+      if (!authUser) return;
+      const btn = document.getElementById("post-submit-btn");
+      btn.disabled = true;
+      try {
+        const res = await apiCall({
+          action: "create_post",
+          email: authUser.email,
+          code: authUser.code,
+          board: activeBoard,
+          author_name: authUser.name,
+          skill: document.getElementById("post-skill").value,
+          availability: document.getElementById("post-availability").value.trim(),
+          whatsapp: document.getElementById("post-whatsapp").value.trim(),
+          message: document.getElementById("post-message").value.trim()
+        });
+        if (!res.ok) { showToast(res.error || "تعذّر النشر"); return; }
+        document.getElementById("post-availability").value = "";
+        document.getElementById("post-whatsapp").value = "";
+        document.getElementById("post-message").value = "";
+        showToast("تم نشر رسالتك في المجتمع بنجاح");
+        await refreshFeed();
+      } catch (e) {
+        showToast("تعذّر إرسال الرسالة.");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function renderPostsFeed() {
+      const q = (document.getElementById("feed-search").value || "").trim().toLowerCase();
+      const sk = document.getElementById("feed-skill-filter").value;
+      const st = document.getElementById("feed-status-filter").value;
+
+      const filtered = feedPosts.filter(p => {
+        if (sk !== "all" && p.skill !== sk) return false;
+        if (st === "open" && p.group_status !== "open") return false;
+        if (q) {
+          const hay = (p.author_name + " " + p.skill + " " + p.availability + " " + p.message).toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById("posts-count-lbl").textContent = filtered.length;
+      const box = document.getElementById("posts-feed");
+      box.innerHTML = "";
+
+      if (!filtered.length) {
+        box.innerHTML = '<div class="panel" style="text-align:center;color:var(--ink-muted);padding:34px;">لا توجد رسائل مطابقة حاليًا — كن أول من يعلن عن مواعيده لتكوين جروب تدريب رباعي!</div>';
+        document.getElementById("load-more-wrap").classList.add("hidden");
+        return;
+      }
+
+      const slice = filtered.slice(0, visibleLimit);
+      const isFemaleBoard = activeBoard === "female";
+
+      slice.forEach(p => {
+        const isFull = p.group_status === "full";
+        const canManage = authUser.role === "admin" || (String(p.author_code || "").toUpperCase() === authUser.code);
+        const waHref = normalizeWhatsAppHref(p.whatsapp);
+        const initial = (p.author_name || "م").replace(/^أ\.?\s*/, "").trim().charAt(0) || "م";
+        const replies = p.replies || [];
+
+        const repliesHtml = replies.map(r => {
+          const canDelRep = authUser.role === "admin" || (String(r.author_code || "").toUpperCase() === authUser.code);
+          return '<div class="reply-item">' +
+            '<div class="reply-head">' +
+              '<strong>' + escapeHtml(r.author_name) + '</strong>' +
+              '<div style="display:flex;align-items:center;gap:8px;">' +
+                '<span style="color:var(--ink-muted);">' + escapeHtml(formatDateAr(r.created_at)) + '</span>' +
+                (canDelRep ? '<button type="button" class="btn btn-danger btn-sm" style="padding:2px 8px;min-height:24px;font-size:0.74rem;" onclick="deleteReply(\'' + escapeHtml(r.id) + '\')">حذف</button>' : '') +
+              '</div>' +
+            '</div>' +
+            '<div style="font-size:0.88rem;">' + escapeHtml(r.message) + '</div>' +
+          '</div>';
+        }).join("");
+
+        const card = document.createElement("article");
+        card.className = "post-card" + (isFull ? " is-full" : "");
+        card.innerHTML =
+          '<div class="post-top">' +
+            '<div class="author-wrap">' +
+              '<div class="avatar-circle' + (isFemaleBoard ? ' female' : '') + '">' + escapeHtml(initial) + '</div>' +
+              '<div class="author-meta">' +
+                '<strong>' + escapeHtml(p.author_name) + '</strong>' +
+                '<small>' + escapeHtml(formatDateAr(p.created_at)) + '</small>' +
+              '</div>' +
+            '</div>' +
+            '<div class="post-badges">' +
+              '<span class="badge badge-skill">' + escapeHtml(p.skill) + '</span>' +
+              '<span class="badge ' + (isFull ? 'badge-full' : 'badge-open') + '">' + (isFull ? 'اكتمل الجروب (4/4) ✅' : 'مفتوح للانضمام') + '</span>' +
+            '</div>' +
+          '</div>' +
+          (p.availability ? '<div class="avail-strip"><i data-lucide="clock" style="width:15px;height:15px;color:var(--gold-500);"></i><span>المواعيد المتاحة: ' + escapeHtml(p.availability) + '</span></div>' : '') +
+          '<div class="post-msg">' + escapeHtml(p.message) + '</div>' +
+          '<div class="post-actions">' +
+            '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
+              '<button type="button" class="btn btn-soft btn-sm" onclick="toggleReplyArea(\'' + escapeHtml(p.id) + '\')">' +
+                '<i data-lucide="message-square-reply" style="width:15px;height:15px;"></i>' +
+                '<span>الردود (' + replies.length + ')</span>' +
+              '</button>' +
+              (waHref && !isFull ? '<a href="' + waHref + '?text=' + encodeURIComponent('السلام عليكم، رأيت إعلانك في مجتمع التدريب العملي بأكاديمية الساجد وأرغب في الانضمام لجروب التدريب الرباعي.') + '" target="_blank" rel="noopener" class="btn btn-wa btn-sm"><i data-lucide="message-circle" style="width:15px;height:15px;"></i><span>تواصل واتساب (' + escapeHtml(p.whatsapp) + ')</span></a>' : '') +
+            '</div>' +
+            '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
+              (canManage ? '<button type="button" class="btn btn-soft btn-sm" onclick="togglePostStatus(\'' + escapeHtml(p.id) + '\')">' + (isFull ? 'إعادة فتح الجروب' : 'تحديد كمكتمل (4/4)') + '</button>' : '') +
+              (canManage ? '<button type="button" class="btn btn-danger btn-sm" onclick="deletePost(\'' + escapeHtml(p.id) + '\')">حذف</button>' : '') +
+            '</div>' +
+          '</div>' +
+          '<div class="replies-box' + (replies.length ? '' : ' hidden') + '" id="replies-' + escapeHtml(p.id) + '">' +
+            repliesHtml +
+            '<form class="reply-form" onsubmit="handleCreateReply(event, \'' + escapeHtml(p.id) + '\')">' +
+              '<input type="text" class="inp" id="rep-inp-' + escapeHtml(p.id) + '" required placeholder="اكتب ردك للانضمام أو التنسيق...">' +
+              '<button type="submit" class="btn btn-emerald btn-sm">إرسال الرد</button>' +
+            '</form>' +
+          '</div>';
+        box.appendChild(card);
+      });
+
+      document.getElementById("load-more-wrap").classList.toggle("hidden", filtered.length <= visibleLimit);
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function loadMorePosts() {
+      visibleLimit += 20;
+      renderPostsFeed();
+    }
+
+    function toggleReplyArea(postId) {
+      const box = document.getElementById("replies-" + postId);
+      if (!box) return;
+      box.classList.toggle("hidden");
+      if (!box.classList.contains("hidden")) {
+        const inp = document.getElementById("rep-inp-" + postId);
+        if (inp) inp.focus();
+      }
+    }
+
+    async function handleCreateReply(ev, postId) {
+      ev.preventDefault();
+      const inp = document.getElementById("rep-inp-" + postId);
+      const msg = inp ? inp.value.trim() : "";
+      if (!msg) return;
+      inp.disabled = true;
+      try {
+        const res = await apiCall({
+          action: "create_reply",
+          email: authUser.email,
+          code: authUser.code,
+          board: activeBoard,
+          post_id: postId,
+          author_name: authUser.name,
+          message: msg
+        });
+        if (!res.ok) { showToast(res.error || "تعذّر إرسال الرد"); return; }
+        showToast("تم إضافة ردك بنجاح");
+        await refreshFeed();
+      } catch (e) {
+        showToast("خطأ في إرسال الرد.");
+      } finally {
+        if (inp) inp.disabled = false;
+      }
+    }
+
+    async function togglePostStatus(postId) {
+      const res = await apiCall({ action: "toggle_status", email: authUser.email, code: authUser.code, post_id: postId });
+      if (res.ok) { showToast("تم تحديث حالة الجروب"); await refreshFeed(); }
+      else showToast(res.error || "تعذّر التحديث");
+    }
+
+    async function deletePost(postId) {
+      if (!confirm("هل تريد حذف هذه الرسالة من المجتمع؟")) return;
+      const res = await apiCall({ action: "delete_post", email: authUser.email, code: authUser.code, id: postId });
+      if (res.ok) { showToast("تم حذف الرسالة"); await refreshFeed(); }
+      else showToast(res.error || "تعذّر الحذف");
+    }
+
+    async function deleteReply(repId) {
+      if (!confirm("هل تريد حذف هذا الرد؟")) return;
+      const res = await apiCall({ action: "delete_reply", email: authUser.email, code: authUser.code, id: repId });
+      if (res.ok) { showToast("تم حذف الرد"); await refreshFeed(); }
+      else showToast(res.error || "تعذّر الحذف");
+    }
+
+    /* ===== SESSIONS ARCHIVE & ADMIN PUBLISH ===== */
+    function renderSessionsArchive() {
+      const grid = document.getElementById("sessions-archive-list");
+      grid.innerHTML = "";
+      if (!feedSessions.length) {
+        grid.innerHTML = '<div style="grid-column:1/-1;color:var(--ink-muted);text-align:center;padding:22px;">لا توجد حصص تفاعلية منشورة حاليًا.</div>';
+        return;
+      }
+      feedSessions.forEach(s => {
+        const el = document.createElement("article");
+        el.className = "session-card";
+        el.innerHTML =
+          '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">' +
+            '<span class="badge ' + (s.is_pinned ? 'badge-open' : 'badge-skill') + '">' + (s.is_pinned ? 'مثبّتة الآن' : 'حصة تفاعلية') + '</span>' +
+            '<small style="color:var(--ink-muted);font-weight:700;">' + escapeHtml(s.datetime) + '</small>' +
+          '</div>' +
+          '<h4 style="font-size:1rem;font-weight:800;">' + escapeHtml(s.title) + '</h4>' +
+          (s.notes ? '<p style="font-size:0.86rem;color:var(--ink-muted);">' + escapeHtml(s.notes) + '</p>' : '') +
+          '<div style="margin-top:auto;padding-top:8px;">' +
+            '<a href="' + escapeHtml(s.link) + '" target="_blank" rel="noopener" class="btn btn-emerald btn-sm"><i data-lucide="external-link" style="width:14px;height:14px;"></i><span>فتح رابط الحصة</span></a>' +
+          '</div>';
+        grid.appendChild(el);
+      });
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function openSessionModal() {
+      document.getElementById("session-modal").classList.remove("hidden");
+    }
+    function closeSessionModal() {
+      document.getElementById("session-modal").classList.add("hidden");
+    }
+    async function handlePublishSession(ev) {
+      ev.preventDefault();
+      const btn = document.getElementById("ses-submit-btn");
+      btn.disabled = true;
+      try {
+        const res = await apiCall({
+          action: "publish_session",
+          email: authUser.email,
+          code: authUser.code,
+          title: document.getElementById("ses-title").value.trim(),
+          datetime: document.getElementById("ses-datetime").value.trim(),
+          link: document.getElementById("ses-link").value.trim(),
+          target_gender: document.getElementById("ses-target").value,
+          notes: document.getElementById("ses-notes").value.trim(),
+          is_pinned: document.getElementById("ses-pin").checked
+        });
+        if (!res.ok) { showToast(res.error || "تعذّر النشر"); return; }
+        document.getElementById("ses-title").value = "";
+        document.getElementById("ses-datetime").value = "";
+        document.getElementById("ses-link").value = "";
+        document.getElementById("ses-notes").value = "";
+        closeSessionModal();
+        showToast("تم نشر رابط الحصة التفاعلية بنجاح");
+        await refreshFeed();
+      } catch (e) {
+        showToast("خطأ أثناء نشر الرابط.");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function switchInnerTab(tab) {
+      document.getElementById("itab-community").classList.toggle("active", tab === "community");
+      document.getElementById("itab-sessions").classList.toggle("active", tab === "sessions");
+      document.getElementById("pane-community").classList.toggle("hidden", tab !== "community");
+      document.getElementById("pane-sessions").classList.toggle("hidden", tab !== "sessions");
+    }
+
+    document.getElementById("session-modal").addEventListener("click", e => {
+      if (e.target.id === "session-modal") closeSessionModal();
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeSessionModal();
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fav").href = LOGO;
+      document.querySelectorAll("img[data-logo]").forEach(img => { img.src = LOGO; });
+      paintTheme();
+
+      if (isDemoMode()) {
+        document.getElementById("demo-mode-box").classList.remove("hidden");
+      }
+
+      try {
+        const saved = localStorage.getItem(SESSION_STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.code && parsed.email && (parsed.gender === "male" || parsed.gender === "female")) {
+            authUser = parsed;
+            activeBoard = parsed.gender;
+            enterWorkspace();
+          }
+        }
+      } catch (e) {}
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

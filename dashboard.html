@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم المتدرب | أكاديمية الساجد</title>
+  <meta name="description" content="لوحة تحكم المتدرب في أكاديمية الساجد: المقياس التجميعي للتقدم في الدورات والبرنامج الشامل، نتائج أسئلة المحاضرات، معايشة الحصص اليومية، والملفات والشهادات.">
+  <meta name="theme-color" content="#0F4C29">
+  <link rel="manifest" href="manifest.json">
+  <link id="fav" rel="icon" type="image/webp" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="academy-config.js"></script>
+  <script>
+    try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF9F4;
+      --surface: #FFFFFF;
+      --surface-soft: #F3EFE2;
+      --surface-hover: #EAE4D3;
+
+      --emerald-950: #072413;
+      --emerald-900: #09321A;
+      --emerald-800: #0F4C29;
+      --emerald-700: #17693B;
+      --emerald-600: #1F844B;
+      --emerald-soft: #ECF5EF;
+
+      --gold-600: #9E7216;
+      --gold-500: #C6952B;
+      --gold-400: #E2BE5B;
+      --gold-300: #E8C568;
+      --gold-soft: #FBF6E7;
+
+      --wa-green: #189D4E;
+      --wa-dark: #127B3D;
+
+      --ink: #15281C;
+      --ink-muted: #52665A;
+      --border: #E3DCCB;
+      --border-strong: #D0C6AE;
+
+      --ok: #138A52;
+      --ok-bg: #E7F7EE;
+      --warn: #A36306;
+      --warn-bg: #FEF5E3;
+      --bad: #C93032;
+      --bad-bg: #FDEAEA;
+
+      --font-ui: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Amiri', serif;
+
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 22px;
+      --r-pill: 999px;
+
+      --sh-sm: 0 2px 10px rgba(9, 50, 26, 0.06);
+      --sh-md: 0 10px 28px rgba(9, 50, 26, 0.09);
+      --sh-lg: 0 18px 42px rgba(9, 50, 26, 0.16);
+      --sh-gold: 0 6px 22px rgba(198, 149, 43, 0.28);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #071910;
+      --surface: #0E2619;
+      --surface-soft: #133121;
+      --surface-hover: #193D29;
+      --emerald-soft: rgba(232, 197, 104, 0.12);
+      --gold-soft: rgba(232, 197, 104, 0.14);
+      --ink: #F3F0E6;
+      --ink-muted: #A9BCB0;
+      --border: rgba(232, 197, 104, 0.22);
+      --border-strong: rgba(232, 197, 104, 0.36);
+      --ok-bg: rgba(19, 138, 82, 0.22);
+      --warn-bg: rgba(198, 149, 43, 0.2);
+      --bad-bg: rgba(201, 48, 50, 0.22);
+      --sh-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --sh-md: 0 10px 28px rgba(0, 0, 0, 0.38);
+      --sh-lg: 0 18px 44px rgba(0, 0, 0, 0.52);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font-family: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--gold-500); outline-offset: 2px; }
+    .hidden { display: none !important; }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+      position: sticky; top: 0; z-index: 60;
+      background: linear-gradient(90deg, var(--emerald-900), var(--emerald-800));
+      border-bottom: 2.5px solid var(--gold-500);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    }
+    .topbar-inner {
+      max-width: 1180px; margin: 0 auto; padding: 10px 18px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .tb-brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .tb-logo {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-300); background: #FAF9F4; flex: none;
+    }
+    .tb-title { line-height: 1.25; }
+    .tb-title strong { display: block; font-size: 1rem; font-weight: 800; color: #FFFFFF; }
+    .tb-title small { display: block; font-size: 0.74rem; color: var(--gold-300); font-weight: 600; }
+
+    .tb-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav-link {
+      padding: 7px 12px; border-radius: var(--r-pill); font-size: 0.85rem; font-weight: 700;
+      color: rgba(255, 255, 255, 0.88); transition: 0.18s; white-space: nowrap;
+    }
+    .nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; }
+    .nav-link.active {
+      background: rgba(232, 197, 104, 0.22); color: var(--gold-300);
+      border: 1px solid rgba(232, 197, 104, 0.45);
+    }
+    .tb-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+    .icon-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(232, 197, 104, 0.42); background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .icon-btn:hover { background: rgba(232, 197, 104, 0.25); }
+    .menu-toggle { display: none; }
+    .mobile-drawer {
+      display: none; background: var(--emerald-950);
+      border-top: 1px solid rgba(232, 197, 104, 0.25);
+      padding: 12px 18px 16px; flex-direction: column; gap: 6px;
+    }
+    .mobile-drawer.open { display: flex; }
+
+    /* ===== MAIN SHELL ===== */
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 18px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 10px 18px; border-radius: var(--r-pill); border: 1.5px solid transparent;
+      font-size: 0.9rem; font-weight: 800; min-height: 42px;
+      transition: transform 0.15s, background 0.15s; white-space: nowrap;
+    }
+    .btn:hover:not(:disabled) { transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-gold { background: linear-gradient(135deg, var(--gold-300), var(--gold-500)); color: var(--emerald-950); box-shadow: var(--sh-gold); }
+    .btn-emerald { background: var(--emerald-800); color: #FFFFFF; }
+    .btn-emerald:hover:not(:disabled) { background: var(--emerald-700); }
+    .btn-wa { background: linear-gradient(135deg, #22B85E, var(--wa-green)); color: #FFFFFF; }
+    .btn-wa:hover:not(:disabled) { background: var(--wa-dark); }
+    .btn-soft { background: var(--surface-soft); border-color: var(--border-strong); color: var(--ink); }
+    .btn-soft:hover:not(:disabled) { background: var(--surface-hover); }
+    .btn-sm { padding: 6px 13px; font-size: 0.82rem; min-height: 34px; }
+
+    .panel {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 22px;
+      box-shadow: var(--sh-md);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ===== DASHBOARD HERO & OVERALL PROGRAM METER ===== */
+    .dash-hero {
+      background: linear-gradient(135deg, var(--emerald-950) 0%, var(--emerald-900) 55%, var(--emerald-700) 100%);
+      color: #FFFFFF;
+      border-radius: var(--r-lg);
+      border: 2px solid var(--gold-500);
+      box-shadow: var(--sh-lg);
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .dh-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .dh-user { display: flex; align-items: center; gap: 14px; }
+    .dh-avatar {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: rgba(232, 197, 104, 0.2); border: 2px solid var(--gold-300);
+      color: var(--gold-300); font-size: 1.4rem; font-weight: 900;
+      display: grid; place-items: center; flex: none;
+    }
+    .dh-user h1 { font-size: clamp(1.25rem, 2.3vw, 1.75rem); font-weight: 900; }
+    .dh-user p { font-size: 0.88rem; color: #D7E9DE; }
+
+    .plan-switch {
+      display: inline-flex; background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(232, 197, 104, 0.4); border-radius: var(--r-pill);
+      padding: 4px; gap: 4px; flex-wrap: wrap;
+    }
+    .plan-btn {
+      border: none; background: transparent; color: #E2EFE7;
+      font-size: 0.82rem; font-weight: 800; padding: 6px 14px;
+      border-radius: var(--r-pill); transition: 0.16s;
+    }
+    .plan-btn.active { background: var(--gold-300); color: var(--emerald-950); }
+
+    .overall-meter-box {
+      background: rgba(5, 24, 13, 0.45);
+      border: 1.5px solid rgba(232, 197, 104, 0.42);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .meter-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap; font-size: 0.92rem; font-weight: 800;
+    }
+    .meter-track {
+      height: 12px; background: rgba(255, 255, 255, 0.16);
+      border-radius: var(--r-pill); overflow: hidden;
+    }
+    .meter-track.light { background: var(--surface-hover); height: 10px; }
+    .meter-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--gold-300), var(--gold-500));
+      border-radius: var(--r-pill); transition: width 0.4s ease;
+    }
+    .meter-fill.emerald {
+      background: linear-gradient(90deg, var(--emerald-700), var(--gold-500));
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      box-shadow: var(--sh-sm);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .kpi-ico {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--emerald-soft); color: var(--emerald-800);
+      display: grid; place-items: center; flex: none;
+    }
+    :root[data-theme="dark"] .kpi-ico { color: var(--gold-300); }
+    .kpi-card strong { display: block; font-size: 1.25rem; font-weight: 900; line-height: 1.2; }
+    .kpi-card small { font-size: 0.8rem; color: var(--ink-muted); font-weight: 700; }
+
+    /* ===== DASHBOARD TABS ===== */
+    .dash-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background: var(--surface);
+      padding: 6px;
+      border-radius: var(--r-pill);
+      border: 1.5px solid var(--border);
+      box-shadow: var(--sh-sm);
+    }
+    .dtab {
+      border: none; background: transparent; color: var(--ink-muted);
+      font-size: 0.88rem; font-weight: 800; padding: 11px 10px;
+      border-radius: var(--r-pill); display: inline-flex;
+      align-items: center; justify-content: center; gap: 7px; transition: 0.16s;
+    }
+    .dtab:hover { background: var(--surface-soft); color: var(--ink); }
+    .dtab.active { background: var(--emerald-800); color: #FFFFFF; }
+    .dtab.active svg { color: var(--gold-300); }
+
+    /* ===== COURSES & LECTURES ACCORDION ===== */
+    .course-prog-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--sh-sm);
+    }
+    .cp-head {
+      padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+      cursor: pointer;
+      transition: background 0.16s;
+    }
+    .cp-head:hover { background: var(--surface-soft); }
+    .cp-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .cp-title { font-size: 1.06rem; font-weight: 900; color: var(--ink); }
+    .cp-badge {
+      font-size: 0.78rem; font-weight: 800; padding: 3px 11px;
+      border-radius: var(--r-pill); background: var(--emerald-soft); color: var(--emerald-800);
+    }
+    :root[data-theme="dark"] .cp-badge { color: var(--gold-300); }
+    .cp-badge.done { background: var(--ok-bg); color: var(--ok); }
+
+    .cp-body {
+      display: none;
+      border-top: 1.5px dashed var(--border);
+      padding: 16px 20px 20px;
+      background: var(--surface-soft);
+      flex-direction: column; gap: 10px;
+    }
+    .course-prog-card.open .cp-body { display: flex; }
+
+    .lec-row {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 12px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .lec-row.completed { border-color: var(--ok); background: var(--ok-bg); }
+    .lec-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 220px; }
+    .lec-check {
+      width: 22px; height: 22px; accent-color: var(--emerald-700); cursor: pointer; flex: none;
+    }
+    .lec-left strong { display: block; font-size: 0.92rem; font-weight: 800; }
+    .lec-left small { font-size: 0.78rem; color: var(--ink-muted); }
+    .lec-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .score-inp {
+      width: 82px; padding: 6px 8px; border-radius: var(--r-sm);
+      border: 1.5px solid var(--border-strong); background: var(--surface-soft);
+      color: var(--ink); font-size: 0.84rem; font-weight: 800; text-align: center;
+    }
+
+    /* ===== DAILY LIVE OBSERVATION (معايشة الحصص الحقيقية) ===== */
+    .live-banner {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--gold-soft) 100%);
+      border: 2px solid var(--gold-500);
+      border-radius: var(--r-lg);
+      padding: 22px;
+      box-shadow: var(--sh-gold);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .live-pill {
+      align-self: flex-start;
+      background: var(--bad-bg); color: var(--bad);
+      border: 1px solid rgba(201, 48, 50, 0.3);
+      padding: 3px 12px; border-radius: var(--r-pill);
+      font-size: 0.78rem; font-weight: 800;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .obs-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
+    .obs-checklist {
+      list-style: none; display: flex; flex-direction: column; gap: 8px;
+    }
+    .obs-checklist li {
+      background: var(--surface-soft); border: 1px solid var(--border);
+      border-radius: var(--r-sm); padding: 10px 12px;
+      display: flex; align-items: flex-start; gap: 9px; font-size: 0.88rem;
+    }
+    .obs-checklist input[type="checkbox"] {
+      width: 19px; height: 19px; margin-top: 3px; accent-color: var(--emerald-700); flex: none;
+    }
+    .inp, .txt, .sel {
+      width: 100%; padding: 10px 13px; border-radius: var(--r-sm);
+      border: 1.5px solid var(--border-strong); background: var(--surface-soft);
+      color: var(--ink); font-size: 0.92rem;
+    }
+    .inp:focus, .txt:focus, .sel:focus { outline: none; border-color: var(--gold-500); background: var(--surface); }
+    .txt { resize: vertical; min-height: 110px; }
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 0.85rem; font-weight: 800; }
+
+    /* ===== FILES & ANNOUNCEMENTS ===== */
+    .files-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .file-card {
+      background: var(--surface-soft); border: 1.5px solid var(--border);
+      border-radius: var(--r-md); padding: 16px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .file-card h4 { font-size: 0.96rem; font-weight: 800; display: flex; align-items: center; gap: 7px; }
+    .file-card p { font-size: 0.84rem; color: var(--ink-muted); }
+
+    /* ===== CERTIFICATE ===== */
+    .cert-frame {
+      width: 100%; max-width: 720px; margin: 0 auto;
+      background: #FFFFFF; color: #15281C;
+      border: 8px double var(--gold-500); border-radius: var(--r-md);
+      padding: 34px 28px; box-shadow: var(--sh-md);
+      text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .cert-seal {
+      width: 70px; height: 70px; border-radius: 50%; object-fit: cover;
+      border: 2.5px solid var(--gold-500); background: #FAF9F4;
+    }
+    .cert-kicker { font-size: 0.82rem; font-weight: 800; color: #17693B; letter-spacing: 0.04em; }
+    .cert-title { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: #09321A; }
+    .cert-name-inp {
+      font-family: var(--font-ui); font-size: 1.45rem; font-weight: 900;
+      color: #09321A; text-align: center; border: none;
+      border-bottom: 2px dashed var(--gold-500); background: transparent;
+      padding: 4px 12px; width: min(380px, 100%);
+    }
+    .cert-foot {
+      width: 100%; display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid #E3DCCB; font-size: 0.82rem; color: #52665A;
+    }
+
+    .toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--emerald-900); color: #FFFFFF; border: 1.5px solid var(--gold-300);
+      padding: 10px 20px; border-radius: var(--r-pill); font-weight: 700; font-size: 0.88rem;
+      box-shadow: var(--sh-lg); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    }
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 960px) {
+      .tb-nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .dash-tabs { grid-template-columns: repeat(2, 1fr); border-radius: var(--r-md); }
+      .obs-grid, .files-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .cert-foot { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body * { visibility: hidden; }
+      #cert-node, #cert-node * { visibility: visible; }
+      #cert-node { position: absolute; inset: 0; width: 100%; max-width: none; border: 6px solid #09321A; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="tb-brand" href="catalog.html">
+        <img class="tb-logo" data-logo="1" alt="شعار أكاديمية الساجد">
+        <div class="tb-title">
+          <strong>أكاديمية الساجد | لوحة المتدرب</strong>
+          <small>المقياس التجميعي للتقدم والنتائج ومعايشة الحصص</small>
+        </div>
+      </a>
+
+      <nav class="tb-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
+        <a class="nav-link" href="index.html">الدليل التفاعلي (+540)</a>
+        <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
+        <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+        <a class="nav-link active" href="dashboard.html">لوحة المتدرب</a>
+        <a class="nav-link" href="library.html">المكتبة العلمية</a>
+      </nav>
+
+      <div class="tb-actions">
+        <button type="button" class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل المظهر">🌙</button>
+        <button type="button" class="icon-btn menu-toggle" onclick="toggleMobileMenu()" aria-label="القائمة">
+          <i data-lucide="menu" style="width:19px;height:19px;"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+      <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
+      <a class="nav-link" href="index.html">الدليل التفاعلي (+540 جملة)</a>
+      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي (114 سورة)</a>
+      <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+      <a class="nav-link active" href="dashboard.html">لوحة المتدرب</a>
+      <a class="nav-link" href="library.html">المكتبة العلمية</a>
+    </div>
+  </header>
+
+  <main class="shell">
+
+    <!-- DASHBOARD HERO + CUMULATIVE PROGRAM METER -->
+    <section class="dash-hero">
+      <div class="dh-top">
+        <div class="dh-user">
+          <div class="dh-avatar" id="user-avatar-char">م</div>
+          <div>
+            <h1 id="dash-greeting">مرحبًا بك في لوحة متابعة تدريبك</h1>
+            <p id="dash-subtitle">تجميع تلقائي لنتائج أسئلة المحاضرات، نسبة إتمام كل دورة، ومهام معايشة الحصص اليومية.</p>
+          </div>
+        </div>
+
+        <div class="plan-switch" role="group" aria-label="نوع الاشتراك">
+          <button type="button" class="plan-btn active" id="plan-bundle-btn" onclick="setPlanMode('bundle')">البرنامج الشامل (4 دورات)</button>
+          <button type="button" class="plan-btn" id="plan-single-btn" onclick="setPlanMode('single')">دورة واحدة فقط</button>
+        </div>
+      </div>
+
+      <!-- المقياس التجميعي للبرنامج الشامل (يظهر فقط لمشترك البرنامج الكامل) -->
+      <div class="overall-meter-box" id="overall-meter-box">
+        <div class="meter-head">
+          <span>🏆 المقياس التجميعي — برنامج المعلم المستقل (4 دورات + معايشة الحصص)</span>
+          <span id="overall-pct-lbl" style="color:var(--gold-300);">0% — 0 من 24 محاضرة</span>
+        </div>
+        <div class="meter-track"><div class="meter-fill" id="overall-meter-fill"></div></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:0.82rem;color:#DCEBE2;">
+          <span id="overall-courses-lbl">الدورات المكتملة: 0 من 4</span>
+          <span id="overall-next-lbl">الخطوة التالية: ابدأ المحاضرة الأولى وسجّل نتيجتها بعد الحل.</span>
+        </div>
+      </div>
+
+      <!-- اختيار الدورة الفردية في حال كان المشترك مسجلًا بدورة واحدة -->
+      <div class="overall-meter-box hidden" id="single-course-picker">
+        <div class="meter-head">
+          <span>اختر دورتك الحالية لعرض مقياسها الخاص فقط:</span>
+          <select id="single-course-select" class="sel" style="width:auto;min-width:240px;" onchange="setSingleCourse(this.value)"></select>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI CARDS -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-ico"><i data-lucide="check-circle-2" style="width:22px;height:22px;"></i></div>
+        <div>
+          <strong id="kpi-lectures">0 / 24</strong>
+          <small>المحاضرات المنجزة</small>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-ico"><i data-lucide="award" style="width:22px;height:22px;"></i></div>
+        <div>
+          <strong id="kpi-avg-score">—</strong>
+          <small>متوسط نتائج الأسئلة</small>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-ico"><i data-lucide="eye" style="width:22px;height:22px;"></i></div>
+        <div>
+          <strong id="kpi-obs-count">0</strong>
+          <small>حصص المعايشة الموثّقة</small>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-ico"><i data-lucide="users" style="width:22px;height:22px;"></i></div>
+        <div>
+          <strong id="kpi-group-status">قيد التكوين</strong>
+          <small>حالة الجروب الرباعي</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- INNER NAVIGATION TABS -->
+    <nav class="dash-tabs" aria-label="أقسام لوحة المتدرب">
+      <button type="button" class="dtab active" id="dtab-courses" onclick="switchDashTab('courses')">
+        <i data-lucide="layers" style="width:17px;height:17px;"></i><span>الدورات ومقياس التقدم</span>
+      </button>
+      <button type="button" class="dtab" id="dtab-observation" onclick="switchDashTab('observation')">
+        <i data-lucide="radio" style="width:17px;height:17px;"></i><span>معايشة الحصص اليومية</span>
+      </button>
+      <button type="button" class="dtab" id="dtab-files" onclick="switchDashTab('files')">
+        <i data-lucide="folder-open" style="width:17px;height:17px;"></i><span>الملفات والمواعيد</span>
+      </button>
+      <button type="button" class="dtab" id="dtab-cert" onclick="switchDashTab('cert')">
+        <i data-lucide="graduation-cap" style="width:17px;height:17px;"></i><span>الشهادة وتقرير الإدارة</span>
+      </button>
+    </nav>
+
+    <!-- =======================================================================
+         TAB 1: الدورات والمقياس التجميعي لنتائج المحاضرات
+         ======================================================================= -->
+    <section id="dpane-courses" style="display:flex;flex-direction:column;gap:14px;">
+      <div class="panel" style="padding:14px 18px;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <span style="font-size:0.9rem;color:var(--ink-muted);font-weight:700;">
+          بعد حضور كل محاضرة وحل أسئلتها المعتادة، ضع علامة الإنجاز واكتب درجتك ليُحدَّث المقياس التجميعي تلقائيًا.
+        </span>
+        <button type="button" class="btn btn-wa btn-sm" onclick="sendProgressSummaryWhatsApp()">
+          <i data-lucide="send" style="width:15px;height:15px;"></i>
+          <span>إرسال ملخص التقدم للأستاذ عبر واتساب</span>
+        </button>
+      </div>
+
+      <div id="courses-accordion" style="display:flex;flex-direction:column;gap:14px;"></div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 2: معايشة الحصص الحقيقية (يوميًا + مهلة 48 ساعة + المطلوب السبع)
+         ======================================================================= -->
+    <section id="dpane-observation" class="hidden" style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- بطاقة إعلان حصة المعايشة اليومية -->
+      <div class="live-banner">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+          <span class="live-pill">
+            <i data-lucide="radio" style="width:14px;height:14px;"></i>
+            <span>التدريب العملي اليوم — معايشة الحصص الحقيقية</span>
+          </span>
+          <span style="font-size:0.82rem;font-weight:800;color:var(--gold-600);">مهلة المشاهدة لمن تعذّر حضوره: 48 ساعة</span>
+        </div>
+
+        <h2 id="obs-today-title" style="font-size:1.2rem;font-weight:900;">حضور ومعايشة حصة لغة عربية حقيقية للناطقين بغيرها</h2>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:0.9rem;font-weight:800;color:var(--emerald-800);">
+          <span id="obs-today-time">⏰ الموعد اليوم: الساعة 3:00 عصرًا بتوقيت مصر</span>
+          <span>•</span>
+          <span>تُحدَّد المواعيد يوميًا عبر رسالة الأستاذ في مجتمع التدريب</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <a href="practical-training.html" class="btn btn-gold btn-sm">
+            <i data-lucide="video" style="width:16px;height:16px;"></i>
+            <span>الدخول لقسم التدريب العملي ورابط الحصة</span>
+          </a>
+          <button type="button" class="btn btn-soft btn-sm" onclick="toggleAdminObsComposer()">
+            <i data-lucide="sparkles" style="width:15px;height:15px;"></i>
+            <span>مولّد إعلان المعايشة اليومي (للأستاذ)</span>
+          </button>
+        </div>
+
+        <!-- مولّد إعلان حصة المعايشة اليومي السريع للأستاذ -->
+        <div id="admin-obs-composer" class="hidden" style="background:var(--surface);border:1.5px dashed var(--gold-500);border-radius:var(--r-md);padding:16px;display:flex;flex-direction:column;gap:10px;">
+          <strong style="font-size:0.94rem;color:var(--emerald-800);">تجهيز رسالة إعلان المعايشة اليومية بنموذجك الرسمي (نسخ فوري لواتساب / تيليجرام):</strong>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+            <div class="field">
+              <label for="gen-class-type">نوع الحصة اليوم</label>
+              <select id="gen-class-type" class="sel" onchange="buildDailyAnnouncement()">
+                <option value="حصة لغة عربية حقيقية|طريقة تدريس اللغة العربية للناطقين بغيرها">حصة لغة عربية</option>
+                <option value="حصة تأسيس (القاعدة البغدادية) حقيقية|طريقة تأسيس القراءة وإدارة حصة الطفل الأجنبي">حصة قاعدة بغدادية وتأسيس</option>
+                <option value="حصة قرآن كريم وتجويد حقيقية|طريقة تصحيح التلاوة وشرح التجويد بالإنجليزية">حصة قرآن كريم وتجويد</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="gen-class-time">موعد الحصة اليوم</label>
+              <input type="text" id="gen-class-time" class="inp" value="في تمام الساعة 3:00 عصرًا" oninput="buildDailyAnnouncement()">
+            </div>
+            <div class="field">
+              <label for="gen-class-link">رابط الحصة (اختياري)</label>
+              <input type="url" id="gen-class-link" class="inp" placeholder="https://zoom.us/..." dir="ltr" style="text-align:right;" oninput="buildDailyAnnouncement()">
+            </div>
+          </div>
+          <textarea id="gen-announcement-out" class="txt" style="min-height:170px;font-size:0.86rem;"></textarea>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-emerald btn-sm" onclick="copyDailyAnnouncement()">
+              <i data-lucide="copy" style="width:15px;height:15px;"></i><span>نسخ نص الإعلان كاملًا</span>
+            </button>
+            <button type="button" class="btn btn-soft btn-sm" onclick="applyAnnouncementToBanner()">
+              <i data-lucide="check" style="width:15px;height:15px;"></i><span>تحديث البطاقة بالموعد الآن</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- نموذج تنفيذ المطلوب السبع أثناء معايشة الحصة وإرساله للخاص -->
+      <div class="obs-grid">
+        <div class="panel">
+          <h3 style="font-size:1.04rem;font-weight:900;">المطلوب أثناء معايشة الحصة (قائمة التحقق السبع)</h3>
+          <ul class="obs-checklist" id="obs-checklist">
+            <li><input type="checkbox" class="obs-chk"><span><strong>1.</strong> ملاحظة طريقة إدارة الحصة والتعامل مع الطلاب.</span></li>
+            <li><input type="checkbox" class="obs-chk"><span><strong>2.</strong> التركيز على أسلوب شرح الدرس وتبسيط المعلومات للطلاب.</span></li>
+            <li><input type="checkbox" class="obs-chk"><span><strong>3.</strong> ملاحظة كيفية توجيه الطلاب وتصحيح أخطائهم اللغوية.</span></li>
+            <li><input type="checkbox" class="obs-chk"><span><strong>4.</strong> ملاحظة كيفية تنظيم مشاركة الطلاب وإعطاء كل طالب فرصته في التطبيق.</span></li>
+            <li><input type="checkbox" class="obs-chk"><span><strong>5.</strong> استخراج <strong>10 جمل باللغة الإنجليزية على الأقل</strong> من الحصة وإرسالها للأستاذ على الخاص.</span></li>
+            <li><input type="checkbox" class="obs-chk"><span><strong>6.</strong> كتابة أهم الفوائد والملاحظات التي استفدت منها أثناء المشاهدة.</span></li>
+            <li><input type="checkbox" class="obs-chk"><span><strong>7.</strong> تسجيل الحضور (مباشر أو خلال مهلة 48 ساعة).</span></li>
+          </ul>
+        </div>
+
+        <form class="panel" onsubmit="handleSubmitObservation(event)">
+          <h3 style="font-size:1.04rem;font-weight:900;">توثيق حضور المعايشة وإرسال الـ 10 جمل والفوائد</h3>
+
+          <div class="field">
+            <label for="obs-type">نوع الحصة التي شاهدتها</label>
+            <select id="obs-type" class="sel">
+              <option value="معايشة حصة لغة عربية">معايشة حصة لغة عربية</option>
+              <option value="معايشة حصة قاعدة بغدادية وتأسيس">معايشة حصة قاعدة بغدادية وتأسيس</option>
+              <option value="معايشة حصة قرآن كريم وتجويد">معايشة حصة قرآن كريم وتجويد</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="obs-attendance">نوع الحضور</label>
+            <select id="obs-attendance" class="sel">
+              <option value="حضور مباشر في الموعد">حضور مباشر في الموعد</option>
+              <option value="مشاهدة مسجّلة خلال مهلة 48 ساعة">مشاهدة مسجّلة خلال مهلة 48 ساعة</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="obs-sentences">الـ 10 جمل باللغة الإنجليزية المستخرجة من الحصة</label>
+            <textarea id="obs-sentences" class="txt" required placeholder="1. Open your book please...&#10;2. Repeat after me...&#10;3. Excellent job! ... (أكمل حتى 10 جمل)"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="obs-notes">أهم الفوائد والملاحظات من المشاهدة</label>
+            <textarea id="obs-notes" class="txt" style="min-height:80px;" required placeholder="أبرز ما لاحظته في إدارة الحصة وتصحيح الأخطاء وتنظيم مشاركة الطلاب..."></textarea>
+          </div>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="submit" class="btn btn-wa" style="flex:1;">
+              <i data-lucide="message-circle" style="width:17px;height:17px;"></i>
+              <span>حفظ في سجلي وإرسال للأستاذ على الخاص (واتساب)</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- تنبيه وتسجيل أسماء الجروب الرباعي -->
+      <div class="panel">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+          <div>
+            <h3 style="font-size:1.04rem;font-weight:900;">تسجيل أسماء مجموعتك الرباعية (4 متدربين) وإرسالها للإدارة</h3>
+            <p style="font-size:0.86rem;color:var(--ink-muted);">بعد تنسيقك مع زملائك في مجتمع التدريب العملي، اكتب أسماء الأعضاء الأربعة وأرسلها لنا لتنظيم التدريب.</p>
+          </div>
+          <a href="practical-training.html" class="btn btn-soft btn-sm">ابحث عن شركاء في المجتمع</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;" id="group-inputs-grid">
+          <input type="text" id="grp-m1" class="inp" placeholder="1. اسم المتدرب الأول (أنت)">
+          <input type="text" id="grp-m2" class="inp" placeholder="2. اسم المتدرب الثاني">
+          <input type="text" id="grp-m3" class="inp" placeholder="3. اسم المتدرب الثالث">
+          <input type="text" id="grp-m4" class="inp" placeholder="4. اسم المتدرب الرابع">
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+          <span id="grp-saved-note" style="font-size:0.84rem;color:var(--ink-muted);font-weight:700;">لم يتم إرسال أسماء المجموعة بعد.</span>
+          <button type="button" class="btn btn-emerald btn-sm" onclick="submitGroupNamesWhatsApp()">
+            <i data-lucide="send" style="width:15px;height:15px;"></i>
+            <span>حفظ وإرسال أسماء المجموعة الرباعية للإدارة</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- سجل حصص المعايشة السابقة -->
+      <div class="panel">
+        <h3 style="font-size:1.02rem;font-weight:900;">سجل حصص المعايشة التي وثّقتها</h3>
+        <div id="obs-history-list" style="display:flex;flex-direction:column;gap:10px;"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 3: الملفات والمذكرات والمواعيد والروابط
+         ======================================================================= -->
+    <section id="dpane-files" class="hidden" style="display:flex;flex-direction:column;gap:16px;">
+      <div class="panel">
+        <h3 style="font-size:1.08rem;font-weight:900;">أدوات ومراجع الدورات التدريبية</h3>
+        <div class="files-grid">
+          <div class="file-card">
+            <h4><i data-lucide="book-open-check" style="width:18px;height:18px;color:var(--emerald-700);"></i> الدليل التفاعلي (+540 جملة عملية)</h4>
+            <p>أهم الجمل الإنجليزية لجميع مواقف الحصة مع أداة إنقاذ الحصة والمفضلة.</p>
+            <a href="index.html" class="btn btn-emerald btn-sm" style="align-self:flex-start;">فتح الدليل الآن</a>
+          </div>
+          <div class="file-card">
+            <h4><i data-lucide="book-marked" style="width:18px;height:18px;color:var(--emerald-700);"></i> المصحف التفاعلي (114 سورة)</h4>
+            <p>مصحف المدينة المنورة بالقصص التربوية والتفسير وتركيب الكلمات وتلاوة الحصري والمنشاوي.</p>
+            <a href="quran-quest.html" class="btn btn-emerald btn-sm" style="align-self:flex-start;">فتح المصحف التفاعلي</a>
+          </div>
+          <div class="file-card">
+            <h4><i data-lucide="users" style="width:18px;height:18px;color:var(--emerald-700);"></i> قسم التدريب العملي والمجتمع</h4>
+            <p>روابط الحصص التفاعلية وتنسيق مجموعات الواتساب الرباعية (رجال / سيدات).</p>
+            <a href="practical-training.html" class="btn btn-emerald btn-sm" style="align-self:flex-start;">دخول قسم التدريب</a>
+          </div>
+          <div class="file-card">
+            <h4><i data-lucide="library" style="width:18px;height:18px;color:var(--emerald-700);"></i> المكتبة العلمية للمعلّم</h4>
+            <p>الأربعون النووية، أذكار الصباح والمساء، المقدمة الآجرومية، والمتون التأسيسية.</p>
+            <a href="library.html" class="btn btn-soft btn-sm" style="align-self:flex-start;">تصفح المكتبة العلمية</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-size:1.05rem;font-weight:900;">تنبيهات وإعلانات الأكاديمية</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:0.9rem;">
+          <div style="background:var(--gold-soft);border-right:4px solid var(--gold-500);padding:12px 14px;border-radius:var(--r-sm);">
+            <strong>تنبيه المجموعات الرباعية:</strong> يرجى من كل متدرب لم يكوّن مجموعته بعد الدخول لقسم التدريب العملي وتكوين مجموعة من 4 متدربين وإرسال الأسماء الأربعة للإدارة.
+          </div>
+          <div style="background:var(--emerald-soft);border-right:4px solid var(--emerald-700);padding:12px 14px;border-radius:var(--r-sm);">
+            <strong>مهلة 48 ساعة لحصص المعايشة:</strong> من لم يتمكن من الحضور المباشر في موعد حصة المعايشة اليومية يمكنه مشاهدة التسجيل خلال 48 ساعة وإرسال الـ 10 جمل الإنجليزية والفوائد وتسجيل الحضور.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 4: الشهادة التقديرية القابلة للطباعة
+         ======================================================================= -->
+    <section id="dpane-cert" class="hidden" style="display:flex;flex-direction:column;gap:16px;">
+      <div class="panel" style="align-items:center;">
+        <div class="cert-frame" id="cert-node">
+          <img class="cert-seal" data-logo="1" alt="ختم أكاديمية الساجد">
+          <div class="cert-kicker">أكاديمية الساجد لتأهيل المعلمين • AL SAJID ACADEMY</div>
+          <div class="cert-title">شهادة إتمام وتأهيل مهني</div>
+          <div style="font-size:0.92rem;color:#52665A;">تشهد إدارة أكاديمية الساجد بأن الأستاذ / الأستاذة:</div>
+          <input type="text" id="cert-name-inp" class="cert-name-inp" value="اسم المتدرب / المتدربة" oninput="saveCertName(this.value)" aria-label="اسم المتدرب في الشهادة">
+          <div style="font-size:0.95rem;color:#15281C;max-width:52ch;">
+            قد اجتاز(ت) متطلبات المسار التدريبي والأسئلة التطبيقية ومعايشة الحصص الحقيقية في:
+          </div>
+          <div id="cert-program-title" style="font-size:1.18rem;font-weight:900;color:#0F4C29;">برنامج المعلم المستقل: من الصفر إلى الاحتراف</div>
+          <div id="cert-progress-badge" style="font-size:0.9rem;font-weight:800;color:#9E7216;">نسبة الإنجاز المسجّلة: 0%</div>
+          <div class="cert-foot">
+            <div><strong>إشراف وتدريب</strong><br>أ. ياسر عبد الستار</div>
+            <div><strong>الأكاديمية</strong><br>أكاديمية الساجد</div>
+            <div><strong>التاريخ</strong><br><span id="cert-date-lbl"></span></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+          <button type="button" class="btn btn-gold" onclick="window.print()">
+            <i data-lucide="printer" style="width:17px;height:17px;"></i><span>طباعة / حفظ الشهادة PDF</span>
+          </button>
+          <button type="button" class="btn btn-wa" onclick="sendProgressSummaryWhatsApp()">
+            <i data-lucide="message-circle" style="width:17px;height:17px;"></i><span>إرسال تقرير الإنجاز لطلب الاعتماد</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast-bar"></div>
+
+  <script>
+    const GLOBAL_CFG = window.SAJID_CONFIG || {};
+    const ADMIN_WHATSAPP = GLOBAL_CFG.whatsappNumber || "201000000000";
+    const LOGO = "data:image/webp;base64,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";
+    const THEME_KEY = "sajidpt:th";
+    const DASH_STATE_KEY = "sajid_lms_dash_v1";
+    const AUTH_KEY = "sajid_pt_auth_v1";
+
+    const PROGRAM_COURSES = [
+      {
+        id: "baghdadiyah",
+        title: "الدورة 1: القاعدة البغدادية وطرق تأسيس الأطفال أونلاين",
+        badge: "التأسيس والطفولة",
+        lectures: [
+          { id: "b1", title: "المحاضرة 1: خريطة القاعدة البغدادية وتقديم الحروف للأجانب" },
+          { id: "b2", title: "المحاضرة 2: الحركات القصيرة والتدرج إلى الكلمة" },
+          { id: "b3", title: "المحاضرة 3: المدود والسكون والشدة بالتطبيق الصوتي" },
+          { id: "b4", title: "المحاضرة 4: التنوين والتدريب على قراءة الجمل والمصحف" },
+          { id: "b5", title: "المحاضرة 5: أنشطة الـ 3–5 دقائق وبطارية الطاقة وإدارة تشتت الطفل" },
+          { id: "b6", title: "المحاضرة 6: تطبيق عملي وتقييم شامل لدورة التأسيس" }
+        ]
+      },
+      {
+        id: "quran_tajweed",
+        title: "الدورة 2: تدريس القرآن الكريم وشرح التجويد بالإنجليزية",
+        badge: "القرآن والتجويد",
+        lectures: [
+          { id: "q1", title: "المحاضرة 1: منهج المحاكاة الصوتية وتنظيم وقت حصة القرآن" },
+          { id: "q2", title: "المحاضرة 2: شرح مخارج الحروف والصفات الصعبة لغير الناطقين" },
+          { id: "q3", title: "المحاضرة 3: تبسيط أحكام النون الساكنة والتنوين بالإنجليزية" },
+          { id: "q4", title: "المحاضرة 4: أحكام الميم الساكنة والقلقلة والمدود عمليًا" },
+          { id: "q5", title: "المحاضرة 5: خطط الحفظ والمراجعة وتوظيف المصحف التفاعلي" },
+          { id: "q6", title: "المحاضرة 6: اختبار تطبيقي وتقييم أداء التلاوة والشرح" }
+        ]
+      },
+      {
+        id: "arabic_non_native",
+        title: "الدورة 3: تعليم اللغة العربية للناطقين بغيرها (والمقدمة الآجرومية)",
+        badge: "اللغة العربية",
+        lectures: [
+          { id: "a1", title: "المحاضرة 1: تدريس المهارات الأربع (استماع، تحدث، قراءة، كتابة)" },
+          { id: "a2", title: "المحاضرة 2: التطبيق العملي على منهج العربية بين يدي أولادنا" },
+          { id: "a3", title: "المحاضرة 3: تعليم المفردات والتراكيب دون ترجمة حرفية مفرطة" },
+          { id: "a4", title: "المحاضرة 4: تبسيط قواعد المقدمة الآجرومية للمبتدئين والمتقدمين" },
+          { id: "a5", title: "المحاضرة 5: إعداد خطة درس واختبارات قياس المستوى" },
+          { id: "a6", title: "المحاضرة 6: تقديم حصة عربية نموذجية والتغذية الراجعة" }
+        ]
+      },
+      {
+        id: "practical_ai",
+        title: "الدورة 4: التدريب العملي وإدارة الحصة التجريبية + الذكاء الاصطناعي",
+        badge: "التطبيق الميداني",
+        lectures: [
+          { id: "p1", title: "المحاضرة 1: معادلة الحصة التجريبية الناجحة (3 + 22 + 5)" },
+          { id: "p2", title: "المحاضرة 2: التواصل الاحترافي مع ولي الأمر وبناء الثقة" },
+          { id: "p3", title: "المحاضرة 3: إدارة زووم، الصوت، السبورة، ومعالجة المواقف الطارئة" },
+          { id: "p4", title: "المحاضرة 4: توظيف أدوات الذكاء الاصطناعي في تحضير الدروس والأنشطة" },
+          { id: "p5", title: "المحاضرة 5: مراجعة تقارير معايشة الحصص الحقيقية (الـ 10 جمل)" },
+          { id: "p6", title: "المحاضرة 6: التقييم الختامي للجاهزية والانطلاق في التدريس" }
+        ]
+      }
+    ];
+
+    let dashState = {
+      planMode: "bundle",
+      singleCourseId: "baghdadiyah",
+      traineeName: "متدرب أكاديمية الساجد",
+      completed: {},
+      scores: {},
+      observations: [],
+      groupMembers: ["", "", "", ""],
+      groupSubmitted: false
+    };
+
+    function loadDashState() {
+      try {
+        const raw = localStorage.getItem(DASH_STATE_KEY);
+        if (raw) dashState = Object.assign(dashState, JSON.parse(raw));
+      } catch (e) {}
+      try {
+        const authRaw = localStorage.getItem(AUTH_KEY);
+        if (authRaw) {
+          const u = JSON.parse(authRaw);
+          if (u && u.name) dashState.traineeName = u.name;
+        }
+      } catch (e) {}
+    }
+
+    function saveDashState() {
+      try { localStorage.setItem(DASH_STATE_KEY, JSON.stringify(dashState)); } catch (e) {}
+    }
+
+    function paintTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      const btn = document.getElementById("theme-btn");
+      if (btn) btn.textContent = dark ? "☀️" : "🌙";
+    }
+    function toggleTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (dark) document.documentElement.removeAttribute("data-theme");
+      else document.documentElement.setAttribute("data-theme", "dark");
+      try { localStorage.setItem(THEME_KEY, dark ? "light" : "dark"); } catch (e) {}
+      paintTheme();
+    }
+    function toggleMobileMenu() {
+      document.getElementById("mobile-drawer").classList.toggle("open");
+    }
+    function showToast(msg) {
+      const el = document.getElementById("toast-bar");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    function setPlanMode(mode) {
+      dashState.planMode = mode === "single" ? "single" : "bundle";
+      saveDashState();
+      renderDashboardAll();
+    }
+    function setSingleCourse(cid) {
+      dashState.singleCourseId = cid;
+      saveDashState();
+      renderDashboardAll();
+    }
+
+    function getActiveCourses() {
+      if (dashState.planMode === "single") {
+        return PROGRAM_COURSES.filter(c => c.id === dashState.singleCourseId);
+      }
+      return PROGRAM_COURSES;
+    }
+
+    function calcCourseStats(course) {
+      const total = course.lectures.length;
+      let done = 0;
+      course.lectures.forEach(l => { if (dashState.completed[l.id]) done++; });
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      return { total, done, pct };
+    }
+
+    function renderDashboardAll() {
+      const isBundle = dashState.planMode === "bundle";
+      document.getElementById("plan-bundle-btn").classList.toggle("active", isBundle);
+      document.getElementById("plan-single-btn").classList.toggle("active", !isBundle);
+      document.getElementById("overall-meter-box").classList.toggle("hidden", !isBundle);
+      document.getElementById("single-course-picker").classList.toggle("hidden", isBundle);
+
+      const sel = document.getElementById("single-course-select");
+      if (sel && !sel.options.length) {
+        PROGRAM_COURSES.forEach(c => {
+          const opt = document.createElement("option");
+          opt.value = c.id;
+          opt.textContent = c.title;
+          sel.appendChild(opt);
+        });
+      }
+      if (sel) sel.value = dashState.singleCourseId;
+
+      const name = dashState.traineeName || "متدرب أكاديمية الساجد";
+      document.getElementById("dash-greeting").textContent = "مرحبًا بك يا " + name;
+      document.getElementById("user-avatar-char").textContent = name.replace(/^أ\.?\s*/, "").trim().charAt(0) || "م";
+      document.getElementById("cert-name-inp").value = name;
+
+      const activeCourses = getActiveCourses();
+      let totalLec = 0, doneLec = 0, completedCourses = 0;
+      let scoreSum = 0, scoreCnt = 0;
+      let nextPendingTitle = "";
+
+      activeCourses.forEach(c => {
+        const st = calcCourseStats(c);
+        totalLec += st.total;
+        doneLec += st.done;
+        if (st.done === st.total && st.total > 0) completedCourses++;
+        c.lectures.forEach(l => {
+          if (!dashState.completed[l.id] && !nextPendingTitle) nextPendingTitle = l.title;
+          const sc = parseFloat(dashState.scores[l.id]);
+          if (!isNaN(sc) && sc >= 0 && sc <= 100) { scoreSum += sc; scoreCnt++; }
+        });
+      });
+
+      const pctAll = totalLec ? Math.round((doneLec / totalLec) * 100) : 0;
+      document.getElementById("overall-pct-lbl").textContent = pctAll + "% — " + doneLec + " من " + totalLec + " محاضرة";
+      document.getElementById("overall-meter-fill").style.width = pctAll + "%";
+      document.getElementById("overall-courses-lbl").textContent = "الدورات المكتملة: " + completedCourses + " من " + activeCourses.length;
+      document.getElementById("overall-next-lbl").textContent = nextPendingTitle
+        ? ("الخطوة التالية: " + nextPendingTitle)
+        : "مبارك! أتممت جميع المحاضرات المقررة بالكامل 🏆";
+
+      document.getElementById("kpi-lectures").textContent = doneLec + " / " + totalLec;
+      document.getElementById("kpi-avg-score").textContent = scoreCnt ? (Math.round(scoreSum / scoreCnt) + "%") : "—";
+      document.getElementById("kpi-obs-count").textContent = (dashState.observations || []).length;
+      document.getElementById("kpi-group-status").textContent = dashState.groupSubmitted ? "تم الإرسال ✅" : "قيد التكوين";
+
+      document.getElementById("cert-program-title").textContent = isBundle
+        ? "برنامج المعلم المستقل: من الصفر إلى الاحتراف (4 دورات + تدريب عملي)"
+        : (activeCourses[0] ? activeCourses[0].title : "");
+      document.getElementById("cert-progress-badge").textContent =
+        "نسبة الإنجاز المسجّلة: " + pctAll + "% (" + doneLec + " / " + totalLec + " محاضرة) • حصص المعايشة: " + (dashState.observations || []).length;
+
+      renderCoursesAccordion(activeCourses);
+      renderObsHistory();
+      renderGroupFields();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function renderCoursesAccordion(courses) {
+      const wrap = document.getElementById("courses-accordion");
+      wrap.innerHTML = "";
+      courses.forEach((c, cIdx) => {
+        const st = calcCourseStats(c);
+        const card = document.createElement("article");
+        card.className = "course-prog-card" + (cIdx === 0 ? " open" : "");
+        const lecsHtml = c.lectures.map(l => {
+          const isDone = !!dashState.completed[l.id];
+          const scVal = dashState.scores[l.id] !== undefined ? dashState.scores[l.id] : "";
+          return '<div class="lec-row' + (isDone ? ' completed' : '') + '">' +
+            '<label class="lec-left">' +
+              '<input type="checkbox" class="lec-check" ' + (isDone ? 'checked' : '') + ' onchange="toggleLecture(\'' + l.id + '\', this.checked)">' +
+              '<div><strong>' + l.title + '</strong><small>' + (isDone ? 'تم إتمام المحاضرة وحل الأسئلة ✅' : 'اضغط عند إتمام المحاضرة وإرسال نتيجة الأسئلة') + '</small></div>' +
+            '</label>' +
+            '<div class="lec-right">' +
+              '<label style="font-size:0.78rem;color:var(--ink-muted);font-weight:700;">نتيجة الأسئلة (%):</label>' +
+              '<input type="number" min="0" max="100" class="score-inp" value="' + scVal + '" placeholder="مثال 95" onchange="setLectureScore(\'' + l.id + '\', this.value)">' +
+            '</div>' +
+          '</div>';
+        }).join("");
+
+        card.innerHTML =
+          '<div class="cp-head" onclick="this.parentElement.classList.toggle(\'open\')">' +
+            '<div class="cp-top">' +
+              '<div class="cp-title">' + c.title + '</div>' +
+              '<span class="cp-badge' + (st.pct === 100 ? ' done' : '') + '">' + st.done + ' / ' + st.total + ' محاضرات (' + st.pct + '%)</span>' +
+            '</div>' +
+            '<div class="meter-track light"><div class="meter-fill emerald" style="width:' + st.pct + '%"></div></div>' +
+          '</div>' +
+          '<div class="cp-body">' + lecsHtml + '</div>';
+        wrap.appendChild(card);
+      });
+    }
+
+    function toggleLecture(lid, checked) {
+      dashState.completed[lid] = !!checked;
+      saveDashState();
+      renderDashboardAll();
+      showToast(checked ? "تم تسجيل إنجاز المحاضرة وتحديث المقياس" : "تم إلغاء علامة الإنجاز");
+    }
+    function setLectureScore(lid, val) {
+      const clean = String(val || "").trim();
+      if (!clean) delete dashState.scores[lid];
+      else dashState.scores[lid] = Math.max(0, Math.min(100, Number(clean)));
+      saveDashState();
+      renderDashboardAll();
+    }
+
+    /* ===== DAILY OBSERVATION ANNOUNCEMENT GENERATOR (FOR ADMIN) ===== */
+    function toggleAdminObsComposer() {
+      const box = document.getElementById("admin-obs-composer");
+      box.classList.toggle("hidden");
+      if (!box.classList.contains("hidden")) buildDailyAnnouncement();
+    }
+    function buildDailyAnnouncement() {
+      const raw = document.getElementById("gen-class-type").value.split("|");
+      const className = raw[0] || "حصة لغة عربية حقيقية";
+      const focusDesc = raw[1] || "طريقة تدريس اللغة العربية للناطقين بغيرها";
+      const timeStr = document.getElementById("gen-class-time").value.trim() || "في تمام الساعة 3:00 عصرًا";
+      const linkStr = document.getElementById("gen-class-link").value.trim();
+
+      const msg =
+        "السلام عليكم ورحمة الله وبركاته 🌷\n\n" +
+        "كيف حالكم جميعًا؟\n\n" +
+        "التدريب العملي اليوم (معايشة الحصص الحقيقية) إن شاء الله:\n\n" +
+        timeStr + ".\n" +
+        (linkStr ? ("رابط الدخول: " + linkStr + "\n") : "") +
+        "\nسيكون تدريبنا اليوم من خلال حضور ومعايشة " + className + "، وسنتعرف عمليًا على " + focusDesc + "، وكيفية شرح الدرس والتعامل مع الطلاب وإدارة الحصة بصورة فعّالة.\n\n" +
+        "المطلوب من حضراتكم أثناء التدريب:\n\n" +
+        "1. ملاحظة طريقة إدارة الحصة والتعامل مع الطلاب.\n" +
+        "2. التركيز على أسلوب شرح الدرس وتبسيط المعلومات للطلاب.\n" +
+        "3. ملاحظة كيفية توجيه الطلاب وتصحيح أخطائهم اللغوية.\n" +
+        "4. ملاحظة كيفية تنظيم مشاركة الطلاب وإعطاء كل طالب فرصته في التطبيق.\n" +
+        "5. استخراج 10 جمل باللغة الإنجليزية على الأقل من الحصة، وإرسالها لي على الخاص.\n" +
+        "6. كتابة أهم الفوائد والملاحظات التي استفدتم منها أثناء المشاهدة.\n" +
+        "7. تسجيل الحضور.\n\n" +
+        "تنبيه مهم بخصوص مجموعات المتدربين:\n" +
+        "يرجى تكوين مجموعات، بحيث تتكون كل مجموعة من أربعة متدربين، وإرسال أسماء أفراد كل مجموعة لنا.\n" +
+        "وهذا التنبيه موجّه خصوصًا لمن لم يرسل أسماء مجموعته حتى الآن؛ نرجو منه سرعة إرسال الأسماء حتى نتمكن من تنظيم التدريب.\n\n" +
+        "ومن لم يستطع الحضور في الموعد، يمكنه مشاهدة الحصة خلال 48 ساعة، ثم تنفيذ المطلوب وإرساله.\n\n" +
+        "بارك الله فيكم جميعًا، ونفع بكم، وجعل هذا التدريب خطوة نافعة في طريق إعدادكم لتكونوا معلمين متميزين بإذن الله. 🌹";
+
+      document.getElementById("gen-announcement-out").value = msg;
+    }
+    function copyDailyAnnouncement() {
+      const txt = document.getElementById("gen-announcement-out").value;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(() => showToast("تم نسخ رسالة إعلان المعايشة اليومية بنجاح"));
+      }
+    }
+    function applyAnnouncementToBanner() {
+      const raw = document.getElementById("gen-class-type").value.split("|");
+      const timeStr = document.getElementById("gen-class-time").value.trim();
+      document.getElementById("obs-today-title").textContent = "حضور ومعايشة " + (raw[0] || "");
+      document.getElementById("obs-today-time").textContent = "⏰ الموعد اليوم: " + timeStr;
+      showToast("تم تحديث عنوان وموعد حصة المعايشة");
+    }
+
+    /* ===== OBSERVATION LOG & WHATSAPP SUBMISSION ===== */
+    function handleSubmitObservation(ev) {
+      ev.preventDefault();
+      const type = document.getElementById("obs-type").value;
+      const att = document.getElementById("obs-attendance").value;
+      const sentences = document.getElementById("obs-sentences").value.trim();
+      const notes = document.getElementById("obs-notes").value.trim();
+      const nowStr = new Date().toLocaleDateString("ar-EG", { day: "numeric", month: "long", year: "numeric" });
+
+      dashState.observations = dashState.observations || [];
+      dashState.observations.unshift({ id: "OBS-" + Date.now(), type, attendance: att, sentences, notes, date: nowStr });
+      saveDashState();
+
+      document.getElementById("obs-sentences").value = "";
+      document.getElementById("obs-notes").value = "";
+      document.querySelectorAll(".obs-chk").forEach(c => { c.checked = false; });
+      renderDashboardAll();
+      showToast("تم توثيق حضور المعايشة وفتح واتساب لإرسال التقرير للأستاذ");
+
+      const waMsg =
+        "السلام عليكم ورحمة الله وبركاته 🌷\n" +
+        "تقرير معايشة الحصة الحقيقية + تسجيل الحضور:\n" +
+        "• الاسم: " + (dashState.traineeName || "") + "\n" +
+        "• نوع الحصة: " + type + "\n" +
+        "• الحضور: " + att + " (" + nowStr + ")\n\n" +
+        "📌 الـ 10 جمل الإنجليزية المستخرجة:\n" + sentences + "\n\n" +
+        "📝 أهم الفوائد والملاحظات:\n" + notes;
+      const phone = String(ADMIN_WHATSAPP).replace(/[^0-9]/g, "");
+      window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(waMsg), "_blank", "noopener");
+    }
+
+    function renderObsHistory() {
+      const box = document.getElementById("obs-history-list");
+      const list = dashState.observations || [];
+      box.innerHTML = "";
+      if (!list.length) {
+        box.innerHTML = '<div style="color:var(--ink-muted);font-size:0.88rem;text-align:center;padding:14px;">لم توثّق أي حصة معايشة بعد. املأ النموذج أعلاه بعد مشاهدتك لحصة اليوم.</div>';
+        return;
+      }
+      list.forEach(item => {
+        const el = document.createElement("div");
+        el.style.cssText = "background:var(--surface-soft);border:1px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;";
+        el.innerHTML =
+          '<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:0.85rem;">' +
+            '<strong>' + item.type + ' — ' + item.attendance + '</strong>' +
+            '<span style="color:var(--ink-muted);">' + item.date + '</span>' +
+          '</div>' +
+          '<div style="font-size:0.84rem;color:var(--ink-muted);white-space:pre-line;">' + item.notes + '</div>';
+        box.appendChild(el);
+      });
+    }
+
+    /* ===== 4-MEMBER GROUP REGISTRATION ===== */
+    function renderGroupFields() {
+      const arr = dashState.groupMembers || ["", "", "", ""];
+      ["grp-m1", "grp-m2", "grp-m3", "grp-m4"].forEach((id, idx) => {
+        const el = document.getElementById(id);
+        if (el && !el.value) el.value = arr[idx] || (idx === 0 ? (dashState.traineeName || "") : "");
+      });
+      document.getElementById("grp-saved-note").textContent = dashState.groupSubmitted
+        ? "تم حفظ وإرسال أسماء مجموعتك الرباعية ✅"
+        : "يرجى إكمال الأسماء الأربعة وإرسالها للإدارة لتنظيم التدريب.";
+    }
+
+    function submitGroupNamesWhatsApp() {
+      const names = ["grp-m1", "grp-m2", "grp-m3", "grp-m4"].map(id => document.getElementById(id).value.trim());
+      if (names.filter(Boolean).length < 4) {
+        showToast("يرجى إدخال أسماء المتدربين الأربعة كاملين أولًا");
+        return;
+      }
+      dashState.groupMembers = names;
+      dashState.groupSubmitted = true;
+      saveDashState();
+      renderDashboardAll();
+
+      const waMsg =
+        "السلام عليكم ورحمة الله وبركاته 🌷\n" +
+        "إرسال أسماء مجموعة التدريب الرباعية (أكاديمية الساجد):\n" +
+        "1. " + names[0] + "\n" +
+        "2. " + names[1] + "\n" +
+        "3. " + names[2] + "\n" +
+        "4. " + names[3];
+      const phone = String(ADMIN_WHATSAPP).replace(/[^0-9]/g, "");
+      window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(waMsg), "_blank", "noopener");
+    }
+
+    function saveCertName(v) {
+      dashState.traineeName = v.trim() || "متدرب أكاديمية الساجد";
+      saveDashState();
+      document.getElementById("dash-greeting").textContent = "مرحبًا بك يا " + dashState.traineeName;
+    }
+
+    function sendProgressSummaryWhatsApp() {
+      const activeCourses = getActiveCourses();
+      const lines = activeCourses.map(c => {
+        const st = calcCourseStats(c);
+        return "• " + c.title + ": " + st.done + "/" + st.total + " (" + st.pct + "%)";
+      }).join("\n");
+      const waMsg =
+        "السلام عليكم أستاذ ياسر، هذا ملخص تقدمي في لوحة متدرب أكاديمية الساجد:\n" +
+        "• الاسم: " + (dashState.traineeName || "") + "\n" +
+        lines + "\n" +
+        "• حصص المعايشة الموثّقة: " + (dashState.observations || []).length;
+      const phone = String(ADMIN_WHATSAPP).replace(/[^0-9]/g, "");
+      window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(waMsg), "_blank", "noopener");
+    }
+
+    function switchDashTab(key) {
+      ["courses", "observation", "files", "cert"].forEach(t => {
+        document.getElementById("dtab-" + t).classList.toggle("active", t === key);
+        document.getElementById("dpane-" + t).classList.toggle("hidden", t !== key);
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fav").href = LOGO;
+      document.querySelectorAll("img[data-logo]").forEach(img => { img.src = LOGO; });
+      document.getElementById("cert-date-lbl").textContent = new Date().toLocaleDateString("ar-EG", { day: "numeric", month: "long", year: "numeric" });
+      paintTheme();
+      loadDashState();
+      renderDashboardAll();
+    });
+  </script>
+</body>
+</html>

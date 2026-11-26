@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المكتبة العلمية للمعلّم | أكاديمية الساجد</title>
+  <meta name="description" content="المكتبة العلمية المتخصصة في أكاديمية الساجد: المصحف التفاعلي، الأربعون النووية بالعربية والإنجليزية، أذكار الصباح والمساء بعداد تفاعلي، المقدمة الآجرومية، وخريطة العلوم الإسلامية.">
+  <meta name="theme-color" content="#0F4C29">
+  <link rel="manifest" href="manifest.json">
+  <link id="fav" rel="icon" type="image/webp" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="academy-config.js"></script>
+  <script>
+    try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF9F4;
+      --surface: #FFFFFF;
+      --surface-soft: #F3EFE2;
+      --surface-hover: #EAE4D3;
+
+      --emerald-950: #072413;
+      --emerald-900: #09321A;
+      --emerald-800: #0F4C29;
+      --emerald-700: #17693B;
+      --emerald-600: #1F844B;
+      --emerald-soft: #ECF5EF;
+
+      --gold-600: #9E7216;
+      --gold-500: #C6952B;
+      --gold-400: #E2BE5B;
+      --gold-300: #E8C568;
+      --gold-soft: #FBF6E7;
+
+      --ink: #15281C;
+      --ink-muted: #52665A;
+      --border: #E3DCCB;
+      --border-strong: #D0C6AE;
+
+      --ok: #138A52;
+      --ok-bg: #E7F7EE;
+      --warn: #A36306;
+      --warn-bg: #FEF5E3;
+
+      --font-ui: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Amiri', serif;
+
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 22px;
+      --r-pill: 999px;
+
+      --sh-sm: 0 2px 10px rgba(9, 50, 26, 0.06);
+      --sh-md: 0 10px 28px rgba(9, 50, 26, 0.09);
+      --sh-lg: 0 18px 42px rgba(9, 50, 26, 0.16);
+      --sh-gold: 0 6px 22px rgba(198, 149, 43, 0.28);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #071910;
+      --surface: #0E2619;
+      --surface-soft: #133121;
+      --surface-hover: #193D29;
+      --emerald-soft: rgba(232, 197, 104, 0.12);
+      --gold-soft: rgba(232, 197, 104, 0.14);
+      --ink: #F3F0E6;
+      --ink-muted: #A9BCB0;
+      --border: rgba(232, 197, 104, 0.22);
+      --border-strong: rgba(232, 197, 104, 0.36);
+      --ok-bg: rgba(19, 138, 82, 0.22);
+      --warn-bg: rgba(198, 149, 43, 0.2);
+      --sh-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --sh-md: 0 10px 28px rgba(0, 0, 0, 0.38);
+      --sh-lg: 0 18px 44px rgba(0, 0, 0, 0.52);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font-family: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--gold-500); outline-offset: 2px; }
+    .hidden { display: none !important; }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+      position: sticky; top: 0; z-index: 60;
+      background: linear-gradient(90deg, var(--emerald-900), var(--emerald-800));
+      border-bottom: 2.5px solid var(--gold-500);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    }
+    .topbar-inner {
+      max-width: 1180px; margin: 0 auto; padding: 10px 18px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .tb-brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .tb-logo {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-300); background: #FAF9F4; flex: none;
+    }
+    .tb-title { line-height: 1.25; }
+    .tb-title strong { display: block; font-size: 1rem; font-weight: 800; color: #FFFFFF; }
+    .tb-title small { display: block; font-size: 0.74rem; color: var(--gold-300); font-weight: 600; }
+
+    .tb-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav-link {
+      padding: 7px 12px; border-radius: var(--r-pill); font-size: 0.85rem; font-weight: 700;
+      color: rgba(255, 255, 255, 0.88); transition: 0.18s; white-space: nowrap;
+    }
+    .nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; }
+    .nav-link.active {
+      background: rgba(232, 197, 104, 0.22); color: var(--gold-300);
+      border: 1px solid rgba(232, 197, 104, 0.45);
+    }
+    .tb-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+    .icon-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(232, 197, 104, 0.42); background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .icon-btn:hover { background: rgba(232, 197, 104, 0.25); }
+    .menu-toggle { display: none; }
+    .mobile-drawer {
+      display: none; background: var(--emerald-950);
+      border-top: 1px solid rgba(232, 197, 104, 0.25);
+      padding: 12px 18px 16px; flex-direction: column; gap: 6px;
+    }
+    .mobile-drawer.open { display: flex; }
+
+    /* ===== SHELL & SHARED ===== */
+    .shell {
+      max-width: 1120px; margin: 0 auto; padding: 24px 18px 72px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 10px 18px; border-radius: var(--r-pill); border: 1.5px solid transparent;
+      font-size: 0.88rem; font-weight: 800; min-height: 40px;
+      transition: transform 0.15s, background 0.15s; white-space: nowrap;
+    }
+    .btn:hover:not(:disabled) { transform: translateY(-1px); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold-300), var(--gold-500)); color: var(--emerald-950); box-shadow: var(--sh-gold); }
+    .btn-emerald { background: var(--emerald-800); color: #FFFFFF; }
+    .btn-emerald:hover { background: var(--emerald-700); }
+    .btn-soft { background: var(--surface-soft); border-color: var(--border-strong); color: var(--ink); }
+    .btn-soft:hover { background: var(--surface-hover); }
+    .btn-sm { padding: 6px 13px; font-size: 0.8rem; min-height: 34px; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--emerald-950), var(--emerald-900) 50%, var(--emerald-700));
+      color: #FFFFFF; border-radius: var(--r-lg); border: 2px solid var(--gold-500);
+      box-shadow: var(--sh-lg); padding: 26px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .hero h1 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 900; color: var(--gold-300); margin-bottom: 6px; }
+    .hero p { color: #E2EFE7; max-width: 60ch; font-size: 0.95rem; }
+    .hero-stats {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .hstat {
+      background: rgba(5, 24, 13, 0.48); border: 1px solid rgba(232, 197, 104, 0.45);
+      border-radius: var(--r-md); padding: 10px 16px; text-align: center; min-width: 110px;
+    }
+    .hstat strong { display: block; font-size: 1.25rem; font-weight: 900; color: var(--gold-300); line-height: 1.2; }
+    .hstat small { font-size: 0.76rem; color: #DCEBE2; font-weight: 700; }
+
+    /* ===== LIBRARY 5 TABS ===== */
+    .lib-tabs {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+      background: var(--surface); padding: 6px; border-radius: var(--r-pill);
+      border: 1.5px solid var(--border); box-shadow: var(--sh-sm);
+    }
+    .ltab {
+      border: none; background: transparent; color: var(--ink-muted);
+      font-size: 0.86rem; font-weight: 800; padding: 11px 8px;
+      border-radius: var(--r-pill); display: inline-flex; align-items: center;
+      justify-content: center; gap: 6px; transition: 0.16s;
+    }
+    .ltab:hover { background: var(--surface-soft); color: var(--ink); }
+    .ltab.active { background: var(--emerald-800); color: #FFFFFF; }
+    .ltab.active svg { color: var(--gold-300); }
+
+    .panel {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--r-lg); padding: 22px; box-shadow: var(--sh-md);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap; background: var(--surface-soft);
+      border: 1.5px solid var(--border); border-radius: var(--r-md); padding: 12px 14px;
+    }
+    .inp, .sel {
+      padding: 9px 13px; border-radius: var(--r-pill);
+      border: 1.5px solid var(--border-strong); background: var(--surface);
+      color: var(--ink); font-size: 0.9rem;
+    }
+    .inp:focus, .sel:focus { outline: none; border-color: var(--gold-500); }
+
+    /* ===== CLASSICAL TEXT CARDS (HADITH / ADHKAR / AJURRUMIYYAH) ===== */
+    .item-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-right: 5px solid var(--gold-500); border-radius: var(--r-lg);
+      padding: 20px 22px; box-shadow: var(--sh-sm);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .item-card.done-card { border-right-color: var(--ok); background: linear-gradient(180deg, var(--surface) 0%, var(--ok-bg) 100%); }
+    .item-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap;
+    }
+    .item-title { font-size: 1.08rem; font-weight: 900; color: var(--ink); }
+    .badge {
+      font-size: 0.76rem; font-weight: 800; padding: 3px 11px;
+      border-radius: var(--r-pill); background: var(--emerald-soft); color: var(--emerald-800);
+    }
+    :root[data-theme="dark"] .badge { color: var(--gold-300); }
+    .badge-ok { background: var(--ok-bg); color: var(--ok); }
+    .badge-gold { background: var(--gold-soft); color: var(--gold-600); }
+    :root[data-theme="dark"] .badge-gold { color: var(--gold-300); }
+
+    .classical-ar {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+      line-height: 2.05;
+      color: var(--ink);
+      background: var(--gold-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 14px 18px;
+    }
+    .en-box {
+      direction: ltr; text-align: left;
+      font-size: 0.94rem; color: var(--ink);
+      background: var(--surface-soft); border-left: 4px solid var(--emerald-700);
+      border-radius: var(--r-sm); padding: 11px 14px; line-height: 1.65;
+    }
+    .sharh-box {
+      font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7;
+    }
+    .tip-box {
+      direction: ltr; text-align: left;
+      font-size: 0.85rem; font-weight: 700; color: var(--emerald-800);
+      background: var(--emerald-soft); border-radius: var(--r-sm); padding: 8px 12px;
+    }
+    :root[data-theme="dark"] .tip-box { color: var(--gold-300); }
+
+    /* ===== ADHKAR INTERACTIVE COUNTER ===== */
+    .dhikr-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap; padding-top: 8px; border-top: 1px dashed var(--border);
+    }
+    .counter-btn {
+      min-width: 170px;
+      padding: 10px 20px; border-radius: var(--r-pill);
+      border: 2px solid var(--emerald-800);
+      background: var(--emerald-800); color: #FFFFFF;
+      font-size: 0.96rem; font-weight: 900;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: transform 0.1s, background 0.16s;
+    }
+    .counter-btn:active { transform: scale(0.96); }
+    .counter-btn.completed { background: var(--ok); border-color: var(--ok); }
+    .meter-track { height: 10px; background: var(--surface-hover); border-radius: var(--r-pill); overflow: hidden; }
+    .meter-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--emerald-700), var(--gold-500)); transition: width 0.3s; }
+
+    /* ===== ROADMAP GRID ===== */
+    .roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .road-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-top: 4px solid var(--gold-500); border-radius: var(--r-md);
+      padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--sh-sm);
+    }
+    .road-card h3 { font-size: 1rem; font-weight: 900; }
+    .road-card p { font-size: 0.86rem; color: var(--ink-muted); }
+
+    .toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--emerald-900); color: #FFFFFF; border: 1.5px solid var(--gold-300);
+      padding: 10px 20px; border-radius: var(--r-pill); font-weight: 700; font-size: 0.88rem;
+      box-shadow: var(--sh-lg); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    }
+    .toast.show { opacity: 1; }
+
+    @media (max-width: 960px) {
+      .tb-nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .lib-tabs { grid-template-columns: repeat(3, 1fr); border-radius: var(--r-md); }
+      .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .lib-tabs { grid-template-columns: repeat(2, 1fr); }
+      .roadmap-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="tb-brand" href="catalog.html">
+        <img class="tb-logo" data-logo="1" alt="شعار أكاديمية الساجد">
+        <div class="tb-title">
+          <strong>أكاديمية الساجد | المكتبة العلمية</strong>
+          <small>القرآن • الأربعون النووية • الأذكار • الآجرومية • المتون التأسيسية</small>
+        </div>
+      </a>
+
+      <nav class="tb-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
+        <a class="nav-link" href="index.html">الدليل التفاعلي (+540)</a>
+        <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
+        <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+        <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
+        <a class="nav-link active" href="library.html">المكتبة العلمية</a>
+      </nav>
+
+      <div class="tb-actions">
+        <button type="button" class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل المظهر">🌙</button>
+        <button type="button" class="icon-btn menu-toggle" onclick="toggleMobileMenu()" aria-label="القائمة">
+          <i data-lucide="menu" style="width:19px;height:19px;"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+      <a class="nav-link" href="catalog.html">الكتالوج والدورات</a>
+      <a class="nav-link" href="index.html">الدليل التفاعلي (+540 جملة)</a>
+      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي (114 سورة)</a>
+      <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+      <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
+      <a class="nav-link active" href="library.html">المكتبة العلمية</a>
+    </div>
+  </header>
+
+  <main class="shell">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>المكتبة العلمية التأسيسية لمعلّم أكاديمية الساجد</h1>
+        <p>مرجع عملي مُنتقى بعناية دون حشو: يجمع المصحف التفاعلي، والأربعين النووية بالعربية والإنجليزية، وأذكار الصباح والمساء بعداد تفاعلي، وأبواب المقدمة الآجرومية مع طرق شرحها لغير الناطقين بالعربية.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><strong>114</strong><small>سورة بالمصحف</small></div>
+        <div class="hstat"><strong>20</strong><small>حديثًا تأسيسيًا</small></div>
+        <div class="hstat"><strong id="fav-count-stat">0</strong><small>في المفضلة ⭐</small></div>
+      </div>
+    </section>
+
+    <!-- 5 LIBRARY SECTIONS -->
+    <nav class="lib-tabs" aria-label="أقسام المكتبة العلمية">
+      <button type="button" class="ltab active" id="ltab-hadith" onclick="switchLibTab('hadith')">
+        <i data-lucide="scroll-text" style="width:16px;height:16px;"></i><span>الأربعون النووية</span>
+      </button>
+      <button type="button" class="ltab" id="ltab-adhkar" onclick="switchLibTab('adhkar')">
+        <i data-lucide="sun" style="width:16px;height:16px;"></i><span>أذكار الصباح والمساء</span>
+      </button>
+      <button type="button" class="ltab" id="ltab-arabic" onclick="switchLibTab('arabic')">
+        <i data-lucide="book-a" style="width:16px;height:16px;"></i><span>المقدمة الآجرومية</span>
+      </button>
+      <button type="button" class="ltab" id="ltab-quran" onclick="switchLibTab('quran')">
+        <i data-lucide="book-open" style="width:16px;height:16px;"></i><span>القرآن الكريم</span>
+      </button>
+      <button type="button" class="ltab" id="ltab-sciences" onclick="switchLibTab('sciences')">
+        <i data-lucide="library" style="width:16px;height:16px;"></i><span>خريطة المتون</span>
+      </button>
+    </nav>
+
+    <!-- =======================================================================
+         SECTION 1: الأربعون النووية (عربي + إنجليزي + شرح + نصيحة للمعلم)
+         ======================================================================= -->
+    <section id="lpane-hadith" style="display:flex;flex-direction:column;gap:14px;">
+      <div class="toolbar">
+        <input type="search" id="hadith-search" class="inp" style="flex:1;min-width:220px;" placeholder="ابحث في الأحاديث بالعربية أو الإنجليزية (مثال: النية، الغضب، Taqwa)..." oninput="renderHadiths()">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-soft btn-sm" id="hadith-fav-filter" onclick="toggleHadithFavFilter()">المفضلة فقط ⭐</button>
+          <button type="button" class="btn btn-soft btn-sm" id="hadith-en-toggle" onclick="toggleHadithEn()">إخفاء الإنجليزية</button>
+        </div>
+      </div>
+      <div style="font-size:0.84rem;color:var(--ink-muted);font-weight:700;padding:0 4px;">
+        الإصدار الأول: المجموعة التأسيسية المختارة (20 حديثًا مضبوطًا بالشكل من الأربعين النووية مع ترجمة إنجليزية دقيقة وفائدة تطبيقية لحصصك).
+      </div>
+      <div id="hadith-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2: أذكار الصباح والمساء بعداد تفاعلي
+         ======================================================================= -->
+    <section id="lpane-adhkar" class="hidden" style="display:flex;flex-direction:column;gap:14px;">
+      <div class="panel" style="gap:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-emerald btn-sm" id="adhkar-morning-btn" onclick="setAdhkarPeriod('morning')">☀️ أذكار الصباح</button>
+            <button type="button" class="btn btn-soft btn-sm" id="adhkar-evening-btn" onclick="setAdhkarPeriod('evening')">🌙 أذكار المساء</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-soft btn-sm" id="adhkar-sound-btn" onclick="toggleDhikrSound()">صوت العدّاد: مفعّل</button>
+            <button type="button" class="btn btn-soft btn-sm" onclick="resetAllAdhkar()">تصفير العدّادات</button>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:0.86rem;font-weight:800;margin-bottom:6px;">
+            <span id="adhkar-prog-title">إنجاز أذكار الصباح</span>
+            <span id="adhkar-prog-lbl">0 / 11 ذكر</span>
+          </div>
+          <div class="meter-track"><div class="meter-fill" id="adhkar-prog-fill"></div></div>
+        </div>
+        <div style="font-size:0.8rem;color:var(--ink-muted);">
+          ملحوظة حقوقية: نلتزم بعدم تضمين تسجيلات صوتية تجارية غير مرخّصة؛ يمكنك الاستماع بالنطق النصي أو التلاوة المباشرة، وسنُدرج تسجيلات مرخّصة رسميًا حال اعتمادها.
+        </div>
+      </div>
+
+      <div id="adhkar-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3: المقدمة الآجرومية وتبسيط النحو لغير الناطقين
+         ======================================================================= -->
+    <section id="lpane-arabic" class="hidden" style="display:flex;flex-direction:column;gap:14px;">
+      <div class="toolbar">
+        <input type="search" id="aj-search" class="inp" style="flex:1;min-width:220px;" placeholder="ابحث في أبواب الآجرومية (الكلام، الإعراب، الفاعل، كان وإنّ، النعت)..." oninput="renderAjurrumiyyah()">
+        <span id="aj-prog-badge" class="badge badge-gold">أنجزت 0 / 8 أبواب</span>
+      </div>
+      <div id="aj-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4: قسم القرآن الكريم (الربط المباشر بالمصحف التفاعلي)
+         ======================================================================= -->
+    <section id="lpane-quran" class="hidden" style="display:flex;flex-direction:column;gap:16px;">
+      <div class="panel" style="border:2px solid var(--gold-500);background:linear-gradient(135deg,var(--surface) 0%,var(--gold-soft) 100%);">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:240px;">
+            <span class="badge badge-ok" style="margin-bottom:8px;">مكتمل 100% • 114 سورة • 6,236 آية</span>
+            <h2 style="font-size:1.35rem;font-weight:900;margin-bottom:6px;">المصحف التفاعلي لأكاديمية الساجد</h2>
+            <p style="color:var(--ink-muted);font-size:0.94rem;">
+              مصحف المدينة المنورة (KFGQPC)، ألوان التجويد، القصص التربوية والتفسير الميسّر آية بآية، لعبة تركيب الكلمات، الشهادات التقديرية، وتلاوة الشيخ الحصري والشيخ المنشاوي (مع وقفة 20 ثانية لترديد الطفل).
+            </p>
+          </div>
+          <a href="quran-quest.html" class="btn btn-gold">
+            <i data-lucide="book-open-text" style="width:18px;height:18px;"></i>
+            <span>افتح المصحف التفاعلي الآن</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="road-card">
+          <span class="badge">تنظيم الحصة</span>
+          <h3>قاعدة تقسيم حصة القرآن (30 دقيقة)</h3>
+          <p>3 دقائق مراجعة سريعة وتمهيد، 12 دقيقة تلاوة وحفظ الجديد بالمحاكاة الصوتية، 10 دقائق مراجعة الماضي القريب والبعيد، و5 دقائق نشاط وتوجيه لولي الأمر.</p>
+        </div>
+        <div class="road-card">
+          <span class="badge">منهج التأسيس</span>
+          <h3>التدرّج من القاعدة البغدادية للمصحف</h3>
+          <p>ركّز على التمكين الصوتي للمخارج والحركات والمدود بدل كثرة المصطلحات النظرية، واستخدم أنشطة 3–5 دقائق وبطارية الطاقة مع الأطفال.</p>
+        </div>
+        <div class="road-card">
+          <span class="badge">أداة مساندة</span>
+          <h3>الدليل التفاعلي (+540 جملة إنجليزية)</h3>
+          <p>استخدم الجمل الجاهزة في الدليل لتصحيح التلاوة والتشجيع بلطف أثناء حصة القرآن دون توقف أو حرج.</p>
+          <a href="index.html" class="btn btn-soft btn-sm" style="align-self:flex-start;margin-top:auto;">فتح الدليل التفاعلي</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 5: خريطة المتون والعلوم الإسلامية حسب الأولوية والمستوى
+         ======================================================================= -->
+    <section id="lpane-sciences" class="hidden" style="display:flex;flex-direction:column;gap:14px;">
+      <div class="toolbar">
+        <select id="sci-filter" class="sel" onchange="renderSciencesRoadmap()">
+          <option value="all">جميع العلوم الشرعية واللغوية</option>
+          <option value="العقيدة">العقيدة</option>
+          <option value="الحديث">الحديث</option>
+          <option value="الفقه">الفقه</option>
+          <option value="السيرة النبوية">السيرة النبوية</option>
+          <option value="التجويد">التجويد</option>
+          <option value="القراءات">القراءات</option>
+          <option value="اللغة العربية">اللغة العربية</option>
+          <option value="الآداب والأخلاق">الآداب والأخلاق</option>
+        </select>
+        <select id="lvl-filter" class="sel" onchange="renderSciencesRoadmap()">
+          <option value="all">جميع المستويات</option>
+          <option value="تأسيسي">تأسيسي (أولوية الإصدار الأول)</option>
+          <option value="متوسط">متوسط</option>
+          <option value="متقدم">متقدم</option>
+        </select>
+      </div>
+      <div class="roadmap-grid" id="sciences-grid"></div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast-bar"></div>
+
+  <script>
+    const LOGO = "data:image/webp;base64,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";
+    const THEME_KEY = "sajidpt:th";
+    const LIB_STATE_KEY = "sajid_library_state_v1";
+
+    const HADITHS = [{"num": 1, "title": "إنما الأعمال بالنيات", "titleEn": "Actions Are Judged by Intentions", "narrator": "عمر بن الخطاب رضي الله عنه — متفق عليه", "ar": "عَنْ أَمِيرِ الْمُؤْمِنِينَ أَبِي حَفْصٍ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ: «إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ».", "en": "Actions are only by intentions, and every person shall have only that which they intended. Whoever's migration was for Allah and His Messenger, then their migration is for Allah and His Messenger; and whoever's migration was for some worldly gain or to marry a woman, then their migration is for that to which they migrated.", "sharh": "النية محلها القلب وهي أساس قبول العمل الصالح؛ فالعمل الواحد قد يكون عبادة يُؤجر عليها المسلم إذا أخلص النية لله، أو مجرد عادة لا أجر فيها.", "tip": "Teaching Tip: Remind young learners before Quran class to renew their Niyyah ('We read Quran to please Allah!')."}, {"num": 3, "title": "أركان الإسلام الخمسة", "titleEn": "The Five Pillars of Islam", "narrator": "عبد الله بن عمر رضي الله عنهما — متفق عليه", "ar": "عَنْ أَبِي عَبْدِ الرَّحْمَٰنِ عَبْدِ اللَّهِ بْنِ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ: «بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَحَجِّ الْبَيْتِ، وَصَوْمِ رَمَضَانَ».", "en": "Islam is built upon five pillars: testifying that there is no god worthy of worship except Allah and that Muhammad is the Messenger of Allah, establishing the prayer, paying the Zakah, making the pilgrimage to the Sacred House (Hajj), and fasting Ramadan.", "sharh": "شَبَّه النبي ﷺ الإسلام بالبناء العظيم الذي يقوم على خمسة أعمدة راسخة؛ أعظمها الشهادتان ثم العبادات العملية الكبرى.", "tip": "Teaching Tip: Use your five fingers with kids to memorize the Five Pillars easily in 2 minutes."}, {"num": 5, "title": "اتباع السنة وترك البدعة", "titleEn": "Following Authentic Guidance", "narrator": "عائشة رضي الله عنها — متفق عليه", "ar": "عَنْ أُمِّ الْمُؤْمِنِينَ أُمِّ عَبْدِ اللَّهِ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا قَالَتْ: قَالَ رَسُولُ اللَّهِ ﷺ: «مَنْ أَحْدَثَ فِي أَمْرِنَا هَٰذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ». وَفِي رِوَايَةٍ لِمُسْلِمٍ: «مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ».", "en": "Whoever introduces into this matter of ours (Islam) something that is not part of it will have it rejected. (In Muslim: Whoever performs a deed that is not in accordance with our affair will have it rejected.)", "sharh": "قبول العبادة يقوم على شرطين: الإخلاص لله (الحديث الأول)، والمتابعة لسنة النبي ﷺ (هذا الحديث).", "tip": "Teaching Tip: Explain simply: 'Good deeds need two keys: Sincere Heart (Ikhlas) + Prophet's Way (Sunnah).'"}, {"num": 7, "title": "الدين النصيحة", "titleEn": "Religion Is Sincere Advice", "narrator": "تميم الداري رضي الله عنه — رواه مسلم", "ar": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ: «الدِّينُ النَّصِيحَةُ». قُلْنَا: لِمَنْ؟ قَالَ: «لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ».", "en": "The religion is sincere advice (Nasihah). We asked: 'To whom?' He said: 'To Allah, His Book, His Messenger, and to the leaders of the Muslims and their common folk.'", "sharh": "النصيحة تعني الإخلاص وإرادة الخير؛ والنصيحة لكتاب الله تكون بتلاوته حق تلاوته وتعلمه وتعليمه والعمل به.", "tip": "Teaching Tip: Connect 'Nasihah to Allah's Book' directly to respecting the Mushaf and reciting carefully."}, {"num": 9, "title": "التكليف بقدر الاستطاعة", "titleEn": "Doing What You Are Able", "narrator": "أبو هريرة رضي الله عنه — متفق عليه", "ar": "عَنْ أَبِي هُرَيْرَةَ عَبْدِ الرَّحْمَٰنِ بْنِ صَخْرٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ: «مَا نَهَيْتُكُمْ عَنْهُ فَاجْتَنِبُوهُ، وَمَا أَمَرْتُكُمْ بِهِ فَأْتُوا مِنْهُ مَا اسْتَطَعْتُمْ؛ فَإِنَّمَا أَهْلَكَ الَّذِينَ مِنْ قَبْلِكُمْ كَثْرَةُ مَسَائِلِهِمْ وَاخْتِلَافُهُمْ عَلَى أَنْبِيَائِهِمْ».", "en": "What I have forbidden for you, avoid; and what I have ordered you to do, do as much of it as you can. For verily, it was only excessive questioning and disagreeing with their prophets that destroyed those before you.", "sharh": "يُبيّن الحديث يسر الشريعة الإسلامية؛ فالممنوع يُترك كله، والمأمور يُؤتى منه بقدر الطاقة مع صدق البذل.", "tip": "Teaching Tip: Encourages students who struggle with Arabic pronunciation—Allah rewards every sincere effort!"}, {"num": 11, "title": "الورع وترك الشبهات", "titleEn": "Leaving What Causes Doubt", "narrator": "الحسن بن علي رضي الله عنهما — رواه الترمذي والنسائي", "ar": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ سِبْطِ رَسُولِ اللَّهِ ﷺ وَرَيْحَانَتِهِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: حَفِظْتُ مِنْ رَسُولِ اللَّهِ ﷺ: «دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ».", "en": "Leave that which makes you doubt for that which does not make you doubt.", "sharh": "قاعدة عظيمة في الورع وراحة القلب؛ فإذا شك المسلم في أمرٍ أهو حلال أم حرام تركه إلى الواضح المطمئن.", "tip": "Teaching Tip: Great practical rule for Muslim kids living in the West when checking halal food ingredients."}, {"num": 12, "title": "الاشتغال بما ينفع", "titleEn": "Leaving What Does Not Concern You", "narrator": "أبو هريرة رضي الله عنه — رواه الترمذي وغيره", "ar": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ».", "en": "Part of the perfection of one's Islam is leaving that which does not concern them.", "sharh": "من علامات نضج المسلم وحسن دينه حفظ وقته ولسانه عن الفضول، والانشغال بما ينفعه في دينه ودنياه.", "tip": "Teaching Tip: Helps teach respectful online manners and focus during group classes."}, {"num": 13, "title": "محبة الخير للآخرين", "titleEn": "Loving Good for Your Brother", "narrator": "أنس بن مالك رضي الله عنه — متفق عليه", "ar": "عَنْ أَبِي حَمْزَةَ أَنَسِ بْنِ مَالِكٍ رَضِيَ اللَّهُ عَنْهُ خَادِمِ رَسُولِ اللَّهِ ﷺ عَنِ النَّبِيِّ ﷺ قَالَ: «لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ».", "en": "None of you truly believes until they love for their brother what they love for themselves.", "sharh": "المقصود كمال الإيمان؛ فالمؤمن سليم الصدر، يفرح لنجاح غيره ولا يحسد أحدًا على خيرٍ آتاه الله.", "tip": "Teaching Tip: Ask kids: 'How do we practice this with our siblings or classmates today?'"}, {"num": 15, "title": "آداب الكلام وإكرام الجار والضيف", "titleEn": "Good Speech, Neighbor & Guest", "narrator": "أبو هريرة رضي الله عنه — متفق عليه", "ar": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ: «مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ».", "en": "Whoever believes in Allah and the Last Day should speak good or remain silent; whoever believes in Allah and the Last Day should honor their neighbor; and whoever believes in Allah and the Last Day should honor their guest.", "sharh": "جمع الحديث ثلاث ركائز للأخلاق الاجتماعية: حفظ اللسان، وحسن الجوار، وإكرام الضيف، وربطها جميعًا بالإيمان.", "tip": "Teaching Tip: The golden filter for speech: 'Is it true? Is it kind? Is it helpful?'"}, {"num": 16, "title": "النهي عن الغضب وضبط النفس", "titleEn": "Do Not Become Angry", "narrator": "أبو هريرة رضي الله عنه — رواه البخاري", "ar": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا قَالَ لِلنَّبِيِّ ﷺ: أَوْصِنِي. قَالَ: «لَا تَغْضَبْ»، فَرَدَّدَ مِرَارًا، قَالَ: «لَا تَغْضَبْ».", "en": "A man said to the Prophet ﷺ: 'Advise me.' He said: 'Do not become angry.' The man repeated his request several times, and each time he said: 'Do not become angry.'", "sharh": "المقصود ضبط النفس عند ثوران الغضب وتجنب أسبابه ومقتضياته؛ وهو من أعظم صفات المعلم الناجح مع الأطفال.", "tip": "Teaching Tip: Essential reminder for both teachers and students—stay calm, smile, and seek refuge from Shaytan."}, {"num": 17, "title": "الإحسان في كل شيء", "titleEn": "Excellence (Ihsan) in Everything", "narrator": "شداد بن أوس رضي الله عنه — رواه مسلم", "ar": "عَنْ أَبِي يَعْلَى شَدَّادِ بْنِ أَوْسٍ رَضِيَ اللَّهُ عَنْهُ عَنْ رَسُولِ اللَّهِ ﷺ قَالَ: «إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ، فَإِذَا قَتَلْتُمْ فَأَحْسِنُوا الْقِتْلَةَ، وَإِذَا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ، وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ وَلْيُرِحْ ذَبِيحَتَهُ».", "en": "Verily, Allah has prescribed excellence (Ihsan) in all things. So if you kill, do so well; and if you slaughter, do so well. Let each one of you sharpen their blade and let them spare suffering to the animal they slaughter.", "sharh": "الإحسان يعني الإتقان والرفق في جميع الأعمال، ومن ذلك إتقان المعلم لتحضير درسه ولطفه في التعامل مع طلابه.", "tip": "Teaching Tip: Define 'Ihsan' as doing your very best in worship, study, and kindness to all creatures."}, {"num": 18, "title": "التقوى ومحو السيئة وحسن الخلق", "titleEn": "Taqwa, Good Deeds & Good Character", "narrator": "أبو ذر ومعاذ بن جبل رضي الله عنهما — رواه الترمذي", "ar": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ، وَأَبِي عَبْدِ الرَّحْمَٰنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا عَنْ رَسُولِ اللَّهِ ﷺ قَالَ: «اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ».", "en": "Be mindful of Allah (have Taqwa) wherever you are, follow a bad deed with a good deed and it will erase it, and treat people with good character.", "sharh": "ثلاث وصايا جامعة: حق الله في السر والعلن، وتدارك الزلات بالتوبة والحسنات، ومعاملة الناس بأحسن الأخلاق.", "tip": "Teaching Tip: Break it into 3 life habits: (1) Allah sees me, (2) Fix mistakes with good, (3) Be kind to everyone."}, {"num": 19, "title": "وصية النبي ﷺ لابن عباس (احفظ الله يحفظك)", "titleEn": "Be Mindful of Allah & He Will Protect You", "narrator": "عبد الله بن عباس رضي الله عنهما — رواه الترمذي", "ar": "عَنْ أَبِي الْعَبَّاسِ عَبْدِ اللَّهِ بْنِ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: كُنْتُ خَلْفَ النَّبِيِّ ﷺ يَوْمًا، فَقَالَ: «يَا غُلَامُ، إِنِّي أُعَلِّمُكَ كَلِمَاتٍ: احْفَظِ اللَّهَ يَحْفَظْكَ، احْفَظِ اللَّهَ تَجِدْهُ تُجَاهَكَ، إِذَا سَأَلْتَ فَاسْأَلِ اللَّهَ، وَإِذَا اسْتَعَنْتَ فَاسْتَعِنْ بِاللَّهِ، وَاعْلَمْ أَنَّ الْأُمَّةَ لَوِ اجْتَمَعَتْ عَلَى أَنْ يَنْفَعُوكَ بِشَيْءٍ لَمْ يَنْفَعُوكَ إِلَّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ لَكَ، وَإِنِ اجْتَمَعُوا عَلَى أَنْ يَضُرُّوكَ بِشَيْءٍ لَمْ يَضُرُّوكَ إِلَّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ عَلَيْكَ؛ رُفِعَتِ الْأَقْلَامُ وَجَفَّتِ الصُّحُفُ».", "en": "Young boy, I shall teach you some words: Be mindful of Allah, and He will protect you. Be mindful of Allah, and you will find Him before you. When you ask, ask Allah; and when you seek help, seek help from Allah. Know that if the whole nation gathered to benefit you, they could only benefit you with what Allah has already written for you; and if they gathered to harm you, they could only harm you with what Allah has already written for you. The pens have been lifted and the pages have dried.", "sharh": "درس تربوي نبوي عظيم لطفل صغير، يغرس فيه التوكل على الله، والتعلق به في الدعاء، والطمأنينة بقضاء الله وقدره.", "tip": "Teaching Tip: One of the best Hadiths to teach pre-teens & teens about confidence, Dua, and Al-Qadar."}, {"num": 20, "title": "الحياء من أخلاق النبوة", "titleEn": "Modesty (Haya') Is from Prophetic Wisdom", "narrator": "أبو مسعود البدري رضي الله عنه — رواه البخاري", "ar": "عَنْ أَبِي مَسْعُودٍ عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى: إِذَا لَمْ تَسْتَحِ فَاصْنَعْ مَا شِئْتَ».", "en": "Indeed, among the words people obtained from the earlier Prophets is: If you feel no modesty (shame), then do as you wish.", "sharh": "الحياء خلق كريم يحجز صاحبه عن القبيح؛ فإذا فُقد الحياء لم يبقَ مانع داخلي يمنع الإنسان من السوء.", "tip": "Teaching Tip: Clarify that 'Haya' is NOT shyness about asking good questions—it is dignity and self-respect."}, {"num": 21, "title": "الاستقامة على الإيمان", "titleEn": "Believe in Allah & Stay Steadfast", "narrator": "سفيان بن عبد الله الثقفي رضي الله عنه — رواه مسلم", "ar": "عَنْ أَبِي عَمْرٍو — وَقِيلَ: أَبِي عَمْرَةَ — سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ، قُلْ لِي فِي الْإِسْلَامِ قَوْلًا لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ. قَالَ: «قُلْ: آمَنْتُ بِاللَّهِ، ثُمَّ اسْتَقِمْ».", "en": "I said: 'O Messenger of Allah, tell me something about Islam which I will not have to ask anyone else about.' He said: 'Say: I believe in Allah, and then remain steadfast.'", "sharh": "جمع الدين كله في كلمتين: الإيمان الصادق بالله، والاستقامة المستمرة على طاعته في الأقوال والأفعال.", "tip": "Teaching Tip: Steadfastness (Istiqamah) in Quran means reading even 5 minutes every single day consistently."}, {"num": 23, "title": "الطهور شطر الإيمان وفضل الذكر", "titleEn": "Purity Is Half of Faith & Value of Dhikr", "narrator": "أبو مالك الأشعري رضي الله عنه — رواه مسلم", "ar": "عَنْ أَبِي مَالِكٍ الْحَارِثِ بْنِ عَاصِمٍ الْأَشْعَرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ، وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ تَمْلَآَنِ — أَوْ تَمْلَأُ — مَا بَيْنَ السَّمَاءِ وَالْأَرْضِ، وَالصَّلَاةُ نُورٌ، وَالصَّدَقَةُ بُرْهَانٌ، وَالصَّبْرُ ضِيَاءٌ، وَالْقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ؛ كُلُّ النَّاسِ يَغْدُو، فَبَائِعٌ نَفْسَهُ فَمُعْتِقُهَا أَوْ مُوبِقُهَا».", "en": "Purity is half of faith. 'Alhamdulillah' fills the scale, and 'SubhanAllah' and 'Alhamdulillah' fill what is between the heavens and the earth. Prayer is light, charity is proof, patience is illumination, and the Quran is a proof either for you or against you. Everyone starts their day selling their soul—either freeing it or ruining it.", "sharh": "يعظّم الحديث شأن الطهارة والذكر والصلاة والصدقة والصبر والقرآن، ويحثّ المسلم على استثمار يومه في طاعة الله.", "tip": "Teaching Tip: Use vivid images with students: Prayer = Light, Patience = Sunlight, Quran = Best Friend & Proof."}, {"num": 27, "title": "البر حسن الخلق", "titleEn": "Righteousness Is Good Character", "narrator": "النواس بن سمعان رضي الله عنه — رواه مسلم", "ar": "عَنِ النَّوَّاسِ بْنِ سَمْعَانَ رَضِيَ اللَّهُ عَنْهُ عَنِ النَّبِيِّ ﷺ قَالَ: «الْبِرُّ حُسْنُ الْخُلُقِ، وَالْإِثْمُ مَا حَاكَ فِي نَفْسِكَ وَكَرِهْتَ أَنْ يَطَّلِعَ عَلَيْهِ النَّاسُ».", "en": "Righteousness is good character, and sin is that which wavers in your chest and which you dislike people knowing about.", "sharh": "ميزان واضح للفطرة السليمة؛ فالخير يطمئن إليه القلب وتُحسّنه الأخلاق، والإثم يقلق النفس ويخجل صاحبه من ظهوره.", "tip": "Teaching Tip: Help children listen to their clean Fitrah when deciding whether an action is right or wrong."}, {"num": 32, "title": "لا ضرر ولا ضرار", "titleEn": "No Harm & No Returning Harm", "narrator": "أبو سعيد الخدري رضي الله عنه — رواه ابن ماجه والدارقطني", "ar": "عَنْ أَبِي سَعِيدٍ سَعْدِ بْنِ مَالِكِ بْنِ سِنَانٍ الْخُدْرِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ: «لَا ضَرَرَ وَلَا ضِرَارَ».", "en": "There should be neither harming nor reciprocating harm.", "sharh": "من أعظم القواعد الفقهية في الإسلام: تحريم إيذاء النفس أو الغير بأي صورة مادية أو معنوية، ومنع مقابلة الضرر بضرر مماثل.", "tip": "Teaching Tip: Clear rule for kindness—never hurt others with words or actions, and don't take revenge."}, {"num": 34, "title": "تغيير المنكر بالحكمة والقدرة", "titleEn": "Correcting Wrong with Wisdom", "narrator": "أبو سعيد الخدري رضي الله عنه — رواه مسلم", "ar": "عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ: «مَنْ رَأَى مِنْكُمْ مُنْكَرًا فَلْيُغَيِّرْهُ بِيَدِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِلِسَانِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِقَلْبِهِ، وَذَٰلِكَ أَضْعَفُ الْإِيمَانِ».", "en": "Whoever among you sees an evil, let them change it with their hand; if they are unable, then with their tongue; and if they are unable, then with their heart—and that is the weakest of faith.", "sharh": "يبين مراتب إنكار المنكر بحسب الاستطاعة والولاية والحكمة، وأن قلب المؤمن يظل دائمًا كارهًا للشر محبًا للخير.", "tip": "Teaching Tip: Clarify that changing by hand is for those in authority (parents/leaders), while kind advice is for everyone."}, {"num": 40, "title": "اغتنام الوقت في الدنيا", "titleEn": "Be in This World Like a Traveler", "narrator": "عبد الله بن عمر رضي الله عنهما — رواه البخاري", "ar": "عَنِ ابْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: أَخَذَ رَسُولُ اللَّهِ ﷺ بِمَنْكِبَيَّ فَقَالَ: «كُنْ فِي الدُّنْيَا كَأَنَّكَ غَرِيبٌ أَوْ عَابِرُ سَبِيلٍ». وَكَانَ ابْنُ عُمَرَ يَقُولُ: إِذَا أَمْسَيْتَ فَلَا تَنْتَظِرِ الصَّبَاحَ، وَإِذَا أَصْبَحْتَ فَلَا تَنْتَظِرِ الْمَسَاءَ، وَخُذْ مِنْ صِحَّتِكَ لِمَرَضِكَ، وَمِنْ حَيَاتِكَ لِمَوْتِكَ.", "en": "Be in this world as though you were a stranger or a traveler passing through. And Ibn Umar used to say: 'When evening comes, do not expect the morning; and when morning comes, do not expect the evening. Take from your health for your illness, and from your life for your death.'", "sharh": "توجيه نبوي لعدم التسويف واغتنام الصحة والعمر في الأعمال الصالحة والعلم النافع قبل فوات الأوان.", "tip": "Teaching Tip: Teach positive time management—don't postpone your Quran revision or homework until tomorrow!"}];
+    const ADHKAR = [{"id": "kursi", "time": "both", "title": "آية الكرسي", "count": 1, "arMorning": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.", "arEvening": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ.", "enMorning": "Allah — there is no deity except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.", "enEvening": "Allah — there is no deity except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.", "virtue": "من قالها حين يصبح أُجير من الجن حتى يمسي، ومن قالها حين يمسي أُجير منهم حتى يصبح (البقرة: 255)."}, {"id": "muawwidhat", "time": "both", "title": "سورة الإخلاص والفلق والناس", "count": 3, "arMorning": "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ. (ومثلها سورتا الفلق والناس ثلاث مرات).", "arEvening": "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ. (ومثلها سورتا الفلق والناس ثلاث مرات).", "enMorning": "Recite Surah Al-Ikhlas, Surah Al-Falaq, and Surah An-Nas three times each in the morning.", "enEvening": "Recite Surah Al-Ikhlas, Surah Al-Falaq, and Surah An-Nas three times each in the evening.", "virtue": "من قالها ثلاث مرات حين يصبح وحين يمسي كفته من كل شيء."}, {"id": "asbahna", "time": "both", "title": "ذكر دخول الصباح / المساء", "count": 1, "arMorning": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ.", "arEvening": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَٰذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَٰذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ.", "enMorning": "We have reached the morning and at this very time unto Allah belongs all sovereignty, and all praise is for Allah. None has the right to be worshipped except Allah alone, without partner; to Him belongs all sovereignty and praise and He is over all things omnipotent. My Lord, I ask You for the good of this day and the good of what follows it, and I seek refuge in You from the evil of this day and the evil of what follows it.", "enEvening": "We have reached the evening and at this very time unto Allah belongs all sovereignty, and all praise is for Allah. None has the right to be worshipped except Allah alone, without partner; to Him belongs all sovereignty and praise and He is over all things omnipotent. My Lord, I ask You for the good of this night and the good of what follows it, and I seek refuge in You from the evil of this night and the evil of what follows it.", "virtue": "رواه مسلم — من أجمع أذكار التوحيد وطلب الخير والاستعاذة من الكسل."}, {"id": "sayyid", "time": "both", "title": "سيد الاستغفار", "count": 1, "arMorning": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.", "arEvening": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.", "enMorning": "O Allah, You are my Lord, none has the right to be worshipped except You. You created me and I am Your servant, and I abide to Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for verily none can forgive sins except You.", "enEvening": "O Allah, You are my Lord, none has the right to be worshipped except You. You created me and I am Your servant, and I abide to Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for verily none can forgive sins except You.", "virtue": "رواه البخاري — من قالها موقنًا بها حين يصبح أو يمسي فمات من يومه أو ليلته دخل الجنة."}, {"id": "bismillah", "time": "both", "title": "بسم الله الذي لا يضر مع اسمه شيء", "count": 3, "arMorning": "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ.", "arEvening": "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ.", "enMorning": "In the name of Allah, with whose name nothing can cause harm on the earth or in the heavens, and He is the All-Hearing, the All-Knowing.", "enEvening": "In the name of Allah, with whose name nothing can cause harm on the earth or in the heavens, and He is the All-Hearing, the All-Knowing.", "virtue": "من قالها ثلاثًا إذا أصبح وثلاثًا إذا أمسى لم يضره شيء."}, {"id": "raditu", "time": "both", "title": "رضيت بالله ربًا", "count": 3, "arMorning": "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا.", "arEvening": "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا.", "enMorning": "I am pleased with Allah as my Lord, with Islam as my religion, and with Muhammad ﷺ as my Prophet.", "enEvening": "I am pleased with Allah as my Lord, with Islam as my religion, and with Muhammad ﷺ as my Prophet.", "virtue": "من قالها ثلاثًا حين يصبح وحين يمسي كان حقًا على الله أن يرضيه يوم القيامة."}, {"id": "afiyah", "time": "both", "title": "سؤال العفو والعافية", "count": 1, "arMorning": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي.", "arEvening": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي.", "enMorning": "O Allah, I ask You for pardon and well-being in this life and the next. O Allah, I ask You for pardon and well-being in my religion, my worldly affairs, my family, and my wealth. O Allah, conceal my faults and calm my fears. O Allah, guard me from in front of me, behind me, on my right, on my left, and from above me, and I seek refuge in Your greatness from being struck unexpectedly from beneath me.", "enEvening": "O Allah, I ask You for pardon and well-being in this life and the next. O Allah, I ask You for pardon and well-being in my religion, my worldly affairs, my family, and my wealth. O Allah, conceal my faults and calm my fears. O Allah, guard me from in front of me, behind me, on my right, on my left, and from above me, and I seek refuge in Your greatness from being struck unexpectedly from beneath me.", "virtue": "لم يكن النبي ﷺ يدع هؤلاء الدعوات حين يمسي وحين يصبح (رواه أبو داود وابن ماجه)."}, {"id": "hayyu", "time": "both", "title": "يا حي يا قيوم برحمتك أستغيث", "count": 1, "arMorning": "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.", "arEvening": "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.", "enMorning": "O Ever-Living, O Sustainer of all existence, in Your mercy I seek relief; rectify all of my affairs and do not leave me to myself even for the blink of an eye.", "enEvening": "O Ever-Living, O Sustainer of all existence, in Your mercy I seek relief; rectify all of my affairs and do not leave me to myself even for the blink of an eye.", "virtue": "دعاء التوكل الكامل وطلب التوفيق في كل شؤون الحياة والتعليم."}, {"id": "hasbi", "time": "both", "title": "حسبي الله لا إله إلا هو", "count": 7, "arMorning": "حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ.", "arEvening": "حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ.", "enMorning": "Sufficient for me is Allah; there is no deity except Him. On Him I have relied, and He is the Lord of the Great Throne.", "enEvening": "Sufficient for me is Allah; there is no deity except Him. On Him I have relied, and He is the Lord of the Great Throne.", "virtue": "من قالها سبع مرات حين يصبح وحين يمسي كفاه الله ما أهمه."}, {"id": "ilman", "time": "morning", "title": "دعاء العلم النافع والرزق الطيب (خاص بالصباح)", "count": 1, "arMorning": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا.", "arEvening": "", "enMorning": "O Allah, I ask You for beneficial knowledge, pure wholesome provision, and deeds that are accepted.", "enEvening": "", "virtue": "كان النبي ﷺ يقوله بعد صلاة الفجر (رواه ابن ماجه) — دعاء مبارك يبدأ به المعلم يومه."}, {"id": "tasbih", "time": "both", "title": "سبحان الله وبحمده", "count": 100, "arMorning": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ.", "arEvening": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ.", "enMorning": "Glory be to Allah and praise be to Him.", "enEvening": "Glory be to Allah and praise be to Him.", "virtue": "رواه مسلم — من قالها مائة مرة حين يصبح وحين يمسي لم يأتِ أحد يوم القيامة بأفضل مما جاء به إلا أحد قال مثل ما قال أو زاد عليه."}];
+    const AJURRUMIYYAH = [{"id": "aj1", "title": "1. باب الكلام وأقسام الكلمة", "matn": "الْكَلَامُ: هُوَ اللَّفْظُ الْمُرَكَّبُ الْمُفِيدُ بِالْوَضْعِ. وَأَقْسَامُهُ ثَلَاثَةٌ: اسْمٌ، وَفِعْلٌ، وَحَرْفٌ جَاءَ لِمَعْنًى.", "sharh": "الكلام المفيد في العربية لا بد أن يكون منطوقًا، مكوّنًا من كلمتين فأكثر، ويعطي معنى تامًا يحسن السكوت عليه. وكل كلمة عربية لا تخرج عن: اسم (يقبل التنوين وأل وحروف الجر)، أو فعل (يدل على حدث وزمن)، أو حرف (يربط المعاني مثل: في، إلى، هل).", "teachingEn": "In English: Arabic has ONLY 3 parts of speech—Noun (Ism), Verb (Fi'l), and Particle (Harf)—making it much simpler to introduce than English's 8 parts!", "examples": "مثال حي للحصة: «الطالبُ يقرأُ في المسجدِ» ← الطالبُ (اسم)، يقرأُ (فعل)، في (حرف)."}, {"id": "aj2", "title": "2. باب الإعراب وعلاماته الأصلية", "matn": "الْإِعْرَابُ هُوَ تَغْيِيرُ أَوَاخِرِ الْكَلِمِ لِاخْتِلَافِ الْعَوَامِلِ الدَّاخِلَةِ عَلَيْهَا لَفْظًا أَوْ تَقْدِيرًا. وَأَقْسَامُهُ أَرْبَعَةٌ: رَفْعٌ، وَنَصْبٌ، وَخَفْضٌ، وَجَزْمٌ.", "sharh": "الإعراب هو تغيّر حركة الحرف الأخير في الكلمة حسب دورها في الجملة (الفاعل مرفوع، المفعول به منصوب، وما بعد حرف الجر مجرور/مخفوض). الأسماء تقبل الرفع والنصب والجر ولا جزم فيها، والأفعال تقبل الرفع والنصب والجزم ولا جر فيها.", "teachingEn": "In English: Think of 'I'rab' as the vowel ending showing a word's JOB in the sentence: Dammah (u) = Doer, Fathah (a) = Receiver, Kasrah (i) = After a preposition.", "examples": "مثال تطبيقي: «جاءَ المعلمُ» (رفع) — «رأيتُ المعلمَ» (نصب) — «سلمتُ على المعلمِ» (جر)."}, {"id": "aj3", "title": "3. علامات الرفع والنصب والجر والجزم", "matn": "لِلرَّفْعِ أَرْبَعُ عَلَامَاتٍ: الضَّمَّةُ، وَالْوَاوُ، وَالْأَلِفُ، وَالنُّونُ. وَلِلنَّصْبِ خَمْسُ عَلَامَاتٍ: الْفَتْحَةُ، وَالْأَلِفُ، وَالْكَسْرَةُ، وَالْيَاءُ، وَحَذْفُ النُّونِ. وَلِلْخَفْضِ ثَلَاثُ عَلَامَاتٍ: الْكَسْرَةُ، وَالْيَاءُ، وَالْفَتْحَةُ. وَلِلْجَزْمِ عَلَامَتَانِ: السُّكُونُ، وَالْحَذْفُ.", "sharh": "الأصل في الرفع الضمة، وفي النصب الفتحة، وفي الجر الكسرة، وفي الجزم السكون؛ وتنوب الحروف (الواو، الألف، الياء، النون) في المثنى وجمع المذكر السالم والأسماء الخمسة والأفعال الخمسة.", "teachingEn": "Teaching Strategy: Master the 4 PRIMARY signs first (Dammah, Fathah, Kasrah, Sukun) with beginners before introducing duals and sound plurals.", "examples": "المسلمونَ صادقونَ (مرفوع بالواو) — الطالبانِ مجتهدانِ (مرفوع بالألف)."}, {"id": "aj4", "title": "4. باب الأفعال (الماضي والمضارع والأمر)", "matn": "الْأَفْعَالُ ثَلَاثَةٌ: مَاضٍ، وَمُضَارِعٌ، وَأَمْرٌ، نَحْوُ: ضَرَبَ، وَيَضْرِبُ، وَاضْرِبْ. فَالْمَاضِي مَفْتُوحُ الْآخِرِ أَبَدًا، وَالْأَمْرُ مَجْزُومٌ أَبَدًا، وَالْمُضَارِعُ مَا كَانَ فِي أَوَّلِهِ إِحْدَى الزَّوَائِدِ الْأَرْبَعِ يَجْمَعُهَا قَوْلُكَ (أَنَيْتُ)، وَهُوَ مَرْفُوعٌ أَبَدًا حَتَّى يَدْخُلَ عَلَيْهِ نَاصِبٌ أَوْ جَازِمٌ.", "sharh": "الفعل المضارع يبدأ دائمًا بأحد حروف (أنيت: أقرأ، نقرأ، يقرأ، تقرأ) ويكون مرفوعًا ما لم يسبقه ناصب (مثل: أنْ، لنْ) أو جازم (مثل: لمْ، لا الناهية).", "teachingEn": "Teaching Strategy: Teach the acronym 'A-N-Y-T' (أنيت) as the 4 magic starter letters of present-tense verbs: Ana (أ), Nahnu (ن), Huwa (ي), Hiya/Anta (ت).", "examples": "يكتبُ (مرفوع) — لنْ يكتبَ (منصوب) — لمْ يكتبْ (مجزوم)."}, {"id": "aj5", "title": "5. باب المبتدأ والخبر والفاعل", "matn": "الْفَاعِلُ: هُوَ الِاسْمُ الْمَرْفُوعُ الْمَذْكُورُ قَبْلَهُ فِعْلُهُ. وَالْمُبْتَدَأُ: هُوَ الِاسْمُ الْمَرْفُوعُ الْعَارِي عَنِ الْعَوَامِلِ اللَّفْظِيَّةِ، وَالْخَبَرُ: هُوَ الِاسْمُ الْمَرْفُوعُ الْمُسْنَدُ إِلَيْهِ، نَحْوُ قَوْلِكَ: «زَيْدٌ قَائِمٌ».", "sharh": "الجملة في العربية نوعان: جملة اسمية تبدأ باسم (مبتدأ + خبر وكلاهما مرفوع)، وجملة فعلية تبدأ بفعل (فعل + فاعل مرفوع). هذا التمييز هو حجر الأساس لتدريس الجملة العربية لغير الناطقين.", "teachingEn": "In English: Arabic has NO 'is/am/are' in present nominal sentences! 'Al-kitabu mufidun' literally means 'The book [is] beneficial'—both end with Dammah.", "examples": "جملة اسمية: «القرآنُ نورٌ» | جملة فعلية: «حفظَ الطالبُ السورةَ»."}, {"id": "aj6", "title": "6. باب العوامل الداخلة على المبتدأ والخبر (كان وإنّ)", "matn": "فَأَمَّا كَانَ وَأَخَوَاتُهَا فَإِنَّهَا تَرْفَعُ الِاسْمَ وَتَنْصِبُ الْخَبَرَ... وَأَمَّا إِنَّ وَأَخَوَاتُهَا فَإِنَّهَا تَنْصِبُ الِاسْمَ وَتَرْفَعُ الْخَبَرَ.", "sharh": "«كان وأخواتها» (مثل: كان، أصبح، ليس) تُبقي المبتدأ مرفوعًا وتنصب الخبر، بينما «إنّ وأخواتها» (مثل: إنّ، أنّ، لكنّ، لعلّ) تفعل العكس فتنصب الاسم وترفع الخبر.", "teachingEn": "Easy Memory Hook: 'Kana' keeps the first noun UP (Dammah) and puts the second DOWN (Fathah). 'Inna' does the exact opposite!", "examples": "كانَ الجوُّ جميلًا — إنَّ اللهَ غفورٌ رحيمٌ."}, {"id": "aj7", "title": "7. التوابع (النعت، العطف، التوكيد، البدل)", "matn": "النَّعْتُ تَابِعٌ لِلْمَنْعُوتِ فِي رَفْعِهِ وَنَصْبِهِ وَخَفْضِهِ وَتَعْرِيفِهِ وَتَنْكِيرِهِ.", "sharh": "الصفة (النعت) في العربية تأتي بعد الموصوف وتطابقه تمامًا في الإعراب والتعريف والتنكير والتذكير والتأنيث والإفراد والتثنية والجمع.", "teachingEn": "Contrast with English: In English the adjective comes FIRST ('a new book'), while in Arabic it comes AFTER and mirrors the noun ('kitabun jadidun').", "examples": "هذا طالبٌ مجتهدٌ — قرأتُ كتابًا نافعًا — صليتُ في المسجدِ الكبيرِ."}, {"id": "aj8", "title": "8. المفعول به وحروف الجر والإضافة", "matn": "الْمَفْعُولُ بِهِ: هُوَ الِاسْمُ الْمَنْصُوبُ الَّذِي يَقَعُ بِهِ الْفِعْلُ، نَحْوُ قَوْلِكَ: «ضَرَبْتُ زَيْدًا». وَالْمَخْفُوضَاتُ ثَلَاثَةُ أَنْوَاعٍ: مَخْفُوضٌ بِالْحَرْفِ، وَمَخْفُوضٌ بِالْإِضَافَةِ، وَتَابِعٌ لِلْمَخْفُوضِ.", "sharh": "المفعول به يقع عليه الفعل ويكون منصوبًا، أما المجرور (المخفوض) فيأتي بعد حرف جر (من، إلى، عن، على، في، بـ، لـ) أو يكون مضافًا إليه (مثل: كتابُ اللهِ).", "teachingEn": "Teaching Idafah (Possession): Explain 'Kitabu-llah' as 'Book OF Allah'—the first word loses 'Al-' and Tanween, and the second takes Kasrah!", "examples": "قرأَ الطفلُ القرآنَ (مفعول به منصوب) — نورُ القرآنِ (مضاف ومضاف إليه مجرور)."}];
+    const ISLAMIC_ROADMAP = [{"science": "العقيدة", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "الأصول الثلاثة (مختصر التأسيس العقدي)", "desc": "معرفة العبد ربه ودينه ونبيه ﷺ بأدلة قرآنية واضحة؛ يبني أساسًا متينًا لإجابة أسئلة الطلاب الصغار والكبار.", "status": "متاح للخطة"}, {"science": "الحديث", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "الأربعون النووية (مفعّلة في هذه المكتبة)", "desc": "أهم الأحاديث الجامعة لأصول الإسلام والأخلاق، متوفرة الآن في تبويب الحديث بالنص العربي والترجمة الإنجليزية وفائدة للمعلّم.", "status": "مفعّل الآن ✅"}, {"science": "التجويد", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "تحفة الأطفال والغلمان (الجمزوري)", "desc": "أيسر منظومة تأسيسية في أحكام النون والميم الساكنتين والمدود؛ مثالية لربطها بدورة شرح التجويد بالإنجليزية.", "status": "أولوية تالية"}, {"science": "الفقه", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "ملخص فقه العبادات الميسّر (الطهارة والصلاة والصيام)", "desc": "المسائل اليومية التي يسأل عنها الطلاب الأجانب وأسرهم في الوضوء والصلاة والقبلة والصيام بوضوح ويسر.", "status": "أولوية تالية"}, {"science": "السيرة النبوية", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "مختصر السيرة النبوية التربوية", "desc": "أبرز المحطات التربوية في حياة النبي ﷺ (الصدق والأمانة، الرحمة بالأطفال، الصبر، الهجرة) لربطها بقصص السور.", "status": "أولوية تالية"}, {"science": "اللغة العربية", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "المقدمة الآجرومية (مفعّلة في هذه المكتبة)", "desc": "أهم أبواب النحو التأسيسي مشروحة ببساطة مع نصائح عملية لشرحها للطالب غير الناطق بالعربية.", "status": "مفعّل الآن ✅"}, {"science": "الآداب والأخلاق", "level": "تأسيسي", "lang": "عربي / إنجليزي", "priority": "الإصدار الأول", "title": "التبيان في آداب حملة القرآن (مختصر للمعلّم)", "desc": "آداب معلّم القرآن الكريم وطلابه، والإخلاص، والرفق بالمتعلمين، وتوقير كتاب الله عز وجل.", "status": "أولوية تالية"}, {"science": "التجويد", "level": "متوسط", "lang": "عربي", "priority": "المرحلة الثانية", "title": "المقدمة الجزرية (مخارج الحروف والصفات والوقف)", "desc": "توسّع منهجي في مخارج الحروف وصفاتها للمعلمين المتقدمين بعد إتمام المستوى التأسيسي.", "status": "مؤجّل للمرحلة 2"}, {"science": "القراءات", "level": "متقدم", "lang": "عربي", "priority": "المرحلة الثانية", "title": "مدخل إلى أصول القراءات العشر", "desc": "مرجع تخصصي للمعلمين المجازين بعد تثبيت الأساسيات التربوية والتدريسية.", "status": "مؤجّل للمرحلة 2"}];
+
+    let libState = {
+      favHadiths: [],
+      ajDone: {},
+      adhkarPeriod: "morning",
+      adhkarCounts: { morning: {}, evening: {} },
+      dhikrSound: true,
+      showHadithEn: true,
+      onlyFavHadiths: false
+    };
+
+    function loadLibState() {
+      try {
+        const raw = localStorage.getItem(LIB_STATE_KEY);
+        if (raw) {
+          libState = Object.assign(libState, JSON.parse(raw));
+          if (!libState.adhkarCounts) libState.adhkarCounts = { morning: {}, evening: {} };
+          if (!libState.adhkarCounts.morning) libState.adhkarCounts.morning = {};
+          if (!libState.adhkarCounts.evening) libState.adhkarCounts.evening = {};
+        }
+      } catch (e) {}
+    }
+    function saveLibState() {
+      try { localStorage.setItem(LIB_STATE_KEY, JSON.stringify(libState)); } catch (e) {}
+    }
+
+    function paintTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      const btn = document.getElementById("theme-btn");
+      if (btn) btn.textContent = dark ? "☀️" : "🌙";
+    }
+    function toggleTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (dark) document.documentElement.removeAttribute("data-theme");
+      else document.documentElement.setAttribute("data-theme", "dark");
+      try { localStorage.setItem(THEME_KEY, dark ? "light" : "dark"); } catch (e) {}
+      paintTheme();
+    }
+    function toggleMobileMenu() {
+      document.getElementById("mobile-drawer").classList.toggle("open");
+    }
+    function showToast(msg) {
+      const el = document.getElementById("toast-bar");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove("show"), 2400);
+    }
+
+    /* Subtle Web Audio click for Dhikr counter */
+    let audioCtx = null;
+    function playTick(done) {
+      if (!libState.dhikrSound) return;
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        if (!audioCtx) audioCtx = new Ctx();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+        osc.type = done ? "triangle" : "sine";
+        osc.frequency.setValueAtTime(done ? 784 : 460, audioCtx.currentTime);
+        g.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (done ? 0.22 : 0.07));
+        osc.connect(g); g.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + (done ? 0.22 : 0.07));
+      } catch (e) {}
+    }
+
+    function switchLibTab(key) {
+      ["hadith", "adhkar", "arabic", "quran", "sciences"].forEach(t => {
+        document.getElementById("ltab-" + t).classList.toggle("active", t === key);
+        document.getElementById("lpane-" + t).classList.toggle("hidden", t !== key);
+      });
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    /* ===== 1. HADITHS ===== */
+    function toggleFavHadith(num) {
+      const idx = libState.favHadiths.indexOf(num);
+      if (idx >= 0) libState.favHadiths.splice(idx, 1);
+      else libState.favHadiths.push(num);
+      saveLibState();
+      renderHadiths();
+    }
+    function toggleHadithFavFilter() {
+      libState.onlyFavHadiths = !libState.onlyFavHadiths;
+      saveLibState();
+      renderHadiths();
+    }
+    function toggleHadithEn() {
+      libState.showHadithEn = !libState.showHadithEn;
+      saveLibState();
+      renderHadiths();
+    }
+    function copyText(txt) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(() => showToast("تم النسخ بنجاح"));
+      }
+    }
+
+    function renderHadiths() {
+      document.getElementById("fav-count-stat").textContent = libState.favHadiths.length;
+      const favBtn = document.getElementById("hadith-fav-filter");
+      favBtn.className = "btn btn-sm " + (libState.onlyFavHadiths ? "btn-gold" : "btn-soft");
+      document.getElementById("hadith-en-toggle").textContent = libState.showHadithEn ? "إخفاء الإنجليزية" : "إظهار الإنجليزية";
+
+      const q = (document.getElementById("hadith-search").value || "").trim().toLowerCase();
+      const list = HADITHS.filter(h => {
+        if (libState.onlyFavHadiths && !libState.favHadiths.includes(h.num)) return false;
+        if (!q) return true;
+        const hay = (h.title + " " + h.titleEn + " " + h.ar + " " + h.en + " " + h.sharh).toLowerCase();
+        return hay.includes(q) || String(h.num) === q;
+      });
+
+      const box = document.getElementById("hadith-list");
+      box.innerHTML = "";
+      if (!list.length) {
+        box.innerHTML = '<div class="panel" style="text-align:center;color:var(--ink-muted);">لا توجد أحاديث مطابقة لبحثك.</div>';
+        return;
+      }
+
+      list.forEach(h => {
+        const isFav = libState.favHadiths.includes(h.num);
+        const card = document.createElement("article");
+        card.className = "item-card";
+        card.innerHTML =
+          '<div class="item-head">' +
+            '<div><span class="badge" style="margin-left:8px;">الحديث ' + h.num + '</span><span class="item-title">' + h.title + '</span></div>' +
+            '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
+              '<button type="button" class="btn btn-sm ' + (isFav ? 'btn-gold' : 'btn-soft') + '" onclick="toggleFavHadith(' + h.num + ')">' + (isFav ? '⭐ بالمفضلة' : '☆ حفظ بالمفضلة') + '</button>' +
+              '<button type="button" class="btn btn-soft btn-sm" onclick="copyHadith(' + h.num + ')">نسخ الحديث</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="classical-ar">' + h.ar + '</div>' +
+          (libState.showHadithEn ? '<div class="en-box"><strong>' + h.titleEn + ':</strong> ' + h.en + '</div>' : '') +
+          '<div class="sharh-box"><strong>الشرح المبسّط:</strong> ' + h.sharh + ' <small style="display:block;margin-top:3px;">(' + h.narrator + ')</small></div>' +
+          '<div class="tip-box">' + h.tip + '</div>';
+        box.appendChild(card);
+      });
+    }
+    function copyHadith(num) {
+      const h = HADITHS.find(x => x.num === num);
+      if (!h) return;
+      copyText(h.title + "\n" + h.ar + "\n\n" + h.en);
+    }
+
+    /* ===== 2. ADHKAR WITH INTERACTIVE COUNTER ===== */
+    function setAdhkarPeriod(period) {
+      libState.adhkarPeriod = period === "evening" ? "evening" : "morning";
+      saveLibState();
+      renderAdhkar();
+    }
+    function toggleDhikrSound() {
+      libState.dhikrSound = !libState.dhikrSound;
+      saveLibState();
+      renderAdhkar();
+    }
+    function tapDhikr(id, maxCount) {
+      const p = libState.adhkarPeriod;
+      const cur = Number(libState.adhkarCounts[p][id] || 0);
+      if (cur >= maxCount) return;
+      const next = cur + 1;
+      libState.adhkarCounts[p][id] = next;
+      saveLibState();
+      playTick(next >= maxCount);
+      renderAdhkar();
+    }
+    function resetSingleDhikr(id) {
+      libState.adhkarCounts[libState.adhkarPeriod][id] = 0;
+      saveLibState();
+      renderAdhkar();
+    }
+    function resetAllAdhkar() {
+      libState.adhkarCounts[libState.adhkarPeriod] = {};
+      saveLibState();
+      renderAdhkar();
+      showToast("تم تصفير عدّادات الأذكار");
+    }
+
+    function renderAdhkar() {
+      const p = libState.adhkarPeriod;
+      const isM = p === "morning";
+      document.getElementById("adhkar-morning-btn").className = "btn btn-sm " + (isM ? "btn-emerald" : "btn-soft");
+      document.getElementById("adhkar-evening-btn").className = "btn btn-sm " + (!isM ? "btn-emerald" : "btn-soft");
+      document.getElementById("adhkar-sound-btn").textContent = libState.dhikrSound ? "صوت العدّاد: مفعّل" : "صوت العدّاد: صامت";
+
+      const items = ADHKAR.filter(a => a.time === "both" || a.time === p);
+      let doneCount = 0;
+      items.forEach(a => {
+        if (Number(libState.adhkarCounts[p][a.id] || 0) >= a.count) doneCount++;
+      });
+
+      document.getElementById("adhkar-prog-title").textContent = isM ? "إنجاز أذكار الصباح" : "إنجاز أذكار المساء";
+      document.getElementById("adhkar-prog-lbl").textContent = doneCount + " / " + items.length + " ذكر";
+      document.getElementById("adhkar-prog-fill").style.width = Math.round((doneCount / items.length) * 100) + "%";
+
+      const box = document.getElementById("adhkar-list");
+      box.innerHTML = "";
+      items.forEach(a => {
+        const cur = Number(libState.adhkarCounts[p][a.id] || 0);
+        const done = cur >= a.count;
+        const arTxt = isM ? a.arMorning : a.arEvening;
+        const enTxt = isM ? a.enMorning : a.enEvening;
+
+        const card = document.createElement("article");
+        card.className = "item-card" + (done ? " done-card" : "");
+        card.innerHTML =
+          '<div class="item-head">' +
+            '<span class="item-title">' + a.title + '</span>' +
+            '<span class="badge ' + (done ? 'badge-ok' : 'badge-gold') + '">' + (done ? 'مكتمل ✅' : ('التكرار المطلوب: ' + a.count)) + '</span>' +
+          '</div>' +
+          '<div class="classical-ar">' + arTxt + '</div>' +
+          '<div class="en-box">' + enTxt + '</div>' +
+          '<div class="sharh-box"><strong>الفضل:</strong> ' + a.virtue + '</div>' +
+          '<div class="dhikr-footer">' +
+            '<button type="button" class="counter-btn' + (done ? ' completed' : '') + '" onclick="tapDhikr(\'' + a.id + '\',' + a.count + ')">' +
+              (done ? 'أتممت التكرار ✅' : ('اضغط للتسبيح (' + cur + ' / ' + a.count + ')')) +
+            '</button>' +
+            '<button type="button" class="btn btn-soft btn-sm" onclick="resetSingleDhikr(\'' + a.id + '\')">إعادة</button>' +
+          '</div>';
+        box.appendChild(card);
+      });
+    }
+
+    /* ===== 3. AL-AJURRUMIYYAH ===== */
+    function toggleAjDone(id) {
+      libState.ajDone[id] = !libState.ajDone[id];
+      saveLibState();
+      renderAjurrumiyyah();
+    }
+    function renderAjurrumiyyah() {
+      const q = (document.getElementById("aj-search").value || "").trim().toLowerCase();
+      let doneCnt = 0;
+      AJURRUMIYYAH.forEach(a => { if (libState.ajDone[a.id]) doneCnt++; });
+      document.getElementById("aj-prog-badge").textContent = "أنجزت " + doneCnt + " / " + AJURRUMIYYAH.length + " أبواب";
+
+      const list = AJURRUMIYYAH.filter(a => {
+        if (!q) return true;
+        return (a.title + " " + a.matn + " " + a.sharh + " " + a.teachingEn + " " + a.examples).toLowerCase().includes(q);
+      });
+
+      const box = document.getElementById("aj-list");
+      box.innerHTML = "";
+      list.forEach(a => {
+        const done = !!libState.ajDone[a.id];
+        const card = document.createElement("article");
+        card.className = "item-card" + (done ? " done-card" : "");
+        card.innerHTML =
+          '<div class="item-head">' +
+            '<span class="item-title">' + a.title + '</span>' +
+            '<button type="button" class="btn btn-sm ' + (done ? 'btn-emerald' : 'btn-soft') + '" onclick="toggleAjDone(\'' + a.id + '\')">' + (done ? 'تمت المذاكرة ✅' : 'تحديد كمذاكر') + '</button>' +
+          '</div>' +
+          '<div class="classical-ar"><strong>متن الآجرومية:</strong> ' + a.matn + '</div>' +
+          '<div class="sharh-box"><strong>الشرح المبسّط:</strong> ' + a.sharh + '</div>' +
+          '<div style="background:var(--surface-soft);border-radius:10px;padding:9px 13px;font-size:0.88rem;font-weight:700;">' + a.examples + '</div>' +
+          '<div class="tip-box">' + a.teachingEn + '</div>';
+        box.appendChild(card);
+      });
+    }
+
+    /* ===== 5. ISLAMIC SCIENCES ROADMAP ===== */
+    function renderSciencesRoadmap() {
+      const sci = document.getElementById("sci-filter").value;
+      const lvl = document.getElementById("lvl-filter").value;
+      const list = ISLAMIC_ROADMAP.filter(x => {
+        if (sci !== "all" && x.science !== sci) return false;
+        if (lvl !== "all" && x.level !== lvl) return false;
+        return true;
+      });
+      const grid = document.getElementById("sciences-grid");
+      grid.innerHTML = "";
+      list.forEach(item => {
+        const isLive = item.status.includes("مفعّل");
+        const el = document.createElement("article");
+        el.className = "road-card";
+        el.innerHTML =
+          '<div style="display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;">' +
+            '<span class="badge">' + item.science + ' • ' + item.level + '</span>' +
+            '<span class="badge ' + (isLive ? 'badge-ok' : 'badge-gold') + '">' + item.status + '</span>' +
+          '</div>' +
+          '<h3>' + item.title + '</h3>' +
+          '<p>' + item.desc + '</p>' +
+          '<div style="margin-top:auto;padding-top:8px;font-size:0.78rem;color:var(--ink-muted);font-weight:700;">الأولوية: ' + item.priority + ' • اللغة: ' + item.lang + '</div>';
+        grid.appendChild(el);
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fav").href = LOGO;
+      document.querySelectorAll("img[data-logo]").forEach(img => { img.src = LOGO; });
+      paintTheme();
+      loadLibState();
+      renderHadiths();
+      renderAdhkar();
+      renderAjurrumiyyah();
+      renderSciencesRoadmap();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

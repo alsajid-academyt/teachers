@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أكاديمية الساجد | كتالوج برامج وتأهيل المعلمين أونلاين</title>
+  <meta name="description" content="منصة تأهيل وتدريب معلمي القرآن الكريم واللغة العربية والقاعدة البغدادية لغير الناطقين بالعربية — برنامج المعلم المستقل: من الصفر إلى الاحتراف.">
+  <meta name="theme-color" content="#0F4C29">
+  <link rel="manifest" href="manifest.json">
+  <link id="fav" rel="icon" type="image/webp" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="academy-config.js"></script>
+  <script>
+    try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF9F4;
+      --surface: #FFFFFF;
+      --surface-soft: #F3EFE2;
+      --surface-hover: #EAE4D3;
+
+      --emerald-950: #072413;
+      --emerald-900: #09321A;
+      --emerald-800: #0F4C29;
+      --emerald-700: #17693B;
+      --emerald-600: #1F844B;
+      --emerald-soft: #ECF5EF;
+
+      --gold-600: #9E7216;
+      --gold-500: #C6952B;
+      --gold-400: #E2BE5B;
+      --gold-300: #E8C568;
+      --gold-soft: #FBF6E7;
+
+      --wa-green: #189D4E;
+      --wa-dark: #127B3D;
+
+      --ink: #15281C;
+      --ink-muted: #52665A;
+      --border: #E3DCCB;
+      --border-strong: #D0C6AE;
+
+      --font-ui: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Amiri', serif;
+
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 24px;
+      --r-pill: 999px;
+
+      --sh-sm: 0 2px 10px rgba(9, 50, 26, 0.06);
+      --sh-md: 0 10px 28px rgba(9, 50, 26, 0.09);
+      --sh-lg: 0 18px 42px rgba(9, 50, 26, 0.16);
+      --sh-gold: 0 6px 22px rgba(198, 149, 43, 0.30);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #071910;
+      --surface: #0E2619;
+      --surface-soft: #133121;
+      --surface-hover: #193D29;
+      --emerald-soft: rgba(232, 197, 104, 0.12);
+      --gold-soft: rgba(232, 197, 104, 0.14);
+      --ink: #F3F0E6;
+      --ink-muted: #A9BCB0;
+      --border: rgba(232, 197, 104, 0.22);
+      --border-strong: rgba(232, 197, 104, 0.36);
+      --sh-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --sh-md: 0 10px 28px rgba(0, 0, 0, 0.38);
+      --sh-lg: 0 18px 44px rgba(0, 0, 0, 0.52);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--gold-500); outline-offset: 2px; }
+    .hidden { display: none !important; }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, var(--emerald-900), var(--emerald-800));
+      border-bottom: 2.5px solid var(--gold-500);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    }
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .tb-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+    .tb-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-300);
+      background: #FAF9F4;
+      flex: none;
+    }
+    .tb-title { line-height: 1.25; }
+    .tb-title strong { display: block; font-size: 1.02rem; font-weight: 800; color: #FFFFFF; }
+    .tb-title small { display: block; font-size: 0.74rem; color: var(--gold-300); font-weight: 600; }
+
+    .tb-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      padding: 7px 12px;
+      border-radius: var(--r-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.88);
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; }
+    .nav-link.active {
+      background: rgba(232, 197, 104, 0.22);
+      color: var(--gold-300);
+      border: 1px solid rgba(232, 197, 104, 0.45);
+    }
+
+    .tb-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 197, 104, 0.42);
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s;
+    }
+    .icon-btn:hover { background: rgba(232, 197, 104, 0.25); }
+    .menu-toggle { display: none; }
+
+    .mobile-drawer {
+      display: none;
+      background: var(--emerald-950);
+      border-top: 1px solid rgba(232, 197, 104, 0.25);
+      padding: 12px 18px 16px;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-drawer.open { display: flex; }
+    .mobile-drawer .nav-link { display: block; padding: 10px 14px; }
+
+    /* ===== SHARED LAYOUT ===== */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px 18px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--r-pill);
+      border: 1.5px solid transparent;
+      font-size: 0.94rem;
+      font-weight: 800;
+      min-height: 46px;
+      transition: transform 0.16s, background 0.16s, box-shadow 0.16s;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+      color: var(--emerald-950);
+      box-shadow: var(--sh-gold);
+    }
+    .btn-wa {
+      background: linear-gradient(135deg, #22B85E, var(--wa-green));
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(24, 157, 78, 0.3);
+    }
+    .btn-wa:hover { background: linear-gradient(135deg, #1EA554, var(--wa-dark)); }
+    .btn-emerald { background: var(--emerald-800); color: #FFFFFF; }
+    .btn-emerald:hover { background: var(--emerald-700); }
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(232, 197, 104, 0.55);
+      color: #FFFFFF;
+    }
+    .btn-outline-light:hover { background: rgba(255, 255, 255, 0.2); }
+    .btn-soft {
+      background: var(--surface-soft);
+      border-color: var(--border-strong);
+      color: var(--ink);
+    }
+    .btn-soft:hover { background: var(--surface-hover); }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--emerald-700);
+      background: var(--emerald-soft);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      margin-bottom: 8px;
+    }
+    :root[data-theme="dark"] .section-kicker { color: var(--gold-300); }
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .section-head p {
+      color: var(--ink-muted);
+      font-size: 0.96rem;
+      max-width: 64ch;
+      margin-top: 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--emerald-950) 0%, var(--emerald-900) 45%, var(--emerald-700) 100%);
+      color: #FFFFFF;
+      border-radius: var(--r-lg);
+      border: 2px solid var(--gold-500);
+      box-shadow: var(--sh-lg);
+      padding: 36px 34px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='1.2' d='M32 4l8 14 16 0-8 14 8 14-16 0-8 14-8-14-16 0 8-14-8-14 16 0z'/%3E%3C/svg%3E");
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232, 197, 104, 0.18);
+      border: 1px solid rgba(232, 197, 104, 0.5);
+      color: var(--gold-300);
+      font-size: 0.84rem;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: var(--r-pill);
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 3.2vw, 2.55rem);
+      font-weight: 900;
+      line-height: 1.32;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    .hero h1 span { color: var(--gold-300); }
+    .hero-desc {
+      font-size: 1.02rem;
+      color: #E3F1E8;
+      max-width: 58ch;
+      margin-bottom: 22px;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-panel {
+      background: rgba(7, 36, 19, 0.58);
+      border: 1.5px solid rgba(232, 197, 104, 0.45);
+      border-radius: var(--r-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero-panel-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(232, 197, 104, 0.35);
+    }
+    .hero-panel-head img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-300);
+      background: #FAF9F4;
+      flex: none;
+    }
+    .hero-panel-head h3 { font-size: 1.04rem; font-weight: 800; color: var(--gold-300); }
+    .hero-panel-head small { font-size: 0.8rem; color: #DCEBE2; }
+    .hero-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.9rem;
+      color: #EEF7F1;
+    }
+    .hero-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .hero-checklist svg { color: var(--gold-300); flex: none; margin-top: 4px; }
+
+    /* ===== TRUST PILLARS ===== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .pillar-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--sh-sm);
+    }
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--emerald-soft);
+      color: var(--emerald-800);
+      display: grid;
+      place-items: center;
+    }
+    :root[data-theme="dark"] .pillar-icon { color: var(--gold-300); }
+    .pillar-card h3 { font-size: 0.98rem; font-weight: 800; }
+    .pillar-card p { font-size: 0.86rem; color: var(--ink-muted); line-height: 1.6; }
+
+    /* ===== FILTER BAR & COURSES GRID ===== */
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .fpill {
+      border: 1.5px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--ink-muted);
+      border-radius: var(--r-pill);
+      padding: 8px 16px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: 0.16s;
+    }
+    .fpill:hover { border-color: var(--emerald-700); color: var(--ink); }
+    .fpill.active {
+      background: var(--emerald-800);
+      border-color: var(--emerald-800);
+      color: #FFFFFF;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .course-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--sh-md);
+      position: relative;
+      transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+    }
+    .course-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-500);
+      box-shadow: var(--sh-lg);
+    }
+    .course-card.featured {
+      border: 2px solid var(--gold-500);
+      background: linear-gradient(180deg, var(--surface) 0%, var(--gold-soft) 100%);
+    }
+    .course-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 4px 11px;
+      border-radius: var(--r-pill);
+      background: var(--emerald-soft);
+      color: var(--emerald-800);
+    }
+    :root[data-theme="dark"] .tag { color: var(--gold-300); }
+    .tag-gold {
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+      color: var(--emerald-950);
+    }
+    .course-card h3 {
+      font-size: 1.12rem;
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .course-summary {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      padding: 10px 0;
+      border-top: 1px dashed var(--border);
+      border-bottom: 1px dashed var(--border);
+    }
+    .course-meta span { display: inline-flex; align-items: center; gap: 5px; }
+    .course-outcomes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.86rem;
+      color: var(--ink);
+    }
+    .course-outcomes li { display: flex; align-items: flex-start; gap: 7px; }
+    .course-outcomes svg { color: var(--emerald-700); flex: none; margin-top: 4px; }
+    :root[data-theme="dark"] .course-outcomes svg { color: var(--gold-300); }
+
+    .price-note {
+      background: var(--surface-soft);
+      border-radius: var(--r-sm);
+      padding: 9px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: auto;
+    }
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .card-actions .btn { padding: 10px 12px; font-size: 0.85rem; min-height: 42px; }
+
+    /* ===== ENROLLMENT STEPS (WHATSAPP HIGH-TOUCH MODEL) ===== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-top: 4px solid var(--gold-500);
+      border-radius: var(--r-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--sh-sm);
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--emerald-800);
+      color: var(--gold-300);
+      font-weight: 900;
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+    }
+    .step-card h3 { font-size: 1rem; font-weight: 800; }
+    .step-card p { font-size: 0.86rem; color: var(--ink-muted); }
+
+    /* ===== ECOSYSTEM TOOLS STRIP ===== */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--sh-sm);
+      transition: border-color 0.16s, transform 0.16s;
+    }
+    .tool-card:hover { border-color: var(--gold-500); transform: translateY(-2px); }
+    .tool-status {
+      align-self: flex-start;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+      background: var(--gold-soft);
+      color: var(--gold-600);
+    }
+    :root[data-theme="dark"] .tool-status { color: var(--gold-300); }
+    .tool-card h3 { font-size: 1rem; font-weight: 800; }
+    .tool-card p { font-size: 0.85rem; color: var(--ink-muted); }
+    .tool-go {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--emerald-700);
+    }
+    :root[data-theme="dark"] .tool-go { color: var(--gold-300); }
+
+    /* ===== FAQ ===== */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 16px 20px;
+      text-align: right;
+      color: var(--ink);
+      font-size: 0.98rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px;
+      color: var(--ink-muted);
+      font-size: 0.92rem;
+      border-top: 1px dashed var(--border);
+      padding-top: 12px;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-chevron { transition: transform 0.2s; flex: none; }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--emerald-900), var(--emerald-700));
+      color: #FFFFFF;
+      border-radius: var(--r-lg);
+      border: 2px solid var(--gold-500);
+      padding: 32px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      box-shadow: var(--sh-lg);
+    }
+    .cta-banner h2 { font-size: clamp(1.35rem, 2.5vw, 1.95rem); font-weight: 900; color: var(--gold-300); }
+    .cta-banner p { max-width: 60ch; color: #E5F3EA; font-size: 0.98rem; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1.5px solid var(--border);
+      padding: 24px 18px;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.86rem;
+    }
+
+    /* ===== COURSE DETAIL MODAL ===== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(5, 24, 13, 0.72);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-sheet {
+      width: min(680px, 100%);
+      max-height: 88vh;
+      background: var(--surface);
+      border: 2px solid var(--gold-500);
+      border-radius: var(--r-lg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-head {
+      background: linear-gradient(90deg, var(--emerald-900), var(--emerald-800));
+      color: #FFFFFF;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 2px solid var(--gold-500);
+    }
+    .modal-head h3 { font-size: 1.12rem; font-weight: 900; color: var(--gold-300); }
+    .modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .modal-sec h4 {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--emerald-800);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    :root[data-theme="dark"] .modal-sec h4 { color: var(--gold-300); }
+    .modal-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .modal-list li { display: flex; align-items: flex-start; gap: 8px; }
+    .modal-foot {
+      padding: 16px 22px;
+      background: var(--surface-soft);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 80;
+      background: linear-gradient(135deg, #22B85E, var(--wa-green));
+      color: #FFFFFF;
+      padding: 12px 18px;
+      border-radius: var(--r-pill);
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 26px rgba(24, 157, 78, 0.38);
+      transition: transform 0.18s;
+    }
+    .wa-float:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .tb-nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .hero { grid-template-columns: 1fr; padding: 26px 22px; }
+      .pillars-grid, .steps-grid, .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .courses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .pillars-grid, .steps-grid, .tools-grid, .courses-grid { grid-template-columns: 1fr; }
+      .card-actions { grid-template-columns: 1fr; }
+      .wa-float span { display: none; }
+      .wa-float { padding: 14px; border-radius: 50%; }
+    }
+
+    /* ===== ON-SITE REVIEWS SECTION ===== */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .review-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-top: 4px solid var(--gold-500); border-radius: var(--r-md);
+      padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--sh-sm);
+    }
+    .review-stars { color: var(--gold-500); font-size: 1.05rem; letter-spacing: 2px; }
+    .review-text { font-size: 0.9rem; color: var(--ink); line-height: 1.7; white-space: pre-wrap; }
+    .review-author {
+      margin-top: auto; padding-top: 10px; border-top: 1px dashed var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 0.82rem;
+    }
+    .review-form-box {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--r-lg); padding: 22px; box-shadow: var(--sh-md);
+      display: flex; flex-direction: column; gap: 12px; margin-top: 14px;
+    }
+    .rf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .rf-inp, .rf-sel, .rf-txt {
+      width: 100%; padding: 10px 13px; border-radius: var(--r-sm);
+      border: 1.5px solid var(--border-strong); background: var(--surface-soft);
+      color: var(--ink); font-family: inherit; font-size: 0.92rem;
+    }
+    .rf-inp:focus, .rf-sel:focus, .rf-txt:focus { outline: none; border-color: var(--gold-500); background: var(--surface); }
+    .rf-txt { resize: vertical; min-height: 86px; }
+    .toast-bar {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--emerald-900); color: #FFFFFF; border: 1.5px solid var(--gold-300);
+      padding: 10px 20px; border-radius: var(--r-pill); font-weight: 700; font-size: 0.88rem;
+      box-shadow: var(--sh-lg); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    }
+    .toast-bar.show { opacity: 1; }
+    @media (max-width: 900px) { .reviews-grid, .rf-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="tb-brand" href="catalog.html">
+        <img class="tb-logo" data-logo="1" alt="شعار أكاديمية الساجد">
+        <div class="tb-title">
+          <strong>أكاديمية الساجد | تأهيل المعلمين</strong>
+          <small>AL SAJID ACADEMY • منصة إعداد المعلم المستقل</small>
+        </div>
+      </a>
+
+      <nav class="tb-nav" aria-label="التنقل الرئيسي">
+        <a class="nav-link active" href="catalog.html">الكتالوج والدورات</a>
+        <a class="nav-link" href="index.html">الدليل التفاعلي (+540)</a>
+        <a class="nav-link" href="quran-quest.html">المصحف التفاعلي</a>
+        <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+        <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
+        <a class="nav-link" href="library.html">المكتبة العلمية</a>
+      </nav>
+
+      <div class="tb-actions">
+        <button type="button" class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل الوضع الليلي / النهاري" aria-label="تبديل المظهر">🌙</button>
+        <button type="button" class="icon-btn menu-toggle" onclick="toggleMobileMenu()" aria-label="فتح القائمة">
+          <i data-lucide="menu" style="width:19px;height:19px;"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+      <a class="nav-link active" href="catalog.html">الكتالوج والدورات</a>
+      <a class="nav-link" href="index.html">الدليل التفاعلي (+540 جملة)</a>
+      <a class="nav-link" href="quran-quest.html">المصحف التفاعلي (114 سورة)</a>
+      <a class="nav-link" href="practical-training.html">التدريب العملي والمجتمع</a>
+      <a class="nav-link" href="dashboard.html">لوحة المتدرب</a>
+      <a class="nav-link" href="library.html">المكتبة العلمية</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">
+          <i data-lucide="award" style="width:16px;height:16px;"></i>
+          <span>منصة تأهيل معلمي القرآن والعربية لغير الناطقين بالعربية</span>
+        </div>
+        <h1>ابدأ مسارك المهني كـ <span>معلّم أونلاين محترف</span> من الصفر إلى إدارة حصصك بثقة</h1>
+        <p class="hero-desc">
+          برامج تدريبية عملية تجمع بين التأسيس العلمي، وشرح التجويد والعربية بالإنجليزية، وحل أسئلة تطبيقية بعد كل محاضرة، والتدريب العملي الجماعي والثنائي، مع أدوات تفاعلية حصرية لمعلمي أكاديمية الساجد.
+        </p>
+        <div class="hero-ctas">
+          <button type="button" class="btn btn-wa" onclick="openWhatsApp('أرغب في معرفة تفاصيل برامج تأهيل المعلمين وتحديد المسار والباقة الأنسب لي.')">
+            <i data-lucide="message-circle" style="width:19px;height:19px;"></i>
+            <span>تواصل عبر واتساب للاشتراك والاستفسار</span>
+          </button>
+          <a class="btn btn-outline-light" href="#courses-section">
+            <i data-lucide="layout-grid" style="width:18px;height:18px;"></i>
+            <span>تصفح الدورات والبرامج</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="hero-panel-head">
+          <img data-logo="1" alt="أكاديمية الساجد">
+          <div>
+            <h3>لماذا يتدرّب المعلمون في أكاديمية الساجد؟</h3>
+            <small>تدريب ميداني عملي لا مجرد نظريات</small>
+          </div>
+        </div>
+        <ul class="hero-checklist">
+          <li><i data-lucide="check-circle-2" style="width:17px;height:17px;"></i><span>محاضرات مسجّلة متاحة بأي وقت + أسئلة تطبيقية وإرسال نتيجة بعد كل محاضرة.</span></li>
+          <li><i data-lucide="check-circle-2" style="width:17px;height:17px;"></i><span>تدريب عملي وحصص تفاعلية + مجتمع مفصول بالكود (مجتمع رجال مستقل ومجتمع سيدات مستقل).</span></li>
+          <li><i data-lucide="check-circle-2" style="width:17px;height:17px;"></i><span>أدوات مدمجة للمعلّم: الدليل التفاعلي (+540 جملة) + المصحف التفاعلي (114 سورة).</span></li>
+          <li><i data-lucide="check-circle-2" style="width:17px;height:17px;"></i><span>توجيه شخصي عبر واتساب لتحديد الدورة المناسبة لمستواك والباقة الأنسب لظروفك.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TRUST PILLARS -->
+    <section class="pillars-grid" aria-label="مميزات المنظومة">
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="clipboard-check" style="width:22px;height:22px;"></i></div>
+        <h3>تطبيق بعد كل محاضرة</h3>
+        <p>لا تكتفي بالمشاهدة؛ كل محاضرة يتبعها أسئلة عملية وتدريب وتقييم يُسجّل في مسار تقدمك.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="users" style="width:22px;height:22px;"></i></div>
+        <h3>مجتمع تدريب مفصول</h3>
+        <p>مجتمع خاص بالرجال وآخر خاص بالسيدات لتكوين مجموعات تدريب رباعية وممارسة الشرح الفعلي.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="headphones" style="width:22px;height:22px;"></i></div>
+        <h3>دعم لمن إنجليزيته ضعيفة</h3>
+        <p>نؤهّلك بجمل الحصص العملية (كورس الـ 500 جملة) حتى تشرح بثقة دون تعقيد أكاديمي.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="message-square-heart" style="width:22px;height:22px;"></i></div>
+        <h3>حوار مباشر قبل الدفع</h3>
+        <p>نتحدث معك عبر واتساب لنفهم مستواك وهدفك، ونرشح لك المسار والتكلفة المناسبة بوضوح.</p>
+      </div>
+    </section>
+
+    <!-- COURSES CATALOG -->
+    <section id="courses-section">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker"><i data-lucide="book-open" style="width:15px;height:15px;"></i> كتالوج البرامج والدورات</span>
+          <h2>اختر المسار التدريبي المناسب لمستواك</h2>
+          <p>يمكنك الاشتراك في البرنامج الشامل كاملًا أو في دورة محددة حسب احتياجك. يتم تأكيد المسار وتحديد الاشتراك بعد التواصل المباشر عبر واتساب.</p>
+        </div>
+
+        <div class="filter-pills" role="group" aria-label="تصفية الدورات">
+          <button type="button" class="fpill active" data-filter="all" onclick="filterCourses('all')">الكل (6)</button>
+          <button type="button" class="fpill" data-filter="bundle" onclick="filterCourses('bundle')">البرنامج الشامل</button>
+          <button type="button" class="fpill" data-filter="core" onclick="filterCourses('core')">الدورات التخصصية</button>
+          <button type="button" class="fpill" data-filter="english" onclick="filterCourses('english')">تأسيس الإنجليزية</button>
+        </div>
+      </div>
+
+      <div class="courses-grid" id="courses-grid"></div>
+    </section>
+
+    <!-- HOW ENROLLMENT WORKS (WHATSAPP MODEL) -->
+    <section>
+      <div class="section-head">
+        <div>
+          <span class="section-kicker"><i data-lucide="route" style="width:15px;height:15px;"></i> آلية الاشتراك والتفعيل</span>
+          <h2>كيف تبدأ معنا في 4 خطوات بسيطة؟</h2>
+          <p>صمّمنا رحلة اشتراك واضحة ومرنة تبدأ بالتواصل المباشر معك على واتساب لضمان اختيارك الصحيح قبل الدفع.</p>
+        </div>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>تصفّح المسار المناسب</h3>
+          <p>اطّلع على محاور الدورات واختر ما يناسب هدفك (البرنامج الشامل أو دورة تخصصية محددة).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>تواصل وتقييم عبر واتساب</h3>
+          <p>راسلنا عبر واتساب لنستمع لمستواك في الإنجليزية والتدريس ونحدد معك الباقة والسعر الأنسب.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>استلام كود التفعيل</h3>
+          <p>بعد تأكيد الاشتراك تستلم كود التفعيل الخاص بك، ومربوطًا بصلاحية مجتمع التدريب (رجال أو سيدات).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h3>التعلم والممارسة العملية</h3>
+          <p>ادخل المحاضرات، حل الأسئلة التطبيقية، وتدرّب مع زملائك في التدريب العملي حتى الجاهزية الكاملة.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECOSYSTEM TOOLS -->
+    <section>
+      <div class="section-head">
+        <div>
+          <span class="section-kicker"><i data-lucide="sparkles" style="width:15px;height:15px;"></i> أدوات ومرافق المنصة</span>
+          <h2>منظومة عملية متكاملة في مكان واحد</h2>
+          <p>بجانب المحاضرات، يمتلك متدرب أكاديمية الساجد أدوات تفاعلية جاهزة للاستخدام اليومي داخل الحصص وخارجها.</p>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+        <a class="tool-card" href="index.html">
+          <span class="tool-status">جاهز ومفعّل</span>
+          <h3>الدليل التفاعلي (+540 جملة)</h3>
+          <p>أكثر من 540 جملة إنجليزية عملية مقسّمة حسب مواقف الحصة مع أداة «إنقاذ الحصة» والمفضلة.</p>
+          <span class="tool-go">الدخول إلى الدليل <i data-lucide="arrow-left" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a class="tool-card" href="quran-quest.html">
+          <span class="tool-status">مكتمل 114 / 114 سورة</span>
+          <h3>المصحف التفاعلي للأطفال</h3>
+          <p>مصحف المدينة المنورة، القصص التربوية، تركيب الكلمات، وصوت الحصري والمنشاوي بوقفة 20 ثانية.</p>
+          <span class="tool-go">افتح المصحف التفاعلي <i data-lucide="arrow-left" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a class="tool-card" href="practical-training.html">
+          <span class="tool-status">جاهز ومفعّل ✅</span>
+          <h3>التدريب العملي والمجتمع</h3>
+          <p>مجتمع رجال مستقل ومجتمع سيدات مستقل لتكوين مجموعات واتساب رباعية وحضور الحصص التفاعلية.</p>
+          <span class="tool-go">قسم التدريب العملي <i data-lucide="arrow-left" style="width:15px;height:15px;"></i></span>
+        </a>
+
+        <a class="tool-card" href="library.html">
+          <span class="tool-status">جاهز ومفعّل ✅</span>
+          <h3>المكتبة العلمية للمعلّم</h3>
+          <p>الأربعون النووية، أذكار الصباح والمساء بعداد تفاعلي، المقدمة الآجرومية، وأهم المتون التأسيسية.</p>
+          <span class="tool-go">المكتبة العلمية <i data-lucide="arrow-left" style="width:15px;height:15px;"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews-section">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker"><i data-lucide="star" style="width:15px;height:15px;"></i> آراء وتقييمات المتدربين</span>
+          <h2>ماذا يقول معلمو ومعلمات أكاديمية الساجد؟</h2>
+          <p>آراء حقيقية ومباشرة يكتبها المتدربون داخل الموقع عن تجربتهم في المحاضرات والتدريب العملي.</p>
+        </div>
+        <span class="tag tag-gold" id="reviews-count-pill">0 تقييم</span>
+      </div>
+
+      <div class="reviews-grid" id="reviews-grid"></div>
+
+      <form class="review-form-box" onsubmit="handleReviewSubmit(event)">
+        <h3 style="font-size:1.05rem;font-weight:900;display:flex;align-items:center;gap:8px;">
+          <i data-lucide="message-square-plus" style="width:18px;height:18px;color:var(--emerald-700);"></i>
+          <span>هل تدرّبت معنا؟ شارك رأيك الصريح لمساعدة زملائك</span>
+        </h3>
+        <div class="rf-grid">
+          <input type="text" id="rev-name" class="rf-inp" required placeholder="الاسم (مثال: أ. محمد / أ. سارة)">
+          <select id="rev-course" class="rf-sel">
+            <option value="برنامج المعلم المستقل الشامل">برنامج المعلم المستقل الشامل</option>
+            <option value="إعداد معلم القرآن والتجويد بالإنجليزية">إعداد معلم القرآن والتجويد بالإنجليزية</option>
+            <option value="القاعدة البغدادية وطرق التأسيس">القاعدة البغدادية وطرق التأسيس</option>
+            <option value="العربية للناطقين بغيرها">العربية للناطقين بغيرها</option>
+            <option value="التدريب العملي ومعايشة الحصص">التدريب العملي ومعايشة الحصص</option>
+            <option value="كورس الـ 500 جملة">كورس الـ 500 جملة</option>
+          </select>
+          <select id="rev-rating" class="rf-sel">
+            <option value="5">★★★★★ ممتاز جدًا (5 / 5)</option>
+            <option value="4">★★★★☆ جيد جدًا (4 / 5)</option>
+            <option value="3">★★★☆☆ جيد (3 / 5)</option>
+          </select>
+        </div>
+        <textarea id="rev-comment" class="rf-txt" required placeholder="اكتب رأيك وتجربتك مع المحاضرات والتدريب العملي بأمانة..."></textarea>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:0.82rem;color:var(--ink-muted);">يظهر تقييمك مباشرة داخل قسم الآراء في الموقع.</span>
+          <button type="submit" class="btn btn-emerald" id="rev-submit-btn">
+            <i data-lucide="send" style="width:16px;height:16px;"></i><span>إرسال التقييم</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="section-head">
+        <div>
+          <span class="section-kicker"><i data-lucide="help-circle" style="width:15px;height:15px;"></i> أسئلة متكررة</span>
+          <h2>إجابات واضحة قبل أن تبدأ</h2>
+        </div>
+      </div>
+
+      <div class="faq-list" id="faq-list"></div>
+    </section>
+
+    <!-- FINAL WHATSAPP CTA -->
+    <section class="cta-banner">
+      <h2>جاهز تبدأ خطوتك الأولى في التدريس أونلاين؟</h2>
+      <p>ابعت لنا كلمة «تدريب» على واتساب، وهنرد عليك شخصيًا لنرشح لك المسار الأنسب لمستواك ونوضح لك كافة التفاصيل بكل شفافية.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <button type="button" class="btn btn-wa" onclick="openWhatsApp('السلام عليكم، أرسل كلمة (تدريب) لمعرفة تفاصيل الاشتراك في برنامج تأهيل المعلمين بأكاديمية الساجد.')">
+          <i data-lucide="message-circle" style="width:19px;height:19px;"></i>
+          <span>ابعت «تدريب» على واتساب الآن</span>
+        </button>
+        <a class="btn btn-outline-light" href="#reviews-section">
+          <i data-lucide="star" style="width:18px;height:18px;"></i>
+          <span>شاهد آراء المتدربين في الموقع</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>أكاديمية الساجد لتأهيل المعلمين — AL SAJID ACADEMY</strong>
+    <div style="margin-top:4px;">منظومة تعليمية وتدريبية متكاملة لإعداد معلمي القرآن الكريم واللغة العربية أونلاين.</div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <button type="button" class="wa-float" onclick="openWhatsApp('السلام عليكم، أرغب في الاستفسار عن دورات تأهيل المعلمين في أكاديمية الساجد.')" aria-label="تواصل عبر واتساب">
+    <i data-lucide="message-circle" style="width:20px;height:20px;"></i>
+    <span>تواصل واتساب</span>
+  </button>
+
+  <!-- COURSE DETAILS MODAL -->
+  <div class="modal-backdrop hidden" id="course-modal" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3 id="cm-title">تفاصيل الدورة</h3>
+        <button type="button" class="icon-btn" onclick="closeCourseModal()" aria-label="إغلاق">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="cm-body"></div>
+      <div class="modal-foot">
+        <span style="font-size:0.84rem;font-weight:700;color:var(--ink-muted);">يُحدَّد الاشتراك والباقة بعد التواصل المباشر عبر واتساب</span>
+        <button type="button" class="btn btn-wa" id="cm-wa-btn">
+          <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+          <span>استفسر واشترك عبر واتساب</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-bar" id="cat-toast"></div>
+
+  <script>
+    /* =========================================================================
+       إعدادات الأكاديمية (عدّل رقم الواتساب ورابط قناة الشهادات من هنا فقط)
+       ========================================================================= */
+    const GLOBAL_CFG = window.SAJID_CONFIG || {};
+    const ACADEMY_CONFIG = {
+      whatsappNumber: GLOBAL_CFG.whatsappNumber || "201000000000",
+      appsScriptUrl: GLOBAL_CFG.appsScriptUrl || ""
+    };
+    const REVIEWS_LOCAL_KEY = "sajid_site_reviews_v1";
+
+    const LOGO = "data:image/webp;base64,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";
+    const THEME_KEY = "sajidpt:th";
+
+    const COURSES = [
+      {
+        id: "independent-teacher-bundle",
+        category: "bundle",
+        featured: true,
+        badge: "الأكثر طلبًا • الباقة الشاملة",
+        title: "برنامج المعلم المستقل: من الصفر إلى الاحتراف",
+        summary: "المسار الكامل لإعدادك من البداية وحتى إدارة حصصك مع الطلاب غير الناطقين بالعربية بثقة، شاملاً التأسيس، التجويد بالإنجليزية، العربية، والتدريب العملي.",
+        level: "من الصفر حتى الاحتراف",
+        format: "محاضرات + أسئلة + تدريب عملي",
+        audience: "المعلمون والمعلمات الراغبون في دخول مجال التدريس أونلاين بخطة كاملة ومتدرجة دون تشتت.",
+        outcomes: [
+          "إتقان خطة التأسيس بالقراءة (القاعدة البغدادية) وإدارة حصة الطفل الأجنبي.",
+          "شرح أحكام التجويد ومخارج الحروف بلغة إنجليزية مبسطة وواضحة.",
+          "اجتياز الحصة التجريبية وبناء ثقة ولي الأمر + ممارسة فعلية في مجتمع التدريب.",
+          "إتاحة كورس الـ 500 جملة التمهيدي مجانًا كدعم لمن يحتاج تقوية في الإنجليزية."
+        ],
+        syllabus: [
+          "المسار الأول: تأسيس القراءة بالقاعدة البغدادية واستراتيجيات جذب الطفل (أنشطة 3–5 دقائق وبطارية الطاقة).",
+          "المسار الثاني: تدريس القرآن الكريم وشرح التجويد باللغة الإنجليزية خطوة بخطوة.",
+          "المسار الثالث: تعليم اللغة العربية للناطقين بغيرها وتبسيط القواعد (المقدمة الآجرومية ومناهج التأسيس).",
+          "المسار الرابع: التدريب العملي المكثف، محاكاة الحصة التجريبية، أدوات التدريس الرقمي والذكاء الاصطناعي."
+        ],
+        waText: "السلام عليكم، أرغب في معرفة تفاصيل الاشتراك في (برنامج المعلم المستقل: من الصفر إلى الاحتراف) وتحديد الباقة المناسبة لي."
+      },
+      {
+        id: "quran-tajweed-en",
+        category: "core",
+        featured: false,
+        badge: "تخصص القرآن والتجويد",
+        title: "إعداد معلم القرآن الكريم وشرح التجويد بالإنجليزية",
+        summary: "تعلّم كيف تنقل أحكام التجويد ومخارج الحروف للطالب الأجنبي بأسلوب المحاكاة الصوتية السهل بدل المصطلحات المعقّدة، مع تطبيق عملي متكامل.",
+        level: "تأسيسي – متقدم",
+        format: "محاضرات + اختبارات تطبيقية",
+        audience: "حفظة ومتقنو التلاوة الراغبون في تبسيط شرح القرآن والتجويد للطلاب غير الناطقين بالعربية.",
+        outcomes: [
+          "صياغة شرح مبسّط وعملي لأحكام النون والميم والمدود والمخارج بالإنجليزية.",
+          "بناء خطة حفظ ومراجعة مناسبة للأطفال والكبار مع متابعة ولي الأمر.",
+          "استخدام المصحف التفاعلي لأكاديمية الساجد كأداة تحفيز يومية داخل الحصة."
+        ],
+        syllabus: [
+          "الفرق بين تعليم التجويد للناطق بالعربية وتعليمه لغير الناطق بها.",
+          "منهج المحاكاة الصوتية وتصحيح الأخطاء الشائعة لدى الطلاب الأجانب.",
+          "مصطلحات التجويد الضرورية باللغة الإنجليزية دون إثقال على الطالب.",
+          "تنظيم وقت الحصة القرآنية (جديد + ماضي قريب + مراجعة) وتطبيق عملي."
+        ],
+        waText: "السلام عليكم، أرغب في الاستفسار عن (دورة إعداد معلم القرآن الكريم وشرح التجويد بالإنجليزية)."
+      },
+      {
+        id: "baghdadiyah-foundation",
+        category: "core",
+        featured: false,
+        badge: "التأسيس والطفولة",
+        title: "إعداد معلم القاعدة البغدادية وطرق التأسيس",
+        summary: "منهجية عملية لتعليم القراءة العربية من الحروف حتى قراءة المصحف باستخدام القاعدة البغدادية وأنشطة تفاعلية ممتعة تمنع ملل الأطفال.",
+        level: "تأسيسي عملي",
+        format: "محاضرات + نماذج حصص",
+        audience: "معلمو التأسيس ومعلمات الأطفال الباحثون عن طريقة مجرّبة وممتعة لتعليم القراءة أونلاين.",
+        outcomes: [
+          "تقديم الحروف والحركات والمدود والتنوين بتسلسل واضح وخالٍ من الحشو.",
+          "تطبيق استراتيجيات تفاعلية قصيرة (اكتشاف خطأ المعلم، بطارية الطاقة، الأنشطة السريعة).",
+          "معالجة صعوبات النطق والتمييز بين الحروف المتشابهة لدى الأطفال الأجانب."
+        ],
+        syllabus: [
+          "شرح مراحل القاعدة البغدادية وترتيب الدروس من الحرف إلى الكلمة والجملة.",
+          "إدارة انتباه الطفل الأونلاين عبر أنشطة مصغّرة مدتها 3 إلى 5 دقائق.",
+          "أخطاء شائعة يقع فيها المعلم المبتدئ أثناء حصص التأسيس وكيف تتجنبها.",
+          "اختبارات تطبيقية وتدريب عملي على تقديم حصة تأسيس نموذجية."
+        ],
+        waText: "السلام عليكم، أرغب في الاستفسار عن (دورة إعداد معلم القاعدة البغدادية وطرق التأسيس)."
+      },
+      {
+        id: "arabic-non-native",
+        category: "core",
+        featured: false,
+        badge: "اللغة العربية لغير الناطقين",
+        title: "تأهيل معلم اللغة العربية للناطقين بغيرها",
+        summary: "كيف تدرّس المحادثة والمفردات والنحو المبسّط (انطلاقًا من العربية بين يدي أولادنا والمقدمة الآجرومية) بأسلوب حيّ وتدريجي للطلاب الأجانب.",
+        level: "تأسيسي – متوسط",
+        format: "محاضرات + أمثلة تطبيقية",
+        audience: "معلمو اللغة العربية الراغبون في الانتقال من أسلوب الشرح التقليدي إلى منهجية تعليم العربية كلغة ثانية.",
+        outcomes: [
+          "تخطيط درس متوازن يجمع بين الاستماع والتحدث والقراءة والكتابة.",
+          "تبسيط القواعد الأساسية من المقدمة الآجرومية بأمثلة حية مناسبة للأجانب.",
+          "توظيف القصص والمواقف اليومية لتثبيت المفردات دون ترجمة حرفية مفرطة."
+        ],
+        syllabus: [
+          "أسس تدريس المهارات اللغوية الأربع لغير الناطقين بالعربية.",
+          "تطبيقات عملية على مناهج الأطفال والكبار (مثل العربية بين يدي أولادنا).",
+          "تبسيط مفاهيم النحو التأسيسي وتدرج الأسئلة الشفهية والكتابية.",
+          "إعداد خطة درس وتقويم مستوى الطالب وتقديم تقرير واضح لولي الأمر."
+        ],
+        waText: "السلام عليكم، أرغب في الاستفسار عن (دورة تأهيل معلم اللغة العربية للناطقين بغيرها)."
+      },
+      {
+        id: "practical-trial-ai",
+        category: "core",
+        featured: false,
+        badge: "التدريب العملي والذكاء الاصطناعي",
+        title: "التدريب العملي وإدارة الحصة التجريبية + أدوات الذكاء الاصطناعي",
+        summary: "الجانب الميداني الذي يحوّل معرفتك إلى دخل وثقة: كيف تدير الحصة التجريبية (قاعدة 3+22+5)، تتعامل مع أولياء الأمور، وتوظّف أدوات التدريس الرقمي والذكاء الاصطناعي.",
+        level: "تطبيقي ميداني",
+        format: "حصص تفاعلية + مجتمع تدريب",
+        audience: "المعلمون الذين لديهم الأساس العلمي ويريدون احتراف الأداء داخل الحصة التجريبية والعمل أونلاين.",
+        outcomes: [
+          "إتقان إدارة الحصة التجريبية وتحويلها إلى اشتراك فعلي بأسلوب مهني مطمئن.",
+          "التدرب الثنائي والرباعي مع زملائك عبر مجتمع التدريب العملي (رجال / سيدات).",
+          "توظيف أدوات الزوم والسبورة والذكاء الاصطناعي لإعداد أنشطة وبطاقات في دقائق."
+        ],
+        syllabus: [
+          "هيكلة الحصة التجريبية الناجحة (التمهيد، الشرح والتطبيق، التغذية الراجعة للأهل).",
+          "مهارات الصوت، الإضاءة، التفاعل أمام الكاميرا، وحل المواقف المفاجئة أثناء الحصة.",
+          "الاستخدام العملي للذكاء الاصطناعي في تحضير الدروس والاختبارات التفاعلية.",
+          "تطبيقات عملية داخل مجتمع التدريب العملي وتقييم الأداء."
+        ],
+        waText: "السلام عليكم، أرغب في الاستفسار عن (دورة التدريب العملي وإدارة الحصة التجريبية وأدوات الذكاء الاصطناعي)."
+      },
+      {
+        id: "english-500-sentences",
+        category: "english",
+        featured: false,
+        badge: "دورة تمهيدية عملية",
+        title: "كورس الـ 500 جملة في إنجليزية معلم الأونلاين",
+        summary: "أهم 500+ جملة وموقف فعلي تحتاجها داخل حصة القرآن والعربية (الترحيب، الشرح، التشجيع، إدارة السلوك، التواصل مع ولي الأمر) مع الدليل التفاعلي.",
+        level: "للمبتدئين في الإنجليزية",
+        format: "شرح + الدليل التفاعلي (+540 جملة)",
+        audience: "كل معلم أو معلمة يشعر أن ضعف اللغة الإنجليزية هو العائق الوحيد أمام بدء التدريس للطلاب الأجانب.",
+        outcomes: [
+          "التحدث بثقة في 10 مواقف أساسية تتكرر في كل حصة أونلاين.",
+          "الوصول المباشر للدليل التفاعلي (+540 جملة) وميزة «إنقاذ الحصة» السريعة.",
+          "ملاحظة: يُمنح مجانًا كدعم إضافي للمتدربين ذوي الأساس الضعيف عند الالتحاق بالبرنامج الشامل."
+        ],
+        syllabus: [
+          "التحية والتمهيد وبناء الألفة مع الطفل وولي الأمر في الدقائق الأولى.",
+          "جمل شرح القراءة والقرآن والتجويد وتصحيح الأخطاء بلطف وتشجيع.",
+          "إدارة تشتت الطفل، المشاكل التقنية (الصوت/الكاميرا)، وإنهاء الحصة والواجب.",
+          "تدريب نطقي وعملي متدرج عبر مواقف الحصة الحقيقية."
+        ],
+        waText: "السلام عليكم، أرغب في الاستفسار عن (كورس الـ 500 جملة في إنجليزية التدريس أونلاين)."
+      }
+    ];
+
+    const FAQS = [
+      {
+        q: "لماذا لا توجد أسعار ثابتة في الموقع ويتم الاتفاق عبر واتساب؟",
+        a: "لأننا نراعي احتياج كل متدرب ومستواه الفعلي قبل الاشتراك؛ فالبعض يحتاج البرنامج الشامل كاملًا، والبعض يحتاج دورة واحدة أو دعمًا في الإنجليزية، والحوار المباشر (نصيًا أو صوتيًا) عبر واتساب يضمن لك اختيار المسار والباقة الأنسب بوضوح وثقة كاملة."
+      },
+      {
+        q: "هل أستطيع البدء إذا كانت لغتي الإنجليزية ضعيفة؟",
+        a: "نعم بالتأكيد. لا تشترط الحصص إنجليزية أكاديمية معقدة، بل جملًا ومواقف عملية محددة تتكرر يوميًا، ولذلك خصّصنا كورس الـ 500 جملة والدليل التفاعلي لتأسيسك عمليًا قبل وأثناء التدريب."
+      },
+      {
+        q: "كيف يعمل نظام الأسئلة والتطبيق العملي داخل الدورات؟",
+        a: "كل دورة تتكون من محاضرات مرتّبة، وعقب كل محاضرة تدخل لحل الأسئلة التطبيقية وإرسال نتيجتك، ثم تنتقل لقسم التدريب العملي لمشاهدة الحصص التفاعلية والممارسة الفعلية مع زملائك."
+      },
+      {
+        q: "كيف يضمن مجتمع التدريب العملي الخصوصية بين الرجال والسيدات؟",
+        a: "المجتمع داخل قسم التدريب العملي مفصول تمامًا عبر كود التفعيل؛ فكود المشترك الرجل يفتح له مجتمع الرجال فقط لتنسيق مجموعات التدريب الرباعية على واتساب، وكود المشتركة السيدة يفتح لها مجتمع السيدات فقط دون أي اختلاط."
+      },
+      {
+        q: "كيف أحصل على كود التفعيل وأبدأ فورًا؟",
+        a: "بمجرد الضغط على زر التواصل عبر واتساب والاتفاق على المسار المناسب وسداد الاشتراك، نرسل لك كود التفعيل المرتبط ببريدك الإلكتروني لتبدأ الدخول مباشرة."
+      }
+    ];
+
+    function paintTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      const btn = document.getElementById("theme-btn");
+      if (btn) btn.textContent = dark ? "☀️" : "🌙";
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", dark ? "#071910" : "#0F4C29");
+    }
+
+    function toggleTheme() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (dark) document.documentElement.removeAttribute("data-theme");
+      else document.documentElement.setAttribute("data-theme", "dark");
+      try { localStorage.setItem(THEME_KEY, dark ? "light" : "dark"); } catch (e) {}
+      paintTheme();
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById("mobile-drawer").classList.toggle("open");
+    }
+
+    function openWhatsApp(message) {
+      const phone = String(ACADEMY_CONFIG.whatsappNumber || "").replace(/[^0-9]/g, "");
+      const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+      window.open(url, "_blank", "noopener");
+    }
+
+    function renderCourses(filterKey = "all") {
+      const grid = document.getElementById("courses-grid");
+      grid.innerHTML = "";
+      const list = filterKey === "all" ? COURSES : COURSES.filter(c => c.category === filterKey);
+
+      list.forEach(course => {
+        const card = document.createElement("article");
+        card.className = "course-card" + (course.featured ? " featured" : "");
+        const outcomesHtml = course.outcomes.slice(0, 3).map(o =>
+          '<li><i data-lucide="check" style="width:16px;height:16px;"></i><span>' + o + '</span></li>'
+        ).join("");
+
+        card.innerHTML =
+          '<div class="course-top">' +
+            '<span class="tag' + (course.featured ? ' tag-gold' : '') + '">' + course.badge + '</span>' +
+          '</div>' +
+          '<h3>' + course.title + '</h3>' +
+          '<p class="course-summary">' + course.summary + '</p>' +
+          '<div class="course-meta">' +
+            '<span><i data-lucide="signal" style="width:14px;height:14px;"></i> ' + course.level + '</span>' +
+            '<span><i data-lucide="layers" style="width:14px;height:14px;"></i> ' + course.format + '</span>' +
+          '</div>' +
+          '<ul class="course-outcomes">' + outcomesHtml + '</ul>' +
+          '<div class="price-note">' +
+            '<i data-lucide="message-circle" style="width:16px;height:16px;color:var(--wa-green);flex:none;"></i>' +
+            '<span>التسعير وتحديد الباقة عبر التواصل المباشر على واتساب</span>' +
+          '</div>' +
+          '<div class="card-actions">' +
+            '<button type="button" class="btn btn-soft" onclick="openCourseModal(\'' + course.id + '\')">' +
+              '<i data-lucide="file-text" style="width:16px;height:16px;"></i><span>تفاصيل المنهج</span>' +
+            '</button>' +
+            '<button type="button" class="btn btn-wa" onclick="openWhatsAppById(\'' + course.id + '\')">' +
+              '<i data-lucide="message-circle" style="width:16px;height:16px;"></i><span>اشترك واتساب</span>' +
+            '</button>' +
+          '</div>';
+        grid.appendChild(card);
+      });
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function filterCourses(key) {
+      document.querySelectorAll(".filter-pills .fpill").forEach(b => {
+        b.classList.toggle("active", b.dataset.filter === key);
+      });
+      renderCourses(key);
+    }
+
+    function openWhatsAppById(id) {
+      const c = COURSES.find(x => x.id === id);
+      if (c) openWhatsApp(c.waText);
+    }
+
+    function openCourseModal(id) {
+      const c = COURSES.find(x => x.id === id);
+      if (!c) return;
+      document.getElementById("cm-title").textContent = c.title;
+      document.getElementById("cm-body").innerHTML =
+        '<p style="color:var(--ink-muted);font-size:0.95rem;">' + c.summary + '</p>' +
+        '<div class="modal-sec">' +
+          '<h4><i data-lucide="user-check" style="width:17px;height:17px;"></i> لمن تناسب هذه الدورة؟</h4>' +
+          '<p style="font-size:0.9rem;">' + c.audience + '</p>' +
+        '</div>' +
+        '<div class="modal-sec">' +
+          '<h4><i data-lucide="list-checks" style="width:17px;height:17px;"></i> أبرز المحاور التدريبية</h4>' +
+          '<ul class="modal-list">' + c.syllabus.map(s => '<li><i data-lucide="chevron-left" style="width:16px;height:16px;color:var(--gold-500);flex:none;margin-top:4px;"></i><span>' + s + '</span></li>').join("") + '</ul>' +
+        '</div>' +
+        '<div class="modal-sec">' +
+          '<h4><i data-lucide="award" style="width:17px;height:17px;"></i> ماذا ستتقن بعد الإتمام؟</h4>' +
+          '<ul class="modal-list">' + c.outcomes.map(o => '<li><i data-lucide="check-circle-2" style="width:16px;height:16px;color:var(--emerald-700);flex:none;margin-top:4px;"></i><span>' + o + '</span></li>').join("") + '</ul>' +
+        '</div>';
+      const waBtn = document.getElementById("cm-wa-btn");
+      waBtn.onclick = () => openWhatsApp(c.waText);
+      document.getElementById("course-modal").classList.remove("hidden");
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function closeCourseModal() {
+      document.getElementById("course-modal").classList.add("hidden");
+    }
+
+    function renderFaqs() {
+      const box = document.getElementById("faq-list");
+      box.innerHTML = "";
+      FAQS.forEach((item, idx) => {
+        const el = document.createElement("div");
+        el.className = "faq-item" + (idx === 0 ? " open" : "");
+        el.innerHTML =
+          '<button type="button" class="faq-q" onclick="this.parentElement.classList.toggle(\'open\')">' +
+            '<span>' + item.q + '</span>' +
+            '<i data-lucide="chevron-down" class="faq-chevron" style="width:18px;height:18px;"></i>' +
+          '</button>' +
+          '<div class="faq-a">' + item.a + '</div>';
+        box.appendChild(el);
+      });
+    }
+
+    document.getElementById("course-modal").addEventListener("click", e => {
+      if (e.target.id === "course-modal") closeCourseModal();
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeCourseModal();
+    });
+
+    function showCatToast(msg) {
+      const el = document.getElementById("cat-toast");
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(showCatToast._t);
+      showCatToast._t = setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    function escRev(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    async function loadReviews() {
+      let list = [];
+      if (ACADEMY_CONFIG.appsScriptUrl) {
+        try {
+          const res = await fetch(ACADEMY_CONFIG.appsScriptUrl, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({ action: "reviews_list" })
+          });
+          const data = await res.json();
+          if (data && data.ok && Array.isArray(data.reviews)) list = data.reviews;
+        } catch (e) {}
+      } else {
+        try {
+          const saved = localStorage.getItem(REVIEWS_LOCAL_KEY);
+          if (saved) list = JSON.parse(saved) || [];
+        } catch (e) {}
+      }
+      renderReviews(list);
+    }
+
+    function renderReviews(list) {
+      document.getElementById("reviews-count-pill").textContent = list.length + " تقييم";
+      const grid = document.getElementById("reviews-grid");
+      grid.innerHTML = "";
+      if (!list.length) {
+        grid.innerHTML = '<div style="grid-column:1/-1;background:var(--surface);border:1.5px dashed var(--border-strong);border-radius:16px;padding:28px;text-align:center;color:var(--ink-muted);font-weight:700;">مساحة آراء متدربي أكاديمية الساجد جاهزة — شارك أول تقييم لتجربتك التدريبية بالأسفل!</div>';
+        return;
+      }
+      list.slice(0, 12).forEach(r => {
+        const stars = "★".repeat(Math.max(1, Math.min(5, Number(r.rating || 5)))) + "☆".repeat(5 - Math.max(1, Math.min(5, Number(r.rating || 5))));
+        const card = document.createElement("article");
+        card.className = "review-card";
+        card.innerHTML =
+          '<div class="review-stars">' + stars + '</div>' +
+          '<div class="review-text">«' + escRev(r.comment) + '»</div>' +
+          '<div class="review-author">' +
+            '<strong>' + escRev(r.name) + '</strong>' +
+            '<span class="tag">' + escRev(r.course) + '</span>' +
+          '</div>';
+        grid.appendChild(card);
+      });
+    }
+
+    async function handleReviewSubmit(ev) {
+      ev.preventDefault();
+      const btn = document.getElementById("rev-submit-btn");
+      btn.disabled = true;
+      const payload = {
+        action: "add_review",
+        name: document.getElementById("rev-name").value.trim(),
+        course: document.getElementById("rev-course").value,
+        rating: Number(document.getElementById("rev-rating").value || 5),
+        comment: document.getElementById("rev-comment").value.trim()
+      };
+      try {
+        if (ACADEMY_CONFIG.appsScriptUrl) {
+          const res = await fetch(ACADEMY_CONFIG.appsScriptUrl, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          if (!data || !data.ok) { showCatToast((data && data.error) || "تعذّر حفظ التقييم"); return; }
+        } else {
+          let cur = [];
+          try { cur = JSON.parse(localStorage.getItem(REVIEWS_LOCAL_KEY) || "[]"); } catch (e) {}
+          cur.unshift({ id: "REV-" + Date.now(), name: payload.name, course: payload.course, rating: payload.rating, comment: payload.comment, created_at: new Date().toISOString() });
+          localStorage.setItem(REVIEWS_LOCAL_KEY, JSON.stringify(cur));
+        }
+        document.getElementById("rev-name").value = "";
+        document.getElementById("rev-comment").value = "";
+        showCatToast("جزاك الله خيرًا! تم تسجيل تقييمك بنجاح");
+        await loadReviews();
+      } catch (e) {
+        showCatToast("تعذّر الإرسال حاليًا، حاول مجددًا.");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fav").href = LOGO;
+      document.querySelectorAll("img[data-logo]").forEach(img => { img.src = LOGO; });
+      paintTheme();
+      renderCourses("all");
+      renderFaqs();
+      loadReviews();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

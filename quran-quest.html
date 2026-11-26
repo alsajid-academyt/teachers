@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;600;700&display=swap" rel="stylesheet">
 
   <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script src="academy-config.js"></script>
   <script src="juz-amma-stories.js"></script>
   <script src="juz-tabarak-stories.js"></script>
   <script src="juz-28-stories.js"></script>
@@ -1305,6 +1306,20 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
+    .hub-menu-wrap { position: relative; }
+    .hub-popover {
+      position: absolute; top: calc(100% + 8px); right: 0; min-width: 225px;
+      background: var(--surface); color: var(--ink);
+      border: 2px solid var(--gold-500); border-radius: var(--r-md);
+      box-shadow: var(--sh-lg); padding: 8px; z-index: 120;
+      display: flex; flex-direction: column; gap: 4px; direction: rtl; text-align: right;
+    }
+    .hub-item {
+      display: flex; align-items: center; gap: 9px; padding: 9px 12px;
+      border-radius: var(--r-sm); font-size: 0.86rem; font-weight: 700;
+      color: var(--ink); text-decoration: none; transition: background 0.15s;
+    }
+    .hub-item:hover { background: var(--surface-soft); color: var(--emerald-800); }
   </style>
 </head>
 <body>
@@ -1339,10 +1354,19 @@
           <i data-lucide="volume-2" style="width:17px;height:17px;"></i>
         </button>
         <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="Switch Light / Dark Theme" aria-label="Toggle Theme">🌙</button>
-        <a class="tb-link" href="index.html">
-          <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
-          <span>Academy</span>
-        </a>
+        <div class="hub-menu-wrap">
+          <button type="button" class="tb-link" id="hub-menu-btn" onclick="toggleHubMenu(event)" aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="layout-grid" style="width:15px;height:15px;"></i>
+            <span>Academy</span>
+          </button>
+          <div class="hub-popover hidden" id="hub-popover">
+            <a class="hub-item" href="catalog.html"><i data-lucide="graduation-cap" style="width:16px;height:16px;"></i><span>الكتالوج والدورات</span></a>
+            <a class="hub-item" href="index.html"><i data-lucide="book-open-check" style="width:16px;height:16px;"></i><span>الدليل التفاعلي (+540)</span></a>
+            <a class="hub-item" href="practical-training.html"><i data-lucide="users" style="width:16px;height:16px;"></i><span>التدريب العملي والمجتمع</span></a>
+            <a class="hub-item" href="dashboard.html"><i data-lucide="gauge" style="width:16px;height:16px;"></i><span>لوحة المتدرب</span></a>
+            <a class="hub-item" href="library.html"><i data-lucide="library" style="width:16px;height:16px;"></i><span>المكتبة العلمية</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -4013,6 +4037,22 @@
     function closePwaModal() { document.getElementById("pwa-modal").classList.add("hidden"); }
     document.getElementById("pwa-modal").addEventListener("click", e => { if (e.target.id === "pwa-modal") closePwaModal(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closePwaModal(); });
+
+
+    function toggleHubMenu(ev) {
+      if (ev) ev.stopPropagation();
+      const pop = document.getElementById("hub-popover");
+      const btn = document.getElementById("hub-menu-btn");
+      if (!pop) return;
+      const isHidden = pop.classList.toggle("hidden");
+      if (btn) btn.setAttribute("aria-expanded", String(!isHidden));
+    }
+    document.addEventListener("click", e => {
+      const pop = document.getElementById("hub-popover");
+      if (pop && !pop.classList.contains("hidden") && !e.target.closest(".hub-menu-wrap")) {
+        pop.classList.add("hidden");
+      }
+    });
 
     /* Boot */
     window.addEventListener("DOMContentLoaded", () => {
