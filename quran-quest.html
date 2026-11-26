@@ -24,6 +24,7 @@
   <script src="juz-28-stories.js"></script>
   <script src="juz-27-stories.js"></script>
   <script src="juz-26-stories.js"></script>
+  <script src="juz-25-stories.js"></script>
   <script>
     try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
   </script>
@@ -1600,6 +1601,13 @@
             </div>
             <div class="meter-track"><div class="meter-fill" id="juz-26-meter-fill"></div></div>
           </div>
+          <div>
+            <div class="meter-head">
+              <span>Juz Ash-Shura (Juz 25) Mastery</span>
+              <span id="juz-25-progress-lbl">0 / 4 Surahs Mastered</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill" id="juz-25-meter-fill"></div></div>
+          </div>
         </div>
 
         <div>
@@ -1663,7 +1671,8 @@
             <button type="button" class="fpill" id="flt-juz28" onclick="setFilter('juz28')">Juz Qad Sami'a (9)</button>
             <button type="button" class="fpill" id="flt-juz27" onclick="setFilter('juz27')">Juz 27 (7)</button>
             <button type="button" class="fpill" id="flt-juz26" onclick="setFilter('juz26')">Juz 26 (5)</button>
-            <button type="button" class="fpill" id="flt-stories" onclick="setFilter('stories')">Stories Ready (<span id="stories-count-lbl">70</span>)</button>
+            <button type="button" class="fpill" id="flt-juz25" onclick="setFilter('juz25')">Juz 25 (4)</button>
+            <button type="button" class="fpill" id="flt-stories" onclick="setFilter('stories')">Stories Ready (<span id="stories-count-lbl">74</span>)</button>
             <button type="button" class="fpill" id="flt-all" onclick="setFilter('all')">All 114 Surahs</button>
           </div>
           <button type="button" class="fpill" id="sort-order-btn" onclick="toggleJuzAmmaOrder()">Order: An-Nas → An-Naba</button>
@@ -1890,7 +1899,7 @@
       for (let j = 30; j >= 1; j--) {
         const opt = document.createElement("option");
         opt.value = String(j);
-        opt.textContent = j === 30 ? "Juz 30 (Juz Amma)" : j === 29 ? "Juz 29 (Tabarak)" : j === 28 ? "Juz 28 (Qad Sami'a)" : j === 27 ? "Juz 27 (Adh-Dhariyat)" : j === 26 ? "Juz 26 (Al-Ahqaf)" : "Juz " + j;
+        opt.textContent = j === 30 ? "Juz 30 (Juz Amma)" : j === 29 ? "Juz 29 (Tabarak)" : j === 28 ? "Juz 28 (Qad Sami'a)" : j === 27 ? "Juz 27 (Adh-Dhariyat)" : j === 26 ? "Juz 26 (Al-Ahqaf)" : j === 25 ? "Juz 25 (Ash-Shura)" : "Juz " + j;
         sel.appendChild(opt);
       }
       document.getElementById("stories-count-lbl").textContent = Object.keys(STORIES_DB).length;
@@ -1929,6 +1938,7 @@
       document.getElementById("flt-juz28").classList.toggle("active", appState.filterMode === "juz28" && appState.juzFilter === "all");
       document.getElementById("flt-juz27").classList.toggle("active", appState.filterMode === "juz27" && appState.juzFilter === "all");
       document.getElementById("flt-juz26").classList.toggle("active", appState.filterMode === "juz26" && appState.juzFilter === "all");
+      document.getElementById("flt-juz25").classList.toggle("active", appState.filterMode === "juz25" && appState.juzFilter === "all");
       document.getElementById("flt-stories").classList.toggle("active", appState.filterMode === "stories" && appState.juzFilter === "all");
       document.getElementById("flt-all").classList.toggle("active", appState.filterMode === "all" && appState.juzFilter === "all");
       document.getElementById("sort-order-btn").textContent = appState.juzAmmaReverse ? "Order: An-Nas → An-Naba" : "Order: Mushaf (1 → 114)";
@@ -1946,7 +1956,7 @@
       } else if (appState.juzFilter !== "all") {
         const jn = Number(appState.juzFilter);
         list = list.filter(s => s[5] === jn);
-        if ((jn === 30 || jn === 29 || jn === 28 || jn === 27 || jn === 26) && appState.juzAmmaReverse) list.reverse();
+        if ((jn === 30 || jn === 29 || jn === 28 || jn === 27 || jn === 26 || jn === 25) && appState.juzAmmaReverse) list.reverse();
       } else if (appState.filterMode === "juzamma") {
         const fatihah = SURAHS[0];
         let ja = list.filter(s => s[5] === 30);
@@ -1963,6 +1973,9 @@
         if (appState.juzAmmaReverse) list.reverse();
       } else if (appState.filterMode === "juz26") {
         list = list.filter(s => s[5] === 26);
+        if (appState.juzAmmaReverse) list.reverse();
+      } else if (appState.filterMode === "juz25") {
+        list = list.filter(s => s[5] === 25);
         if (appState.juzAmmaReverse) list.reverse();
       } else if (appState.filterMode === "stories") {
         list = list.filter(s => !!STORIES_DB[String(s[0])]);
@@ -2405,7 +2418,7 @@
           '</div>' +
           '<div class="panel" style="align-items:center;text-align:center;">' +
             '<h3 style="font-size:1.2rem;font-weight:800;">Start Memorizing Surah ' + meta[2] + ' Today</h3>' +
-            '<p style="max-width:56ch;color:var(--ink-muted);font-size:0.94rem;">Story Mode chapters are currently live for <strong>70 Surahs: Al-Fatihah + All 5 Final Juz (Juz 26, Juz 27, Juz 28, Juz 29 &amp; Juz 30 — Surahs 46 → 114)</strong>!</p>' +
+            '<p style="max-width:56ch;color:var(--ink-muted);font-size:0.94rem;">Story Mode chapters are currently live for <strong>74 Surahs: Al-Fatihah + All 6 Final Juz (Juz 25 → Juz 30 — Surahs 42 → 114)</strong>!</p>' +
             '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">' +
               '<button type="button" class="btn btn-gold" onclick="switchTab(\'memorize\')">Start Recite &amp; Memorize</button>' +
               '<button type="button" class="btn btn-emerald" onclick="switchTab(\'puzzle\')">Play Word Builder</button>' +
@@ -2732,6 +2745,11 @@
       for (let s = 46; s <= 50; s++) { if (isSurahMastered(s)) j26Done++; }
       document.getElementById("juz-26-progress-lbl").textContent = j26Done + " / 5 Surahs Mastered";
       document.getElementById("juz-26-meter-fill").style.width = Math.round((j26Done / 5) * 100) + "%";
+
+      let j25Done = 0;
+      for (let s = 42; s <= 45; s++) { if (isSurahMastered(s)) j25Done++; }
+      document.getElementById("juz-25-progress-lbl").textContent = j25Done + " / 4 Surahs Mastered";
+      document.getElementById("juz-25-meter-fill").style.width = Math.round((j25Done / 4) * 100) + "%";
 
       document.getElementById("cert-surah-ar").textContent = "سُورَةُ " + meta[1];
       document.getElementById("cert-surah-en").textContent = "Surah " + meta[2] + " (" + meta[3] + ") • Chapter " + meta[0];
