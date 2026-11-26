@@ -1508,6 +1508,10 @@
               </button>
 
               <div class="audio-aux">
+                <button type="button" class="dark-chip" id="kids-repeat-btn" onclick="toggleKidsRepeatMode()" title="Pause after Sheikh so the child repeats out loud before next repetition">
+                  <i data-lucide="users" style="width:15px;height:15px;"></i>
+                  <span id="kids-repeat-lbl">Kids Turn: Off</span>
+                </button>
                 <button type="button" class="dark-chip active" id="speed-1x" onclick="setSpeed(1.0)">1.0x Normal</button>
                 <button type="button" class="dark-chip" id="speed-slow" onclick="setSpeed(0.75)">0.75x Slow</button>
                 <button type="button" class="dark-chip" id="repeat-toggle-btn" onclick="cycleRepeat()">
@@ -1979,7 +1983,7 @@
       muallim:          { id: "muallim",          folder: "Husary_Muallim_128kbps",  label: "Al-Husary • Muallim (Teacher)",  labelAr: "الحصري • المصحف المعلم",   shortEn: "Al-Husary Muallim",  shortAr: "الحصري المعلم",  sheikhEn: "Sheikh Mahmoud Khalil Al-Husary", sheikhAr: "الشيخ محمود خليل الحصري", fallback: "murattal" },
       murattal:         { id: "murattal",         folder: "Husary_128kbps",          label: "Al-Husary • Murattal",           labelAr: "الحصري • مرتل",          shortEn: "Al-Husary Murattal", shortAr: "الحصري مرتل",   sheikhEn: "Sheikh Mahmoud Khalil Al-Husary", sheikhAr: "الشيخ محمود خليل الحصري", fallback: "minshawi_murattal" },
       minshawi_murattal:{ id: "minshawi_murattal",folder: "Minshawy_Murattal_128kbps",label: "Al-Minshawi • Murattal",         labelAr: "المنشاوي • مرتل",        shortEn: "Minshawi Murattal",  shortAr: "المنشاوي مرتل", sheikhEn: "Sheikh Muhammad Siddiq Al-Minshawi", sheikhAr: "الشيخ محمد صديق المنشاوي", fallback: "murattal" },
-      minshawi_muallim: { id: "minshawi_muallim", folder: "Minshawy_Muallim_128kbps",label: "Al-Minshawi • Muallim (Kids Repeat)",labelAr: "المنشاوي • المصحف المعلم (ترديد الأطفال)", shortEn: "Minshawi Muallim (Kids)", shortAr: "المنشاوي المعلم • أطفال",sheikhEn: "Sheikh Muhammad Siddiq Al-Minshawi", sheikhAr: "الشيخ محمد صديق المنشاوي", fallback: "minshawi_murattal" }
+      minshawi_muallim: { id: "minshawi_muallim", folder: "Minshawy_Muallim_128kbps",label: "Al-Minshawi • Muallim (20s Pause)",labelAr: "المنشاوي • المصحف المعلم (وقفة ٢٠ ث)", shortEn: "Minshawi Muallim (20s)", shortAr: "المنشاوي المعلم • ٢٠ث",sheikhEn: "Sheikh Muhammad Siddiq Al-Minshawi", sheikhAr: "الشيخ محمد صديق المنشاوي", fallback: "minshawi_murattal" }
     };
 
     let appState = {
@@ -1996,6 +2000,7 @@
       memoryModeHideText: false,
       hideEnglishInReview: false,
       tajweedColors: false,
+      kidsRepeatTurn: false,
       progress: {}
     };
 
@@ -2013,6 +2018,8 @@
     let fullSurahActiveIndex = 0;
     let activePlayContext = "single";
     let fallbackTried = false;
+    let kidsPauseTimer = null;
+    let isKidsTurnWaiting = false;
 
     const audioEl = document.getElementById("quran-audio-player");
 
@@ -2479,7 +2486,7 @@
         muallimBtn: "Al-Husary • Muallim",
         murattalBtn: "Al-Husary • Murattal",
         minshawiMurattalBtn: "Al-Minshawi • Murattal",
-        minshawiMuallimBtn: "Al-Minshawi • Muallim (Kids)",
+        minshawiMuallimBtn: "Al-Minshawi • Muallim",
         listenAyah: "Listen to Ayah",
         pauseRecitation: "Pause Recitation",
         speed1x: "1.0x Normal",
@@ -2578,7 +2585,7 @@
         muallimBtn: "الحصري • المصحف المعلم",
         murattalBtn: "الحصري • مرتل",
         minshawiMurattalBtn: "المنشاوي • مرتل",
-        minshawiMuallimBtn: "المنشاوي • المعلم (ترديد الأطفال)",
+        minshawiMuallimBtn: "المنشاوي • المصحف المعلم",
         listenAyah: "استمع للآية",
         pauseRecitation: "إيقاف التلاوة",
         speed1x: "١.٠x عادي",
@@ -2809,6 +2816,7 @@
         : ("Surah " + meta[2] + " — Ayah " + (activeAyahIndex + 1) + ": Recite from memory first, then verify with Sheikh Al-Husary.");
 
       paintTajweedUI();
+      paintKidsRepeatBtn();
       updateReciterButtonsUI();
       if (currentAyahs.length) {
         renderMemorizeStepper();
@@ -3213,36 +3221,100 @@
       updatePlayBtnVisual(false);
     });
 
+    function clearKidsPauseTimer() {
+      if (kidsPauseTimer) { clearTimeout(kidsPauseTimer); kidsPauseTimer = null; }
+      isKidsTurnWaiting = false;
+    }
+
+    function toggleKidsRepeatMode() {
+      playPop();
+      appState.kidsRepeatTurn = !appState.kidsRepeatTurn;
+      if (!appState.kidsRepeatTurn) clearKidsPauseTimer();
+      saveState();
+      paintKidsRepeatBtn();
+      showToast(
+        getUiLang() === "ar"
+          ? (appState.kidsRepeatTurn ? "وضع ترديد الطفل مفعّل: يقف المشغّل بعد الشيخ ليردّد الطفل" : "تم إيقاف وضع ترديد الطفل")
+          : (appState.kidsRepeatTurn ? "Kids Repeat Turn ON: pauses after Sheikh for child to repeat" : "Kids Repeat Turn OFF")
+      );
+    }
+
+    function paintKidsRepeatBtn() {
+      const btn = document.getElementById("kids-repeat-btn");
+      const lbl = document.getElementById("kids-repeat-lbl");
+      if (!btn || !lbl) return;
+      const on = !!appState.kidsRepeatTurn;
+      btn.classList.toggle("active", on);
+      lbl.textContent = getUiLang() === "ar"
+        ? (on ? "ترديد الطفل: مفعّل" : "ترديد الطفل: متوقف")
+        : (on ? "Kids Turn: On" : "Kids Turn: Off");
+    }
+
     audioEl.addEventListener("ended", () => {
-      if (activePlayContext === "single" && audioRepeatCounter < appState.repeatSetting - 1) {
-        audioRepeatCounter++;
-        setTimeout(() => { audioEl.currentTime = 0; audioEl.play().catch(() => {}); }, 450);
+      clearKidsPauseTimer();
+      const isMinshawiMuallim = (appState.reciterMode === "minshawi_muallim");
+      const pauseMs = isMinshawiMuallim
+        ? 20000
+        : Math.max(2200, Math.min(9000, Math.round((audioEl.duration || 4) * 1000)));
+
+      const afterSheikhDone = () => {
+        if (activePlayContext === "single" && audioRepeatCounter < appState.repeatSetting - 1) {
+          audioRepeatCounter++;
+          audioEl.currentTime = 0;
+          audioEl.play().catch(() => {});
+          return;
+        }
+        audioRepeatCounter = 0;
+        updatePlayBtnVisual(false);
+
+        if (isFullSurahPlaying && activePlayContext === "full") {
+          fullSurahActiveIndex++;
+          if (fullSurahActiveIndex < currentAyahs.length) {
+            const targetPage = Math.floor(fullSurahActiveIndex / REVIEW_PAGE_SIZE);
+            if (targetPage !== reviewPage) { reviewPage = targetPage; renderFullSurahReview(); }
+            highlightReviewRow(fullSurahActiveIndex);
+            setTimeout(() => playFullSurahStep(fullSurahActiveIndex), 400);
+          } else {
+            isFullSurahPlaying = false;
+            updateFullPlayVisual(false);
+            removeReviewHighlights();
+            fireVictoryCelebration();
+          }
+        }
+      };
+
+      if ((isMinshawiMuallim || appState.kidsRepeatTurn) && (activePlayContext === "single" || activePlayContext === "full")) {
+        isKidsTurnWaiting = true;
+        const msgEl = document.getElementById("mascot-message");
+        if (msgEl) {
+          msgEl.textContent = isMinshawiMuallim
+            ? (getUiLang() === "ar"
+                ? "مهلة ٢٠ ثانية لتلاوة الطفل بعد الشيخ المنشاوي..."
+                : "20-second pause for the child to read after Sheikh Al-Minshawi...")
+            : (getUiLang() === "ar"
+                ? "دور البطل الآن! ردّد الآية بصوت واضح ومسموع..."
+                : "Your turn to repeat out loud now!");
+        }
+        kidsPauseTimer = setTimeout(() => {
+          isKidsTurnWaiting = false;
+          afterSheikhDone();
+        }, pauseMs);
         return;
       }
-      audioRepeatCounter = 0;
-      updatePlayBtnVisual(false);
 
-      if (isFullSurahPlaying && activePlayContext === "full") {
-        fullSurahActiveIndex++;
-        if (fullSurahActiveIndex < currentAyahs.length) {
-          const targetPage = Math.floor(fullSurahActiveIndex / REVIEW_PAGE_SIZE);
-          if (targetPage !== reviewPage) { reviewPage = targetPage; renderFullSurahReview(); }
-          highlightReviewRow(fullSurahActiveIndex);
-          setTimeout(() => playFullSurahStep(fullSurahActiveIndex), 500);
-        } else {
-          isFullSurahPlaying = false;
-          updateFullPlayVisual(false);
-          removeReviewHighlights();
-          fireVictoryCelebration();
-        }
-      }
+      afterSheikhDone();
     });
 
     function toggleAyahAudio() {
+      if (isKidsTurnWaiting) {
+        stopAllAudio(true);
+        return;
+      }
       if (audioEl.paused || activePlayContext !== "single") playAyahAudio(activeAyahIndex, "single");
       else { audioEl.pause(); updatePlayBtnVisual(false); }
     }
     function stopAllAudio(resetFull = true) {
+      clearKidsPauseTimer();
       audioEl.pause();
       audioRepeatCounter = 0;
       if (resetFull) {
