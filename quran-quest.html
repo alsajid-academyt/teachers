@@ -32,6 +32,15 @@
   </script>
 
   <style>
+    @font-face {
+      font-family: 'KFGQPC Uthmanic Script HAFS';
+      src: url('https://verses.quran.foundation/fonts/quran/hafs/uthmanic_hafs/UthmanicHafs1Ver18.woff2') format('woff2'),
+           url('https://cdn.jsdelivr.net/gh/mohammed-2-5/islamic-library-data@master/fonts/UthmanicHafs_v18.ttf') format('truetype');
+      font-weight: 400 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg: #FAF9F4;
       --surface: #FFFFFF;
@@ -64,7 +73,7 @@
       --bad-bg: #FDEAEA;
 
       --font-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-quran: 'Scheherazade New', 'Amiri', 'Traditional Arabic', serif;
+      --font-quran: 'KFGQPC Uthmanic Script HAFS', 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
 
       --r-sm: 10px;
       --r-md: 16px;
@@ -625,6 +634,7 @@
       unicode-bidi: isolate;
       padding: 4px 8px;
       width: 100%;
+      font-feature-settings: "liga" 1, "mark" 1, "mkmk" 1;
     }
     .ayah-num-mark { color: var(--gold-600); font-size: 0.85em; margin-right: 6px; }
     :root[data-theme="dark"] .ayah-num-mark { color: var(--gold-300); }
@@ -1735,7 +1745,7 @@
   <script>
     const LOGO = "data:image/webp;base64,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";
     const STORAGE_KEY = "sajid_quran_quest_v1";
-    const CACHE_PREFIX = "sajid_qq_surah_";
+    const CACHE_PREFIX = "sajid_qq_kfgqpc_v2_";
     const THEME_KEY = "sajidpt:th";
 
     const SURAHS = [[1, "الفَاتِحَة", "Al-Fatihah", "The Opening", 7, 1, "Makki"], [2, "البَقَرَة", "Al-Baqarah", "The Cow", 286, 1, "Madani"], [3, "آل عِمْرَان", "Aal-E-Imran", "Family of Imran", 200, 3, "Madani"], [4, "النِّسَاء", "An-Nisa", "The Women", 176, 4, "Madani"], [5, "المَائِدَة", "Al-Ma'idah", "The Table Spread", 120, 6, "Madani"], [6, "الأَنْعَام", "Al-An'am", "The Cattle", 165, 7, "Makki"], [7, "الأَعْرَاف", "Al-A'raf", "The Heights", 206, 8, "Makki"], [8, "الأَنْفَال", "Al-Anfal", "The Spoils of War", 75, 9, "Madani"], [9, "التَّوْبَة", "At-Tawbah", "The Repentance", 129, 10, "Madani"], [10, "يُونُس", "Yunus", "Prophet Jonah", 109, 11, "Makki"], [11, "هُود", "Hud", "Prophet Hud", 123, 11, "Makki"], [12, "يُوسُف", "Yusuf", "Prophet Joseph", 111, 12, "Makki"], [13, "الرَّعْد", "Ar-Ra'd", "The Thunder", 43, 13, "Madani"], [14, "إِبْرَاهِيم", "Ibrahim", "Prophet Abraham", 52, 13, "Makki"], [15, "الحِجْر", "Al-Hijr", "The Rocky Tract", 99, 14, "Makki"], [16, "النَّحْل", "An-Nahl", "The Bee", 128, 14, "Makki"], [17, "الإِسْرَاء", "Al-Isra", "The Night Journey", 111, 15, "Makki"], [18, "الكَهْف", "Al-Kahf", "The Cave", 110, 15, "Makki"], [19, "مَرْيَم", "Maryam", "Mary", 98, 16, "Makki"], [20, "طه", "Ta-Ha", "Ta-Ha", 135, 16, "Makki"], [21, "الأَنْبِيَاء", "Al-Anbiya", "The Prophets", 112, 17, "Makki"], [22, "الحَجّ", "Al-Hajj", "The Pilgrimage", 78, 17, "Madani"], [23, "المُؤْمِنُون", "Al-Mu'minun", "The Believers", 118, 18, "Makki"], [24, "النُّور", "An-Nur", "The Light", 64, 18, "Madani"], [25, "الفُرْقَان", "Al-Furqan", "The Criterion", 77, 18, "Makki"], [26, "الشُّعَرَاء", "Ash-Shu'ara", "The Poets", 227, 19, "Makki"], [27, "النَّمْل", "An-Naml", "The Ant", 93, 19, "Makki"], [28, "القَصَص", "Al-Qasas", "The Stories", 88, 20, "Makki"], [29, "العَنْكَبُوت", "Al-Ankabut", "The Spider", 69, 20, "Makki"], [30, "الرُّوم", "Ar-Rum", "The Romans", 60, 21, "Makki"], [31, "لُقْمَان", "Luqman", "Luqman", 34, 21, "Makki"], [32, "السَّجْدَة", "As-Sajdah", "The Prostration", 30, 21, "Makki"], [33, "الأَحْزَاب", "Al-Ahzab", "The Combined Forces", 73, 21, "Madani"], [34, "سَبَأ", "Saba", "Sheba", 54, 22, "Makki"], [35, "فَاطِر", "Fatir", "Originator", 45, 22, "Makki"], [36, "يس", "Ya-Sin", "Ya-Sin", 83, 22, "Makki"], [37, "الصَّافَّات", "As-Saffat", "Those Ranged in Ranks", 182, 23, "Makki"], [38, "ص", "Sad", "Sad", 88, 23, "Makki"], [39, "الزُّمَر", "Az-Zumar", "The Troops", 75, 23, "Makki"], [40, "غَافِر", "Ghafir", "The Forgiver", 85, 24, "Makki"], [41, "فُصِّلَت", "Fussilat", "Explained in Detail", 54, 24, "Makki"], [42, "الشُّورَى", "Ash-Shura", "The Consultation", 53, 25, "Makki"], [43, "الزُّخْرُف", "Az-Zukhruf", "Ornaments of Gold", 89, 25, "Makki"], [44, "الدُّخَان", "Ad-Dukhan", "The Smoke", 59, 25, "Makki"], [45, "الجَاثِيَة", "Al-Jathiyah", "The Crouching", 37, 25, "Makki"], [46, "الأَحْقَاف", "Al-Ahqaf", "The Wind-Curved Sandhills", 35, 26, "Makki"], [47, "مُحَمَّد", "Muhammad", "Prophet Muhammad ﷺ", 38, 26, "Madani"], [48, "الفَتْح", "Al-Fath", "The Victory", 29, 26, "Madani"], [49, "الحُجُرَات", "Al-Hujurat", "The Rooms", 18, 26, "Madani"], [50, "ق", "Qaf", "Qaf", 45, 26, "Makki"], [51, "الذَّارِيَات", "Adh-Dhariyat", "The Winnowing Winds", 60, 27, "Makki"], [52, "الطُّور", "At-Tur", "The Mount", 49, 27, "Makki"], [53, "النَّجْم", "An-Najm", "The Star", 62, 27, "Makki"], [54, "القَمَر", "Al-Qamar", "The Moon", 55, 27, "Makki"], [55, "الرَّحْمَٰن", "Ar-Rahman", "The Beneficent", 78, 27, "Madani"], [56, "الوَاقِعَة", "Al-Waqi'ah", "The Inevitable", 96, 27, "Makki"], [57, "الحَدِيد", "Al-Hadid", "The Iron", 29, 27, "Madani"], [58, "المُجَادِلَة", "Al-Mujadila", "The Pleading Woman", 22, 28, "Madani"], [59, "الحَشْر", "Al-Hashr", "The Exile", 24, 28, "Madani"], [60, "المُمْتَحِنَة", "Al-Mumtahanah", "She That Is Examined", 13, 28, "Madani"], [61, "الصَّفّ", "As-Saf", "The Ranks", 14, 28, "Madani"], [62, "الجُمُعَة", "Al-Jumu'ah", "The Congregation (Friday)", 11, 28, "Madani"], [63, "المُنَافِقُون", "Al-Munafiqun", "The Hypocrites", 11, 28, "Madani"], [64, "التَّغَابُن", "At-Taghabun", "The Mutual Disillusion", 18, 28, "Madani"], [65, "الطَّلَاق", "At-Talaq", "The Divorce", 12, 28, "Madani"], [66, "التَّحْرِيم", "At-Tahrim", "The Prohibition", 12, 28, "Madani"], [67, "المُلْك", "Al-Mulk", "The Sovereignty", 30, 29, "Makki"], [68, "القَلَم", "Al-Qalam", "The Pen", 52, 29, "Makki"], [69, "الحَاقَّة", "Al-Haqqah", "The Reality", 52, 29, "Makki"], [70, "المَعَارِج", "Al-Ma'arij", "The Ascending Stairways", 44, 29, "Makki"], [71, "نُوح", "Nuh", "Prophet Noah", 28, 29, "Makki"], [72, "الجِنّ", "Al-Jinn", "The Jinn", 28, 29, "Makki"], [73, "المُزَّمِّل", "Al-Muzzammil", "The Enshrouded One", 20, 29, "Makki"], [74, "المُدَّثِّر", "Al-Muddaththir", "The Cloaked One", 56, 29, "Makki"], [75, "القِيَامَة", "Al-Qiyamah", "The Resurrection", 40, 29, "Makki"], [76, "الإِنْسَان", "Al-Insan", "The Human", 31, 29, "Madani"], [77, "المُرْسَلَات", "Al-Mursalat", "The Emissaries", 50, 29, "Makki"], [78, "النَّبَأ", "An-Naba", "The Tidings", 40, 30, "Makki"], [79, "النَّازِعَات", "An-Nazi'at", "Those Who Drag Forth", 46, 30, "Makki"], [80, "عَبَسَ", "Abasa", "He Frowned", 42, 30, "Makki"], [81, "التَّكْوِير", "At-Takwir", "The Overthrowing", 29, 30, "Makki"], [82, "الانْفِطَار", "Al-Infitar", "The Cleaving", 19, 30, "Makki"], [83, "المُطَفِّفِين", "Al-Mutaffifin", "The Defrauding", 36, 30, "Makki"], [84, "الانْشِقَاق", "Al-Inshiqaq", "The Sundering", 25, 30, "Makki"], [85, "البُرُوج", "Al-Buruj", "The Mansions of the Stars", 22, 30, "Makki"], [86, "الطَّارِق", "At-Tariq", "The Nightcommer", 17, 30, "Makki"], [87, "الأَعْلَى", "Al-A'la", "The Most High", 19, 30, "Makki"], [88, "الغَاشِيَة", "Al-Ghashiyah", "The Overwhelming", 26, 30, "Makki"], [89, "الفَجْر", "Al-Fajr", "The Dawn", 30, 30, "Makki"], [90, "البَلَد", "Al-Balad", "The City", 20, 30, "Makki"], [91, "الشَّمْس", "Ash-Shams", "The Sun", 15, 30, "Makki"], [92, "اللَّيْل", "Al-Layl", "The Night", 21, 30, "Makki"], [93, "الضُّحَى", "Ad-Duha", "The Morning Hours", 11, 30, "Makki"], [94, "الشَّرْح", "Ash-Sharh", "The Relief", 8, 30, "Makki"], [95, "التِّين", "At-Tin", "The Fig", 8, 30, "Makki"], [96, "العَلَق", "Al-Alaq", "The Clot", 19, 30, "Makki"], [97, "القَدْر", "Al-Qadr", "The Power", 5, 30, "Makki"], [98, "البَيِّنَة", "Al-Bayyinah", "The Clear Proof", 8, 30, "Madani"], [99, "الزَّلْزَلَة", "Az-Zalzalah", "The Earthquake", 8, 30, "Madani"], [100, "العَادِيَات", "Al-Adiyat", "The Courser", 11, 30, "Makki"], [101, "القَارِعَة", "Al-Qari'ah", "The Calamity", 11, 30, "Makki"], [102, "التَّكَاثُر", "At-Takathur", "The Rivalry in World Increase", 8, 30, "Makki"], [103, "العَصْر", "Al-Asr", "The Declining Day", 3, 30, "Makki"], [104, "الهُمَزَة", "Al-Humazah", "The Traducer", 9, 30, "Makki"], [105, "الفِيل", "Al-Fil", "The Elephant", 5, 30, "Makki"], [106, "قُرَيْش", "Quraysh", "Quraysh", 4, 30, "Makki"], [107, "المَاعُون", "Al-Ma'un", "The Small Kindnesses", 7, 30, "Makki"], [108, "الكَوْثَر", "Al-Kawthar", "The Abundance", 3, 30, "Makki"], [109, "الكَافِرُون", "Al-Kafirun", "The Disbelievers", 6, 30, "Makki"], [110, "النَّصْر", "An-Nasr", "The Divine Support", 3, 30, "Madani"], [111, "المَسَد", "Al-Masad", "The Palm Fiber", 5, 30, "Makki"], [112, "الإِخْلَاص", "Al-Ikhlas", "The Sincerity", 4, 30, "Makki"], [113, "الفَلَق", "Al-Falaq", "The Daybreak", 5, 30, "Makki"], [114, "النَّاس", "An-Nas", "Mankind", 6, 30, "Makki"]];
@@ -2069,31 +2079,106 @@
       return chunks;
     }
 
+    function sanitizeLegacyUthmani(text) {
+      // Safeguard ONLY for legacy fallback: removes erroneous small meem (U+06E2/U+06ED) placed on Idgham/Ikhfa tanween when not followed by Ba' (true Iqlab)
+      return String(text || "").replace(/([\u064B\u064C\u064D][\u0651]?)[\u06E2\u06ED](?!(?:[\u0627\u0649\u0640\u0670\u06DF\u06E0\u06D6-\u06ED\s]*)\u0628)/g, "$1");
+    }
+
+    function stripHtmlFootnotes(html) {
+      return String(html || "").replace(/<sup[^>]*>.*?<\/sup>/gi, "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    }
+
+    function purgeLegacySurahCache() {
+      try {
+        const toRemove = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          if (k && k.startsWith("sajid_qq_surah_")) toRemove.push(k);
+        }
+        toRemove.forEach(k => localStorage.removeItem(k));
+      } catch (e) {}
+    }
+
     async function fetchSurahVerses(num) {
       const key = String(num);
+      const customWordsMap = {};
       if (OFFLINE_SURAHS[key]) {
-        return OFFLINE_SURAHS[key].map((v, i) => ({ ayahNumber: i + 1, ar: v.ar, en: v.en, words: buildWordChunks(v.ar, v.words) }));
+        OFFLINE_SURAHS[key].forEach((v, i) => { if (v.words) customWordsMap[i] = v.words; });
       }
       try {
         const cached = localStorage.getItem(CACHE_PREFIX + key);
         if (cached) {
           const arr = JSON.parse(cached);
-          if (Array.isArray(arr) && arr.length) return arr.map((v, i) => ({ ayahNumber: i + 1, ar: v.ar, en: v.en, words: buildWordChunks(v.ar) }));
+          if (Array.isArray(arr) && arr.length) {
+            return arr.map((v, i) => ({ ayahNumber: i + 1, ar: v.ar, en: v.en, words: buildWordChunks(v.ar, customWordsMap[i]) }));
+          }
         }
       } catch (e) {}
 
-      const res = await fetch("https://api.alquran.cloud/v1/surah/" + num + "/editions/quran-uthmani,en.sahih");
-      if (!res.ok) throw new Error("Network error");
-      const json = await res.json();
-      if (!json || json.code !== 200 || !Array.isArray(json.data) || json.data.length < 2) throw new Error("Bad data");
-      const arAyahs = json.data[0].ayahs, enAyahs = json.data[1].ayahs;
-      const formatted = arAyahs.map((a, idx) => {
-        const cleanAr = idx === 0 ? stripLeadingBismillah(a.text, num) : a.text.trim();
-        const enTxt = (enAyahs[idx] && enAyahs[idx].text) ? enAyahs[idx].text.trim() : "";
-        return { ayahNumber: idx + 1, ar: cleanAr, en: enTxt, words: buildWordChunks(cleanAr) };
-      });
-      try { localStorage.setItem(CACHE_PREFIX + key, JSON.stringify(formatted.map(x => ({ ar: x.ar, en: x.en })))); } catch (e) {}
-      return formatted;
+      // Primary: Official King Fahd Complex (KFGQPC) Madinah Mushaf Uthmani via Quran.com API v4 + Sahih International English
+      try {
+        const [qRes, enRes] = await Promise.all([
+          fetch("https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=" + num),
+          fetch("https://api.alquran.cloud/v1/surah/" + num + "/en.sahih").catch(() => null)
+        ]);
+        if (qRes && qRes.ok) {
+          const qJson = await qRes.json();
+          if (qJson && Array.isArray(qJson.verses) && qJson.verses.length) {
+            let enList = [];
+            if (enRes && enRes.ok) {
+              try {
+                const enJson = await enRes.json();
+                if (enJson && enJson.code === 200 && enJson.data && Array.isArray(enJson.data.ayahs)) {
+                  enList = enJson.data.ayahs.map(a => (a.text || "").trim());
+                }
+              } catch (e) {}
+            }
+            if (!enList.length) {
+              try {
+                const tRes = await fetch("https://api.quran.com/api/v4/quran/translations/20?chapter_number=" + num);
+                if (tRes && tRes.ok) {
+                  const tJson = await tRes.json();
+                  if (tJson && Array.isArray(tJson.translations)) {
+                    enList = tJson.translations.map(t => stripHtmlFootnotes(t.text));
+                  }
+                }
+              } catch (e) {}
+            }
+            const formatted = qJson.verses.map((v, idx) => {
+              const rawAr = (v.text_uthmani || "").trim();
+              const cleanAr = idx === 0 ? stripLeadingBismillah(rawAr, num) : rawAr;
+              const enTxt = enList[idx] || (OFFLINE_SURAHS[key] && OFFLINE_SURAHS[key][idx] ? OFFLINE_SURAHS[key][idx].en : "");
+              return { ayahNumber: idx + 1, ar: cleanAr, en: enTxt, words: buildWordChunks(cleanAr, customWordsMap[idx]) };
+            });
+            try { localStorage.setItem(CACHE_PREFIX + key, JSON.stringify(formatted.map(x => ({ ar: x.ar, en: x.en })))); } catch (e) {}
+            return formatted;
+          }
+        }
+      } catch (e) {}
+
+      // Secondary Fallback: AlQuran.cloud with automatic Tajweed/Tanween sanitizer
+      try {
+        const res = await fetch("https://api.alquran.cloud/v1/surah/" + num + "/editions/quran-uthmani,en.sahih");
+        if (res && res.ok) {
+          const json = await res.json();
+          if (json && json.code === 200 && Array.isArray(json.data) && json.data.length >= 2) {
+            const arAyahs = json.data[0].ayahs, enAyahs = json.data[1].ayahs;
+            const formatted = arAyahs.map((a, idx) => {
+              const stripped = idx === 0 ? stripLeadingBismillah(a.text, num) : a.text.trim();
+              const cleanAr = sanitizeLegacyUthmani(stripped);
+              const enTxt = (enAyahs[idx] && enAyahs[idx].text) ? enAyahs[idx].text.trim() : "";
+              return { ayahNumber: idx + 1, ar: cleanAr, en: enTxt, words: buildWordChunks(cleanAr, customWordsMap[idx]) };
+            });
+            return formatted;
+          }
+        }
+      } catch (e) {}
+
+      // Offline Fallback for built-in Surahs
+      if (OFFLINE_SURAHS[key]) {
+        return OFFLINE_SURAHS[key].map((v, i) => ({ ayahNumber: i + 1, ar: v.ar, en: v.en, words: buildWordChunks(v.ar, v.words) }));
+      }
+      throw new Error("Unable to load Surah");
     }
 
     async function loadSurah(num) {
@@ -2883,6 +2968,7 @@
       document.getElementById("fav").href = LOGO;
       document.querySelectorAll("img[data-logo]").forEach(img => { img.src = LOGO; });
       paintTheme();
+      purgeLegacySurahCache();
       initJuzDropdown();
       loadSavedState();
       document.getElementById("total-stars-val").textContent = appState.stars;
