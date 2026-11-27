@@ -1352,9 +1352,13 @@
       .surah-grid-scroll { grid-template-columns: repeat(3, 1fr); }
       .calligraphy-plate { width: 100%; }
     }
-    @media (max-width: 580px) {
-      .topbar-inner { padding: 8px 12px; }
+    @media (max-width: 640px) {
+      .topbar-inner { padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
+      .tb-brand { flex: 1 1 100%; }
+      .tb-actions { width: 100%; justify-content: space-between; gap: 6px; }
       .tb-link span { display: none; }
+    }
+    @media (max-width: 580px) {
       .shell { padding: 14px 12px 48px; }
       .surah-hero, .panel { padding: 18px 15px; }
       .mode-tabs { grid-template-columns: repeat(2, 1fr); }
@@ -2385,7 +2389,7 @@
       if (!list.length) {
         grid.innerHTML =
           '<div style="grid-column:1/-1;text-align:center;padding:30px 14px;color:var(--ink-muted);font-weight:700;">' +
-          (isAr ? 'لم يتم العثور على سورة بهذا الاسم. جرّب كتابة الاسم (مثل: الشعراء، الناس، يس) أو رقم السورة (١–١١٤).' : 'No matching Surah found. Try a Surah name (e.g., Ash-Shu'ara, An-Nas) or number (1–114).') +
+          (isAr ? 'لم يتم العثور على سورة بهذا الاسم. جرّب كتابة الاسم (مثل: الشعراء، الناس، يس) أو رقم السورة (١–١١٤).' : "No matching Surah found. Try a Surah name (e.g., Al-Fatihah, Ash-Shu'ara, An-Nas) or number (1–114).") +
           '</div>';
         return;
       }
