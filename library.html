@@ -1136,6 +1136,21 @@
       if (qInp && qInp.value.trim()) {
         qInp.value = "";
         renderAjurrumiyyah();
+      const ajListEl = document.getElementById("aj-list");
+      if (ajListEl) {
+        ajListEl.addEventListener("click", function(ev) {
+          const doneBtn = ev.target.closest("[data-aj-done]");
+          if (doneBtn) {
+            toggleAjDone(doneBtn.getAttribute("data-aj-done"));
+            return;
+          }
+          const hemi = ev.target.closest("[data-aj-reveal]");
+          if (hemi) {
+            hemi.classList.toggle("revealed");
+          }
+        });
+      }
+
       }
       const el = document.getElementById("aj-ch-" + chId);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1230,7 +1245,7 @@
         innerHtml +=
           '<div class="aj-ch-top">' +
             '<div class="aj-scroll-banner">' + ch.title + '</div>' +
-            '<button type="button" class="btn btn-sm aj-ch-check-btn ' + (done ? 'btn-emerald' : 'btn-soft') + '" onclick="toggleAjDone('' + ch.id + '')">' +
+            '<button type="button" class="btn btn-sm aj-ch-check-btn ' + (done ? 'btn-emerald' : 'btn-soft') + '" data-aj-done="' + ch.id + '">' +
               (done ? 'تم الحفظ والمذاكرة ✅' : 'تحديد كمُتقَن') +
             '</button>' +
           '</div>';
@@ -1246,7 +1261,7 @@
             innerHtml +=
               '<div class="aj-verse-row">' +
                 '<div class="aj-hemistich-1">' + formatAjMarkup(v[0]) + '</div>' +
-                '<div class="aj-hemistich-2" onclick="this.classList.toggle('revealed')">' + formatAjMarkup(v[1]) + milestone + '</div>' +
+                '<div class="aj-hemistich-2" data-aj-reveal="1">' + formatAjMarkup(v[1]) + milestone + '</div>' +
               '</div>';
           });
           innerHtml += '</div>';
