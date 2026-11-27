@@ -16,4 +16,4 @@ Disallow: /it-lec6.html
 Disallow: /baghdadiyyah-lab.html
 Disallow: /practical-lab.html
 
-Sitemap: https://alsajid-academyt.github.io/teachers/sitemap.xml
+Sitemap: https://alsajidacademy.com/sitemap.xml
