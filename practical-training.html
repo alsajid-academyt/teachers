@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>قسم التدريب العملي ومجتمع المعلمين | أكاديمية الساجد</title>
   <meta name="description" content="قسم التدريب العملي في أكاديمية الساجد: الحصص التفاعلية ومجتمعا التدريب المفصولان بالكود (مجتمع الرجال ومجتمع السيدات) لتكوين مجموعات التدريب الرباعية.">
+  <link rel="canonical" href="https://alsajid-academyt.github.io/teachers/practical-training.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="قسم التدريب العملي والمجتمع | أكاديمية الساجد">
+  <meta property="og:description" content="مجتمع التدريب العملي المفصول للرجال والسيدات وتنسيق المجموعات الرباعية وروابط الحصص التفاعلية.">
+  <meta property="og:image" content="https://alsajid-academyt.github.io/teachers/logo.jpg">
   <meta name="theme-color" content="#0F4C29">
   <link rel="manifest" href="manifest.json">
   <link id="fav" rel="icon" type="image/webp" href="data:,">
@@ -558,7 +563,7 @@
       <div class="gate-card">
         <div class="gate-head">
           <img data-logo="1" alt="أكاديمية الساجد">
-          <h1>بوابة قسم التدريب العملي والمجتمع</h1>
+          <h2 style="font-size:1.45rem;font-weight:900;color:var(--ink);">بوابة قسم التدريب العملي والمجتمع</h2>
           <p>مخصّص لمشتركي برامج أكاديمية الساجد. يُوجّهك كود التفعيل تلقائيًا إلى مجتمعك الخاص (مجتمع الرجال مستقل عن مجتمع السيدات تمامًا).</p>
         </div>
 
@@ -925,6 +930,7 @@
       const msg = "السلام عليكم، أرغب في الحصول على كود التفعيل للدخول إلى قسم التدريب العملي والمجتمع بأكاديمية الساجد.";
       window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
     }
+    function safeHttpUrl(u) { const s = String(u || "").trim(); return /^https?:\/\//i.test(s) ? s : "#"; }
     function escapeHtml(str) {
       return String(str || "")
         .replace(/&/g, "&amp;")
@@ -1449,7 +1455,7 @@
           '<h4 style="font-size:1rem;font-weight:800;">' + escapeHtml(s.title) + '</h4>' +
           (s.notes ? '<p style="font-size:0.86rem;color:var(--ink-muted);">' + escapeHtml(s.notes) + '</p>' : '') +
           '<div style="margin-top:auto;padding-top:8px;">' +
-            '<a href="' + escapeHtml(s.link) + '" target="_blank" rel="noopener" class="btn btn-emerald btn-sm"><i data-lucide="external-link" style="width:14px;height:14px;"></i><span>فتح رابط الحصة</span></a>' +
+            '<a href="' + escapeHtml(safeHttpUrl(s.link)) + '" target="_blank" rel="noopener" class="btn btn-emerald btn-sm"><i data-lucide="external-link" style="width:14px;height:14px;"></i><span>فتح رابط الحصة</span></a>' +
           '</div>';
         grid.appendChild(el);
       });

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /QUARANTINE_REVIEW/
+Disallow: /dt-lec1.html
+Disallow: /dt-lec2.html
+Disallow: /dt-lec3.html
+Disallow: /dt-lec4.html
+Disallow: /dt-lec5.html
+Disallow: /dt-lec6.html
+Disallow: /it-lec1.html
+Disallow: /it-lec2.html
+Disallow: /it-lec3.html
+Disallow: /it-lec4.html
+Disallow: /it-lec5.html
+Disallow: /it-lec6.html
+Disallow: /baghdadiyyah-lab.html
+Disallow: /practical-lab.html
+
+Sitemap: https://alsajid-academyt.github.io/teachers/sitemap.xml
