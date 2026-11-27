@@ -500,28 +500,41 @@
     }
     .aj-verse-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: baseline;
-      padding: 7px 14px;
+      grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      padding: 8px 16px;
       border-radius: 10px;
       font-family: var(--font-serif);
-      font-size: clamp(1.28rem, 2.2vw, 1.56rem);
-      line-height: 2.1;
+      font-size: clamp(1.24rem, 2.05vw, 1.48rem);
+      line-height: 2.05;
       color: #0B2C8A;
       position: relative;
       transition: background 0.15s;
     }
     .aj-verse-row:nth-child(even) {
-      background: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.5);
     }
     :root[data-theme="dark"] .aj-verse-row { color: #93C5FD; }
     :root[data-theme="dark"] .aj-verse-row:nth-child(even) { background: rgba(255, 255, 255, 0.03); }
 
-    .aj-hemistich-1 { text-align: justify; text-align-last: justify; }
+    .aj-hemistich-1 {
+      text-align: center;
+      word-spacing: 0.04em;
+    }
+    .aj-sep {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #C6952B;
+      font-size: 0.9rem;
+      opacity: 0.72;
+      user-select: none;
+    }
+    :root[data-theme="dark"] .aj-sep { color: var(--gold-300); opacity: 0.65; }
     .aj-hemistich-2 {
-      text-align: justify;
-      text-align-last: justify;
+      text-align: center;
+      word-spacing: 0.04em;
       position: relative;
       transition: filter 0.25s, opacity 0.25s;
     }
@@ -599,12 +612,13 @@
       .aj-ch-check-btn { position: static; transform: none; }
       .aj-verse-row {
         grid-template-columns: 1fr;
-        gap: 2px;
+        gap: 4px;
         padding: 8px 10px;
         border-bottom: 1px dashed rgba(11, 44, 138, 0.14);
       }
-      .aj-hemistich-1 { text-align: right; text-align-last: right; }
-      .aj-hemistich-2 { text-align: left; text-align-last: left; padding-right: 14px; }
+      .aj-sep { display: none; }
+      .aj-hemistich-1 { text-align: right; }
+      .aj-hemistich-2 { text-align: left; padding-right: 16px; }
     }
     @media print {
       .topbar, .hero, .lib-tabs, .toolbar, .aj-ch-check-btn, .toast { display: none !important; }
@@ -1136,21 +1150,6 @@
       if (qInp && qInp.value.trim()) {
         qInp.value = "";
         renderAjurrumiyyah();
-      const ajListEl = document.getElementById("aj-list");
-      if (ajListEl) {
-        ajListEl.addEventListener("click", function(ev) {
-          const doneBtn = ev.target.closest("[data-aj-done]");
-          if (doneBtn) {
-            toggleAjDone(doneBtn.getAttribute("data-aj-done"));
-            return;
-          }
-          const hemi = ev.target.closest("[data-aj-reveal]");
-          if (hemi) {
-            hemi.classList.toggle("revealed");
-          }
-        });
-      }
-
       }
       const el = document.getElementById("aj-ch-" + chId);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1261,6 +1260,7 @@
             innerHtml +=
               '<div class="aj-verse-row">' +
                 '<div class="aj-hemistich-1">' + formatAjMarkup(v[0]) + '</div>' +
+                '<div class="aj-sep" aria-hidden="true">✦</div>' +
                 '<div class="aj-hemistich-2" data-aj-reveal="1">' + formatAjMarkup(v[1]) + milestone + '</div>' +
               '</div>';
           });
@@ -1315,6 +1315,20 @@
       renderHadiths();
       renderAdhkar();
       renderAjurrumiyyah();
+      const ajListEl = document.getElementById("aj-list");
+      if (ajListEl) {
+        ajListEl.addEventListener("click", function(ev) {
+          const doneBtn = ev.target.closest("[data-aj-done]");
+          if (doneBtn) {
+            toggleAjDone(doneBtn.getAttribute("data-aj-done"));
+            return;
+          }
+          const hemi = ev.target.closest("[data-aj-reveal]");
+          if (hemi) {
+            hemi.classList.toggle("revealed");
+          }
+        });
+      }
       renderSciencesRoadmap();
       try {
         const h = (window.location.hash || "").toLowerCase();
