@@ -352,7 +352,7 @@
       color: var(--ink); font-size: 0.84rem; font-weight: 800; text-align: center;
     }
 
-    /* ===== DAILY LIVE OBSERVATION (معايشة الحصص الحقيقية) ===== */
+    /* ===== DAILY LIVE OBSERVATION (جلسات المعايشة) ===== */
     .live-banner {
       background: linear-gradient(135deg, var(--surface) 0%, var(--gold-soft) 100%);
       border: 2px solid var(--gold-500);
@@ -602,7 +602,7 @@
     </section>
 
     <!-- =======================================================================
-         TAB 2: معايشة الحصص الحقيقية (يوميًا + مهلة 48 ساعة + المطلوب السبع)
+         TAB 2: جلسات المعايشة (يوميًا + مهلة 48 ساعة + المطلوب السبع)
          ======================================================================= -->
     <section id="dpane-observation" class="hidden" style="display:flex;flex-direction:column;gap:16px;">
 
@@ -611,12 +611,12 @@
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
           <span class="live-pill">
             <i data-lucide="radio" style="width:14px;height:14px;"></i>
-            <span>التدريب العملي اليوم — معايشة الحصص الحقيقية</span>
+            <span>التدريب العملي اليوم — جلسة المعايشة</span>
           </span>
           <span style="font-size:0.82rem;font-weight:800;color:var(--gold-600);">مهلة المشاهدة لمن تعذّر حضوره: 48 ساعة</span>
         </div>
 
-        <h2 id="obs-today-title" style="font-size:1.2rem;font-weight:900;">حضور ومعايشة حصة لغة عربية حقيقية للناطقين بغيرها</h2>
+        <h2 id="obs-today-title" style="font-size:1.2rem;font-weight:900;">حضور ومعايشة حصة لغة عربية للناطقين بغيرها</h2>
         <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:0.9rem;font-weight:800;color:var(--emerald-800);">
           <span id="obs-today-time">⏰ الموعد اليوم: الساعة 3:00 عصرًا بتوقيت مصر</span>
           <span>•</span>
@@ -640,9 +640,9 @@
             <div class="field">
               <label for="gen-class-type">نوع الحصة اليوم</label>
               <select id="gen-class-type" class="sel" onchange="buildDailyAnnouncement()">
-                <option value="حصة لغة عربية حقيقية|طريقة تدريس اللغة العربية للناطقين بغيرها">حصة لغة عربية</option>
-                <option value="حصة تأسيس (القاعدة البغدادية) حقيقية|طريقة تأسيس القراءة وإدارة حصة الطفل الأجنبي">حصة قاعدة بغدادية وتأسيس</option>
-                <option value="حصة قرآن كريم وتجويد حقيقية|طريقة تصحيح التلاوة وشرح التجويد بالإنجليزية">حصة قرآن كريم وتجويد</option>
+                <option value="حصة لغة عربية|طريقة تدريس اللغة العربية للناطقين بغيرها">حصة لغة عربية</option>
+                <option value="حصة تأسيس (القاعدة البغدادية)|طريقة تأسيس القراءة وإدارة حصة الطفل الأجنبي">حصة قاعدة بغدادية وتأسيس</option>
+                <option value="حصة قرآن كريم وتجويد|طريقة تصحيح التلاوة وشرح التجويد بالإنجليزية">حصة قرآن كريم وتجويد</option>
               </select>
             </div>
             <div class="field">
@@ -806,7 +806,7 @@
           <div style="font-size:0.92rem;color:#52665A;">تشهد إدارة أكاديمية الساجد بأن الأستاذ / الأستاذة:</div>
           <input type="text" id="cert-name-inp" class="cert-name-inp" value="اسم المتدرب / المتدربة" oninput="saveCertName(this.value)" aria-label="اسم المتدرب في الشهادة">
           <div style="font-size:0.95rem;color:#15281C;max-width:52ch;">
-            قد اجتاز(ت) متطلبات المسار التدريبي والأسئلة التطبيقية ومعايشة الحصص الحقيقية في:
+            قد اجتاز(ت) متطلبات المسار التدريبي والأسئلة التطبيقية وجلسات المعايشة في:
           </div>
           <div id="cert-program-title" style="font-size:1.18rem;font-weight:900;color:#0F4C29;">برنامج المعلم المستقل: من الصفر إلى الاحتراف</div>
           <div id="cert-progress-badge" style="font-size:0.9rem;font-weight:800;color:#9E7216;">نسبة الإنجاز المسجّلة: 0%</div>
@@ -889,7 +889,7 @@
           { id: "p2", title: "المحاضرة 2: التواصل الاحترافي مع ولي الأمر وبناء الثقة" },
           { id: "p3", title: "المحاضرة 3: إدارة زووم، الصوت، السبورة، ومعالجة المواقف الطارئة" },
           { id: "p4", title: "المحاضرة 4: توظيف أدوات الذكاء الاصطناعي في تحضير الدروس والأنشطة" },
-          { id: "p5", title: "المحاضرة 5: مراجعة تقارير معايشة الحصص الحقيقية (الـ 10 جمل)" },
+          { id: "p5", title: "المحاضرة 5: مراجعة تقارير المعايشة (الـ 10 جمل)" },
           { id: "p6", title: "المحاضرة 6: التقييم الختامي للجاهزية والانطلاق في التدريس" }
         ]
       }
@@ -1098,7 +1098,7 @@
     }
     function buildDailyAnnouncement() {
       const raw = document.getElementById("gen-class-type").value.split("|");
-      const className = raw[0] || "حصة لغة عربية حقيقية";
+      const className = raw[0] || "حصة لغة عربية";
       const focusDesc = raw[1] || "طريقة تدريس اللغة العربية للناطقين بغيرها";
       const timeStr = document.getElementById("gen-class-time").value.trim() || "في تمام الساعة 3:00 عصرًا";
       const linkStr = document.getElementById("gen-class-link").value.trim();
@@ -1106,7 +1106,7 @@
       const msg =
         "السلام عليكم ورحمة الله وبركاته 🌷\n\n" +
         "كيف حالكم جميعًا؟\n\n" +
-        "التدريب العملي اليوم (معايشة الحصص الحقيقية) إن شاء الله:\n\n" +
+        "التدريب العملي اليوم (جلسة المعايشة) إن شاء الله:\n\n" +
         timeStr + ".\n" +
         (linkStr ? ("رابط الدخول: " + linkStr + "\n") : "") +
         "\nسيكون تدريبنا اليوم من خلال حضور ومعايشة " + className + "، وسنتعرف عمليًا على " + focusDesc + "، وكيفية شرح الدرس والتعامل مع الطلاب وإدارة الحصة بصورة فعّالة.\n\n" +
@@ -1161,7 +1161,7 @@
 
       const waMsg =
         "السلام عليكم ورحمة الله وبركاته 🌷\n" +
-        "تقرير معايشة الحصة الحقيقية + تسجيل الحضور:\n" +
+        "تقرير جلسة المعايشة + تسجيل الحضور:\n" +
         "• الاسم: " + (dashState.traineeName || "") + "\n" +
         "• نوع الحصة: " + type + "\n" +
         "• الحضور: " + att + " (" + nowStr + ")\n\n" +
