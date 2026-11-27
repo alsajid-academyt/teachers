@@ -1,5 +1,5 @@
-/* Al-Sajid Academy PWA Service Worker v45.0 */
-const CACHE_NAME = 'alsajid-academy-v45';
+/* Al-Sajid Academy PWA Service Worker v46.0 */
+const CACHE_NAME = 'alsajid-academy-v46';
 const CORE_ASSETS = [
   './',
   './index.html',
