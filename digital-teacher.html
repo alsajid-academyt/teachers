@@ -127,6 +127,26 @@ header{position:sticky;top:0;z-index:50;background:var(--primary-dark);color:#ff
 footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;border-top:1px solid var(--line)}
 @media(max-width:720px){body{font-size:16px}section{padding:46px 0}.two,.g4{grid-template-columns:1fr}.hb.home span{display:none}.btn{width:100%}.hero{padding:50px 0 60px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+  .book-card-cta{
+    background:linear-gradient(135deg,#09321A 0%,#145A32 100%);
+    color:#fff;border:2px solid var(--gold);border-radius:20px;
+    padding:20px clamp(16px,3.5vw,26px);margin:0 0 22px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    box-shadow:0 12px 28px rgba(15,76,41,.16);
+  }
+  .book-card-cta .bk-info{flex:1;min-width:240px}
+  .book-card-cta .bk-tag{display:inline-block;background:rgba(232,197,104,.18);border:1px solid var(--gold-light);color:var(--gold-light);font-size:.78rem;font-weight:800;padding:3px 12px;border-radius:999px;margin-bottom:7px}
+  .book-card-cta h3{margin:0 0 4px;font-size:1.18rem;font-weight:900;color:#fff}
+  .book-card-cta p{margin:0;font-size:.9rem;color:#dcebe2;line-height:1.65}
+  .book-card-cta .bk-open-btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--gold-grad);color:#261900;
+    border:2px solid var(--gold-light);border-radius:999px;padding:11px 22px;
+    font-weight:900;font-size:.95rem;text-decoration:none;white-space:nowrap;
+    transition:transform .18s,box-shadow .18s;
+  }
+  .book-card-cta .bk-open-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(198,149,43,.35)}
+
 </style>
 </head>
 <body>
@@ -152,6 +172,7 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
     <div class="btns">
       <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener noreferrer">💬 سجّل الآن عبر واتساب</a>
       <a class="btn btn-gold" href="#curriculum">📚 استعرض منهج المحاضرات الست</a>
+      <a class="btn btn-ghost" href="dt-book.html">📖 الكتاب المحمي للمشتركين</a>
       <a class="btn btn-ghost" href="placement-test.html">🎯 اختبر مستواك في الإنجليزية أولاً</a>
     </div>
   </div>
@@ -197,6 +218,15 @@ footer{text-align:center;padding:26px 0 36px;color:var(--mut);font-size:.92rem;b
 <section id="curriculum">
   <div class="wrap">
     <div class="hd"><h2>ماذا ستتعلم؟</h2><p class="sub">المنهج التفصيلي للمحاضرات الست — افتح كل محاضرة لترى ما ستتقنه وأثره في حصتك، وللمشتركين: <strong>اختبارات المحاضرات الست كاملة (660 سؤالًا) متاحة الآن بالكود الموحّد</strong>.</p></div>
+
+        <div class="book-card-cta">
+      <div class="bk-info">
+        <span class="bk-tag">🔒 متاح للمشتركين بنفس كود الدورة الموحّد</span>
+        <h3>📖 الكتاب التفاعلي المحمي للدورة (الدليل المنهجي ومفاتيح التطبيق)</h3>
+        <p>مرجع منظم للمحاضرات الست + خريطة الـ 12 مفتاحًا الذهبية، ببحث فوري وفهرس جانبي — يفتح تلقائيًا بنفس كود الاختبارات دون كود إضافي.</p>
+      </div>
+      <a class="bk-open-btn" href="dt-book.html">📖 افتح الكتاب المحمي الآن ←</a>
+    </div>
 
     <details class="lec" id="lec-1" open>
       <summary><span class="num">١</span><span class="t">المحاضرة ١: النية والمجال والحصة التجريبية</span><span class="chev">▼</span></summary>

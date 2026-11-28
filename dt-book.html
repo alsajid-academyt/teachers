@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>الكتاب التفاعلي المحمي | دورة المعلم الرقمي المحترف — أكاديمية الساجد</title>
+<meta name="theme-color" content="#0F4C29">
+<link id="fav" rel="icon" type="image/webp" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script>
+try{if(localStorage.getItem("sajidpt:th")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+</script>
+<style>
+:root{--primary:#0F4C29;--primary-dark:#09321A;--primary-light:#17693B;--gold:#C6952B;--gold-light:#E8C568;--gold-grad:linear-gradient(135deg,#E2BE5B,#BA8921);--bg:#FAF9F4;--card:#ffffff;--ink:#16291d;--mut:#5d6b60;--line:#E7E2D3;--hl:rgba(198,149,43,.14);--pri:#0F4C29;--ok:#16a34a;--ok-bg:rgba(22,163,74,.11);--bad:#dc2626;--bad-bg:rgba(220,38,38,.1);--wa:#25D366;--shadow:0 10px 28px rgba(15,76,41,.08);--bk-size:16.5px}
+:root[data-theme="dark"]{--bg:#071A10;--card:#0E291B;--ink:#F5F3EC;--mut:#b4c2b6;--line:rgba(232,197,104,.22);--hl:rgba(232,197,104,.16);--pri:#E8C568;--ok-bg:rgba(22,163,74,.2);--bad-bg:rgba(220,38,38,.2);--shadow:0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;transition:background .25s,color .25s}
+.en{font-family:'Plus Jakarta Sans','Cairo',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.wrap{width:min(1320px,95%);margin-inline:auto}
+.hidden{display:none!important}
+
+/* Print Blocker */
+.bk-print-blocker{display:none}
+@media print{
+  body *{display:none!important;visibility:hidden!important}
+  .bk-print-blocker{
+    display:flex!important;visibility:visible!important;position:fixed;inset:0;
+    align-items:center;justify-content:center;text-align:center;
+    font-size:22px;font-weight:800;color:#0F4C29;padding:40px;background:#fff;
+  }
+}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#09321A,#12562F);color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.bar{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.logo{width:44px;height:44px;border-radius:50%;background:#FAF9F4;border:1.5px solid var(--gold);overflow:hidden;flex:none;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.ttl{flex:1;min-width:0;font-weight:800;font-size:clamp(.86rem,2.2vw,1.06rem);line-height:1.35}
+.ttl small{display:block;font-weight:600;color:var(--gold-light);font-size:.78em}
+.hb{border:1.5px solid rgba(232,197,104,.55);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-weight:700;font-size:.86rem;padding:7px 13px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hb:hover{background:rgba(232,197,104,.22)}
+.tg{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:1.05rem}
+
+/* Auth Gate */
+.gate-wrap{min-height:calc(100vh - 130px);display:grid;place-items:center;padding:34px 0}
+.gate-card{width:min(510px,100%);background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:30px clamp(18px,4vw,34px);box-shadow:var(--shadow);text-align:center}
+.gate-logo{width:86px;height:86px;margin:0 auto 14px;border-radius:50%;border:2px solid var(--gold);background:#FAF9F4;overflow:hidden;box-shadow:0 0 0 5px var(--hl)}
+.gate-logo img{width:100%;height:100%;object-fit:cover}
+.gate-badge{display:inline-block;background:var(--hl);color:var(--pri);border:1px solid var(--gold);padding:4px 14px;border-radius:999px;font-weight:800;font-size:.84rem;margin-bottom:10px}
+.gate-card h2{color:var(--pri);font-size:1.38rem;font-weight:900;margin-bottom:6px;line-height:1.45}
+.gate-card p.desc{color:var(--mut);font-size:.93rem;margin-bottom:20px}
+.fg{text-align:right;margin-bottom:14px}
+.fg label{display:block;font-weight:800;font-size:.92rem;color:var(--pri);margin-bottom:5px}
+.inp{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;transition:.2s}
+.inp:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--hl)}
+.inp.ltr{direction:ltr;text-align:left}
+.msg-box{border-radius:12px;padding:11px 14px;font-size:.92rem;font-weight:700;margin:12px 0;text-align:right;line-height:1.65}
+.msg-box.err{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(220,38,38,.35)}
+.msg-box.ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:800;font-size:.95rem;padding:11px 18px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.18s;line-height:1.4}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-gold{background:var(--gold-grad);color:#261900;border-color:var(--gold)}
+.btn-wa{background:var(--wa);color:#04210f}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn-full{width:100%}
+
+/* Reader Layout & Security */
+#bookView{padding:18px 0 42px}
+#bookView, #bookView .bk-reader-box, #bookView .bk-card{
+  -webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important;
+}
+#bookView .bk-search-input{-webkit-user-select:text!important;user-select:text!important}
+
+.user-strip{
+  background:linear-gradient(135deg,#09321A,#17693B);color:#fff;
+  border:1.5px solid var(--gold);border-radius:16px;padding:12px 18px;margin-bottom:16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.user-strip .u-title{font-weight:900;font-size:1rem;color:var(--gold-light)}
+.user-strip .u-meta{font-size:.84rem;color:#dcebe2}
+.user-chip{font-size:.83rem;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.45);padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.user-chip button{background:none;border:none;color:var(--gold-light);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline}
+
+.bk-shell{
+  display:grid;
+  grid-template-columns:310px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+  position:relative;
+}
+.bk-shell.bk-fullscreen{
+  position:fixed;inset:0;z-index:200;background:var(--bg);
+  padding:0;gap:0;grid-template-columns:320px minmax(0,1fr);
+  height:100vh;overflow:hidden;
+}
+
+/* Full-height Sidebar Index */
+.bk-sidebar{
+  position:sticky;
+  top:76px;
+  height:calc(100vh - 92px);
+  background:linear-gradient(180deg,#0D3B20 0%,#082514 100%);
+  color:#fff;
+  border:2px solid var(--gold);
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.bk-shell.bk-fullscreen .bk-sidebar{
+  position:static;height:100vh;border-radius:0;border:none;border-left:3px solid var(--gold);
+}
+.bk-sb-head{padding:14px 14px 11px;background:rgba(0,0,0,.18);border-bottom:1px solid rgba(232,197,104,.25)}
+.bk-sb-title{font-size:.96rem;font-weight:900;color:var(--gold-light);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bk-sb-sub{font-size:.77rem;color:#cfe2d6;margin-top:2px}
+.bk-sb-close{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.4);color:#fff;border-radius:8px;padding:2px 9px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.bk-prog-wrap{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:.77rem;color:#d8ebdf;font-weight:700}
+.bk-prog-bar{flex:1;height:7px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden}
+.bk-prog-fill{height:100%;width:0%;background:var(--gold-grad);transition:width .3s ease}
+
+.bk-search-box{padding:10px 12px;border-bottom:1px solid rgba(232,197,104,.18)}
+.bk-search-input{width:100%;padding:8px 11px;border-radius:10px;border:1px solid rgba(232,197,104,.35);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-size:.84rem;outline:none}
+.bk-search-input::placeholder{color:#b9d0c2}
+.bk-search-res{margin-top:7px;max-height:190px;overflow-y:auto;display:none;background:#071F11;border:1px solid rgba(232,197,104,.35);border-radius:10px}
+.bk-sr-item{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;font-size:.79rem}
+.bk-sr-item:hover{background:rgba(198,149,43,.22)}
+.bk-sr-t{font-weight:800;color:var(--gold-light)}
+.bk-sr-s{color:#cfe1d6;font-size:.74rem;margin-top:2px;line-height:1.45}
+
+.bk-toc{flex:1;overflow-y:auto;padding:8px 9px 18px}
+.bk-toc::-webkit-scrollbar{width:6px}
+.bk-toc::-webkit-scrollbar-thumb{background:rgba(232,197,104,.38);border-radius:99px}
+.bk-toc-btn{
+  display:flex;align-items:center;gap:9px;width:100%;text-align:right;
+  background:transparent;border:1px solid transparent;border-radius:11px;
+  padding:8px 9px;margin-bottom:5px;color:#e8f2ec;font:inherit;cursor:pointer;
+  transition:background .16s,border-color .16s;
+}
+.bk-toc-btn:hover{background:rgba(255,255,255,.09)}
+.bk-toc-btn.active{background:linear-gradient(90deg,rgba(198,149,43,.32),rgba(198,149,43,.14));border-color:var(--gold);color:#fff}
+.bk-toc-num{
+  min-width:38px;height:26px;border-radius:7px;background:rgba(255,255,255,.12);
+  color:var(--gold-light);font-size:.75rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;padding:0 5px;flex-shrink:0;
+}
+.bk-toc-btn.active .bk-toc-num{background:var(--gold);color:#09321A}
+.bk-toc-txt{flex:1;min-width:0}
+.bk-toc-main{font-size:.84rem;font-weight:800;line-height:1.3;display:block}
+.bk-toc-sub{font-size:.72rem;color:#b8d0c2;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk-toc-chk{color:#6ee7b7;font-size:.95rem;font-weight:900;display:none;flex-shrink:0}
+.bk-toc-btn.done .bk-toc-chk{display:inline}
+
+/* Main Reading Area */
+.bk-main{min-width:0;display:flex;flex-direction:column;position:relative}
+.bk-shell.bk-fullscreen .bk-main{height:100vh;overflow-y:auto;padding:0 20px 30px}
+.bk-toolbar{
+  position:sticky;top:68px;z-index:20;
+  background:var(--card);border:1.5px solid var(--gold);border-radius:14px;
+  padding:9px 14px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  box-shadow:var(--shadow);
+}
+.bk-shell.bk-fullscreen .bk-toolbar{top:0;border-radius:0 0 14px 14px;border-top:none}
+.bk-tb-right{display:flex;align-items:center;gap:8px;min-width:0;flex:1}
+.bk-menu-btn{display:none;background:var(--primary);color:var(--gold-light);border:1.5px solid var(--gold);border-radius:9px;padding:5px 11px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer;flex-shrink:0}
+.bk-cur-title{font-size:.88rem;font-weight:800;color:var(--pri);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk-tb-tools{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.bk-tbtn{background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:9px;padding:4px 10px;font:inherit;font-size:.8rem;font-weight:800;cursor:pointer}
+.bk-tbtn:hover{border-color:var(--gold);background:var(--hl)}
+
+.bk-reader-box{
+  position:relative;overflow:hidden;border-radius:18px;
+  border:1.5px solid var(--gold);background:var(--card);
+  box-shadow:var(--shadow);transition:filter .2s ease;
+}
+.bk-reader-box.bk-blur{filter:blur(12px)!important;pointer-events:none}
+#bkWatermark{position:absolute;inset:0;pointer-events:none!important;z-index:12;opacity:.13;background-repeat:repeat}
+:root[data-theme="dark"] #bkWatermark{opacity:.17}
+.bk-card{position:relative;z-index:5;padding:26px clamp(16px,3vw,32px);font-size:var(--bk-size);line-height:1.9}
+
+/* Book Content Typography */
+.chap-banner{background:linear-gradient(135deg,#0F4C29 0%,#165E35 100%);border-top:2px solid var(--gold);border-bottom:4px solid var(--gold);border-radius:14px;padding:18px 20px;margin-bottom:20px;color:#fff}
+.chap-kicker{font-size:.82rem;font-weight:800;color:var(--gold-light);margin-bottom:4px}
+.chap-title{font-size:1.38em;font-weight:900;margin:0 0 6px;line-height:1.45;color:#fff}
+.chap-sub{font-size:.85em;color:#d8ebdf;line-height:1.55}
+.sec-h2{font-size:1.15em;font-weight:800;color:var(--pri);border-bottom:2px solid var(--gold-light);padding-bottom:5px;margin:22px 0 12px}
+.h2-dot{color:var(--gold);margin-left:6px}
+.sec-h3{font-size:1.03em;font-weight:800;color:var(--gold);margin:16px 0 8px}
+:root[data-theme="dark"] .sec-h3{color:var(--gold-light)}
+.h3-dot{color:var(--primary-light);margin-left:5px}
+.body-p{margin:0 0 12px;text-align:justify}
+.em-bold{color:var(--pri);font-weight:800}
+.hl-ar{color:var(--primary-light);font-weight:800}
+:root[data-theme="dark"] .hl-ar{color:#7de0a8}
+.hl-en{color:#8F6B10;font-weight:700;font-family:'Plus Jakarta Sans',Tahoma,sans-serif;font-size:.92em}
+:root[data-theme="dark"] .hl-en{color:var(--gold-light)}
+.ar-ul,.ar-ol{margin:6px 0 14px;padding-right:22px}
+.ar-ul{list-style:none;padding-right:14px}
+.ar-ul li{margin-bottom:9px;position:relative;padding-right:16px}
+.ar-ul li::before{content:"▸";color:var(--gold);font-weight:900;position:absolute;right:0}
+.ar-ol li{margin-bottom:10px}
+.ar-ol li::marker{color:var(--pri);font-weight:800}
+
+.callout{padding:14px 17px;margin:15px 0 18px;border-radius:12px;border:1px solid var(--line);border-right:5px solid var(--primary)}
+.callout-gold{background:rgba(198,149,43,.09);border-color:rgba(198,149,43,.45);border-right-color:var(--gold)}
+.callout-gold .co-title{color:#8F6B10}
+:root[data-theme="dark"] .callout-gold .co-title{color:var(--gold-light)}
+.callout-emerald{background:rgba(15,76,41,.07);border-color:rgba(15,76,41,.28);border-right-color:var(--primary)}
+:root[data-theme="dark"] .callout-emerald{background:rgba(22,163,74,.14);border-color:rgba(110,231,183,.3);border-right-color:#4ade80}
+.callout-emerald .co-title{color:var(--pri)}
+.callout-alert{background:var(--bad-bg);border-color:rgba(220,38,38,.32);border-right-color:var(--bad)}
+.callout-alert .co-title{color:var(--bad)}
+.co-title{font-size:1.01em;font-weight:800;margin-bottom:7px}
+.co-line{margin:0 0 7px;font-size:.94em;line-height:1.74}
+.co-line:last-child{margin-bottom:0}
+
+.tbl-wrap{width:100%;overflow-x:auto;margin:10px 0 18px;border-radius:11px;border:1px solid var(--line)}
+.data-tbl{width:100%;border-collapse:collapse;font-size:.9em;line-height:1.68}
+.data-tbl th{color:#fff;font-weight:800;padding:10px 12px;border:1px solid rgba(255,255,255,.14)}
+.th-emerald{background:var(--primary)}
+.th-dark{background:var(--primary-dark)}
+.data-tbl td{padding:9px 12px;border:1px solid var(--line);vertical-align:middle}
+.data-tbl tbody tr:nth-child(odd) td{background:var(--card)}
+.data-tbl tbody tr:nth-child(even) td{background:var(--bg)}
+.td-first{font-weight:800;color:var(--pri)}
+.td-center{text-align:center}
+.td-right{text-align:right}
+
+.bk-actions{margin-top:24px;padding-top:16px;border-top:2px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.bk-nav-btn{padding:9px 16px;border-radius:11px;border:1.5px solid var(--primary);background:var(--bg);color:var(--pri);font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
+.bk-nav-btn:hover:not(:disabled){background:var(--hl);border-color:var(--gold)}
+.bk-nav-btn:disabled{opacity:.4;cursor:not-allowed}
+.bk-done-btn{padding:10px 18px;border-radius:11px;border:none;border-bottom:2.5px solid var(--gold);background:var(--primary);color:var(--gold-light);font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
+.bk-done-btn.is-done{background:var(--ok);color:#fff;border-bottom-color:#0f5132}
+.bk-quiz-link{
+  margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:var(--hl);border:1.5px solid var(--gold);border-radius:13px;padding:12px 16px;
+}
+.bk-quiz-link span{font-weight:800;font-size:.9rem;color:var(--pri)}
+
+.bk-loader{text-align:center;padding:56px 16px;color:var(--pri);font-weight:800}
+.bk-spin{width:38px;height:38px;border:4px solid var(--line);border-top-color:var(--gold);border-radius:50%;margin:0 auto 12px;animation:bkSpin .8s linear infinite}
+@keyframes bkSpin{to{transform:rotate(360deg)}}
+
+.bk-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:210}
+.bk-backdrop.open{display:block}
+.bk-sec-badge{margin-top:12px;text-align:center;font-size:.8rem;color:var(--mut);font-weight:700}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#09321A;color:#fff;border:1.5px solid var(--gold-light);padding:11px 20px;border-radius:999px;font-weight:800;font-size:.9rem;box-shadow:0 10px 26px rgba(0,0,0,.35);z-index:250;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+footer{text-align:center;padding:22px 0 32px;color:var(--mut);font-size:.86rem;border-top:1px solid var(--line)}
+
+@media(max-width:920px){
+  .bk-shell,.bk-shell.bk-fullscreen{grid-template-columns:1fr}
+  .bk-sidebar{
+    position:fixed!important;top:0!important;right:0;height:100vh!important;
+    width:min(305px,86vw);border-radius:0!important;z-index:220;
+    transform:translateX(105%);transition:transform .25s ease;
+  }
+  .bk-sidebar.open{transform:translateX(0)}
+  .bk-sb-close{display:inline-block}
+  .bk-menu-btn{display:inline-flex;align-items:center;gap:5px}
+  .hb.back span{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bk-print-blocker">⚠️ هذا الكتاب الرقمي محمي بحقوق الملكية الفكرية لأكاديمية الساجد — يُمنع الطباعة أو النسخ أو التوزيع.<br>للتواصل الرسمي: 01091102946 | alsajidacademy.com</div>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+    <div class="ttl">الكتاب التفاعلي المحمي | المعلم الرقمي المحترف<small>أكاديمية الساجد — Al-Sajid Academy</small></div>
+    <button class="hb tg" id="themeBtn" type="button" aria-label="تبديل المظهر">🌙</button>
+    <a class="hb back" href="digital-teacher.html">← <span>صفحة الدورة</span></a>
+  </div>
+</header>
+
+<!-- AUTH GATE (SHARES EXACT SESSION WITH dt-lec1..6) -->
+<section id="gateView" class="gate-wrap">
+  <div class="wrap" style="display:grid;place-items:center">
+    <div class="gate-card">
+      <div class="gate-logo"><img data-logo="1" alt="شعار أكاديمية الساجد"></div>
+      <div class="gate-badge">🔒 الكتاب المحمي للمشتركين — نفس كود الدورة</div>
+      <h2>الدليل المنهجي ومفاتيح التطبيق<br>لدورة «المعلم الرقمي المحترف»</h2>
+      <p class="desc">الكتاب التفاعلي المصاحب للمحاضرات الست + خريطة الـ 12 مفتاحًا الذهبية. أدخل بريدك وكود الدورة الموحّد مرة واحدة ليفتح لك الكتاب وجميع اختبارات المحاضرات تلقائيًا.</p>
+      <form id="authForm">
+        <div class="fg">
+          <label for="aEmail">البريد الإلكتروني المسجّل</label>
+          <input id="aEmail" class="inp ltr" type="email" required placeholder="example@gmail.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="aCode">كود التفعيل الموحّد</label>
+          <input id="aCode" class="inp ltr" type="text" required placeholder="SAJID-XXXX" autocomplete="off" style="text-transform:uppercase;font-weight:800;letter-spacing:.5px">
+        </div>
+        <div id="authMsg" class="msg-box hidden"></div>
+        <button id="authBtn" class="btn btn-gold btn-full" type="submit">🔓 التحقق وفتح الكتاب المحمي</button>
+      </form>
+      <div style="margin-top:16px;display:grid;gap:9px">
+        <a class="btn btn-wa btn-full" href="https://wa.me/201091102946?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%A3%D9%88%20%D8%AA%D9%81%D8%B9%D9%8A%D9%84%20%D8%AF%D9%88%D8%B1%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%20%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D8%B1%D9%81%20%D8%B9%D9%84%D9%89%20%D9%83%D9%88%D8%AF%D9%8A" target="_blank" rel="noopener noreferrer">💬 طلب كود التفعيل أو الاشتراك عبر واتساب</a>
+        <a class="btn btn-out btn-full" href="digital-teacher.html">📚 العودة لصفحة الدورة والاختبارات</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTECTED BOOK VIEW -->
+<main id="bookView" class="hidden">
+  <div class="wrap">
+    <div class="user-strip">
+      <div>
+        <div class="u-title">📖 المعلم الرقمي المحترف — الدليل المنهجي ومفاتيح التطبيق</div>
+        <div class="u-meta">نسخة تفاعلية محمية ومصاحبة للمحاضرات الست المسجّلة • إعداد المدرب ياسر عبد الستار</div>
+      </div>
+      <span class="user-chip"><span id="userLabel">مشترك مفعّل</span> · <button type="button" id="logoutBtn">تبديل الحساب</button></span>
+    </div>
+
+    <div class="bk-backdrop" id="bkBackdrop"></div>
+    <div class="bk-shell" id="bkShell">
+      <aside class="bk-sidebar" id="bkSidebar" aria-label="فهرس كتاب المعلم الرقمي المحترف">
+        <div class="bk-sb-head">
+          <div class="bk-sb-title">
+            <span>📖 فهرس الكتاب المنهجي</span>
+            <button type="button" class="bk-sb-close" id="bkSbClose">✕</button>
+          </div>
+          <div class="bk-sb-sub">6 محاضرات تطبيقية + خريطة المفاتيح الـ 12</div>
+          <div class="bk-prog-wrap">
+            <div class="bk-prog-bar"><div class="bk-prog-fill" id="bkProgFill"></div></div>
+            <span id="bkProgText">0 / 6</span>
+          </div>
+        </div>
+        <div class="bk-search-box">
+          <input type="search" id="bkSearchInput" class="bk-search-input" placeholder="🔎 ابحث داخل الكتاب (مثل: الساندوتش)...">
+          <div class="bk-search-res" id="bkSearchRes"></div>
+        </div>
+        <nav class="bk-toc" id="bkToc"></nav>
+      </aside>
+
+      <div class="bk-main" id="bkMain">
+        <div class="bk-toolbar">
+          <div class="bk-tb-right">
+            <button type="button" class="bk-menu-btn" id="bkMenuBtn">☰ الفهرس (1–6)</button>
+            <div class="bk-cur-title" id="bkCurTitle">المعلم الرقمي المحترف — الدليل المنهجي ومفاتيح التطبيق</div>
+          </div>
+          <div class="bk-tb-tools">
+            <button type="button" class="bk-tbtn" id="bkFontDown" title="تصغير الخط">أ-</button>
+            <button type="button" class="bk-tbtn" id="bkFontUp" title="تكبير الخط">أ+</button>
+            <button type="button" class="bk-tbtn" id="bkFsBtn" title="وضع القراءة ملء الشاشة">⛶ ملء الشاشة</button>
+          </div>
+        </div>
+
+        <div class="bk-reader-box" id="bkReaderBox">
+          <div id="bkWatermark" aria-hidden="true"></div>
+          <article class="bk-card" id="bkCard">
+            <div class="bk-loader">
+              <div class="bk-spin"></div>
+              <div>جارٍ تجهيز الكتاب المحمي بأمان...</div>
+            </div>
+          </article>
+        </div>
+        <div class="bk-sec-badge">🔒 نسخة تفاعلية محمية ومرتبطة بكودك الشخصي — القراءة داخل الموقع فقط دون تحميل أو نسخ</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="wrap">© أكاديمية الساجد — <span class="en">Al-Sajid Academy</span> · المعلم الرقمي المحترف · إشراف المدرب ياسر عبد الستار</div>
+</footer>
+
+<script>
+const LOGO = "data:image/webp;base64,UklGRtwiAABXRUJQVlA4INAiAABwbwCdASrIAMgAPlEijUSjoiEV6U50OAUEswBoRxNvLze/Y+bbyD2we98lnW31d5lfO//e9b3+x9SH6o9gD+uf4XpL+YD9qP2394f/N/tD7l/8H/vvYF/o3+O6x/94vYe/nn/J9OD93fhF/sf/g/eH2xP//7AH//9QD//9W/2b/svaz/if7R5F/jf0P94/LTl3RGvjf3I/Xf3n9zPZ7vr+Qv+N6gv41/K/8r+Y3+C4osAP6X/Vf95/j/I2/vfRP7C+wD+qP+38rv/S+Pp+H/3PsB/zj+6f83/L/4j9mPkS/7P9P+a3t9+mf/P/nPgM/m/9m/6v+B9sD/5+5H9uv/v7rX7Bf/hMzckU1dsZ6K+elnw/7O5JG+VHWclQsFOqh8/vtItRhtGTM2UKHvJSweU67+Gb8P+Ky/2P2Mhh+/VvNg3fNzVB64xlyWNnIs7MsJznIqmoxvwKfl9+HeVrYbXY4rGJ8cO791fJldEc0Oa67bANd3rLKDz4pY2RCC2JHbAqCzy5xCerl4Nq3WobVsJexImnoeFS41B4NisCKwQVk0efqALu7GEn4WKs4dRNsb4iLlwKJP0MTqB90Zgs0fS1j684D9UpnCZcCTvFBqQzSJWVgBS3o30c19r2hurWiS99qobTWIyxLFBMUbntP9FOSX9yF665yMBzVe+vO1rEDYYpJnAhpshfg0yrOrlB5blnVOhdAOvqFaI8GM081yEJWxzyV/7sqz1eVvXQvyFIwTAYIw8KfDm9ys5VWT+F5PeKI+vE3UE4rJbbGvTsZr5WkAhLHbYRYKgsZUZ4p3E4tOSFbaZrSIn2cmLd1gcUSDY/mwJBykqp/LtnEHzhI/M/57hAQJI5Y4JMmUMsBgG2eA5dQJm9vlAKAxXa8ahvbB4XCBdYDm85pQoCV0ZHX3WLh8E2eyMWWZyu0eT1LzXRswi/LM3toASiBI5142D24Yog4209IADGvw5xzWGTFPTYw0qXJOdEqJ9emksgy0Lt/YH6GUtONLdTetHxYSHvvnTMFBHUb3ySXFmkFGh613DaWDYuoDKLdWSKpdLtDfx0Nkz5QgUPtc0ZUBAVupig+ED1DYECHhcH2uzUzrd6cORzvyA6hOY6/9JggtOn1IiwFIxNtiTxHEz9Iu55fSSgF+DeJ92S4Tf+3Sr++zktxADzS+tFPYZ8BcTgNbvwf/6ns8duC1gA/v2x5eOTDWv1lzQqFZfICqwyNECWDoA+0DdFhmU7VLo886WEOYada/hRjVMabou2V7qCPscGF65EAC33q8ZPACvK9vGrs8xgPJ19UTQiewDjf+Il6bppI2FXBFQd8RZcUKMFFfWHcfiDAXaQaQh0nrNwFQZqQVh56R/NAdxWSivFL/upYgH/7Sae7W0F1B3ewgmwqs0eHSbpv3pJEMGoqOvO1mCGacl/HUaAuBdeQwP9JowBlzDLBtWUfTSfcCKazK4kuyGcSfUjs6on5cSMvY66f9zDYBRTfthtlebby9eHO4eJJjhAONj2c+lVlKcOunlCtBMvDzNlCOmj2MKL9FeXQC2W/RWj4+LOUad8iOAjzHt11PnDLMiP/S5+ebGaNMzkDIpQYmjbnMpGjEp558BSdibAB+kxQKCxI6dsWA+TD2U8jLjGBpwjVn7LwPV9K5K3sUhrFoq6J1KHWblhyyMyzpjchiOd0Qv2B5R/7MDIe6TRJeJlfb4aOcCtOd4zRAafNbEkmdTkRYuq8J7tqVMwNihJG8wGSqzyoxDgQMHETbU6SETJczYvdRLgFfJJqOVQldwEnjktMWgCZPZ1A1v1bysVeEmgy4L2p8BfAh00FO1VpyB2xr7BTd3usXVvuC4P9Tvwkf8poEtg/AHuB8lw3pUDET1z/yeSWVB3Fn36Fuo2Q4/vFYJo4c4pXyRpuINs/jT4GnibxYmH5yRcqrc0Iz8IQyx39RVp60o+u/Mrb5eTMGKHG7Yfa4nNBKfxDym6I0SQ6IzIAwV2e9it+78NauSJ5GR7/5QkkPC80c2aRFkorHmagqfr4ZSttbbYPmH41HDDwgE3GgHfO3XFvw/14saEbB8cmGxaVso1KkQvIlCumt31y/uwHuqrsrb1Mxgmq7Pr7LW1b29cQIlR4C/xLyH0hxqkHkonPZY3IK8RIOlBc7LsrEP4jXrTN1GVUgwQj6OZv90SHKPkkTOSrVwPi4hD8zcnN/rDfNpTaVTZU7TYhJJ5oFguEY+rayHtZAHJjRQDjTCTxSGsFGc6bO3r2QUEFudH3iAD3svrNs5CvxL7f9GexmsOqvAPTVc36Qf4bAOb4dCAPyqMpXUxx1Sp8wHJXRxtmUmfNCWahbOzK1uXonoGKo50AFnu81GO0ZO+SBfzdIC0oJ0SuprXv3SKuLnM3agIcVeABp/VkWmoNOmQ4xRQm2Pr1uJWiSN2ziCSUb09OY39gBpjv8xlyuRBjNhm+fWcu+YAzU5w/9bHwePFbb7gqJlGg83pXC+Pm2y5+wYPF8U3ar7T93D3lIFxfHGhe8pOEmdP3//Epv7Tb06E4qb9kWnG863kERDB45GCOM6b26d3Fh7sZp6ffNuLzraTqmo6qiibNQhXDAyZvAHmkQgU1+CRYvhdIDQQ1zQQABTF9AXtfri1DSPMj3tfTXJ2cvlp0bYXm34P1pMI/qbbNa7TI9zWrd+Pf9EkOmdEoQQdD1aH3OFyx+J9hx2fwT3/eqm9gOAJp4P9SEwnUjLFrHON7ov711HkCMgU052D2aQ0J3dGvPGJTUjkoe7jC+Uw6Do3e5y1zAhhRUr+kCgOG1Lyos3s0lclUSwpJptegXv0e8kFMnjLqZ1fsI4nAMGG7PL14txc28TBWdjJ+vZ7tjjGJG1mk+gOZRAQb6sc9xdZAmSeADN0NSKsgGJnWVLJ0Zkvo3QyTzhYwWtsXS8W41xpyF8uM0ZEo1yrKKzMNTO7eBPY74NJBQM6o6HL29TXVLXHfKeOT6jEotUgoCTXvwujCcejaNX2hvMFtI8HMvsITx2PFnBCmpre9lEoYptU39zHeiY81LD1n8A94bcjw7rZLEUGsCfr+uoRPFVOIg4FRW20W1OoVbWOyrarWbg5d4eRuGaxUbQODBRlLpNJNFI9ea65958LuRKxWpGBApQ4LUoGo+ts8O59gjlNNfEnHy+iN0OaaJH5pQPT1CeWkVyt+RLtDjW3n7ug8Nf38EuaBdqI/KsCDwbMiMbWSt2qCRjQJkuKS4/G9AcHLCpYVk+ku7+7lU+y9V8n2Q/0B3nPjFH9Y+9MxOiBAQLL8LCxZEuH5wFNhOB1L3Krsv6PNPkezbG85ruCMuHBmIp/zRVCEYCx8GASr4oVS2L8Cc7ej4b+hkeV+QlKzHfHUXSKzofnPEnTSnDWakxFLu7EAj76WV4+nLXinqBmkwgtJl4ZB19oq4ZbXzFbQT6CGHv7i4KlDjb7KscUzPg2ldsLtPFRraYVqzSeN8v7Dga6DMr10BoI0vUi5Y9vOge2PFJM16siO2up2du8+Ox7RhtxYsb2/5XKWY0WDCjBP9KrIOI6m4EWgBGpDt4WZ608ffihIL5I4gF42hnjSFZuESITpbpBaoMsvqhnpmKFY5hhj0LlayCDjS8hJuYcC/t3OlAPf6x81YICF8ax0fwoWbTZD89K1vg0II5r9nGecBX+SvhSHjR0aXnqnwruX/G0ZrxMF1RDcDwaJXin/qP1sOFE64Av5S0J/H8qAPqv3TRqJN5B6y0+VRvVP8+ku3xFwiYk7+9uGBfCvSSKRhv6r4ntZrR63rh8g+4/Qf6/DRCiKsGKJKhHdNbUgimhJBIQDFR2wnZhrtd4Lox05tm6nHYuCoOlpJK0PCpAVwYFjVGng/E4UCbRzx3fd6PTTRLCB4cN2XRCeTYQU1UfyD9vksjRvfB5+YoFW0RJtfF6+zLt8cRwvv72UAQVSC54ntK6Q2r8tyhIlTauMa8Vwx1kP7s6yHJRMudqVJT/X6IP/lQ10lLi5/fuf4HBQuIXGHv4f0kvub1WVpZjgdMNCsEsyddJOUrb7hHKG/JwNtN886wGqQ2+PvobdSjdv8MtBvie3m4aWhHWXcyx0zq2kVn1NU+NPM4mc/j3cgLIBMPkQRua4S0Fw5mz/lyNJp/zuownNjpibrkAF3af9IWaxnSaTPifqgNTuN9yBZJSduxC3sNulgUdoYE91DRUWnZ13xQcWMRUmgGso4ZoUA8Str2izDpXn99CgQRoEu75Se2L4MvSa7dV3uR51U6p3n/HWQEUsr1VdpzP72Nx9riulqrhE/A7SAKo6uKk7Or3D4/1KgoUSDwpy85cniZvIhjOAvUt28wukPb9CBNNYx3JSJDAjv0cVYh8rXkCLCDB5uawXfetoHJHDzsjB0g3aLHSV4VyHJkw7RjqcuH97F0Jqx2+OPmBb6EXktnUufR6kqFwbvGvc/VP9bs4nXyzUxYHsH7EtWXnP+OvKF7z/Gn3PMXb6UPmUdx836p8TpyVXMIo4lZOD4WxnHCE4qG6NNfrc8j+F1Q8JLBevQTKjibIiHtps5/tH8LBDUmsu9wF/m6URap0SQpyYubhma9sbfNFb3nsP4bkGWcuW/v8oC4GnVv7IS56v30tyoLczNGleAHd8jubFnAEY6IOLsIlgewTMdDR6FvT/YL56uFOidpU4c7ffX05olcB89biZU4PxIacAT1ve+qgkCqhmYUx8SXp6gdnpJPvdQADg2ywX49bWdal5P1b4udCLlvLzxJbBGnIUEaptvjLhTA5/z220ANBGHarMiBqUdDXhJO1ws+LGRuYDpi4nE2pN1SbJaz+FtqAi/OZF78yvBp2vWOL0bjw891CJQ7MM6mACDmYe1jKM5n9E51SFFBKxXHp5Qer+f4C25Gf3kXJv9HzMDNubRckWReIyTCG/OeVxM0ZrdnBiRlDYjW0XkMZS3WlXbxbbqNEnnVO0pIyuG+LT4kOc9y/7FSYGrQ1PQGuZsBHo0ic91ha0Br3u2FObTggfXr6I3y5QhN3OEUrN15vkPWv2kRuGD+Uk2e8sxZETxHNn9ivjd4aqm3soXldkV2V2ney3IOruKf7svhi0on0TPZL6GcxBxXL3hdCnnMfNiiLhfwv3fnDdP+wKIl6p2JiUjhBzfLAjOiBJkLUh1894LAUNIvtGiAc+/tsl7uqP+nwL1I6C9B40m5TCVnVaNiWkEpi3p1+JbwCXYtZGsYLFmHzSJJoIFMVwsg83NcccgdtbnNK/ZaEj4sw6vmmtfg/9dZyRFpGgF4DgTHUiY5Uq3uK42M3N4WXRbB6+bho/FRsNnLn3ELZb0dIN9Xub3CVzyDTVyHtSVctsJisV1ii+DqETsP0HFi4NX+f1m6vTtLkS/BAX2JAsQ0fZtz+gdBZ7+5XheFZDm6etTjjWe8jOpHNiFj1rNS5rVCg2Db6tT2eyr8gmgXb9yHUne3hH+ckWgS2pIb0X1L1SXRMP7h6iJwiDYOduuehVLc2Hu6tXjjyzO1EyyPB+OSDyZyooGOTO7iwUiToAQoKnrzl6JjOSjnfDlxZyhpif8aG7nVokGI2ONiolEgrMgQ2mUuy9ZbvFE0wsNOh26kfvJtW+sQqHLQ96O6zWTYcBdddSImQYIQOwtBiLxJuncik8K0ZTT23Qld9tf7EAj65rgvVJ3h5fa7sd1zSefsmdZFmxRuLVEtS8xljshYoXEMUwq5g0DZCTDKUCzuUwCQ5bKLVovYQhfKXm2Y8aKKMIpUNllyREQc7XMU2/4bmfeV+nqkNsqTARewTGHO7nPIPMCnlKA/F5ukvDOxMnUnyYqZ7uRH/Bl4dQNu2J8OIBmnmgGcgZtGHTZh5bzP8x2g0bWaCTuCWziK5KZpkg2NNMJVfFdl6fcfjcyk8+vCX+z+RFhy99vJ5wRsrq9/hcmYN1WtylBdByeKA6D+vlANhuL/BYezJ7T3Vuqvb1+BRZ5bQeVuLisYcPtJ37fmh3n+No/rZoSMYR1CNpZCleRHj4S474fSKnuZ2HSBupiUXkCgLYNhzJ6/gGvksQqYvLhOAY9ubmjXA47ZYGu9ty9td1edCpAx9+ueKYqJAGFUAAjlnLFfGN54Y8xfGKk7QPuTUs/ldnQtJHfxr+PDOZ9s77tunS7Maz/NSSKRiyugg6aJ1UuM7ysuaXjxUTROYLUavqKOHpmgmTl3B2TxDVyQ2ExN+gYQJOiJnNUeL2upauxanygNlofUgAgnbQrELFPL3MIorO7XFPlysAngAQWQn3kXuCqnk+O+am596W5TDhm02Ujl6DsEek6nIwVfYjLtCWdl1fbLKzkdAB9OLt/6jZWknYuV/d4qWelbv8E0BZjwQNk/dGzxu62K6RTunP0FcvDUfYxbfrIJXxxzUKpmq7KSM7zhMryG3IRM54zG2jZnCANx6JBtUnhbPuKeB3L/IkCyQSmSBS6kn0eq6adZKyozh7UYcn1gCNprz9ndlksLSnPtsguwp56jghreljQdrUHO6hCeYRc2QUDg+XlFe774/1YM2F21lkpq43kLWlYZD07qqe5f5rOQxQtAeBK42XreGxEZ2uxrB/OX0DFZZ5aIZZZGAqlgkc3r7afqVWgG0/vVklOVaBGWjkhawk9rrjit6O0nxgH1JbqOwuJ2EMC7QthS38sLjpEetuc5P4CP3QoHbyLfiu/9RzWLOQVBGILNCrbP443jAIY6EOMX6Hg4PF6ejNdJPNyVUOGaBhY8K+F3vck3OhEU5zBilCVxHCGpPDLyFjFhCpZ+mAM3SqmNcN6U8qNHAhlpII6JYG+3B8Q1L54AAXS2hW1Clsptf//GZw4giAIgGcSTIdbuPXKeDipelWOZTMAn8oLn0me1uQK13089BUWld0atlXWPFZBhaF7E5fpNtTfKvH/mLdBtEueJLobBY4JbckXKIW01t0Fd2vht+V8ab2/p9Neso33ZGM0V+7wS6yiR0Vy04hbcMkzp/nCRD5QMxSSl7aLmbdiR5q0rmT4Snk8jVUQuEDlo0z+LRS2Fpv7vqxBI7Ozu03TUX8jkbpNR/bs37+hBNF+obahOMz7J0tM2Oaf4WW0IGwyXX6G1PpcwKoyyIZjGj4AdAmxrUz1cNc9Ec3syqdYKv+MPGICJoiwUgRHT0dmu3Pj7AymY3ynS1DRYpkFc3dZfLVDG+/Ea+KJfdUkXXe00lFMD8p66IjTCbTLiwRN8x+ptb16ODe6Mb5esAwb2s3cnEr+0/XY6J81N83YnaHR1jAHFvUrfmJq/iORs6vzphWTdm6SntEP3PxCjuUVYpyf3FRKBOKWRTPnkyij13yfNAjC/xCQwDuAX+YaL1bS+uuik/JIAulte2XRyhfW1KSSUkJudJ0xqCVWu2S0AbcIJxTrUdDoY6u6a8wsqnw6qR4qVx82EBuxAfGhO//nJUcMULYek2TT82MM97CVCArrHP8po74TaZCmmSM8LCd/OvPbU9P3+6Bemq6EvpfetTU2OdFykxnmKsweC04C4GwDG9QqdXG0WqfTj4qdaSWepMiVxNpi7XtEgOBzY2aSeQHoPm2ZhuQjUHVXrJu4zSwfgIR2ON/tQvh/Rk481RbBY8K/W2QX9CpF6ZYz13zykZckosGbrjM2clfStuiYXuXEatdD3pfD6KLX6gAp25Z42AmvnHOIbdUi5Bzf3si2IcWvsn+bqy1x9dRXPU+zsbaBSHi5G7X8HLWj9mbz5xxBofELz/xwoLB9dTN+ms+jBLxFerncG30FxSgqEijaBfqHubLOJJSGYBaisLiGURqmASdF9/rWagb6qqhbkgofPRA/vWT1VuU+lTFQT2eGzKlAlY0IIkbSoHhKaZySsHCYC/QdoiixC6DGKdOgs01tbL/n8/HJ6ZcIj8bQ0K0b5OX8Ch8t/6vP6QRs0LpbGUKUIXz3tqacK6/VXa1tzwV+YQg8PrSOMb7kykxFB60tA+KvB/zHqtfdKUihM+JmdcwxQLCi5pXPZWF0LOiHaogkWSqFsgUpLOgCAP56mT+TmHbyv4IP/LzCYlZGtDduXQDDGvs0Wk2A5VrJkytBr2dOZkqmXjhp6ZlqHM6h7bRrBE37bZagcezDbyRcBiU2W4kb6fQ+Uunqfpe4CyCuua7DAqJpdo9hFfGeGo3AMggEJPGPduvInoeOXSS6Xj32SbT3y2SQ4FgR+KbxBkcK2dMk1Pw5enSuXMIVJEKJVlzkME+rWRWXAmpJ0Ne2UFXz6C7plqCxFeCo1yX3Qs9EpmqgG3BkshYneCUvQdJ5uyo64PCgzAnD4iReHfef/qRa4SZzAV4IyW+4ejJLDX8l260wN9wOwtEpKZScTlMka8SHLmeznhj7I6IFv5Cn77W37gklLifvONyPv9Yk9cIQMq6EH4A68A/uYE+PdVRXE29hxU+t00nWl0vKGIJffqWx5psYZDMGgeoUcphQCowmie5L+ZPliKDtRFyuqQQ2oqbIDimHjhclru/CfmixiydudP8RkNaSyErbWtukE9NVGm9e8B1NwcibTre2Q5+G8rjuIykhHtEbqxXtOIYQF5Numo8sQ1s/+jZa1EP5dMzvvMpoIA06EsZIyQiKpAn+92YD9vxy2Xx5VPMn/opZjpOl0nlbfUCF4PfMt+qz4A2pB6fQi/kO1Z8pHeVupSlg1gERJMJF5VzBW177fhnYBhycQY7PKarclMyQ/AYZGlYxGy+GpoTtY4zwbNVJ0v1BZ+R/4YT184WlWWm4p0IwtK9g8fxz5kINm9cr9ucmKAF39zNZnEFBtj6gH23+s9pnABdnxX1IAj8lpokpZcMkxIUoQoOdAIvEKfAdFrADPuyC4FUoq2LW8F1xrxh+733GIaPeMoVxgbKEAlqhO8RccuufLMAvGJqi5mc2+BvVWccRWXMSHfZzeIEIGO7yHqJSiQxh/NJDgDQ95nFbnkWNEsWauW3pAzWvPnd5NP7+NwdZjxdWeTSB75CS/Pv25lqleuxsDW6O5aTDrHUJ/+/QXXKuiAMqBhE0oT/AS8PJtpcAPb6l9ziekn7C9iLRLJdynhe7C/Ib0bQooijrWiabSV5ego3R6HmJBACAQPvG/ImOnQiY342qI+nnGwZB2BESe3ZPJ0ZZJ0hXT+m32ngyasMiizUtCdXe8sLPXmxPketZK3duUh+fxELtQYUmDNf9P2hDr9KAW4Lr31uDx2WTIRpZWYYcyEMtGaU1cE17SWqi+L1z0M6sH0QiIYLjOz35ushbM4Lazfg4rUM2iEiGJFOasP4xeKprzGeDhn8GxpXrrZDGCtd1zMaOO6ojjXoXAXbPGb3pxSsIyx3Q1TRwbMjn1iiDiEDWwwWq0DseSDTOTwbB64gUpqcTobMdxT5K0kS8NhJ87brmuUbxK+QTxIu/MIxjQ0ewB+3zbo4kTXPlu63Dzn/dvkrLMQzgzeUA457uCaqG1nrwlzqD8sQSJudEDgzW5oRN+aLWspV3VUvwP8zaP257exUXyQX5d+4IrxEEo/39JlrfYy+eDGIkosbGwhY401Kja4K//uxQRMvce0UEZYLPwS9xkj8wK2lfpCxCWVAJh9Ao8B3/t38gjivB9QJyu+vwDxH9qS8+wFnNakmdCS7NwqWOgIgTLzHnDQPFHQuHZzv2sORYDegMbmFQ6r/LttttmnAjxHxq+TcahJXLV3drRWZ2j+BFuj+A7e07kok6XM3QBGikCx4vTPfjB7SsxuP7k8ISHI/o3ZAhgBWQGrDPEzV7QaYMq9OMqRyeng6Bm8NOasO0v6aHoIIwIxPZtQeszD1k602hQXxiy+/MnkF4tML6/B3Ldqvp+R0kbFR3eBmJTLjC7NVNrlWD3J6YhEryOErLDjqZ3o72QgJDQC5LCOb0TKRHr9LQ/fhpUydAYat3FQWCiooQgSYad7hiVSQGAJ698uj+ckyGkmT/e2uO37WSQnC4SGoswhd3MJbSBq6mNZ3+bwSz6o9Zx6Y5ChMB+/FzxoT4zfNbmugYM8xx6HnxrYzTItUizwODygeoXhD+Qktmx4wCFK/DU0nB1gZXvGhyeLAYAUrG0eOTEy6FfZ3wlJ5DqeThfSqx4eqNxCCowEAhm9qvmUdRHx8o1d7Fzc75oQtZzrUwkTGfgyVEQGrbj5KgdmA3NDGBguEaVrVplsDImyBJkIkHdpcZOZvvWOsSTdMC2fcfG1AkjT+Hyv06Fc7GWFNoId+YXRFpQR6Jd312OuCC4ZPIWsYrfZrgkOe0acJW2MYdN7B10CI6FAtFgCuNS0pSlvwHcM7/I+Ofe8X1KW9+uwXBaDNsqyKLR4KJ6w3adWaZr4xfuY3cBLxJNI8dduS7k7WGtQWdQSY84XZzmaEmEfoxU39SE47V40DnEEE357SverWHM9h11y2re7ry43N3xAAVon/pNmPPEBwfbod8qRSdVAEfkExl+cPLR9zrEl6SfWUA66rlL8A48quEMHxR+Vba2zKylQ2UMxJrVUtaj76uyNb9WjJYU7HoJWaoWaHJGH85itCwMAnXRt1M8cvLBfuEpbZ9TdYbIAOTT5efgOBK6HdMtaOIdG0PBZrS/e9XHGqlys2q3frng0uMRC1aDsTixehyNdItJlc4Ir+obdEi3BP34FyOxKkv4ThumPYRh8XetPqZCv68UMrFBuE+WeJcdcQXdhhNAf+VZppJm2Ug0wTpw8OP5hlbCVmx7gXV+ZRywhYuyezz4J05oKIfVmT+aBB7JPu4S/uGE3sYXeqIeN+Fj+JXQMGjuGSYAHvvzhi4z98BLK8xhoE0B0MqOdhJey3xbxeUZemFLR+WUK1S2MpfEbCJuhys3ytOVO+El9twBFF6sONoCXxuBnQ4g1DWmvgBXYEukZxHFQzwOAOy5S13x3j1kQs+MsezEx9osrRx8F++yFVIEyL8tZlxZyPt+oWUm6NTJHi+qlx5RVxX0M8g78RXcDlXy6P7q48XRRGCwYDFnHI/odu1QzrfbC0sRlM1Md1tf+vnNVeJtqdvDTq/Mg2k5AzQF2ZInHuAgAzyBj2yEh6ghJUXOwCo6u1iu13Oue9UX/p/CIZtwI30OmBy7Qygb8faU8SzTpeYKguSrr5BwWjjanv51uX449D0g2EIDyg0Nro1j3b6O4l/Zjap0xbRji2kci9tK+Hbun2R/pwSzOii+4D2FRtIRQbLrcUUYCdS7EDLkqTT229Ko8ZdanIyYj+M4SOGInXyvz/y0pqEv/1TNSgU8NS8dIftnRS1Ay+Fse0SptPWw37bd/KbD2QOjqNGh1z2njGJdVpobqa1Xsjl1V3AAyoTSdl/s4a+e9CaCGC6h+cCvODdCTwQ0rxVKWB/0Ij+eFqbOtfd6BdVAtJddD1Nq6B61mZr6KmjpWZvQkVcq7SZfP43N7VPW7rXHJACoSwXja1b+549u7s7LILOIeiwBkwmmcyFE1toLG5jy0sEoJXPbDHZdTZw15VG+CqlPe3eX6goOTllH77tc92obyUgb0q4b1t8CdG/cot9us7n0z35SI3Zfg+zcE7Tj6YTP+d4Bcp3pt351hNocX54AExVe+I2g6Dhgr6JdzBGApRXwrv48Jq7S/HJxHmJ4jBCSBg7B53N+RWLmz6S0id0oRpSlLJIb7H5wKl+BPsXsjmK1BCtTbZDMrdbzNMQvyaAQ0TfLYFFli6ouA7YFE0eD/VRrmtf3umIhtDI0Jj3GRFDvfBOAtbRyLBaSpwEDgAYR68kgJREagB4QSrVimFZcGOrbW/dzmSM+YSrOZBixBt7Ep7soWclc/t+uD9Rl4OE+3jRDb/7YCLUmHfQuuFBo+NG0U8PxiwCF5SPAEs2MVESJfd7XzycKtiEJCSysZQCA5VgrXuMQTp/cbWBgTCKY0B38RJmnS5If8i1ogubKnaFMevLXyUnoHmAS/zviJFEhuyeYzQ3uQARkwJLPlUAAAAA==";
+const API_URL = "https://script.google.com/macros/s/AKfycbxmY71pCNJldWr8zj_W5zCCkS3OFp0GwZA3izKeyUx7bJ-X5I9Et2DrAuVSJ_JO3NGwBw/exec";
+const BOOKS_API_URL = "https://script.google.com/macros/s/AKfycbyHAfm6Z_aQDielhjTFj7sbovWg0sIL3F1-5kGRFCmxLiDkEqhOCCw2vWb5Fydciyin/exec";
+const COURSE_ID = "digital";
+const BOOK_KEY = "digital";
+const EXPECTED_KEY = "Alsajid#2026!Digital$101";
+const AUTH_KEY = "sajid_auth:digital";
+const DEV_KEY = "sajid:devid";
+const THEME_KEY = "sajidpt:th";
+const BOOK_DONE_KEY = "sajid_bk_done:digital_v1";
+const BOOK_LAST_KEY = "sajid_bk_last:digital_v1";
+const BOOK_FONT_KEY = "sajid_bk_font_v1";
+
+(function(){
+  document.getElementById("fav").href = LOGO;
+  document.querySelectorAll("img[data-logo]").forEach(function(img){ img.src = LOGO; });
+
+  /* Theme */
+  var root = document.documentElement, themeBtn = document.getElementById("themeBtn");
+  function paintTheme(){
+    var d = root.getAttribute("data-theme") === "dark";
+    themeBtn.textContent = d ? "☀️" : "🌙";
+    var m = document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", d ? "#071A10" : "#0F4C29");
+  }
+  themeBtn.addEventListener("click", function(){
+    var d = root.getAttribute("data-theme") === "dark";
+    if(d) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
+    try{ localStorage.setItem(THEME_KEY, d ? "light" : "dark"); }catch(e){}
+    paintTheme();
+    setTimeout(refreshBookWatermark, 60);
+  });
+  paintTheme();
+
+  /* Toast */
+  var toastEl = document.getElementById("toast"), toastTimer = null;
+  function toast(txt){
+    toastEl.textContent = txt; toastEl.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 2800);
+  }
+
+  /* Device ID (identical to dt-lec1..6) */
+  function getDeviceId(){
+    try{
+      var existing = localStorage.getItem(DEV_KEY) || localStorage.getItem("sajid_device_id");
+      if(existing){ localStorage.setItem(DEV_KEY, existing); return existing; }
+    }catch(e){}
+    var ua = navigator.userAgent || "";
+    var pref = /iPhone|iPad|iPod/i.test(ua) ? "IOS" : /Android/i.test(ua) ? "AND" : /Mac/i.test(ua) ? "MAC" : /Win/i.test(ua) ? "WIN" : "WEB";
+    var rnd = "";
+    try{
+      var arr = new Uint8Array(6); crypto.getRandomValues(arr);
+      rnd = Array.from(arr).map(function(b){ return b.toString(16).padStart(2,"0"); }).join("").toUpperCase();
+    }catch(e){
+      rnd = Math.random().toString(16).slice(2,14).toUpperCase();
+    }
+    var id = pref + "-" + rnd;
+    try{ localStorage.setItem(DEV_KEY, id); }catch(e){}
+    return id;
+  }
+
+  /* Shared Auth State with dt-lec1..6 */
+  function loadAuth(){
+    try{
+      var raw = localStorage.getItem(AUTH_KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(obj && obj.ok && obj.key === EXPECTED_KEY) return obj;
+    }catch(e){}
+    return null;
+  }
+  function saveAuth(obj){ try{ localStorage.setItem(AUTH_KEY, JSON.stringify(obj)); }catch(e){} }
+
+  var gateView = document.getElementById("gateView");
+  var bookView = document.getElementById("bookView");
+  var authForm = document.getElementById("authForm");
+  var authMsg  = document.getElementById("authMsg");
+  var authBtn  = document.getElementById("authBtn");
+  var currentAuth = loadAuth();
+
+  function showAuthMsg(text, type){ authMsg.textContent = text; authMsg.className = "msg-box " + type; }
+
+  authForm.addEventListener("submit", async function(ev){
+    ev.preventDefault();
+    var email = document.getElementById("aEmail").value.trim().toLowerCase();
+    var code = document.getElementById("aCode").value.trim().toUpperCase();
+    if(!email || !code){ showAuthMsg("يرجى إدخال الإيميل وكود التفعيل بشكل صحيح.", "err"); return; }
+    authBtn.disabled = true; authBtn.textContent = "⏳ جارٍ التحقق من صلاحية الكود...";
+    authMsg.className = "msg-box hidden";
+    try{
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ code: code, email: email, deviceId: getDeviceId(), course: COURSE_ID })
+      });
+      var data = await res.json();
+      if(data && data.ok && data.key === EXPECTED_KEY){
+        currentAuth = { ok: true, key: data.key, code: code, email: email, name: data.name || "", ts: Date.now() };
+        saveAuth(currentAuth);
+        showAuthMsg(data.message || "تم التحقق بنجاح! جارٍ فتح الكتاب المحمي...", "ok");
+        setTimeout(enterBook, 350);
+      } else {
+        showAuthMsg((data && data.error) || "تعذر التحقق من الكود، يرجى التأكد من تفعيل دورة المعلم الرقمي المحترف على كودك.", "err");
+      }
+    }catch(err){
+      showAuthMsg("تعذر الاتصال بالخادم حاليًا. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.", "err");
+    }finally{
+      authBtn.disabled = false; authBtn.textContent = "🔓 التحقق وفتح الكتاب المحمي";
+    }
+  });
+
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟")) return;
+    try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
+    currentAuth = null;
+    BK.loaded = false; BK.toc = []; BK.cache = {};
+    if(bkShell.classList.contains("bk-fullscreen")) toggleBookFullscreen(false);
+    bookView.classList.add("hidden");
+    gateView.classList.remove("hidden");
+  });
+
+  /* Protected Book Engine */
+  var BK = {
+    loaded: false,
+    loading: false,
+    toc: [],
+    cache: {},
+    currentId: "intro",
+    done: new Set(),
+    fontSize: 16.5,
+    wmUrl: "",
+    wmObsStarted: false
+  };
+
+  var bkShell     = document.getElementById("bkShell");
+  var bkSidebar   = document.getElementById("bkSidebar");
+  var bkBackdrop  = document.getElementById("bkBackdrop");
+  var bkTocEl     = document.getElementById("bkToc");
+  var bkCard      = document.getElementById("bkCard");
+  var bkReaderBox = document.getElementById("bkReaderBox");
+  var bkCurTitle  = document.getElementById("bkCurTitle");
+  var bkProgFill  = document.getElementById("bkProgFill");
+  var bkProgText  = document.getElementById("bkProgText");
+  var bkSearchInp = document.getElementById("bkSearchInput");
+  var bkSearchRes = document.getElementById("bkSearchRes");
+  var bkFsBtn     = document.getElementById("bkFsBtn");
+
+  function esc(str){ return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function loadBookPrefs(){
+    try{ BK.done = new Set(JSON.parse(localStorage.getItem(BOOK_DONE_KEY) || "[]")); }catch(e){ BK.done = new Set(); }
+    try{
+      var fs = parseFloat(localStorage.getItem(BOOK_FONT_KEY) || "16.5");
+      if(fs >= 13.5 && fs <= 22){
+        BK.fontSize = fs;
+        document.documentElement.style.setProperty("--bk-size", fs + "px");
+      }
+    }catch(e){}
+  }
+  loadBookPrefs();
+
+  function buildBookWatermarkUrl(){
+    var nm = (currentAuth && currentAuth.name) ? currentAuth.name.trim() : "";
+    var code = (currentAuth && currentAuth.code) ? currentAuth.code : "";
+    var em = (currentAuth && currentAuth.email) ? currentAuth.email : "";
+    var line1 = (nm ? nm + " • " : "") + code;
+    var line2 = "أكاديمية الساجد • نسخة محمية" + (em ? " • " + em : "");
+    var c = document.createElement("canvas");
+    c.width = 440; c.height = 260;
+    var ctx = c.getContext("2d");
+    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.save();
+    ctx.translate(220, 130);
+    ctx.rotate(-24 * Math.PI / 180);
+    ctx.textAlign = "center";
+    ctx.fillStyle = isDark ? "#E8C568" : "#0F4C29";
+    ctx.font = "bold 16px Cairo, sans-serif";
+    ctx.fillText(line1, 0, -6);
+    ctx.font = "600 12.5px Cairo, sans-serif";
+    ctx.fillText(line2, 0, 18);
+    ctx.restore();
+    return c.toDataURL("image/png");
+  }
+
+  function applyBookWatermark(){
+    var wm = document.getElementById("bkWatermark");
+    if(!wm){
+      wm = document.createElement("div");
+      wm.id = "bkWatermark";
+      wm.setAttribute("aria-hidden", "true");
+      bkReaderBox.insertBefore(wm, bkReaderBox.firstChild);
+    }
+    wm.style.backgroundImage = "url('" + BK.wmUrl + "')";
+    wm.style.display = "block";
+    wm.style.visibility = "visible";
+    wm.style.opacity = document.documentElement.getAttribute("data-theme") === "dark" ? "0.17" : "0.13";
+  }
+
+  function refreshBookWatermark(){
+    if(!currentAuth) return;
+    BK.wmUrl = buildBookWatermarkUrl();
+    applyBookWatermark();
+  }
+
+  function startBookWatermarkGuard(){
+    if(BK.wmObsStarted) return;
+    BK.wmObsStarted = true;
+    var obs = new MutationObserver(function(){
+      if(!currentAuth || !BK.wmUrl) return;
+      var wm = document.getElementById("bkWatermark");
+      if(!wm || wm.style.display === "none" || wm.style.visibility === "hidden" || parseFloat(wm.style.opacity || "0") < 0.08){
+        applyBookWatermark();
+        bkReaderBox.classList.add("bk-blur");
+        toast("🔒 تم رصد محاولة تعديل العلامة المائية — المحتوى محمي.");
+        setTimeout(function(){ bkReaderBox.classList.remove("bk-blur"); }, 2000);
+      }
+    });
+    obs.observe(bkReaderBox, { childList: true, subtree: true, attributes: true });
+  }
+
+  /* Security Shield (active when bookView is visible) */
+  bookView.addEventListener("contextmenu", function(e){
+    if(e.target && e.target.id === "bkSearchInput") return;
+    e.preventDefault();
+    toast("🔒 النسخ والزر الأيمن معطّلان داخل الكتاب المحمي.");
+  });
+  document.addEventListener("copy", function(e){
+    if(bookView.classList.contains("hidden")) return;
+    e.preventDefault();
+    if(e.clipboardData) e.clipboardData.setData("text/plain", "محتوى محمي — أكاديمية الساجد (01091102946)");
+    toast("🔒 غير مسموح بنسخ النصوص من الكتاب المحمي.");
+  });
+  document.addEventListener("cut", function(e){
+    if(!bookView.classList.contains("hidden")) e.preventDefault();
+  });
+  bookView.addEventListener("dragstart", function(e){ e.preventDefault(); });
+  document.addEventListener("keydown", function(e){
+    if(bookView.classList.contains("hidden")) return;
+    var inSearch = (e.target && e.target.id === "bkSearchInput");
+    var k = (e.key || "").toLowerCase();
+    var ctrl = e.ctrlKey || e.metaKey;
+    if((ctrl && ["c","x","s","p","u","a"].indexOf(k) !== -1 && !(inSearch && k === "a")) || e.key === "F12" || (ctrl && e.shiftKey && ["i","j","c"].indexOf(k) !== -1)){
+      e.preventDefault();
+      toast("🔒 هذا الاختصار معطّل لحماية حقوق الكتاب.");
+    }
+    if(e.key === "PrintScreen"){
+      bkReaderBox.classList.add("bk-blur");
+      toast("🔒 يُرجى عدم التقاط صور للشاشة — بياناتك مطبوعة على الصفحة.");
+      setTimeout(function(){ bkReaderBox.classList.remove("bk-blur"); }, 2200);
+    }
+    if(e.key === "Escape" && bkShell.classList.contains("bk-fullscreen")){
+      toggleBookFullscreen(false);
+    }
+  });
+  window.addEventListener("blur", function(){
+    if(!bookView.classList.contains("hidden") && currentAuth) bkReaderBox.classList.add("bk-blur");
+  });
+  window.addEventListener("focus", function(){ bkReaderBox.classList.remove("bk-blur"); });
+
+  async function bookApi(payload){
+    var body = Object.assign({
+      book: BOOK_KEY,
+      code: currentAuth.code,
+      email: currentAuth.email,
+      deviceId: getDeviceId()
+    }, payload);
+    var res = await fetch(BOOKS_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(body)
+    });
+    return await res.json();
+  }
+
+  function updateBookProgress(){
+    var lecs = BK.toc.filter(function(t){ return t.type === "lecture"; });
+    var doneCnt = lecs.filter(function(t){ return BK.done.has(t.id); }).length;
+    var tot = lecs.length || 6;
+    bkProgFill.style.width = Math.round((doneCnt / tot) * 100) + "%";
+    bkProgText.textContent = doneCnt + " / " + tot;
+    bkTocEl.querySelectorAll(".bk-toc-btn").forEach(function(b){
+      b.classList.toggle("done", BK.done.has(b.getAttribute("data-id")));
+    });
+  }
+
+  function renderBookTOC(){
+    bkTocEl.innerHTML = "";
+    BK.toc.forEach(function(item){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "bk-toc-btn" + (item.id === BK.currentId ? " active" : "") + (BK.done.has(item.id) ? " done" : "");
+      b.setAttribute("data-id", item.id);
+      b.innerHTML =
+        '<span class="bk-toc-num">' + esc(item.num) + '</span>' +
+        '<span class="bk-toc-txt">' +
+          '<span class="bk-toc-main">' + esc(item.short) + '</span>' +
+          '<span class="bk-toc-sub">' + esc(item.full) + '</span>' +
+        '</span>' +
+        '<span class="bk-toc-chk" title="تمت المذاكرة">✓</span>';
+      b.onclick = function(){ openBookSection(item.id); closeBookDrawer(); };
+      bkTocEl.appendChild(b);
+    });
+    updateBookProgress();
+  }
+
+  function renderBookSection(sec){
+    var idx = BK.toc.findIndex(function(t){ return t.id === sec.id; });
+    var prev = idx > 0 ? BK.toc[idx - 1] : null;
+    var next = (idx >= 0 && idx < BK.toc.length - 1) ? BK.toc[idx + 1] : null;
+    var itemMeta = BK.toc[idx] || {};
+    var isLec = itemMeta.type === "lecture";
+    var isDone = BK.done.has(sec.id);
+
+    var quizBoxHtml = "";
+    var mLec = /^lec-([1-6])$/.exec(sec.id);
+    if(mLec){
+      var lecNum = mLec[1];
+      quizBoxHtml =
+        '<div class="bk-quiz-link">' +
+          '<span>🧠 جاهز لاختبار المحاضرة ' + lecNum + '؟ (110 أسئلة — يفتح فورًا بدون كود إضافي)</span>' +
+          '<a class="btn btn-gold" style="padding:7px 15px;font-size:.86rem" href="dt-lec' + lecNum + '.html">افتح الاختبار التفاعلي ←</a>' +
+        '</div>';
+    }
+
+    var navHtml =
+      quizBoxHtml +
+      '<div class="bk-actions">' +
+        '<button type="button" class="bk-nav-btn" id="bkPrevBtn"' + (prev ? '' : ' disabled') + '>→ السابق</button>' +
+        (isLec ? '<button type="button" class="bk-done-btn' + (isDone ? ' is-done' : '') + '" id="bkDoneBtn">' + (isDone ? '✓ تمت مذاكرة المحاضرة' : 'أتممت مذاكرة هذه المحاضرة ✓') + '</button>' : '') +
+        '<button type="button" class="bk-nav-btn" id="bkNextBtn"' + (next ? '' : ' disabled') + '>التالي ←</button>' +
+      '</div>';
+
+    bkCard.innerHTML = sec.html + navHtml;
+
+    var pBtn = document.getElementById("bkPrevBtn");
+    var nBtn = document.getElementById("bkNextBtn");
+    var dBtn = document.getElementById("bkDoneBtn");
+    if(pBtn && prev) pBtn.onclick = function(){ openBookSection(prev.id); };
+    if(nBtn && next) nBtn.onclick = function(){ openBookSection(next.id); };
+    if(dBtn){
+      dBtn.onclick = function(){
+        if(BK.done.has(sec.id)) BK.done.delete(sec.id); else BK.done.add(sec.id);
+        try{ localStorage.setItem(BOOK_DONE_KEY, JSON.stringify(Array.from(BK.done))); }catch(e){}
+        var nowDone = BK.done.has(sec.id);
+        dBtn.classList.toggle("is-done", nowDone);
+        dBtn.textContent = nowDone ? "✓ تمت مذاكرة المحاضرة" : "أتممت مذاكرة هذه المحاضرة ✓";
+        updateBookProgress();
+      };
+    }
+    if(bkShell.classList.contains("bk-fullscreen")){
+      document.getElementById("bkMain").scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      bkReaderBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  async function openBookSection(sectionId){
+    BK.currentId = sectionId;
+    try{ localStorage.setItem(BOOK_LAST_KEY, sectionId); }catch(e){}
+    bkTocEl.querySelectorAll(".bk-toc-btn").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-id") === sectionId);
+    });
+    var meta = BK.toc.find(function(t){ return t.id === sectionId; });
+    if(meta) bkCurTitle.textContent = meta.short + " — " + meta.full;
+
+    if(BK.cache[sectionId]){ renderBookSection(BK.cache[sectionId]); return; }
+
+    bkCard.innerHTML = '<div class="bk-loader"><div class="bk-spin"></div><div>جارٍ تحميل المحاضرة بأمان...</div></div>';
+    try{
+      var res = await bookApi({ action: "section", sectionId: sectionId });
+      if(!res || !res.ok){
+        bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر فتح المحاضرة</div><p class="co-line">' + esc((res && res.error) || "حدث خطأ أثناء التحميل.") + '</p></div>';
+        return;
+      }
+      BK.cache[sectionId] = res.section;
+      renderBookSection(res.section);
+    }catch(err){
+      bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر الاتصال بالخادم</div><p class="co-line">تأكد من اتصالك بالإنترنت ثم اضغط على المحاضرة مرة أخرى.</p></div>';
+    }
+  }
+
+  async function enterBook(){
+    gateView.classList.add("hidden");
+    bookView.classList.remove("hidden");
+    document.getElementById("userLabel").textContent = (currentAuth.name ? currentAuth.name + " · " : "") + currentAuth.code;
+    refreshBookWatermark();
+    startBookWatermarkGuard();
+    if(BK.loaded || BK.loading) return;
+    BK.loading = true;
+    bkCard.innerHTML = '<div class="bk-loader"><div class="bk-spin"></div><div>جارٍ التحقق من صلاحيتك وتجهيز فهرس الكتاب...</div></div>';
+    try{
+      var res = await bookApi({ action: "toc" });
+      if(!res || !res.ok){
+        bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر فتح الكتاب المحمي</div><p class="co-line">' + esc((res && res.error) || "يرجى التأكد من تفعيل دورة المعلم الرقمي المحترف على كودك.") + '</p></div>';
+        return;
+      }
+      if(res.trainee && res.trainee.name && !currentAuth.name){
+        currentAuth.name = res.trainee.name;
+        saveAuth(currentAuth);
+        document.getElementById("userLabel").textContent = currentAuth.name + " · " + currentAuth.code;
+        refreshBookWatermark();
+      }
+      BK.toc = res.toc || [];
+      BK.loaded = true;
+      renderBookTOC();
+      var lastId = "intro";
+      try{
+        var savedLast = localStorage.getItem(BOOK_LAST_KEY);
+        if(savedLast && BK.toc.some(function(t){ return t.id === savedLast; })) lastId = savedLast;
+      }catch(e){}
+      openBookSection(lastId);
+    }catch(err){
+      bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر الاتصال بمحرك الكتب</div><p class="co-line">تأكد من اتصالك بالإنترنت وحاول مرة أخرى.</p></div>';
+    }finally{
+      BK.loading = false;
+    }
+  }
+
+  /* Search */
+  var bkSearchTimer = null;
+  bkSearchInp.addEventListener("input", function(){
+    clearTimeout(bkSearchTimer);
+    var q = bkSearchInp.value.trim();
+    if(q.length < 2){ bkSearchRes.style.display = "none"; bkSearchRes.innerHTML = ""; return; }
+    bkSearchTimer = setTimeout(async function(){
+      try{
+        var res = await bookApi({ action: "search", q: q });
+        if(!res || !res.ok || !res.results || !res.results.length){
+          bkSearchRes.innerHTML = '<div class="bk-sr-item"><div class="bk-sr-s">لا توجد نتائج مطابقة.</div></div>';
+          bkSearchRes.style.display = "block";
+          return;
+        }
+        bkSearchRes.innerHTML = res.results.map(function(r){
+          return '<div class="bk-sr-item" data-id="' + esc(r.id) + '"><div class="bk-sr-t">' + esc(r.title) + '</div><div class="bk-sr-s">' + esc(r.snippet) + '</div></div>';
+        }).join("");
+        bkSearchRes.style.display = "block";
+        bkSearchRes.querySelectorAll(".bk-sr-item").forEach(function(el){
+          el.onclick = function(){
+            openBookSection(el.getAttribute("data-id"));
+            bkSearchRes.style.display = "none";
+            bkSearchInp.value = "";
+            closeBookDrawer();
+          };
+        });
+      }catch(e){}
+    }, 380);
+  });
+
+  /* Drawer, Font, Fullscreen */
+  function closeBookDrawer(){ bkSidebar.classList.remove("open"); bkBackdrop.classList.remove("open"); }
+  document.getElementById("bkMenuBtn").onclick = function(){ bkSidebar.classList.toggle("open"); bkBackdrop.classList.toggle("open"); };
+  document.getElementById("bkSbClose").onclick = closeBookDrawer;
+  bkBackdrop.onclick = closeBookDrawer;
+
+  document.getElementById("bkFontUp").onclick = function(){
+    BK.fontSize = Math.min(22, BK.fontSize + 1.2);
+    document.documentElement.style.setProperty("--bk-size", BK.fontSize + "px");
+    try{ localStorage.setItem(BOOK_FONT_KEY, String(BK.fontSize)); }catch(e){}
+  };
+  document.getElementById("bkFontDown").onclick = function(){
+    BK.fontSize = Math.max(13.5, BK.fontSize - 1.2);
+    document.documentElement.style.setProperty("--bk-size", BK.fontSize + "px");
+    try{ localStorage.setItem(BOOK_FONT_KEY, String(BK.fontSize)); }catch(e){}
+  };
+
+  function toggleBookFullscreen(force){
+    var on = (typeof force === "boolean") ? force : !bkShell.classList.contains("bk-fullscreen");
+    bkShell.classList.toggle("bk-fullscreen", on);
+    document.body.style.overflow = on ? "hidden" : "";
+    bkFsBtn.textContent = on ? "✕ خروج من ملء الشاشة" : "⛶ ملء الشاشة";
+  }
+  bkFsBtn.onclick = function(){ toggleBookFullscreen(); };
+
+  if(currentAuth){ enterBook(); }
+})();
+</script>
+</body>
+</html>
