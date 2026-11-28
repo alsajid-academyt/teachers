@@ -90,7 +90,7 @@ main{padding:22px 0 56px}
 .prog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.85rem;font-weight:700;color:var(--mut);margin-bottom:7px;flex-wrap:wrap}
 .prog-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:11px}
 .prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:999px;transition:width .3s}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .tab{background:var(--card);border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:9px 6px;font:inherit;font-weight:800;font-size:.83rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:.2s}
 .tab span.cnt{font-size:.74rem;color:var(--mut);font-weight:700}
 .tab.active{background:var(--primary);color:#fff;border-color:var(--gold)}
@@ -151,9 +151,187 @@ footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;b
   .team-grid,.res-grid{grid-template-columns:1fr}
   .hb.back span{display:none}
 }
+
+/* Tab 5: Protected 500 Phrases Booklet (Pure Book — Same Engine as Baghdadiyyah & Digital Teacher) */
+.wrap.book-wide{width:min(1340px,96%)}
+.bk-print-blocker{display:none}
+@media print{
+  body.book-active *{display:none!important;visibility:hidden!important}
+  body.book-active .bk-print-blocker{
+    display:flex!important;visibility:visible!important;position:fixed;inset:0;
+    align-items:center;justify-content:center;text-align:center;
+    font-size:22px;font-weight:800;color:#0F4C29;padding:40px;background:#fff;
+  }
+}
+
+#sec-book{--bk-size:16px}
+#sec-book, #sec-book .bk-reader-box, #sec-book .bk-card{
+  -webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important;
+}
+#sec-book .bk-search-input{-webkit-user-select:text!important;user-select:text!important}
+
+.bk-shell{
+  display:grid;
+  grid-template-columns:320px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+  position:relative;
+}
+.bk-shell.bk-fullscreen{
+  position:fixed;inset:0;z-index:200;background:var(--bg);
+  padding:0;gap:0;grid-template-columns:325px minmax(0,1fr);
+  height:100vh;overflow:hidden;
+}
+
+.bk-sidebar{
+  position:sticky;
+  top:76px;
+  height:calc(100vh - 92px);
+  background:linear-gradient(180deg,#0D3B20 0%,#082514 100%);
+  color:#fff;
+  border:2px solid var(--gold);
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.bk-shell.bk-fullscreen .bk-sidebar{
+  position:static;height:100vh;border-radius:0;border:none;border-left:3px solid var(--gold);
+}
+.bk-sb-head{padding:14px 14px 11px;background:rgba(0,0,0,.18);border-bottom:1px solid rgba(232,197,104,.25)}
+.bk-sb-title{font-size:.95rem;font-weight:900;color:var(--gold-light);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bk-sb-sub{font-size:.76rem;color:#cfe2d6;margin-top:2px}
+.bk-sb-close{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(232,197,104,.4);color:#fff;border-radius:8px;padding:2px 9px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.bk-prog-wrap{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:.77rem;color:#d8ebdf;font-weight:700}
+.bk-prog-bar{flex:1;height:7px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden}
+.bk-prog-fill{height:100%;width:0%;background:var(--gold-grad);transition:width .3s ease}
+
+.bk-search-box{padding:10px 12px;border-bottom:1px solid rgba(232,197,104,.18)}
+.bk-search-input{width:100%;padding:8px 11px;border-radius:10px;border:1px solid rgba(232,197,104,.35);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-size:.83rem;outline:none}
+.bk-search-input::placeholder{color:#b9d0c2}
+.bk-search-res{margin-top:7px;max-height:190px;overflow-y:auto;display:none;background:#071F11;border:1px solid rgba(232,197,104,.35);border-radius:10px}
+.bk-sr-item{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;font-size:.78rem}
+.bk-sr-item:hover{background:rgba(198,149,43,.22)}
+.bk-sr-t{font-weight:800;color:var(--gold-light)}
+.bk-sr-s{color:#cfe1d6;font-size:.73rem;margin-top:2px;line-height:1.45}
+
+.bk-toc{flex:1;overflow-y:auto;padding:8px 9px 18px}
+.bk-toc::-webkit-scrollbar{width:6px}
+.bk-toc::-webkit-scrollbar-thumb{background:rgba(232,197,104,.38);border-radius:99px}
+.bk-toc-btn{
+  display:flex;align-items:center;gap:9px;width:100%;text-align:right;
+  background:transparent;border:1px solid transparent;border-radius:11px;
+  padding:8px 9px;margin-bottom:4px;color:#e8f2ec;font:inherit;cursor:pointer;
+  transition:background .16s,border-color .16s;
+}
+.bk-toc-btn:hover{background:rgba(255,255,255,.09)}
+.bk-toc-btn.active{background:linear-gradient(90deg,rgba(198,149,43,.32),rgba(198,149,43,.14));border-color:var(--gold);color:#fff}
+.bk-toc-num{
+  min-width:34px;height:26px;border-radius:7px;background:rgba(255,255,255,.12);
+  color:var(--gold-light);font-size:.74rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;padding:0 5px;flex-shrink:0;
+}
+.bk-toc-btn.active .bk-toc-num{background:var(--gold);color:#09321A}
+.bk-toc-txt{flex:1;min-width:0}
+.bk-toc-main{font-size:.83rem;font-weight:800;line-height:1.3;display:block}
+.bk-toc-sub{font-size:.71rem;color:#b8d0c2;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:ltr;text-align:right;font-family:'Plus Jakarta Sans','Cairo',sans-serif}
+.bk-toc-chk{color:#6ee7b7;font-size:.95rem;font-weight:900;display:none;flex-shrink:0}
+.bk-toc-btn.done .bk-toc-chk{display:inline}
+
+.bk-main{min-width:0;display:flex;flex-direction:column;position:relative}
+.bk-shell.bk-fullscreen .bk-main{height:100vh;overflow-y:auto;padding:0 20px 30px}
+.bk-toolbar{
+  position:sticky;top:68px;z-index:20;
+  background:var(--card);border:1.5px solid var(--gold);border-radius:14px;
+  padding:9px 14px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  box-shadow:var(--shadow);
+}
+.bk-shell.bk-fullscreen .bk-toolbar{top:0;border-radius:0 0 14px 14px;border-top:none}
+.bk-tb-right{display:flex;align-items:center;gap:8px;min-width:0;flex:1}
+.bk-menu-btn{display:none;background:var(--primary);color:var(--gold-light);border:1.5px solid var(--gold);border-radius:9px;padding:5px 11px;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer;flex-shrink:0}
+.bk-cur-title{font-size:.87rem;font-weight:800;color:var(--pri);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk-tb-tools{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.bk-tbtn{background:var(--bg);border:1.5px solid var(--line);color:var(--ink);border-radius:9px;padding:4px 10px;font:inherit;font-size:.8rem;font-weight:800;cursor:pointer}
+.bk-tbtn:hover{border-color:var(--gold);background:var(--hl)}
+
+.bk-reader-box{
+  position:relative;overflow:hidden;border-radius:18px;
+  border:1.5px solid var(--gold);background:var(--card);
+  box-shadow:var(--shadow);transition:filter .2s ease;
+}
+.bk-reader-box.bk-blur{filter:blur(12px)!important;pointer-events:none}
+#bkWatermark{position:absolute;inset:0;pointer-events:none!important;z-index:12;opacity:.12;background-repeat:repeat}
+:root[data-theme="dark"] #bkWatermark{opacity:.16}
+.bk-card{position:relative;z-index:5;padding:24px clamp(14px,2.8vw,28px);font-size:var(--bk-size);line-height:1.85}
+
+/* Booklet Content Typography */
+#sec-book .chap-banner{background:linear-gradient(135deg,#0F4C29 0%,#165E35 100%);border-top:2px solid var(--gold);border-bottom:4px solid var(--gold);border-radius:14px;padding:18px 20px;margin-bottom:18px;color:#fff}
+#sec-book .chap-kicker{font-size:.82rem;font-weight:800;color:var(--gold-light);margin-bottom:4px}
+#sec-book .chap-title{font-size:1.35em;font-weight:900;margin:0 0 5px;line-height:1.45;color:#fff}
+#sec-book .chap-sub{font-size:.85em;color:#d8ebdf;line-height:1.55}
+#sec-book .sec-h2{font-size:1.12em;font-weight:800;color:var(--pri);border-bottom:2px solid var(--gold-light);padding-bottom:5px;margin:20px 0 12px}
+#sec-book .h2-dot{color:var(--gold);margin-left:6px}
+#sec-book .em-bold{color:var(--pri);font-weight:800}
+#sec-book .ar-ol{margin:6px 0 14px;padding-right:22px}
+#sec-book .ar-ol li{margin-bottom:9px}
+#sec-book .ar-ol li::marker{color:var(--pri);font-weight:800}
+#sec-book .callout{padding:13px 16px;margin:12px 0 16px;border-radius:12px;border:1px solid var(--line);border-right:5px solid var(--primary)}
+#sec-book .callout-gold{background:rgba(198,149,43,.09);border-color:rgba(198,149,43,.45);border-right-color:var(--gold)}
+#sec-book .callout-gold .co-title{color:#8F6B10}
+:root[data-theme="dark"] #sec-book .callout-gold .co-title{color:var(--gold-light)}
+#sec-book .callout-alert{background:var(--bad-bg);border-color:rgba(220,38,38,.32);border-right-color:var(--bad)}
+#sec-book .callout-alert .co-title{color:var(--bad)}
+#sec-book .co-title{font-size:1em;font-weight:800;margin-bottom:6px}
+#sec-book .co-line{margin:0 0 6px;font-size:.93em;line-height:1.7}
+#sec-book .co-line:last-child{margin-bottom:0}
+
+#sec-book .tbl-wrap{width:100%;overflow-x:auto;margin:8px 0 18px;border-radius:12px;border:1.5px solid var(--line)}
+#sec-book .data-tbl{width:100%;border-collapse:collapse;font-size:.95em;line-height:1.68}
+#sec-book .data-tbl th{color:#fff;font-weight:800;padding:10px 12px;border:1px solid rgba(255,255,255,.14)}
+#sec-book .th-emerald{background:var(--primary)}
+#sec-book .th-dark{background:var(--primary-dark)}
+#sec-book .data-tbl td{padding:10px 12px;border:1px solid var(--line);vertical-align:middle}
+#sec-book .data-tbl tbody tr:nth-child(odd) td{background:var(--card)}
+#sec-book .data-tbl tbody tr:nth-child(even) td{background:var(--bg)}
+#sec-book .td-first{font-weight:800;color:var(--pri)}
+#sec-book .td-center{text-align:center}
+#sec-book .td-right{text-align:right;font-weight:600}
+#sec-book .td-ltr{text-align:left;direction:ltr;font-family:'Plus Jakarta Sans',Tahoma,sans-serif;font-weight:700}
+
+.bk-actions{margin-top:20px;padding-top:16px;border-top:2px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.bk-nav-btn{padding:9px 16px;border-radius:11px;border:1.5px solid var(--primary);background:var(--bg);color:var(--pri);font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
+.bk-nav-btn:hover:not(:disabled){background:var(--hl);border-color:var(--gold)}
+.bk-nav-btn:disabled{opacity:.4;cursor:not-allowed}
+.bk-done-btn{padding:10px 18px;border-radius:11px;border:none;border-bottom:2.5px solid var(--gold);background:var(--primary);color:var(--gold-light);font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
+.bk-done-btn.is-done{background:var(--ok);color:#fff;border-bottom-color:#0f5132}
+.bk-loader{text-align:center;padding:56px 16px;color:var(--pri);font-weight:800}
+.bk-spin{width:38px;height:38px;border:4px solid var(--line);border-top-color:var(--gold);border-radius:50%;margin:0 auto 12px;animation:bkSpin .8s linear infinite}
+@keyframes bkSpin{to{transform:rotate(360deg)}}
+.bk-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:210}
+.bk-backdrop.open{display:block}
+.bk-sec-badge{margin-top:12px;text-align:center;font-size:.8rem;color:var(--mut);font-weight:700}
+
+@media(max-width:920px){
+  .bk-shell,.bk-shell.bk-fullscreen{grid-template-columns:1fr}
+  .bk-sidebar{
+    position:fixed!important;top:0!important;right:0;height:100vh!important;
+    width:min(310px,86vw);border-radius:0!important;z-index:220;
+    transform:translateX(105%);transition:transform .25s ease;
+  }
+  .bk-sidebar.open{transform:translateX(0)}
+  .bk-sb-close{display:inline-block}
+  .bk-menu-btn{display:inline-flex;align-items:center;gap:5px}
+}
+@media(max-width:720px){
+  .tabs .tab[data-tab="book"]{grid-column:1 / -1}
+}
+
 </style>
 </head>
 <body>
+<div class="bk-print-blocker">⚠️ كتيّب الـ 500 جملة محمي بحقوق الملكية الفكرية لأكاديمية الساجد — يُمنع الطباعة أو النسخ أو التوزيع.<br>للتواصل الرسمي: 01091102946 | alsajidacademy.com</div>
 
 <header>
   <div class="wrap bar">
@@ -227,6 +405,7 @@ footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;b
         <button class="tab" data-tab="ai" type="button">🤖 ٢) محاكاة الذكاء<span class="cnt" id="cntAi">0 / 20</span></button>
         <button class="tab" data-tab="team" type="button">👥 ٣) فريق الأربعة<span class="cnt" id="cntTeam">0 / 20</span></button>
         <button class="tab" data-tab="report" type="button">🏆 ٤) التقرير والشهادة<span class="cnt" id="cntRep">0 / 60</span></button>
+        <button class="tab" data-tab="book" type="button">📖 ٥) كتيّب الـ 500 جملة<span class="cnt" id="cntBook">10 أبواب • محمي</span></button>
       </div>
     </div>
 
@@ -301,6 +480,56 @@ footer{text-align:center;padding:24px 0 34px;color:var(--mut);font-size:.88rem;b
         </details>
       </div>
     </section>
+
+    <!-- TAB 5: PROTECTED 500 PHRASES BOOKLET -->
+    <section id="sec-book" class="hidden">
+      <div class="bk-backdrop" id="bkBackdrop"></div>
+      <div class="bk-shell" id="bkShell">
+        <aside class="bk-sidebar" id="bkSidebar" aria-label="فهرس أبواب كتيّب الـ 500 جملة">
+          <div class="bk-sb-head">
+            <div class="bk-sb-title">
+              <span>📖 كتيّب الـ 500 جملة</span>
+              <button type="button" class="bk-sb-close" id="bkSbClose">✕</button>
+            </div>
+            <div class="bk-sb-sub">10 أبواب عملية • عربي وإنجليزي</div>
+            <div class="bk-prog-wrap">
+              <div class="bk-prog-bar"><div class="bk-prog-fill" id="bkProgFill"></div></div>
+              <span id="bkProgText">0 / 10</span>
+            </div>
+          </div>
+          <div class="bk-search-box">
+            <input type="search" id="bkSearchInput" class="bk-search-input" placeholder="🔎 ابحث بالعربي أو الإنجليزي...">
+            <div class="bk-search-res" id="bkSearchRes"></div>
+          </div>
+          <nav class="bk-toc" id="bkToc"></nav>
+        </aside>
+
+        <div class="bk-main" id="bkMain">
+          <div class="bk-toolbar">
+            <div class="bk-tb-right">
+              <button type="button" class="bk-menu-btn" id="bkMenuBtn">☰ الأبواب (1–10)</button>
+              <div class="bk-cur-title" id="bkCurTitle">كتيّب 500 جملة عملية لمعلّم القرآن والعربية أونلاين</div>
+            </div>
+            <div class="bk-tb-tools">
+              <button type="button" class="bk-tbtn" id="bkFontDown" title="تصغير الخط">أ-</button>
+              <button type="button" class="bk-tbtn" id="bkFontUp" title="تكبير الخط">أ+</button>
+              <button type="button" class="bk-tbtn" id="bkFsBtn" title="وضع القراءة ملء الشاشة">⛶ ملء الشاشة</button>
+            </div>
+          </div>
+
+          <div class="bk-reader-box" id="bkReaderBox">
+            <div id="bkWatermark" aria-hidden="true"></div>
+            <article class="bk-card" id="bkCard">
+              <div class="bk-loader">
+                <div class="bk-spin"></div>
+                <div>جارٍ تجهيز الكتيّب المحمي بأمان...</div>
+              </div>
+            </article>
+          </div>
+          <div class="bk-sec-badge">🔒 نسخة محمية ومرتبطة بكودك الشخصي — القراءة داخل الموقع فقط دون تحميل أو نسخ</div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -321,6 +550,11 @@ const DATA_KEY = "sajid_lab:practical_v1";
 const DEV_KEY = "sajid:devid";
 const THEME_KEY = "sajidpt:th";
 const MIN_CHARS = 30;
+const BOOKS_API_URL = "https://script.google.com/macros/s/AKfycbyHAfm6Z_aQDielhjTFj7sbovWg0sIL3F1-5kGRFCmxLiDkEqhOCCw2vWb5Fydciyin/exec";
+const BOOK_KEY = "practical";
+const BOOK_DONE_KEY = "sajid_bk_done:practical500_v1";
+const BOOK_LAST_KEY = "sajid_bk_last:practical500_v1";
+const BOOK_FONT_KEY = "sajid_bk_font_v1";
 
 const BAGH_TITLES = ["المحاضرة ١: كيف تشرح الحروف العربية للناطقين بغير العربية", "المحاضرة ٢: كيف نعلّم أشكال الحروف العربية وحركاتها للناطقين بغير العربية", "المحاضرة ٣: شرح حركة الفتحة والتركيب التدريجي (القاعدة البغدادية)", "المحاضرة ٤: إتقان شرح الفتحة (Apple / Octopus والتدريب العملي)", "المحاضرة ٥: شرح حركة الكسرة وتدريب الحروف والكلمات (القاعدة البغدادية)", "المحاضرة ٦: إتقان الكسرة وقراءة الجمل الطويلة (التقسيم التراكمي)", "المحاضرة ٧: شرح حركة الضمة وتدريب الكلمات بالحركات الثلاث", "المحاضرة ٨: الحركات الطويلة — الألف الممدودة (ألف المد)", "المحاضرة ٩: الحركات الطويلة — الياء الممدودة (ياء المد)", "المحاضرة ١٠: الحركات الطويلة — الواو الممدودة والألف الفارقة", "المحاضرة ١١: الألف الصغيرة ومد الصلة الصغرى ومد الـ 4 حركات", "المحاضرة ١٢: التنوين بالفتح (تنوين الفتحتين والألف الزائدة والتاء المربوطة)", "المحاضرة ١٣: التنوين بالكسر والتنوين بالضم وتطبيقات قرآنية", "المحاضرة ١٤: درس السكون (قاعدة الصفر والواحد والتكرار التوجيهي)", "المحاضرة ١٥: درس القلقلة (لغز الأسماء وحروف قطب جد والتصحيح التوجيهي)", "المحاضرة ١٦: حروف اللين (الحروف الإسفنجية) ومدخل همزة الوصل والقطع", "المحاضرة ١٧: همزة الوصل والقطع (الوصل بالفاء والواو والبدء بها)", "المحاضرة ١٨: اللام القمرية (Lunar / Moon Laam) وفتح همزة الوصل مع «ال»", "المحاضرة ١٩: درس الشدة (التشديد مع الحركات الثلاث وغنة النون والميم)", "المحاضرة ٢٠ (الختام): اللام الشمسية (Solar Laam) وختام القاعدة البغدادية"];
 const AI_PROMPT = "Act as a beginner non-Arabic speaking student (age 9–12 or adult beginner) learning Arabic reading using Al-Qaidah Al-Baghdadiyyah and short Quran surahs. I am your online Arabic & Quran teacher. Speak to me in simple, natural English. During our practice session: (1) Greet me warmly when I start, (2) Follow my instructions step by step, (3) Intentionally make 2–3 realistic beginner mistakes (such as confusing heavy and light letters, mixing ح with هـ or ق with ك, cutting words letter-by-letter, or stretching a short vowel) so I can practice guiding and correcting you gently without saying 'No/Wrong', (4) Ask 1–2 natural student questions about why a letter looks different or how to pronounce it. Keep your responses short (1–2 sentences) so we have a real interactive live class!";
@@ -458,6 +692,7 @@ const AI_TOPICS = [
     if(!confirm("هل تريد تسجيل الخروج لتبديل الحساب؟ (لن تُحذف تقاريرك المحفوظة)")) return;
     try{ localStorage.removeItem(AUTH_KEY); }catch(e){}
     currentAuth = null;
+    if(typeof resetBookSession === "function") resetBookSession();
     labView.classList.add("hidden");
     gateView.classList.remove("hidden");
   });
@@ -524,6 +759,7 @@ const AI_TOPICS = [
     persist();
     updateTeamReadyUI();
     if(S.tab === "report") renderReport();
+    if(typeof refreshBookWatermark === "function") refreshBookWatermark();
   });
 
   function updateProgress(){
@@ -1010,10 +1246,375 @@ const AI_TOPICS = [
     copyText(buildCumMsg(true), "✅ تم نسخ السجل الكامل بجميع الجمل والتقارير وأسماء الفريق!");
   };
 
+
+  /* ================= TAB 5: PROTECTED 500 PHRASES BOOKLET ENGINE ================= */
+  var BK = {
+    loaded: false,
+    loading: false,
+    toc: [],
+    cache: {},
+    currentId: "intro",
+    done: new Set(),
+    fontSize: 16,
+    wmUrl: "",
+    wmObsStarted: false,
+    shieldBound: false
+  };
+
+  var bkShell     = document.getElementById("bkShell");
+  var bkSidebar   = document.getElementById("bkSidebar");
+  var bkBackdrop  = document.getElementById("bkBackdrop");
+  var bkTocEl     = document.getElementById("bkToc");
+  var bkCard      = document.getElementById("bkCard");
+  var bkReaderBox = document.getElementById("bkReaderBox");
+  var bkCurTitle  = document.getElementById("bkCurTitle");
+  var bkProgFill  = document.getElementById("bkProgFill");
+  var bkProgText  = document.getElementById("bkProgText");
+  var bkSearchInp = document.getElementById("bkSearchInput");
+  var bkSearchRes = document.getElementById("bkSearchRes");
+  var bkFsBtn     = document.getElementById("bkFsBtn");
+  var bkSecEl     = document.getElementById("sec-book");
+  var cntBookEl   = document.getElementById("cntBook");
+  var labWrapEl   = document.querySelector("#labView > .wrap");
+
+  function loadBookPrefs(){
+    try{ BK.done = new Set(JSON.parse(localStorage.getItem(BOOK_DONE_KEY) || "[]")); }catch(e){ BK.done = new Set(); }
+    try{
+      var fs = parseFloat(localStorage.getItem(BOOK_FONT_KEY) || "16");
+      if(fs >= 13.5 && fs <= 22){
+        BK.fontSize = fs;
+        bkSecEl.style.setProperty("--bk-size", fs + "px");
+      }
+    }catch(e){}
+  }
+  loadBookPrefs();
+
+  function resetBookSession(){
+    BK.loaded = false;
+    BK.loading = false;
+    BK.toc = [];
+    BK.cache = {};
+    if(bkShell.classList.contains("bk-fullscreen")) toggleBookFullscreen(false);
+    document.body.classList.remove("book-active");
+    if(labWrapEl) labWrapEl.classList.remove("book-wide");
+  }
+
+  function buildBookWatermarkUrl(){
+    var nm = ((S.name || (currentAuth && currentAuth.name) || "")).trim();
+    var code = (currentAuth && currentAuth.code) ? currentAuth.code : "";
+    var em = (currentAuth && currentAuth.email) ? currentAuth.email : "";
+    var line1 = (nm ? nm + " • " : "") + code;
+    var line2 = "أكاديمية الساجد • كتيّب محمي" + (em ? " • " + em : "");
+    var c = document.createElement("canvas");
+    c.width = 440; c.height = 260;
+    var ctx = c.getContext("2d");
+    var isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.save();
+    ctx.translate(220, 130);
+    ctx.rotate(-24 * Math.PI / 180);
+    ctx.textAlign = "center";
+    ctx.fillStyle = isDark ? "#E8C568" : "#0F4C29";
+    ctx.font = "bold 16px Cairo, sans-serif";
+    ctx.fillText(line1, 0, -6);
+    ctx.font = "600 12.5px Cairo, sans-serif";
+    ctx.fillText(line2, 0, 18);
+    ctx.restore();
+    return c.toDataURL("image/png");
+  }
+
+  function applyBookWatermark(){
+    var wm = document.getElementById("bkWatermark");
+    if(!wm){
+      wm = document.createElement("div");
+      wm.id = "bkWatermark";
+      wm.setAttribute("aria-hidden", "true");
+      bkReaderBox.insertBefore(wm, bkReaderBox.firstChild);
+    }
+    wm.style.backgroundImage = "url('" + BK.wmUrl + "')";
+    wm.style.display = "block";
+    wm.style.visibility = "visible";
+    wm.style.opacity = document.documentElement.getAttribute("data-theme") === "dark" ? "0.16" : "0.12";
+  }
+
+  function refreshBookWatermark(){
+    if(!currentAuth) return;
+    BK.wmUrl = buildBookWatermarkUrl();
+    applyBookWatermark();
+  }
+
+  function startBookWatermarkGuard(){
+    if(BK.wmObsStarted) return;
+    BK.wmObsStarted = true;
+    var obs = new MutationObserver(function(){
+      if(S.tab !== "book" || !BK.wmUrl) return;
+      var wm = document.getElementById("bkWatermark");
+      if(!wm || wm.style.display === "none" || wm.style.visibility === "hidden" || parseFloat(wm.style.opacity || "0") < 0.08){
+        applyBookWatermark();
+        bkReaderBox.classList.add("bk-blur");
+        toast("🔒 تم رصد محاولة تعديل العلامة المائية — المحتوى محمي.");
+        setTimeout(function(){ bkReaderBox.classList.remove("bk-blur"); }, 2000);
+      }
+    });
+    obs.observe(bkReaderBox, { childList: true, subtree: true, attributes: true });
+    var thBtn = document.getElementById("themeBtn");
+    if(thBtn){ thBtn.addEventListener("click", function(){ setTimeout(refreshBookWatermark, 60); }); }
+  }
+
+  function bindBookSecurityShield(){
+    if(BK.shieldBound) return;
+    BK.shieldBound = true;
+    bkSecEl.addEventListener("contextmenu", function(e){
+      if(e.target && e.target.id === "bkSearchInput") return;
+      e.preventDefault();
+      toast("🔒 النسخ والزر الأيمن معطّلان داخل الكتيّب المحمي.");
+    });
+    document.addEventListener("copy", function(e){
+      if(S.tab !== "book") return;
+      e.preventDefault();
+      if(e.clipboardData) e.clipboardData.setData("text/plain", "محتوى محمي — أكاديمية الساجد (01091102946)");
+      toast("🔒 غير مسموح بنسخ النصوص من الكتيّب المحمي.");
+    });
+    document.addEventListener("cut", function(e){
+      if(S.tab === "book") e.preventDefault();
+    });
+    bkSecEl.addEventListener("dragstart", function(e){ e.preventDefault(); });
+    document.addEventListener("keydown", function(e){
+      if(S.tab !== "book") return;
+      var inSearch = (e.target && e.target.id === "bkSearchInput");
+      var k = (e.key || "").toLowerCase();
+      var ctrl = e.ctrlKey || e.metaKey;
+      if((ctrl && ["c","x","s","p","u","a"].indexOf(k) !== -1 && !(inSearch && k === "a")) || e.key === "F12" || (ctrl && e.shiftKey && ["i","j","c"].indexOf(k) !== -1)){
+        e.preventDefault();
+        toast("🔒 هذا الاختصار معطّل لحماية حقوق الكتيّب.");
+      }
+      if(e.key === "PrintScreen"){
+        bkReaderBox.classList.add("bk-blur");
+        toast("🔒 يُرجى عدم التقاط صور للشاشة — بياناتك مطبوعة على الصفحة.");
+        setTimeout(function(){ bkReaderBox.classList.remove("bk-blur"); }, 2200);
+      }
+      if(e.key === "Escape" && bkShell.classList.contains("bk-fullscreen")){
+        toggleBookFullscreen(false);
+      }
+    });
+    window.addEventListener("blur", function(){
+      if(S.tab === "book" && currentAuth) bkReaderBox.classList.add("bk-blur");
+    });
+    window.addEventListener("focus", function(){
+      bkReaderBox.classList.remove("bk-blur");
+    });
+  }
+  bindBookSecurityShield();
+
+  async function bookApi(payload){
+    var body = Object.assign({
+      book: BOOK_KEY,
+      code: currentAuth.code,
+      email: currentAuth.email,
+      deviceId: getDeviceId()
+    }, payload);
+    var res = await fetch(BOOKS_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(body)
+    });
+    return await res.json();
+  }
+
+  function updateBookProgress(){
+    var chs = BK.toc.filter(function(t){ return t.type === "lecture"; });
+    var doneCnt = chs.filter(function(t){ return BK.done.has(t.id); }).length;
+    var tot = chs.length || 10;
+    bkProgFill.style.width = Math.round((doneCnt / tot) * 100) + "%";
+    bkProgText.textContent = doneCnt + " / " + tot;
+    if(cntBookEl) cntBookEl.textContent = doneCnt > 0 ? (doneCnt + " / " + tot + " أبواب") : "10 أبواب • محمي";
+    bkTocEl.querySelectorAll(".bk-toc-btn").forEach(function(b){
+      b.classList.toggle("done", BK.done.has(b.getAttribute("data-id")));
+    });
+  }
+
+  function renderBookTOC(){
+    bkTocEl.innerHTML = "";
+    BK.toc.forEach(function(item){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "bk-toc-btn" + (item.id === BK.currentId ? " active" : "") + (BK.done.has(item.id) ? " done" : "");
+      b.setAttribute("data-id", item.id);
+      b.innerHTML =
+        '<span class="bk-toc-num">' + esc(item.num) + '</span>' +
+        '<span class="bk-toc-txt">' +
+          '<span class="bk-toc-main">' + esc(item.short) + '</span>' +
+          '<span class="bk-toc-sub">' + esc(item.full) + '</span>' +
+        '</span>' +
+        '<span class="bk-toc-chk" title="تمت القراءة">✓</span>';
+      b.onclick = function(){ openBookSection(item.id); closeBookDrawer(); };
+      bkTocEl.appendChild(b);
+    });
+    updateBookProgress();
+  }
+
+  function renderBookSection(sec){
+    var idx = BK.toc.findIndex(function(t){ return t.id === sec.id; });
+    var prev = idx > 0 ? BK.toc[idx - 1] : null;
+    var next = (idx >= 0 && idx < BK.toc.length - 1) ? BK.toc[idx + 1] : null;
+    var isChap = BK.toc[idx] && BK.toc[idx].type === "lecture";
+    var isDone = BK.done.has(sec.id);
+
+    var navHtml =
+      '<div class="bk-actions">' +
+        '<button type="button" class="bk-nav-btn" id="bkPrevBtn"' + (prev ? '' : ' disabled') + '>→ الباب السابق</button>' +
+        (isChap ? '<button type="button" class="bk-done-btn' + (isDone ? ' is-done' : '') + '" id="bkDoneBtn">' + (isDone ? '✓ تمت مراجعة هذا الباب' : 'أتممت مراجعة هذا الباب ✓') + '</button>' : '') +
+        '<button type="button" class="bk-nav-btn" id="bkNextBtn"' + (next ? '' : ' disabled') + '>الباب التالي ←</button>' +
+      '</div>';
+
+    bkCard.innerHTML = sec.html + navHtml;
+
+    var pBtn = document.getElementById("bkPrevBtn");
+    var nBtn = document.getElementById("bkNextBtn");
+    var dBtn = document.getElementById("bkDoneBtn");
+    if(pBtn && prev) pBtn.onclick = function(){ openBookSection(prev.id); };
+    if(nBtn && next) nBtn.onclick = function(){ openBookSection(next.id); };
+    if(dBtn){
+      dBtn.onclick = function(){
+        if(BK.done.has(sec.id)) BK.done.delete(sec.id); else BK.done.add(sec.id);
+        try{ localStorage.setItem(BOOK_DONE_KEY, JSON.stringify(Array.from(BK.done))); }catch(e){}
+        var nowDone = BK.done.has(sec.id);
+        dBtn.classList.toggle("is-done", nowDone);
+        dBtn.textContent = nowDone ? "✓ تمت مراجعة هذا الباب" : "أتممت مراجعة هذا الباب ✓";
+        updateBookProgress();
+      };
+    }
+    if(bkShell.classList.contains("bk-fullscreen")){
+      document.getElementById("bkMain").scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      bkReaderBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  async function openBookSection(sectionId){
+    BK.currentId = sectionId;
+    try{ localStorage.setItem(BOOK_LAST_KEY, sectionId); }catch(e){}
+    bkTocEl.querySelectorAll(".bk-toc-btn").forEach(function(b){
+      b.classList.toggle("active", b.getAttribute("data-id") === sectionId);
+    });
+    var meta = BK.toc.find(function(t){ return t.id === sectionId; });
+    if(meta) bkCurTitle.textContent = meta.short + " — " + meta.full;
+
+    if(BK.cache[sectionId]){ renderBookSection(BK.cache[sectionId]); return; }
+
+    bkCard.innerHTML = '<div class="bk-loader"><div class="bk-spin"></div><div>جارٍ تحميل الباب بأمان...</div></div>';
+    try{
+      var res = await bookApi({ action: "section", sectionId: sectionId });
+      if(!res || !res.ok){
+        bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر فتح الباب</div><p class="co-line">' + esc((res && res.error) || "حدث خطأ أثناء التحميل.") + '</p></div>';
+        return;
+      }
+      BK.cache[sectionId] = res.section;
+      renderBookSection(res.section);
+    }catch(err){
+      bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر الاتصال بالخادم</div><p class="co-line">تأكد من اتصالك بالإنترنت ثم اضغط على الباب مرة أخرى.</p></div>';
+    }
+  }
+
+  async function initBookTab(){
+    if(!currentAuth) return;
+    refreshBookWatermark();
+    startBookWatermarkGuard();
+    if(BK.loaded){
+      if(!BK.cache[BK.currentId]) openBookSection(BK.currentId);
+      return;
+    }
+    if(BK.loading) return;
+    BK.loading = true;
+    bkCard.innerHTML = '<div class="bk-loader"><div class="bk-spin"></div><div>جارٍ التحقق من صلاحيتك وتجهيز فهرس الكتيّب...</div></div>';
+    try{
+      var res = await bookApi({ action: "toc" });
+      if(!res || !res.ok){
+        bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر فتح الكتيّب المحمي</div><p class="co-line">' + esc((res && res.error) || "يرجى التأكد من تفعيل التدريب العملي على كودك.") + '</p></div>';
+        return;
+      }
+      if(res.trainee && res.trainee.name && !S.name){
+        S.name = res.trainee.name;
+        tNameInput.value = S.name;
+        refreshBookWatermark();
+      }
+      BK.toc = res.toc || [];
+      BK.loaded = true;
+      renderBookTOC();
+      var lastId = "intro";
+      try{
+        var savedLast = localStorage.getItem(BOOK_LAST_KEY);
+        if(savedLast && BK.toc.some(function(t){ return t.id === savedLast; })) lastId = savedLast;
+      }catch(e){}
+      openBookSection(lastId);
+    }catch(err){
+      bkCard.innerHTML = '<div class="callout callout-alert"><div class="co-title">تعذر الاتصال بمحرك الكتب</div><p class="co-line">تأكد من اتصالك بالإنترنت وحاول مرة أخرى.</p></div>';
+    }finally{
+      BK.loading = false;
+    }
+  }
+
+  var bkSearchTimer = null;
+  bkSearchInp.addEventListener("input", function(){
+    clearTimeout(bkSearchTimer);
+    var q = bkSearchInp.value.trim();
+    if(q.length < 2){ bkSearchRes.style.display = "none"; bkSearchRes.innerHTML = ""; return; }
+    bkSearchTimer = setTimeout(async function(){
+      try{
+        var res = await bookApi({ action: "search", q: q });
+        if(!res || !res.ok || !res.results || !res.results.length){
+          bkSearchRes.innerHTML = '<div class="bk-sr-item"><div class="bk-sr-s">لا توجد نتائج مطابقة.</div></div>';
+          bkSearchRes.style.display = "block";
+          return;
+        }
+        bkSearchRes.innerHTML = res.results.map(function(r){
+          return '<div class="bk-sr-item" data-id="' + esc(r.id) + '"><div class="bk-sr-t">' + esc(r.title) + '</div><div class="bk-sr-s">' + esc(r.snippet) + '</div></div>';
+        }).join("");
+        bkSearchRes.style.display = "block";
+        bkSearchRes.querySelectorAll(".bk-sr-item").forEach(function(el){
+          el.onclick = function(){
+            openBookSection(el.getAttribute("data-id"));
+            bkSearchRes.style.display = "none";
+            bkSearchInp.value = "";
+            closeBookDrawer();
+          };
+        });
+      }catch(e){}
+    }, 360);
+  });
+
+  function closeBookDrawer(){ bkSidebar.classList.remove("open"); bkBackdrop.classList.remove("open"); }
+  document.getElementById("bkMenuBtn").onclick = function(){ bkSidebar.classList.toggle("open"); bkBackdrop.classList.toggle("open"); };
+  document.getElementById("bkSbClose").onclick = closeBookDrawer;
+  bkBackdrop.onclick = closeBookDrawer;
+
+  document.getElementById("bkFontUp").onclick = function(){
+    BK.fontSize = Math.min(22, BK.fontSize + 1.2);
+    bkSecEl.style.setProperty("--bk-size", BK.fontSize + "px");
+    try{ localStorage.setItem(BOOK_FONT_KEY, String(BK.fontSize)); }catch(e){}
+  };
+  document.getElementById("bkFontDown").onclick = function(){
+    BK.fontSize = Math.max(13.5, BK.fontSize - 1.2);
+    bkSecEl.style.setProperty("--bk-size", BK.fontSize + "px");
+    try{ localStorage.setItem(BOOK_FONT_KEY, String(BK.fontSize)); }catch(e){}
+  };
+
+  function toggleBookFullscreen(force){
+    var on = (typeof force === "boolean") ? force : !bkShell.classList.contains("bk-fullscreen");
+    bkShell.classList.toggle("bk-fullscreen", on);
+    document.body.style.overflow = on ? "hidden" : "";
+    bkFsBtn.textContent = on ? "✕ خروج من ملء الشاشة" : "⛶ ملء الشاشة";
+  }
+  bkFsBtn.onclick = function(){ toggleBookFullscreen(); };
+
   /* Tabs */
   function switchTab(name){
     S.tab = name; persist();
-    ["obs","ai","team","report"].forEach(function(t){
+    var isBook = (name === "book");
+    document.body.classList.toggle("book-active", isBook);
+    if(labWrapEl) labWrapEl.classList.toggle("book-wide", isBook);
+    if(!isBook && bkShell.classList.contains("bk-fullscreen")) toggleBookFullscreen(false);
+    ["obs","ai","team","report","book"].forEach(function(t){
       document.getElementById("sec-" + t).classList.toggle("hidden", t !== name);
     });
     document.querySelectorAll(".tab").forEach(function(b){
@@ -1023,6 +1624,7 @@ const AI_TOPICS = [
     else if(name === "ai") renderAi();
     else if(name === "team") renderTeam();
     else if(name === "report") renderReport();
+    else if(name === "book") initBookTab();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
   document.querySelectorAll(".tab").forEach(function(b){ b.onclick = function(){ switchTab(this.getAttribute("data-tab")); }; });
